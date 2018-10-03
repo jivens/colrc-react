@@ -4,14 +4,26 @@ import { Container, Divider, Grid, Header, Image } from 'semantic-ui-react'
 class Colrc extends React.Component {
   render() {
     return (
-      <div className='ui'>
-        <div className='column'>
-          <MainMenu />
-          <Nav />
-          <RootDictionary />
-          <Footer />
-        </div>
-      </div>
+      <Grid container verticalAlign='middle'>
+        <Grid.Row>
+          <Grid.Column color='blue'>
+            <MainMenu />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column width={3}>
+            <Nav />
+          </Grid.Column>
+          <Grid.Column width={13}>
+            <RootDictionary />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column textAlign='center'>
+            <Footer />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     );
   }
 }
@@ -19,12 +31,16 @@ class Colrc extends React.Component {
 class MainMenu extends React.Component {
   render() {
     return (
-      <div className='ui three column centered grid'>
-        <div className='column'>
-          <Masthead />
-          <OptionsList />
-        </div>
-      </div>
+      <Grid container verticalAlign='middle'>
+        <Grid.Row>
+          <Grid.Column color='blue' width={13}>
+            <Masthead />
+          </Grid.Column>
+          <Grid.Column color='blue' width={3}>
+            <OptionsList />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     );
   }
 }
@@ -32,9 +48,9 @@ class MainMenu extends React.Component {
 class Masthead extends React.Component {
   render() {
     return (
-      <div>
-        <div class='ui top attached header'>Coeur d'Alene Online Language Resource Center</div>
-        <div class='ui attached segment'>
+      <div color='blue'>
+        <div className='ui top centered attached header' color='blue'>Coeur d'Alene Online Language Resource Center</div>
+        <div className='ui attached centered segment' color='blue'>
           <Titlebar />
         </div>
       </div>
@@ -45,9 +61,7 @@ class Masthead extends React.Component {
 class Titlebar extends React.Component {
   render() {
     return (
-      <div className='ui'>
-        <h2>Root Dictionary</h2>
-      </div>
+        <h2 color='blue' className='ui centered'>Root Dictionary</h2>
     );
   }
 }
@@ -55,7 +69,7 @@ class Titlebar extends React.Component {
 class OptionsList extends React.Component {
   render() {
     return (
-      <ul>
+      <ul className='float right'>
         <li>dictionary</li>
         <li>history</li>
         <li>metadata</li>
@@ -67,7 +81,7 @@ class OptionsList extends React.Component {
 class Nav extends React.Component {
   render() {
     return (
-      <ul>
+      <ul className='ui left' position='left'>
       	<li>Something</li>
       	<li>Somthing else</li>
       </ul>
@@ -78,26 +92,22 @@ class Nav extends React.Component {
 class RootDictionary extends React.Component {
   render() {
     return (
-      <div className='ui'>
-        <Grid columns={5}>
-          <Grid.Row>
-        	   <RootElement className='row'
-               root="√k'ʷl'1"
-               occurrence="1"
-               salish="k'ʷul'"
-               nicodemus="k'u'l"
-               english="† do, fix, make, to produce. ((stem), vt.)"
-             />
-         </Grid.Row>
-         <Grid.Row>
-           <RootElement className='row'
+      <div className='ui right content' postion='right'>
+        <Grid celled='internally' padded='horizontally'>
+          <RootElement
+            root="√k'ʷl'1"
+            occurrence="1"
+            salish="k'ʷul'"
+            nicodemus="k'u'l"
+            english="† do, fix, make, to produce. ((stem), vt.)"
+          />
+           <RootElement
              root="√k'ʷl'1"
              occurrence="2"
              salish="k'ʷul'+l'"
              nicodemus="k'u'lu'l"
              english="born, made (to be...). ((lit. H/s was born), vi.)"
            />
-         </Grid.Row>
         </Grid>
       </div>
     );
@@ -107,15 +117,13 @@ class RootDictionary extends React.Component {
 class RootElement extends React.Component {
   render() {
     return (
-      <div className='ui centered card'>
-        <div className='content'>
-          <Grid.Column>{this.props.root}</Grid.Column>
-          <Grid.Column>{this.props.occurrence}</Grid.Column>
-          <Grid.Column>{this.props.salish}</Grid.Column>
-          <Grid.Column>{this.props.nicodemus}</Grid.Column>
-          <Grid.Column>{this.props.english}</Grid.Column>
-        </div>
-      </div>
+      <Grid.Row>
+        <Grid.Column width={2}>{this.props.root}</Grid.Column>
+        <Grid.Column width={1}>{this.props.occurrence}</Grid.Column>
+        <Grid.Column width={2}>{this.props.salish}</Grid.Column>
+        <Grid.Column width={2}>{this.props.nicodemus}</Grid.Column>
+        <Grid.Column width={6}>{this.props.english}</Grid.Column>
+      </Grid.Row>
     );
   }
 }

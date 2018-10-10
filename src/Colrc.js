@@ -307,7 +307,7 @@ class SpellingPronunciation extends React.Component {
             reichard="a"
             salish="a"
             english="f<bold>a</bold>ther"
-            note=""
+            note="&nbsp;"
           />
           <SpellElement
             nicodemus="<underline>a</underline>"
@@ -321,14 +321,14 @@ class SpellingPronunciation extends React.Component {
             reichard="b"
             salish="b"
             english="<bold>b</bold>at"
-            note=""
+            note="&nbsp;"
           />
           <SpellElement
             nicodemus="ch"
             reichard="tc"
             salish="č"
             english="<bold>ch</bold>ur<bold>ch</bold>"
-            note=""
+            note="&nbsp;"
           />
         </Grid>
         <SpellFootnote />

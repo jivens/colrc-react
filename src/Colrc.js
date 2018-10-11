@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Container, Divider, Grid, Header, Image, List } from 'semantic-ui-react';
-import { getIndicesOf, findDecorations } from './Helpers';
+import {Divider, Grid, List } from 'semantic-ui-react';
+import { findDecorations } from './Helpers';
 
-class Colrc extends React.Component {
+class Colrc extends Component {
   render() {
     return (
       <Grid container verticalAlign='top'>
@@ -29,7 +29,7 @@ class Colrc extends React.Component {
   }
 }
 
-class DecoratedTextSpan extends React.Component {
+class DecoratedTextSpan extends Component {
 
   createSpans = (str) => {
      const decorations = findDecorations(str);
@@ -39,10 +39,10 @@ class DecoratedTextSpan extends React.Component {
      for (let i = 0; i < decorations.length; i++)
      {
        let ss = str.substring(decorations[i].start, decorations[i].end);
-       if (decorations[i].type == "bold") {
+       if (decorations[i].type === "bold") {
          children.push(<span style={{ fontWeight: 'bold' }}>{ss}</span>);
        }
-       else if (decorations[i].type == "underline") {
+       else if (decorations[i].type === "underline") {
          children.push(<span style={{ textDecoration: 'underline' }}>{ss}</span>);
        }
        else {
@@ -62,7 +62,7 @@ class DecoratedTextSpan extends React.Component {
   }
 }
 
-class MainMenu extends React.Component {
+class MainMenu extends Component {
   render() {
     return (
       <Grid container verticalAlign='middle'>
@@ -79,7 +79,7 @@ class MainMenu extends React.Component {
   }
 }
 
-class Masthead extends React.Component {
+class Masthead extends Component {
   render() {
     return (
       <Grid container verticalAlign='middle'>
@@ -98,7 +98,7 @@ class Masthead extends React.Component {
   }
 }
 
-class Titlebar extends React.Component {
+class Titlebar extends Component {
   render() {
     return (
         <Grid.Column textAlign='center'><h2>{this.props.title}</h2></Grid.Column>
@@ -106,7 +106,7 @@ class Titlebar extends React.Component {
   }
 }
 
-class OptionsList extends React.Component {
+class OptionsList extends Component {
   render() {
     return (
       <ul className='float right'>
@@ -118,7 +118,7 @@ class OptionsList extends React.Component {
   }
 }
 
-class Nav extends React.Component {
+class Nav extends Component {
   render() {
     return (
       <div className='ui left content card'>
@@ -153,7 +153,7 @@ class Nav extends React.Component {
   }
 }
 
-class RootDictionaryIntro extends React.Component {
+class RootDictionaryIntro extends Component {
   render() {
     return (
       <div className='ui content'>
@@ -191,7 +191,7 @@ class RootDictionaryIntro extends React.Component {
   }
 }
 
-class RootDictionary extends React.Component {
+class RootDictionary extends Component {
   render() {
     return (
       <div className='ui content'>
@@ -225,7 +225,7 @@ class RootDictionary extends React.Component {
   }
 }
 
-class RootElement extends React.Component {
+class RootElement extends Component {
   render() {
     const color = this.props.color ? this.props.color : 'white';
     return (
@@ -240,7 +240,7 @@ class RootElement extends React.Component {
   }
 }
 
-class Footer extends React.Component {
+class Footer extends Component {
   render() {
     return (
       <div className='ui bottom centered'>
@@ -252,7 +252,7 @@ class Footer extends React.Component {
   }
 }
 
-class SpellingPronunciationIntro extends React.Component {
+class SpellingPronunciationIntro extends Component {
   render() {
     return (
       <div className='ui content'>
@@ -287,7 +287,7 @@ class SpellingPronunciationIntro extends React.Component {
   }
 }
 
-class SpellingPronunciation extends React.Component {
+class SpellingPronunciation extends Component {
   render() {
     return (
       <div className='ui content'>
@@ -337,7 +337,7 @@ class SpellingPronunciation extends React.Component {
   }
 }
 
-class SpellElement extends React.Component {
+class SpellElement extends Component {
   render() {
     const color = this.props.color ? this.props.color : 'white';
     const spanStyle = this.props.spanStyle ? this.props.spanStyle : 'superscript';
@@ -361,7 +361,7 @@ class SpellElement extends React.Component {
   }
 }
 
-class SpellFootnote extends React.Component {
+class SpellFootnote extends Component {
   render() {
     return (
       <div className='ui content'>

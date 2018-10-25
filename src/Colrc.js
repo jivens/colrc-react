@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Container, Divider, Grid, Header, Image, List } from 'semantic-ui-react';
+import {Divider, Grid, List } from 'semantic-ui-react';
+import { findDecorations } from './Helpers';
 
-class Colrc extends React.Component {
+class Colrc extends Component {
   render() {
     return (
       <Grid container verticalAlign='top'>
@@ -15,7 +16,7 @@ class Colrc extends React.Component {
             <Nav />
           </Grid.Column>
           <Grid.Column width={13}>
-            <RootDictionary />
+            <SpellingPronunciation />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
@@ -28,7 +29,40 @@ class Colrc extends React.Component {
   }
 }
 
-class MainMenu extends React.Component {
+class DecoratedTextSpan extends Component {
+
+  createSpans = (str) => {
+     const decorations = findDecorations(str);
+
+     let children = []
+     //Inner loop to create children
+     for (let i = 0; i < decorations.length; i++)
+     {
+       let ss = str.substring(decorations[i].start, decorations[i].end);
+       if (decorations[i].type === "bold") {
+         children.push(<span style={{ fontWeight: 'bold' }}>{ss}</span>);
+       }
+       else if (decorations[i].type === "underline") {
+         children.push(<span style={{ textDecoration: 'underline' }}>{ss}</span>);
+       }
+       else {
+         children.push(<span>{ss}</span>);
+       }
+     }
+
+     return children;
+   }
+
+  render() {
+    return (
+      <span>
+        {this.createSpans(this.props.str)}
+      </span>
+    )
+  }
+}
+
+class MainMenu extends Component {
   render() {
     return (
       <Grid container verticalAlign='middle'>
@@ -45,7 +79,7 @@ class MainMenu extends React.Component {
   }
 }
 
-class Masthead extends React.Component {
+class Masthead extends Component {
   render() {
     return (
       <Grid container verticalAlign='middle'>
@@ -55,22 +89,24 @@ class Masthead extends React.Component {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row color='blue'>
-          <Titlebar />
+          <Titlebar
+            title="Spelling and Pronunciation"
+          />
         </Grid.Row>
       </Grid>
     );
   }
 }
 
-class Titlebar extends React.Component {
+class Titlebar extends Component {
   render() {
     return (
-        <Grid.Column textAlign='center'><h2>Root Dictionary</h2></Grid.Column>
+        <Grid.Column textAlign='center'><h2>{this.props.title}</h2></Grid.Column>
     );
   }
 }
 
-class OptionsList extends React.Component {
+class OptionsList extends Component {
   render() {
     return (
       <ul className='float right'>
@@ -82,7 +118,7 @@ class OptionsList extends React.Component {
   }
 }
 
-class Nav extends React.Component {
+class Nav extends Component {
   render() {
     return (
       <div className='ui left content card'>
@@ -117,7 +153,7 @@ class Nav extends React.Component {
   }
 }
 
-class RootDictionaryIntro extends React.Component {
+class RootDictionaryIntro extends Component {
   render() {
     return (
       <div className='ui content'>
@@ -155,7 +191,7 @@ class RootDictionaryIntro extends React.Component {
   }
 }
 
-class RootDictionary extends React.Component {
+class RootDictionary extends Component {
   render() {
     return (
       <div className='ui content'>
@@ -189,7 +225,7 @@ class RootDictionary extends React.Component {
   }
 }
 
-class RootElement extends React.Component {
+class RootElement extends Component {
   render() {
     const color = this.props.color ? this.props.color : 'white';
     return (
@@ -204,7 +240,7 @@ class RootElement extends React.Component {
   }
 }
 
-class Footer extends React.Component {
+class Footer extends Component {
   render() {
     return (
       <div className='ui bottom centered'>
@@ -215,19 +251,129 @@ class Footer extends React.Component {
     );
   }
 }
-/*class Colrc extends Component {
+
+class SpellingPronunciationIntro extends Component {
   render() {
     return (
-      <div className="Colrc">
-        <header className="Colrc-header">
-          <h1 className="Colrc-title">Welcome to the COLRC</h1>
-        </header>
-        <p className="Colrc-intro">
-          To get started, edit <code>src/Colrc.js</code> and save to reload.  This is the object called 'COLRC' in our flow chart.
+      <div className='ui content'>
+        <p>
+          Coeur d'Alene has been spelled using at least three different
+          systems - the "Reichard Orthography" (see Reichard 1938),
+          the "Nicodemus Orthography" (see Nicodemus 1975a,b)
+          and the "Salishan Orthography". What we refer to as the
+          Reichard Orthography is a variation of the transcription system
+          used by many linguists and anthropologists trained by Franz Boas at
+          Columbia University in the first half of the 20th century. The
+          Nicodemus Orthography was developed for use by the Coeur d'Alene
+          community. The Salishan Orthography is used by many linguists and
+          anthropologists today to transcribe Coeur d'Alene. You will find it
+          used in contemporary scholarly work about the language. This site
+          is intended to support users who want to use any of these systems.
         </p>
+        <p></p>
+        <p>
+          The list below shows how the symbols used in each of these three
+          systems correspond to each other. Not all of the sounds used in
+          the Coeur d'Alene language are familiar to English speakers, but
+          many of them are. Sounds in Coeur d'Alene that are also found in
+          English words are listed with examples from English so that
+          learners can familiarize themselves with those sounds.
+        </p>
+        <p></p>
+        <p style={{ height: 10, color: 'blue' }}>Spelling and Pronouncing Coeur d'Alene</p>
+        <p></p>
       </div>
     );
   }
-}*/
+}
+
+class SpellingPronunciation extends Component {
+  render() {
+    return (
+      <div className='ui content'>
+        <SpellingPronunciationIntro />
+        <Grid celled='internally' padded='horizontally' verticalAlign='top'>
+          <SpellElement
+            color='blue'
+            spanStyle='normal'
+            nicodemus='Nicodemus'
+            reichard='Reichard'
+            salish='Salish'
+            english='English'
+            note='Note'
+          />
+          <SpellElement
+            nicodemus="a"
+            reichard="a"
+            salish="a"
+            english="f<bold>a</bold>ther"
+            note="&nbsp;"
+          />
+          <SpellElement
+            nicodemus="<underline>a</underline>"
+            reichard="á"
+            salish="á"
+            english="no example"
+            note="1"
+          />
+          <SpellElement
+            nicodemus="b"
+            reichard="b"
+            salish="b"
+            english="<bold>b</bold>at"
+            note="&nbsp;"
+          />
+          <SpellElement
+            nicodemus="ch"
+            reichard="tc"
+            salish="č"
+            english="<bold>ch</bold>ur<bold>ch</bold>"
+            note="&nbsp;"
+          />
+        </Grid>
+        <SpellFootnote />
+      </div>
+    );
+  }
+}
+
+class SpellElement extends Component {
+  render() {
+    const color = this.props.color ? this.props.color : 'white';
+    const spanStyle = this.props.spanStyle ? this.props.spanStyle : 'superscript';
+    return (
+      <Grid.Row color={color}>
+        <Grid.Column width={2}>
+          <DecoratedTextSpan
+            str={this.props.nicodemus}
+          />
+        </Grid.Column>
+        <Grid.Column width={2}>{this.props.reichard}</Grid.Column>
+        <Grid.Column width={2}>{this.props.salish}</Grid.Column>
+        <Grid.Column width={6}>
+          <DecoratedTextSpan
+            str={this.props.english}
+          />
+        </Grid.Column>
+        <Grid.Column width={2}><span className={spanStyle}>{this.props.note}</span></Grid.Column>
+      </Grid.Row>
+    );
+  }
+}
+
+class SpellFootnote extends Component {
+  render() {
+    return (
+      <div className='ui content'>
+        <p></p>
+        <strong>Notes</strong>
+		    <p></p>
+		    <p><sup>1</sup>  An acute accent is used in the Reichard and Salishan systems to indicate that the vowel is stressed. Underlining is used for this purpose in the Nicodemus system.</p>
+		    <p><sup>2</sup>  The symbol 'x' may be used in the Reichard and Salishan systems to write the sound /xʷ/ when it occurs before /u/.</p>
+		    <p><sup>3</sup>  Nicodemus 1975a,b uses both '(' and ')' occasionally to write the pharyngeals.</p>
+      </div>
+    );
+  }
+}
 
 export default Colrc;

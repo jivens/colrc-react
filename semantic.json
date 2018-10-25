@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "base": "semantic/",
+=======
+  "base": "semantic\\",
+>>>>>>> Angela
   "paths": {
     "source": {
       "config": "src/theme.config",

@@ -7,6 +7,7 @@ import SpellingPronunciation from './SpellingPronunciation';
 import About from './About';
 import StemList from './StemList';
 import AffixList from './AffixList';
+import Bibliography from './Bibliography';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class Colrc extends Component {
@@ -32,6 +33,9 @@ class Colrc extends Component {
                 <Route path="/affixlist">
                   <MainMenu title="Affix List" />
                 </Route>
+                <Route path="/bibliography">
+                  <MainMenu title="Bibliography" />
+                </Route>
               </Switch>
             </Grid.Column>
           </Grid.Row>
@@ -46,6 +50,7 @@ class Colrc extends Component {
                 <Route path="/rootdictionary" component={RootDictionary} />
                 <Route path="/stemlist" component={StemList} />
                 <Route path="/affixlist" component={AffixList} />
+                <Route path="/bibliography" component={Bibliography} />
               </Switch>
             </Grid.Column>
           </Grid.Row>

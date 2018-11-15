@@ -7,6 +7,7 @@ import SpellingPronunciation from './SpellingPronunciation';
 import About from './About';
 import StemList from './StemList';
 import AffixList from './AffixList';
+import Texts from './Texts';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class Colrc extends Component {
@@ -32,6 +33,9 @@ class Colrc extends Component {
                 <Route path="/affixlist">
                   <MainMenu title="Affix List" />
                 </Route>
+                <Route path="/texts">
+                  <MainMenu title="texts" />
+                </Route>
               </Switch>
             </Grid.Column>
           </Grid.Row>
@@ -46,6 +50,7 @@ class Colrc extends Component {
                 <Route path="/rootdictionary" component={RootDictionary} />
                 <Route path="/stemlist" component={StemList} />
                 <Route path="/affixlist" component={AffixList} />
+                <Route path="/texts" component={Texts} />
               </Switch>
             </Grid.Column>
           </Grid.Row>
@@ -66,7 +71,7 @@ class Footer extends Component {
       <div className='ui bottom centered'>
         <p></p>
         <p>coeur d'alene online language resource center copyright 2009</p>
-        project supported by the national science foundation awards BCS-1160627 and BCS-1160394
+        project supported by the national science foundation awards BCS-1160627 and BCS-1160394 and the national endowment for the humanities award PD-261031-18.  
       </div>
     );
   }

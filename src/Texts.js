@@ -28,8 +28,8 @@ class Texts extends Component {
     return (
       <div className='ui content'>
          <TextsIntro />
-      
-	      <Grid celled='internally' padded='horizontally' verticalAlign='top'>   
+
+	      <Grid celled='internally' padded='horizontally' verticalAlign='top'>
 	          <TextElement
 	            color='black'
 	            cycle='Chief Child of the Root (Transformer)'
@@ -53,7 +53,7 @@ class Texts extends Component {
 	          />
 	      </Grid>
 
-	      <Grid celled='internally' padded='horizontally' verticalAlign='top'>   
+	      <Grid celled='internally' padded='horizontally' verticalAlign='top'>
 	          <TextElement
 	            color='black'
 	            cycle='Coyote Cycle (2-21)'
@@ -69,24 +69,24 @@ class Texts extends Component {
 	            audio='Audio'
 	            translation='Translation'
 	          />
-	  
+
         <TextElement2
 	    	    title='(2) Origin of Indian tribes (From Parts of Monster)'
 	           	versions='typed manuscript (pdf, image, metadata)'
-	            audio=' -- '  
+	            audio=' -- '
 	            translation='link'
 	           />
        <TextElement2
 	    	    title='(3) Coyote overpowers Sun'
 	            versions='typed manuscript (pdf, image, metadata), hand-written field notes (pdf, image, metadata), both'
-	            audio=' -- ' 
-	            translation='link' 
+	            audio=' -- '
+	            translation='link'
 	           />
 	    <TextElement2
 	    	    title='(4) Coyote steals his daughter in law'
 	            versions='typed manuscript (pdf, image, metadata), hand-written field notes (pdf, image, metadata), both'
-	            audio=' -- ' 
-	            translation='link' 
+	            audio=' -- '
+	            translation='link'
 	           />
         </Grid>
       </div>
@@ -117,19 +117,6 @@ class TextElement2 extends Component {
       </Grid.Row>
     );
   }
-}
-
-class AudioPlayer extends Component {
-	render() {
-		return (
-			<audio controls="controls" preload="none">
-  				<source src="../audio/07_Track_7Engl_Cricket_Rides_Coyote.wav" type="audio/wav" />
-  				<source src="../audio/07_Track_7Engl_CricketRides.mp3" type="audio/mpeg" />
-   				Your browser does not support the HTML5 audio element.  
-   				<a href="07_Track_7Engl_CricketRides.mp3">Access the file</a> directly.
-			</audio> 
-		);
-	}
 }
 
 export default Texts;

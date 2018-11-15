@@ -66,17 +66,17 @@ class Colrc extends Component {
                 </Route>
                 <Route path="/affixlist">
                   <MainMenu title="Affix List" />
-				</Route>
-				<Route path="/contactus">
-				  <MainMenu title="Contact Us" />
+                </Route>
+				        <Route path="/contactus">
+                  <MainMenu title="Contact Us" />
                 </Route>
                 <Route path="/texts">
                   <MainMenu title="texts" />
-				</Route>
+                </Route>
                 <Route path="/bibliography">
                   <MainMenu title="Bibliography" />
                 </Route>
-				<Route path="/audio">
+                <Route path="/audio">
                   <MainMenu title="Audio Files" />
                 </Route>
               </Switch>
@@ -93,8 +93,8 @@ class Colrc extends Component {
                 <Route path="/rootdictionary" component={RootDictionary} />
                 <Route path="/stemlist" component={StemList} />
                 <Route path="/affixlist" component={AffixList} />
-				<Route path="/audio" component={Audio} />
-				<Route path="/contactus" component={ContactUs} />
+				        <Route path="/audio" component={Audio} />
+				        <Route path="/contactus" component={ContactUs} />
                 <Route path="/texts" component={Texts} />
                 <Route path="/bibliography" component={Bibliography} />
               </Switch>
@@ -119,7 +119,7 @@ class Footer extends Component {
       <div className='ui bottom centered'>
         <p></p>
         <p>coeur d'alene online language resource center copyright 2009</p>
-        project supported by the national science foundation awards BCS-1160627 and BCS-1160394 and the national endowment for the humanities award PD-261031-18.  
+        project supported by the national science foundation awards BCS-1160627 and BCS-1160394 and the national endowment for the humanities award PD-261031-18.
       </div>
     );
   }

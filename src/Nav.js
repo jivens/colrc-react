@@ -15,7 +15,7 @@ class Nav extends Component {
           <List.Item><Link to="/stemlist">stem lists</Link></List.Item>
           <List.Item><Link to="/affixlist">affix lists</Link></List.Item>
           <List.Item>texts</List.Item>
-          <List.Item>audio files</List.Item>
+          <List.Item><Link to="/audio">audio files</Link></List.Item>
           <List.Item>methodological sources</List.Item>
           <List.Item>bibliography</List.Item>
           <List.Item>advanced search</List.Item>

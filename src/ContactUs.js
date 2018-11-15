@@ -1,7 +1,34 @@
 import React, { Component } from 'react';
 
 class ContactUs extends Component {
-    render() {
+    
+	state = {
+		fields: {
+			name: '',
+			email: '',
+			message: ''
+		},
+		people: [],
+	};
+	
+	onInputChange = (evt) => {
+		const fields = this.state.fields;
+		fields[evt.target.name] = evt.target.value;
+		this.setState({ fields });
+	};
+	
+	onFormSubmit = (evt) => {
+		const people = [ ...this.state.people, this.state.fields ];
+		this.setState({ people, fields:  {
+			name: '',
+			email: '',
+			message: ''
+		}
+		});
+		evt.preventDefault();
+	};
+	
+	render() {
       return (
         <div>
           <h3>Contact Us</h3>
@@ -12,10 +39,13 @@ class ContactUs extends Component {
             at: <b>crd [dot] archive [at] gmail [dot] com</b>.
           </p>
 		  
+
+		
+		  
 		  <div>
 		  <form onSubmit={this.onFormSubmit}>
 		  <input
-			placveholder='Name'
+			placeholder='Name'
 			name='name'
 			value={this.state.fields.name}
 			onChange={this.onInputChange}
@@ -23,17 +53,27 @@ class ContactUs extends Component {
 		  <input
 			placeholder='Email'
 			name='email'
-			value={this.state.fields.name}
+			value={this.state.fields.email}
 			onChange={this.onInputChange}
 		  />
 		  <input
 			placeholder='Message'
 			name='message'
-			value={this.state.fields.name}
+			value={this.state.fields.message}
 			onChange={this.onInputChange}
 		  />
 			<input type='submit' />
 		  </form>
+		  
+		  <div>
+		  <h3>People</h3>
+		  <ul>
+		  { this.state.people.map(({ name, email }, i) =>
+			<li key={i}>{name} ({ email })</li>
+			) }
+			</ul>
+
+		  </div>
 		  
 		  </div>
 			

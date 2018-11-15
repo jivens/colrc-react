@@ -7,10 +7,41 @@ import SpellingPronunciation from './SpellingPronunciation';
 import About from './About';
 import StemList from './StemList';
 import AffixList from './AffixList';
+import AudioPlayer from './AudioPlayer';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class Colrc extends Component {
+  state = {
+    roots : [
+      {
+        root: "√k'ʷl'1",
+        occurrence: "1",
+        salish: "k'ʷul'",
+        nicodemus: "k'u'l",
+        english: "† do, fix, make, to produce. ((stem), vt.)"
+      },
+      {
+        root: "√k'ʷl'1",
+        occurrence: "2",
+        salish: "k'ʷul'+l'",
+        nicodemus: "k'u'lu'l",
+        english: "born, made (to be...). ((lit. H/s was born), vi.)"
+      },
+    ],
+  };
     render() {
+      const sources=[
+        {src:'http://lasrv01.ipfw.edu/COLRC/audio/01_Track_1Crd_Little_Mosquito1.wav', type:'audio/wav', direct:false},
+        {src:'http://lasrv01.ipfw.edu/COLRC/audio//01_Track_1Crd_LittleMosq1.mp3', type:'audio/mpeg', direct:true}
+      ];
+      const sources2=[
+        {src:'http://lasrv01.ipfw.edu/COLRC/audio/02_Track2Crd_Little_Mosquito2.wav', type:'audio/wav', direct:false},
+        {src:'http://lasrv01.ipfw.edu/COLRC/audio//02_Track2Crd_LittleMosq2.mp3', type:'audio/mpeg', direct:true}
+      ];
+      const audiolist=[
+        {title:"Part 1 - in Couer d'Alene", sources:sources},
+        {title:"Part 2 - in Couer d'Alene", sources:sources2}
+      ];
       return (
         <Router>
         <Grid container verticalAlign='top'>
@@ -47,6 +78,8 @@ class Colrc extends Component {
                 <Route path="/stemlist" component={StemList} />
                 <Route path="/affixlist" component={AffixList} />
               </Switch>
+              <AudioPlayer sources={audiolist[0].sources} title={audiolist[0].title} />
+              <AudioPlayer sources={audiolist[1].sources} title={audiolist[1].title} />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>

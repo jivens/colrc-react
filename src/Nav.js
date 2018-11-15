@@ -14,13 +14,14 @@ class Nav extends Component {
           <List.Item><Link to="/rootdictionary">root dictionary</Link></List.Item>
           <List.Item><Link to="/stemlist">stem lists</Link></List.Item>
           <List.Item><Link to="/affixlist">affix lists</Link></List.Item>
-          <List.Item>texts</List.Item>
           <List.Item><Link to="/audio">audio files</Link></List.Item>
+          <List.Item><Link to="/texts">texts</Link></List.Item>
+          <List.Item>audio files</List.Item>
           <List.Item>methodological sources</List.Item>
           <List.Item>bibliography</List.Item>
           <List.Item>advanced search</List.Item>
           <List.Item>source files</List.Item>
-          <List.Item>contact us</List.Item>
+          <List.Item><Link to="/contactus">contact us</Link></List.Item>
           <Divider />
           <List.Item>on the web</List.Item>
           <Divider />

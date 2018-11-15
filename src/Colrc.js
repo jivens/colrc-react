@@ -72,6 +72,7 @@ class Colrc extends Component {
                 </Route>
                 <Route path="/texts">
                   <MainMenu title="texts" />
+				</Route>
                 <Route path="/bibliography">
                   <MainMenu title="Bibliography" />
                 </Route>

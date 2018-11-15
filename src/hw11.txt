@@ -1,0 +1,3 @@
+nnp(nnp(john)) --> [John].
+vbd(vbd(ate)) --> [ate].
+nnp(prp(i)) --> [i].

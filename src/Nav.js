@@ -20,7 +20,7 @@ class Nav extends Component {
           <List.Item>bibliography</List.Item>
           <List.Item>advanced search</List.Item>
           <List.Item>source files</List.Item>
-          <List.Item>contact us</List.Item>
+          <List.Item><Link to="/contactus">contact us</Link></List.Item>
           <Divider />
           <List.Item>on the web</List.Item>
           <Divider />

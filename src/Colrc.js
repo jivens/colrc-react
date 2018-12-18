@@ -46,68 +46,86 @@ class Colrc extends Component {
         {title:"Part 1 - in Couer d'Alene", sources:sources},
         {title:"Part 2 - in Couer d'Alene", sources:sources2}
       ];
+      //const media=[
+      //  {collective_title:"Chief Child of the Root", collection:chief_child_of_the_root_collection},
+      //  {collective_title:"Coyote Cycle", collection:coyote_cycle_collection}
+      //];
+      //const chief_child_of_the_root_collection = [
+      //  {reichard_1947_number:"1", title:"Chief Child of the Root (Transformer)",
+      //    manuscripts:chief_child_of_the_root_manuscripts}
+      //];
+      //const chief_child_of_the_root_manuscripts = [
+      //  {style:"typed", pdf:"", image:"", metadata:chief_child_of_the_root_typed_metadata}
+      //];
       return (
         <Router>
-        <Grid container verticalAlign='top'>
-          <Grid.Row>
-            <Grid.Column color='blue'>
-              <Switch>
-                <Route exact path="/">
-                  <MainMenu title="About" />
-                </Route>
-                <Route exact path="/spelling">
-                  <MainMenu title="Spelling and Pronunciation Guide" />
-                </Route>
-                <Route path="/rootdictionary">
-                  <MainMenu title="Root Dictionary" />
-                </Route>
-                <Route path="/stemlist">
-                  <MainMenu title="Stem List" />
-                </Route>
-                <Route path="/affixlist">
-                  <MainMenu title="Affix List" />
-                </Route>
-				        <Route path="/contactus">
-                  <MainMenu title="Contact Us" />
-                </Route>
-                <Route path="/texts">
-                  <MainMenu title="texts" />
-                </Route>
-                <Route path="/bibliography">
-                  <MainMenu title="Bibliography" />
-                </Route>
-                <Route path="/audio">
-                  <MainMenu title="Audio Files" />
-                </Route>
-              </Switch>
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column width={3}>
-              <Nav />
-            </Grid.Column>
-            <Grid.Column width={13}>
-              <Switch>
-                <Route exact path="/" component={About} />
-                <Route path="/spelling" component={SpellingPronunciation} />
-                <Route path="/rootdictionary" component={RootDictionary} />
-                <Route path="/stemlist" component={StemList} />
-                <Route path="/affixlist" component={AffixList} />
-				        <Route path="/audio" component={Audio} />
-				        <Route path="/contactus" component={ContactUs} />
-                <Route path="/texts" component={Texts} />
-                <Route path="/bibliography" component={Bibliography} />
-              </Switch>
-              <AudioPlayer sources={audiolist[0].sources} title={audiolist[0].title} />
-              <AudioPlayer sources={audiolist[1].sources} title={audiolist[1].title} />
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column textAlign='center'>
-              <Footer />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+        <div>
+          <Grid container verticalAlign='top'>
+            <Grid.Row>
+              <Grid.Column>
+                <Nav />
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column color='blue'>
+                <Switch>
+                  <Route exact path="/">
+                    <MainMenu title="About" />
+                  </Route>
+                  <Route exact path="/spelling">
+                    <MainMenu title="Spelling and Pronunciation Guide" />
+                  </Route>
+                  <Route path="/rootdictionary">
+                    <MainMenu title="Root Dictionary" />
+                  </Route>
+                  <Route path="/stemlist">
+                    <MainMenu title="Stem List" />
+                  </Route>
+                  <Route path="/affixlist">
+                    <MainMenu title="Affix List" />
+                  </Route>
+  				        <Route path="/contactus">
+                    <MainMenu title="Contact Us" />
+                  </Route>
+                  <Route path="/texts">
+                    <MainMenu title="texts" />
+                  </Route>
+                  <Route path="/bibliography">
+                    <MainMenu title="Bibliography" />
+                  </Route>
+                  <Route path="/audio">
+                    <MainMenu title="Audio Files" />
+                  </Route>
+                </Switch>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column width={3}>
+                {/* <Nav /> */}
+              </Grid.Column>
+              <Grid.Column width={13}>
+                <Switch>
+                  <Route exact path="/" component={About} />
+                  <Route path="/spelling" component={SpellingPronunciation} />
+                  <Route path="/rootdictionary" component={RootDictionary} />
+                  <Route path="/stemlist" component={StemList} />
+                  <Route path="/affixlist" component={AffixList} />
+  				        <Route path="/audio" component={Audio} />
+  				        <Route path="/contactus" component={ContactUs} />
+                  <Route path="/texts" component={Texts} />
+                  <Route path="/bibliography" component={Bibliography} />
+                </Switch>
+                <AudioPlayer sources={audiolist[0].sources} title={audiolist[0].title} />
+                <AudioPlayer sources={audiolist[1].sources} title={audiolist[1].title} />
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column textAlign='center'>
+                <Footer />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </div>
       </Router>
       );
     }

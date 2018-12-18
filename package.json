@@ -5,6 +5,8 @@
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-cli": "^2.0.1",
+    "jquery": "^3.3.1",
+    "jquery-ui": "^1.12.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-native": "^0.57.2",

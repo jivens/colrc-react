@@ -63,41 +63,11 @@ class Colrc extends Component {
           <Grid container verticalAlign='top'>
             <Grid.Row>
               <Grid.Column>
-                <Nav />
+                <Nav  />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-              <Grid.Column color='blue'>
-                <Switch>
-                  <Route exact path="/">
-                    <MainMenu title="About" />
-                  </Route>
-                  <Route exact path="/spelling">
-                    <MainMenu title="Spelling and Pronunciation Guide" />
-                  </Route>
-                  <Route path="/rootdictionary">
-                    <MainMenu title="Root Dictionary" />
-                  </Route>
-                  <Route path="/stemlist">
-                    <MainMenu title="Stem List" />
-                  </Route>
-                  <Route path="/affixlist">
-                    <MainMenu title="Affix List" />
-                  </Route>
-  				        <Route path="/contactus">
-                    <MainMenu title="Contact Us" />
-                  </Route>
-                  <Route path="/texts">
-                    <MainMenu title="texts" />
-                  </Route>
-                  <Route path="/bibliography">
-                    <MainMenu title="Bibliography" />
-                  </Route>
-                  <Route path="/audio">
-                    <MainMenu title="Audio Files" />
-                  </Route>
-                </Switch>
-              </Grid.Column>
+
             </Grid.Row>
             <Grid.Row>
               <Grid.Column width={3}>

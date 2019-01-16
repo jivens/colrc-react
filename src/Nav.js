@@ -3,7 +3,7 @@ import { Divider, List } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import './Nav.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faHome, faFont, faSquareRootAlt, faLeaf } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faHome, faFont, faSquareRootAlt, faLeaf, faBars } from '@fortawesome/free-solid-svg-icons';
 import { faPagelines, faAudible } from '@fortawesome/free-brands-svg-icons';
 //import './nav_helper.js';
 
@@ -64,7 +64,7 @@ class Nav extends Component {
         			</div>
         		</div>
         		<div className="navNarrow">
-        			<i className="fa fa-bars fa-2x" onClick={this.burgerToggle}></i>
+        			<FontAwesomeIcon icon={faBars} onClick={this.burgerToggle} />
         			<div className="narrowLinks">
         				<Link to="/" onClick={this.burgerToggle}><FontAwesomeIcon icon={faHome} /> ABOUT</Link>
         				<Link to="/spelling" onClick={this.burgerToggle}><FontAwesomeIcon icon={faFont} /> SPELLING</Link>

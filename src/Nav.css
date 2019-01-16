@@ -22,7 +22,7 @@ nav .navWide .wideDiv a {
   display: inline-block;
   padding: 0 2em;
 }
-nav .navNarrow i {
+nav .navNarrow svg {
   float: left;
   cursor: pointer;
   color: #FFF;

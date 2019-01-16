@@ -3,7 +3,8 @@ import { Divider, List } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import './Nav.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faHome, faFont, faSquareRootAlt, faLeaf } from '@fortawesome/free-solid-svg-icons';
+import { faPagelines, faAudible } from '@fortawesome/free-brands-svg-icons';
 //import './nav_helper.js';
 
 class Nav extends Component {
@@ -54,15 +55,24 @@ class Nav extends Component {
         	<div className='container'>
         		<div className="navWide">
         			<div className="wideDiv">
-        				<Link to="/"><i className="fa faCoffee site-nav--icon"></i>About</Link>
-       			 		<Link to="/spelling"><i className="fa faCoffee site-nav--icon"></i>Spelling</Link>
+        				<Link to="/">ABOUT</Link>
+       			 		<Link to="/spelling">SPELLING</Link>
+       			 		<Link to="/rootdictionary">ROOTS</Link>
+       			 		<Link to="/stemlist">STEMS</Link>
+       			 		<Link to="/affixlist">AFFIXES</Link>
+       			 		<Link to="/texts">TEXTS</Link>
         			</div>
         		</div>
         		<div className="navNarrow">
         			<i className="fa fa-bars fa-2x" onClick={this.burgerToggle}></i>
         			<div className="narrowLinks">
-        				<Link to="/" onClick={this.burgerToggle}> about</Link>
-        				<Link to="/spelling" onClick={this.burgerToggle}> spelling</Link>
+        				<Link to="/" onClick={this.burgerToggle}><FontAwesomeIcon icon={faHome} /> ABOUT</Link>
+        				<Link to="/spelling" onClick={this.burgerToggle}><FontAwesomeIcon icon={faFont} /> SPELLING</Link>
+        				<Link to="/rootdictionary" onClick={this.burgerToggle}><FontAwesomeIcon icon={faSquareRootAlt} /> ROOTS</Link>
+        				<Link to="/stemlist" onClick={this.burgerToggle}><FontAwesomeIcon icon={faPagelines} /> STEMS</Link>
+         				<Link to="/affixlist" onClick={this.burgerToggle}><FontAwesomeIcon icon={faLeaf} /> AFFIXES</Link>
+        				<Link to="/texts" onClick={this.burgerToggle}><FontAwesomeIcon icon={faAudible} /> TEXTS</Link>
+
         			</div>
         		</div>
         	</div>

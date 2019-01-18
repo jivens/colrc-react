@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
 import MainMenu from './MainMenu';
-import Nav from './Nav';
+import NavBar from './NavBar';
 import RootDictionary from './RootDictionary';
 import SpellingPronunciation from './SpellingPronunciation';
 import About from './About';
@@ -12,7 +12,10 @@ import ContactUs from './ContactUs';
 import Texts from './Texts';
 import AudioPlayer from './AudioPlayer';
 import Bibliography from './Bibliography';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee, faHome, faFont, faSquareRootAlt, faLeaf, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faPagelines, faAudible } from '@fortawesome/free-brands-svg-icons';
 
 class Colrc extends Component {
   state = {
@@ -33,7 +36,19 @@ class Colrc extends Component {
       },
     ],
   };
+
+
+
     render() {
+      
+	  const leftItems = [
+		  { to: "/spelling", name: "Spelling" },
+		  { to: "/rootdictionary", name: "Roots" }
+		];
+	  const rightItems = [
+		  { to: "/", name: "Login"},
+		  { to: "/", name: "Register" }
+		];
       const sources=[
         {src:'http://lasrv01.ipfw.edu/COLRC/audio/01_Track_1Crd_Little_Mosquito1.wav', type:'audio/wav', direct:false},
         {src:'http://lasrv01.ipfw.edu/COLRC/audio//01_Track_1Crd_LittleMosq1.mp3', type:'audio/mpeg', direct:true}
@@ -60,15 +75,9 @@ class Colrc extends Component {
       return (
         <Router>
         <div>
-          <Grid container verticalAlign='top'>
-            <Grid.Row>
-              <Grid.Column>
-                <Nav  />
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row>
+          <NavBar  leftItems={leftItems} rightItems={rightItems}>
 
-            </Grid.Row>
+          <Grid container verticalAlign='top'>
             <Grid.Row>
               <Grid.Column width={3}>
                 {/* <Nav /> */}
@@ -95,6 +104,7 @@ class Colrc extends Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
+        </NavBar>
         </div>
       </Router>
       );

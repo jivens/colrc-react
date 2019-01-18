@@ -5,6 +5,17 @@ import './Nav.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faHome, faFont, faSquareRootAlt, faLeaf, faBars } from '@fortawesome/free-solid-svg-icons';
 import { faPagelines, faAudible } from '@fortawesome/free-brands-svg-icons';
+import _ from "lodash";
+import {
+  Container,
+  Icon,
+  Image,
+  Menu,
+  Sidebar,
+  Segment,
+  Responsive
+} from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css';
 //import './nav_helper.js';
 
 class Nav extends Component {
@@ -55,6 +66,7 @@ class Nav extends Component {
         	<div className='container'>
         		<div className="navWide">
         			<div className="wideDiv">
+        				<h1 class="logo"><Link to="/"><FontAwesomeIcon icon={faHome} /></Link></h1>
         				<Link to="/">ABOUT</Link>
        			 		<Link to="/spelling">SPELLING</Link>
        			 		<Link to="/rootdictionary">ROOTS</Link>

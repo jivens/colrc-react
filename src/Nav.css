@@ -38,6 +38,14 @@ nav .navNarrow .narrowLinks a {
   padding: 0.5em 0;
 }
 
+.logo {
+  float: left;
+  font-size: 1rem;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
 @media (min-width: 600px) {
   nav .navWide {
     display: block;

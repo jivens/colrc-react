@@ -2,20 +2,54 @@ import React, { Component } from 'react';
 import {Divider, List } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import './Nav.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 //import './nav_helper.js';
 
+library.add(faCoffee);
+
 class Nav extends Component {
+
+	state = {
+		open: false
+	};
+
+	onOpen = (evt) => {
+		let open = this.state.open;
+		open = !open;
+		this.setState({ open });
+	};
+
+	setNavStyle = () => {
+		const open = this.state.open;
+		if ( open ) {
+			return 'site-nav site-nav--open';
+		} else {
+			return 'site-nav';
+		}
+	};
+
+	setMenuStyle = () => {
+		const open = this.state.open;
+		if ( open ) {
+			return 'open menu-toggle';
+		} else {
+			return 'menu-toggle';
+		}
+	};
+
   render() {
     return (
       /* <div className='ui left content card'> */
       <header>
         <div className='container'>
-          <nav className='site-nav--open'>
+          <nav className={this.setNavStyle( )}>
             <ul>
               {/* <li><i className="fa fa-home site-nav--icon"></i>in the archive</li> */}
               {/* <Divider /> */}
-           	  <li><Link to="/"><i className="fa fa-home site-nav--icon"></i>about</Link></li>
-              <li><Link to="/spelling"><i className="fa fa-home site-nav--icon"></i>spelling and punctuation guide</Link></li>
+           	  <li><Link to="/"><FontAwesomeIcon icon={faCoffee} className="site-nav--icon" />about</Link></li>
+              <li><Link to="/spelling"><FontAwesomeIcon icon={faCoffee} className="site-nav--icon" />spelling and punctuation guide</Link></li>
               {/* <List.Item><Link to="/rootdictionary">root dictionary</Link></List.Item> */}
               {/* <List.Item><Link to="/stemlist">stem lists</Link></List.Item> */}
               {/* <List.Item><Link to="/affixlist">affix lists</Link></List.Item> */}
@@ -38,8 +72,8 @@ class Nav extends Component {
               {/* <List.Item><a href="http://archive.org/stream/folktalesofsalis00boas#page/119/mode/1up" target="_blank" rel="noopener noreferrer">teit 1917</a></List.Item> */}
             </ul>
           </nav>
-          <div class="menu-toggle">
-            <div class="hamburger"></div>
+          <div className="menu-toggle" onClick={this.onOpen}>
+            <div className="open hamburger" ></div>
           </div>
         </div>
       </header>

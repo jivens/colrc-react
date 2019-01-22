@@ -1,0 +1,22 @@
+/******     Sidebar     ******/
+
+.ui.icon.menu .item {
+    line-height: 20px;
+    padding-right: 10px;
+    text-align: justify;
+    font-weight: 200;
+}
+
+.ui.vertical.menu .item::before {
+    height: 0px;
+}
+
+.ui.labeled.icon.menu .item > .icon:not(.dropdown) {
+    float: left;
+    margin-right: 12px !important;
+}
+
+.ui.labeled.icon.menu .item > .svg-inline-fa:not(.dropdown) {
+    float: left;
+    margin-right: 12px !important;
+}

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { render } from "react-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faHome, faFont, faSquareRootAlt, faLeaf, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faHome, faFont, faSquareRootAlt, faLeaf, faBars, faEnvelope,faBookOpen } from '@fortawesome/free-solid-svg-icons';
 import { faPagelines, faAudible } from '@fortawesome/free-brands-svg-icons';
 import {
   Container,
@@ -15,11 +15,12 @@ import {
   Responsive
 } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
+import './NavBar.css';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NavBarMobile = ({
   children,
-  leftItems,
+  //leftItems,
   onPusherClick,
   onToggle,
   rightItems,
@@ -34,12 +35,43 @@ const NavBarMobile = ({
       vertical
       visible={visible}
       width='thin'
-    >
+    > 
+    <Menu.Item as={Link} to="/" name="About">
+	<Icon name="home" size="mini" />
+      About
+    </Menu.Item>      
+    <Menu.Item as={Link} to="/rootdictionary" name="Roots">
+    <Icon name='sort alphabet down' />
+       Roots 
+    </Menu.Item>  
+    <Menu.Item as={Link} to="/stemlist" name="Stems">
+    <Icon name='code branch' />
+       Stems
+    </Menu.Item> 
     <Menu.Item as={Link} to="/affixlist" name="Affixes">
-    	<FontAwesomeIcon icon={faLeaf} />
-      	Affixes
-   	</Menu.Item>  
-    {_.map(leftItems, item => <Menu.Item as={Link} {...item} />)}
+    <Icon name="leaf" />
+       Affixes
+    </Menu.Item> 
+    <Menu.Item as={Link} to="/texts" name="Texts">
+    <Icon name="comment" />
+       Texts
+    </Menu.Item> 
+    <Menu.Item as={Link} to="/audio" name="Audio">
+    <Icon name="file audio outline" />
+       Audio
+    </Menu.Item>
+    <Menu.Item as={Link} to="/spelling" name="Spelling">
+     <Icon name="font" />
+       Spelling
+    </Menu.Item>         
+    <Menu.Item as={Link} to="/bibliography" name="Bibliography">
+    <Icon name="book" />
+       Bibliography
+    </Menu.Item>
+    <Menu.Item as={Link} to="/contactus" name="Contact">
+    <Icon name="mail" />
+       Contact
+    </Menu.Item> 
     </Sidebar>
     <Sidebar.Pusher
       dimmed={visible}
@@ -62,15 +94,35 @@ const NavBarMobile = ({
   </Sidebar.Pushable>
 );
 
-const NavBarDesktop = ({ leftItems, rightItems }) => (
+const NavBarDesktop = ({ rightItems }) => (
   <Menu fixed="top" inverted>
-    <Menu.Item>
+    <Menu.Item as={Link} to="/" name="about">
        <FontAwesomeIcon icon={faHome} />
     </Menu.Item>
-    <Menu.Item as={Link} to="/affixlist" name="Affixes">
+    <Menu.Item as={Link} to="/rootdictionary" name="Roots">
+       Roots
+    </Menu.Item>  
+    <Menu.Item as={Link} to="/stemlist" name="Stems">
+       Stems
+    </Menu.Item> 
+     <Menu.Item as={Link} to="/affixlist" name="Affixes">
        Affixes
-    </Menu.Item>    
-    {_.map(leftItems, item => <Menu.Item as={Link} {...item} />)}
+    </Menu.Item> 
+    <Menu.Item as={Link} to="/texts" name="Texts">
+       Texts
+    </Menu.Item> 
+    <Menu.Item as={Link} to="/audio" name="Audio">
+       Audio
+    </Menu.Item>
+    <Menu.Item as={Link} to="/spelling" name="Spelling">
+       Spelling
+    </Menu.Item>         
+    <Menu.Item as={Link} to="/bibliography" name="Bibliography">
+       Bibliography
+    </Menu.Item>
+    <Menu.Item as={Link} to="/contactus" name="Contact">
+       Contact
+    </Menu.Item>       
     <Menu.Menu position="right">
       {_.map(rightItems, item => <Menu.Item as={Link} {...item} />)}
     </Menu.Menu>
@@ -95,14 +147,14 @@ class NavBar extends Component {
   handleToggle = () => this.setState({ visible: !this.state.visible });
 
   render() {
-    const { children, leftItems, rightItems } = this.props;
+    const { children, rightItems } = this.props;
     const { visible } = this.state;
 
     return (
       <div>
         <Responsive {...Responsive.onlyMobile}>
           <NavBarMobile
-            leftItems={leftItems}
+            //leftItems={leftItems}
             onPusherClick={this.handlePusher}
             onToggle={this.handleToggle}
             rightItems={rightItems}
@@ -110,9 +162,10 @@ class NavBar extends Component {
           >
             <NavBarChildren>{children}</NavBarChildren>
           </NavBarMobile>
+
         </Responsive>
         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
-          <NavBarDesktop leftItems={leftItems} rightItems={rightItems} />
+          <NavBarDesktop rightItems={rightItems} />
           <NavBarChildren>{children}</NavBarChildren>
         </Responsive>
       </div>

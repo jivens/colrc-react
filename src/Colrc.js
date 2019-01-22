@@ -41,14 +41,14 @@ class Colrc extends Component {
 
     render() {
 
-	  const leftItems = [
+	  /* const leftItems = [
 		  { to: "/spelling", name: "Spelling" },
 		  { to: "/rootdictionary", name: "Roots" }
-		];
+		]; */
 	  const rightItems = [
 		  { to: "/", name: "Login"},
 		  { to: "/", name: "Register" }
-		];
+		]; 
       const sources=[
         {src:'http://lasrv01.ipfw.edu/COLRC/audio/01_Track_1Crd_Little_Mosquito1.wav', type:'audio/wav', direct:false},
         {src:'http://lasrv01.ipfw.edu/COLRC/audio//01_Track_1Crd_LittleMosq1.mp3', type:'audio/mpeg', direct:true}
@@ -75,7 +75,7 @@ class Colrc extends Component {
       return (
         <Router>
         <div>
-          <NavBar  leftItems={leftItems} rightItems={rightItems}>
+          <NavBar rightItems={rightItems}> 
           <MainMenu title="Title"/>
           <Grid container verticalAlign='top'>
             <Grid.Row>

@@ -6,7 +6,7 @@ class MainMenu extends Component {
     return (
       <Grid container verticalAlign='middle'>
         <Grid.Row>
-          <Grid.Column color='blue' width={13}>
+          <Grid.Column color='blue' width={10}>
             <Masthead title={this.props.title} />
           </Grid.Column>
           <Grid.Column color='blue' width={3}>
@@ -48,11 +48,17 @@ class Titlebar extends Component {
 class OptionsList extends Component {
   render() {
     return (
-      <ul className='float right'>
-        <List.Item>dictionary</List.Item>
-        <List.Item>history</List.Item>
-        <List.Item>metadata</List.Item>
-      </ul>
+      <Grid container verticalAlign='middle'>
+        <Grid.Row color='blue'>
+          <Grid.Column textAlign='center'>
+            <ul className='float center'>
+              <List.Item>dictionary</List.Item>
+              <List.Item>history</List.Item>
+              <List.Item>metadata</List.Item>
+            </ul>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     );
   }
 }

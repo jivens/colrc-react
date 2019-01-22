@@ -18,9 +18,43 @@ import {
 import 'semantic-ui-css/semantic.min.css';
 //import './nav_helper.js';
 
-library.add(faCoffee);
-
 class Nav extends Component {
+
+  burgerToggle = ( ) => {
+		let linksEl = document.querySelector('.narrowLinks');
+		if (linksEl.style.display === 'block') {
+			linksEl.style.display = 'none';
+		} else {
+			linksEl.style.display = 'block';
+		}
+	};
+
+	/*
+	state = {
+		open: false
+	};
+	onOpen = (evt) => {
+		let open = this.state.open;
+		open = !open;
+		this.setState({ open });
+	};
+	setNavStyle = () => {
+		const open = this.state.open;
+		if ( open ) {
+			return 'site-nav site-nav--open';
+		} else {
+			return 'site-nav--open';
+		}
+	};
+	setMenuStyle = () => {
+		const open = this.state.open;
+		if ( open ) {
+			return 'open menu-toggle';
+		} else {
+			return 'menu-toggle';
+		}
+	};
+	*/
 
   render() {
     return (

@@ -76,12 +76,9 @@ class Colrc extends Component {
         <Router>
         <div>
           <NavBar  leftItems={leftItems} rightItems={rightItems}>
-
+          <MainMenu title="Title"/>
           <Grid container verticalAlign='top'>
             <Grid.Row>
-              <Grid.Column width={3}>
-                {/* <Nav /> */}
-              </Grid.Column>
               <Grid.Column width={13}>
                 <Switch>
                   <Route exact path="/" component={About} />

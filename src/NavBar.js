@@ -32,30 +32,31 @@ const NavBarMobile = ({
       animation="overlay"
       icon="labeled"
       inverted
+      size='mini'
       vertical
       visible={visible}
       width='thin'
-    > 
-    <Menu.Item as={Link} to="/" name="About">
-	<Icon name="home" size="mini" />
+    >
+    <Menu.Item as={Link} to="/" name="About" size='mini'>
+	   <Icon name="home" />
       About
-    </Menu.Item>      
-    <Menu.Item as={Link} to="/rootdictionary" name="Roots">
+    </Menu.Item>
+    <Menu.Item as={Link} to="/rootdictionary" name="Roots" size='mini'>
     <Icon name='sort alphabet down' />
-       Roots 
-    </Menu.Item>  
+       Roots
+    </Menu.Item>
     <Menu.Item as={Link} to="/stemlist" name="Stems">
     <Icon name='code branch' />
        Stems
-    </Menu.Item> 
+    </Menu.Item>
     <Menu.Item as={Link} to="/affixlist" name="Affixes">
     <Icon name="leaf" />
        Affixes
-    </Menu.Item> 
+    </Menu.Item>
     <Menu.Item as={Link} to="/texts" name="Texts">
     <Icon name="comment" />
        Texts
-    </Menu.Item> 
+    </Menu.Item>
     <Menu.Item as={Link} to="/audio" name="Audio">
     <Icon name="file audio outline" />
        Audio
@@ -63,7 +64,7 @@ const NavBarMobile = ({
     <Menu.Item as={Link} to="/spelling" name="Spelling">
      <Icon name="font" />
        Spelling
-    </Menu.Item>         
+    </Menu.Item>
     <Menu.Item as={Link} to="/bibliography" name="Bibliography">
     <Icon name="book" />
        Bibliography
@@ -71,7 +72,7 @@ const NavBarMobile = ({
     <Menu.Item as={Link} to="/contactus" name="Contact">
     <Icon name="mail" />
        Contact
-    </Menu.Item> 
+    </Menu.Item>
     </Sidebar>
     <Sidebar.Pusher
       dimmed={visible}
@@ -101,28 +102,28 @@ const NavBarDesktop = ({ rightItems }) => (
     </Menu.Item>
     <Menu.Item as={Link} to="/rootdictionary" name="Roots">
        Roots
-    </Menu.Item>  
+    </Menu.Item>
     <Menu.Item as={Link} to="/stemlist" name="Stems">
        Stems
-    </Menu.Item> 
+    </Menu.Item>
      <Menu.Item as={Link} to="/affixlist" name="Affixes">
        Affixes
-    </Menu.Item> 
+    </Menu.Item>
     <Menu.Item as={Link} to="/texts" name="Texts">
        Texts
-    </Menu.Item> 
+    </Menu.Item>
     <Menu.Item as={Link} to="/audio" name="Audio">
        Audio
     </Menu.Item>
     <Menu.Item as={Link} to="/spelling" name="Spelling">
        Spelling
-    </Menu.Item>         
+    </Menu.Item>
     <Menu.Item as={Link} to="/bibliography" name="Bibliography">
        Bibliography
     </Menu.Item>
     <Menu.Item as={Link} to="/contactus" name="Contact">
        Contact
-    </Menu.Item>       
+    </Menu.Item>
     <Menu.Menu position="right">
       {_.map(rightItems, item => <Menu.Item as={Link} {...item} />)}
     </Menu.Menu>

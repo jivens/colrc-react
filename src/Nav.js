@@ -1,39 +1,94 @@
 import React, { Component } from 'react';
-import {Divider, List } from 'semantic-ui-react';
+import { Divider, List } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
+import './Nav.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee, faHome, faFont, faSquareRootAlt, faLeaf, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faPagelines, faAudible } from '@fortawesome/free-brands-svg-icons';
+import _ from "lodash";
+import {
+  Container,
+  Icon,
+  Image,
+  Menu,
+  Sidebar,
+  Segment,
+  Responsive
+} from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css';
+//import './nav_helper.js';
 
 class Nav extends Component {
+
+  burgerToggle = ( ) => {
+		let linksEl = document.querySelector('.narrowLinks');
+		if (linksEl.style.display === 'block') {
+			linksEl.style.display = 'none';
+		} else {
+			linksEl.style.display = 'block';
+		}
+	};
+
+	/*
+	state = {
+		open: false
+	};
+	onOpen = (evt) => {
+		let open = this.state.open;
+		open = !open;
+		this.setState({ open });
+	};
+	setNavStyle = () => {
+		const open = this.state.open;
+		if ( open ) {
+			return 'site-nav site-nav--open';
+		} else {
+			return 'site-nav--open';
+		}
+	};
+	setMenuStyle = () => {
+		const open = this.state.open;
+		if ( open ) {
+			return 'open menu-toggle';
+		} else {
+			return 'menu-toggle';
+		}
+	};
+	*/
+
   render() {
     return (
-      <div className='ui left content card'>
-        <List padded='horizontally'>
-          <List.Item>in the archive</List.Item>
-          <Divider />
-      	  <List.Item><Link to="/">about</Link></List.Item>
-          <List.Item><Link to="/spelling">spelling and punctuation guide</Link></List.Item>
-          <List.Item><Link to="/rootdictionary">root dictionary</Link></List.Item>
-          <List.Item><Link to="/stemlist">stem lists</Link></List.Item>
-          <List.Item><Link to="/affixlist">affix lists</Link></List.Item>
-          <List.Item><Link to="/audio">audio files</Link></List.Item>
-          <List.Item><Link to="/texts">texts</Link></List.Item>
-          <List.Item>audio files</List.Item>
-          <List.Item>methodological sources</List.Item>
-          <List.Item>bibliography</List.Item>
-          <List.Item>advanced search</List.Item>
-          <List.Item>source files</List.Item>
-          <List.Item><Link to="/contactus">contact us</Link></List.Item>
-          <Divider />
-          <List.Item>on the web</List.Item>
-          <Divider />
-          <List.Item>Coeur d'Alene homepage</List.Item>
-          <List.Item>ivy doak's grammatical sketch</List.Item>
-          <List.Item>boas and teit 1930</List.Item>
-          <List.Item>lyon 2010</List.Item>
-          <List.Item>reichard 1938</List.Item>
-          <List.Item>reichard 1947</List.Item>
-          <List.Item>teit 1917</List.Item>
-        </List>
-      </div>
+  	<header>
+      	<nav>
+        	<div className='container'>
+        		<div className="navWide">
+        			<div className="wideDiv">
+        				<h1 class="logo"><Link to="/"><FontAwesomeIcon icon={faHome} /></Link></h1>
+        				<Link to="/">ABOUT</Link>
+       			 		<Link to="/spelling">SPELLING</Link>
+       			 		<Link to="/rootdictionary">ROOTS</Link>
+       			 		<Link to="/stemlist">STEMS</Link>
+       			 		<Link to="/affixlist">AFFIXES</Link>
+       			 		<Link to="/texts">TEXTS</Link>
+        			</div>
+        		</div>
+        		<div className="navNarrow">
+        			<FontAwesomeIcon icon={faBars} onClick={this.burgerToggle} />
+        			<div className="narrowLinks">
+        				<Link to="/" onClick={this.burgerToggle}><FontAwesomeIcon icon={faHome} /> ABOUT</Link>
+        				<Link to="/spelling" onClick={this.burgerToggle}><FontAwesomeIcon icon={faFont} /> SPELLING</Link>
+        				<Link to="/rootdictionary" onClick={this.burgerToggle}><FontAwesomeIcon icon={faSquareRootAlt} /> ROOTS</Link>
+        				<Link to="/stemlist" onClick={this.burgerToggle}><FontAwesomeIcon icon={faPagelines} /> STEMS</Link>
+         				<Link to="/affixlist" onClick={this.burgerToggle}><FontAwesomeIcon icon={faLeaf} /> AFFIXES</Link>
+        				<Link to="/texts" onClick={this.burgerToggle}><FontAwesomeIcon icon={faAudible} /> TEXTS</Link>
+
+        			</div>
+        		</div>
+        	</div>
+        </nav>
+	</header>
+
+
     );
   }
 }

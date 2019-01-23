@@ -1,0 +1,56 @@
+nav {
+  background-color: #3366ff;
+  overflow: hidden;
+  padding: 1em;
+  border-bottom: 1px solid #000;
+}
+nav a {
+  color: #FFF;
+}
+nav a:visited {
+  color: #FFF;
+}
+nav .navWide {
+  display: none;
+  margin: 0 auto;
+}
+nav .navWide .wideDiv {
+  text-align: center;
+}
+nav .navWide .wideDiv a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 2em;
+}
+nav .navNarrow svg {
+  float: left;
+  cursor: pointer;
+  color: #FFF;
+}
+nav .navNarrow .narrowLinks {
+  display: none;
+}
+nav .navNarrow .narrowLinks a {
+  text-decoration: none;
+  display: block;
+  float: left;
+  clear: left;
+  padding: 0.5em 0;
+}
+
+.logo {
+  float: left;
+  font-size: 1rem;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+@media (min-width: 600px) {
+  nav .navWide {
+    display: block;
+  }
+  nav .navNarrow {
+    display: none;
+  }
+}

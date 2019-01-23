@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 
-class About extends Component {
+class Bibliography extends Component {
   render() {
     return (
       <div>
@@ -9,7 +8,7 @@ class About extends Component {
       <p>Barthmaier, Paul T.  1996.
         A Dictionary of Coeur d'Alene Salish from Gladys Reichard's file slips.
         University of Montana M.A. Thesis.
-        Available online <a href="http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9309&context=etd" target="_blank">here</a></p>
+        Available online <a href="http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9309&context=etd" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Bischoff, Shannon T. 2011.
         Lexical affixes, incorporation, and conflation: The case of Coeur d'Alene.
         Studia Linguistica 65.1:1-32.  </p>
@@ -19,7 +18,7 @@ class About extends Component {
       <p>Bischoff, Shannon T. 2007.
         Functional Forms-Formal Functions: An account of Coeur d'Alene clause structure.
         PhD dissertation University of Arizona.
-        Available online: <a href="http://arizona.openrepository.com/arizona/bitstream/10150/194692/1/azu_etd_2004_sip1_m.pdf" target="_blank">here</a></p>
+        Available online: <a href="http://arizona.openrepository.com/arizona/bitstream/10150/194692/1/azu_etd_2004_sip1_m.pdf" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Bischoff, Shannon T. 2006.
         Basic clause structure in Coeur d'Alene A preliminary working paper.
         In MIT Working Papers on Endangered and Less Familiar Languages Volume on Salish, (eds) Shannon T. Bischoff, Lynnika Buttler, Peter Norquist, and Daniel Siddiqi.
@@ -30,11 +29,11 @@ class About extends Component {
       <p>Bischoff, Shannon T.  2001.
         Lynx : a morphological analysis and translation of Dorothy Nicodemus' Coeur d'Alene narrative.
         University of Montana M.A. thesis.
-        Available online: <a href="http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9310&context=etd" target="_blank">here</a> </p>
+        Available online: <a href="http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9310&context=etd" target="_blank" rel="noopener noreferrer">here</a> </p>
       <p>Bischoff, Shannon T., Ivy Doak, Amy V. Fountain and John Ivens. 2013.
         Creating grass roots digital Coeur d'Alene resources:  the COLRC.
         Northwest Journal of Linguistics. 7. 1-23.
-        Available online: <a href="http://www.sfu.ca/nwjl/Articles/V007_N04/BischoffEtAlGrassrootsResources.pdf" target="_blank">here</a></p>
+        Available online: <a href="http://www.sfu.ca/nwjl/Articles/V007_N04/BischoffEtAlGrassrootsResources.pdf" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Bischoff, Shannon T. and Amy V. Fountain 2013.
         `Grass-roots development of web-based language archives: the Coeur d'Alene Archive.
         In Shannon Bischoff, Debbie Cole, Amy Fountain, and Mizuki Miyashita (eds) The Persistence of Language:
@@ -42,7 +41,7 @@ class About extends Component {
       <p>Boas, Franz, and Teit, James. 1985.
         Coeur d'Alene, Flathead and Okanogan Indians.
         Ye Galleon Press: Fairfield, Washington. Reprint of the Annual report of the Bureau of American Ethnology to the Secretary of the Smithsonian Institution volume 45 (1927-28) pages 23-396.
-        Available online: <a href="http://archive.org/stream/annualreportofbu45smit#page/36/mode/2up" target="_blank">here</a></p>
+        Available online: <a href="http://archive.org/stream/annualreportofbu45smit#page/36/mode/2up" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Brinkman, Raymond.  2003.
         Etsmeystkhw khwe snwiyepmshtsn 'you know how to talk like a whiteman'.
         Ph.D. Dissertaion. University of Chicago.</p>
@@ -51,7 +50,7 @@ class About extends Component {
          Natural Language and Linguistic Theory 11. 197-278.</p>
       <p>Diomedi, Alexander S. J.  1894.
         Sketches of Modern Indian Life.
-        Available online: <a href="https://archive.org/details/cihm_14111" target="_blank">here</a></p>
+        Available online: <a href="https://archive.org/details/cihm_14111" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Doak, Ivy G.  2004.
         Notes on Reduplication in Coeur d'Alene.
         In Studies in Salish Linguistics in Honor of M. Dale Kinkade, eds.  D. Gerdts and L. Matthewson. 118-131.
@@ -65,7 +64,7 @@ class About extends Component {
       <p>Doak, Ivy G.  1996.
         Coeur d'Alene imperative constructions.
         Papers for the 31st ICSNL.  Vancouver.
-        Available online: <a href="http://lingserver.arts.ubc.ca/linguistics/sites/default/files/1996_Doak.pdf" target="_blank">here</a></p>
+        Available online: <a href="http://lingserver.arts.ubc.ca/linguistics/sites/default/files/1996_Doak.pdf" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Doak, Ivy G.  1993.
         Discourse use of the Coeur d'Alene -st(u)- transitivizer.
         American Indian linguistics and ethnography in honor of Laurence C. Thompson, A. Mattina and T. Montler, eds.  UMOPL 10.  Missoula.</p>
@@ -79,7 +78,7 @@ class About extends Component {
         Truncation, -&#237; suffixation, and extended vowel length in Coeur d'Alene.
         Papers for the 25th International Conference on Salish and Neighbouring Languages.
         University of British Columbia, Vancouver.  Available online:
-        <a href="http://lingserver.arts.ubc.ca/linguistics/sites/default/files/1990_Doak.pdf"  target="_blank">here</a></p>
+        <a href="http://lingserver.arts.ubc.ca/linguistics/sites/default/files/1990_Doak.pdf"  target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Doak, Ivy G.  1987.
         Coeur d'Alene vowel harmony.
         Papers from the 22nd International Conference on Salish and Neighboring Languages.
@@ -94,7 +93,7 @@ class About extends Component {
         Orthography, lexicography and language change.
         In Proceedings of the fourth FEL Conference, Nicholas Ostler and Blair Rudes, eds.
         Charlotte, NC: Foundation for Endangered Languages. Available online:
-        <a href="http://montler.net/papers/OrthographyFEL22000.pdf" target="_blank">here</a></p>
+        <a href="http://montler.net/papers/OrthographyFEL22000.pdf" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Doak, Ivy and Margaret Stensgar.  2008.
         Coyote and the birds:  A traditional Coeur d'Alene story.
         In One people's stories: A collection of Salishan myths and legends, eds. M. T. Thompson and S. M. Egesdal.
@@ -124,20 +123,20 @@ class About extends Component {
       <p>Greene, Rebecca J.  2004.
         Edition of Snchitsu'umshtsn:  volume I: a root dictionary.
         University of Montana M.A. thesis.
-        Available online: <a href="http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9132&context=etd" target="_blank">here</a></p>
+        Available online: <a href="http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9132&context=etd" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Harris, Barbara P. 1974.
         Aspect and the pronominal system of Coeur d'Alene:
         A re-analysis of Reichard's material.
         International Conference on Salish and Neighbouring Languages 9. 60-80.
-        Available online:  <a href="http://lingserver.arts.ubc.ca/linguistics/sites/default/files/1974_Harris.pdf" target="_blank">here</a></p>
+        Available online:  <a href="http://lingserver.arts.ubc.ca/linguistics/sites/default/files/1974_Harris.pdf" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Hayter, Amy L. 1997.
         An Edition of Dorothy Nicodemus's Coyote Cuts Sun's Heart.
         The University of Montana M.A. thesis.
-        Available online: <a href="http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9133&context=etd" target="_blank">here</a></p>
+        Available online: <a href="http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9133&context=etd" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Hayes, Matthew S.  1999.
         An edition of three Coeur d'Alene texts:  Calling one's kind, Hunting one's kind, and Boy takes food.
         University of Montana M.A. thesis.
-        Available online: <a href="http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9137&context=etd" target="_blank">here</a></p>
+        Available online: <a href="http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9137&context=etd" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Hoard, James. E.  1978.
         Syllabication in northwest Indian languages.
         Syllables and segments, A. Bell and J.B. Hooper, eds.
@@ -149,7 +148,7 @@ class About extends Component {
         Annotating reduplication infinite-state morphology.
         Finite-State Methods and Natural Language Processing 2008 proceedings.
         EU Joint Research Commission Ispara Italy.
-        Available online: <a href="http://dingo.sbs.arizona.edu/~mhulden/hulden_reduplication_2008.pdf" target="_blank">here</a></p>
+        Available online: <a href="http://dingo.sbs.arizona.edu/~mhulden/hulden_reduplication_2008.pdf" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Johnson, Robert E.  1975.
         The role of phonetic detail in Coeur d'Alene phonology.
         Washington State University doctoral dissertation.</p>
@@ -190,7 +189,7 @@ class About extends Component {
         Coeur d'Alene oral narrative:
         Editions of Coyote imitates Magpie, Man caught in fire corral and War between Blackfoot and Coeur d'Alene.
         University of Montana M.A. thesis.
-        Available online: <a href="http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9311&context=etd" target="_blank">here</a></p>
+        Available online: <a href="http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9311&context=etd" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>New, A. J.  2013.
         Cooperation in the Wilds of the Idaho Territory:
         Interaction Between the Jesuits and Coeur D'Alene Indians at the Cataldo Mission, 1848-1878.
@@ -228,7 +227,7 @@ class About extends Component {
       <p>Occhi, Debra J., Gary B. Palmer, and Roy H. Ogawa.  1993.
         Like hair, or trees: Semantic analysis of the Coeur d'Alene prefix ne' 'amisdt'.
         Revision of paper presented to the  SSILA Summer Meeting, Columbus, OH.
-        Available online: <a href="http://escholarship.org/uc/item/28x669mq" target="_blank">here</a></p>
+        Available online: <a href="http://escholarship.org/uc/item/28x669mq" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Ogawa, Roy H and Gary Palmer. 1998.
         Language semantics of three Coeur d'Alene prefixes as 'on'.
         In Issues in Cognitive Linguistics:
@@ -268,7 +267,7 @@ class About extends Component {
       <p>Palmer, Gary B. and Lawrence Nicodemus.  1982.
         Marking surfaces in Coeur d'Alene and universals in anatomical nomenclature.
         Working papers for the 17th ICSNL, 295-330.  Portland.
-        Available online: <a href="http://lingserver.arts.ubc.ca/linguistics/sites/default/files/1982_Palmer_Nicodemus.pdf" target="_blank">here</a></p>
+        Available online: <a href="http://lingserver.arts.ubc.ca/linguistics/sites/default/files/1982_Palmer_Nicodemus.pdf" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Palmer, Gary B. and Lawrence Nicodemus.  1985.
         Coeur d'Alene exceptions to proposed universals of anatomical nomenclature.
         American Ethnologist.</p>
@@ -287,7 +286,7 @@ class About extends Component {
       <p>Pilling. James C. 1893.
         Bibliography of the Salishan Languages. (Smithsonian Institute)
         Washington: Government Printing office.
-        Available online: <a href="https://archive.org/details/cihm_15902" target="_blank">here</a></p>
+        Available online: <a href="https://archive.org/details/cihm_15902" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Point, Nicolas and Joseph P. Donnelly (tr.).  1967.
         Wilderness kingdom, Indian life in the Rocky Mountains: 1840-1847;
         the journals & paintings of Nicolas Point.
@@ -304,11 +303,11 @@ class About extends Component {
       <p>Reichard, Gladys A.  1938.
         Coeur d'Alene.  Franz Boas, ed., Handbook of American Indian languages.
         New York:  J. J. Augustin, Inc.  Part 3:515-707.
-        Available online: <a href="http://archive.org/stream/rosettaproject_tqw_morsyn-2#page/n529/mode/2up" target="_blank">here</a></p>
+        Available online: <a href="http://archive.org/stream/rosettaproject_tqw_morsyn-2#page/n529/mode/2up" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Reichard, Gladys Amanda with Adele Froelich.  1947.
         An analysis of Coeur d'Alene Indian myths.
         Philadelphia:  Memoirs of the American Folk-lore Society, v. 41.
-        Available online: <a href="http://archive.org/stream/analysisofcoeurd41reic#page/n5/mode/2up" target="_blank">here</a></p>
+        Available online: <a href="http://archive.org/stream/analysisofcoeurd41reic#page/n5/mode/2up" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Seltice, J. 1990.
         Saga of the Coeur D'Alene Indians:
         An Account of Chief Joseph Seltice (Vol. 990).
@@ -330,14 +329,14 @@ class About extends Component {
       <p>Sloat, Clarence.  1970.
         Some phonological similarity of /r/ and /R/ in Coeur d'Alene.
         International Conference on Salish and Neighbouring Languages. 5.
-        Available online: <a href="http://lingserver.arts.ubc.ca/linguistics/sites/default/files/1970_SloatC.pdf" target="_blank">here</a></p>
+        Available online: <a href="http://lingserver.arts.ubc.ca/linguistics/sites/default/files/1970_SloatC.pdf" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Sloat, Clarence.  1968.
         A skeleton key to Reichard's Coeur d'Alene transcriptions.
         Anthropological Linguistics 10:5.</p>
       <p>Sloat, Clarence.  1967.
         A plea for conformity and some amendments to Reichard.
         International Conference on Salish and Neighbouring Languages. 2.
-        Available online: <a href="http://lingserver.arts.ubc.ca/linguistics/sites/default/files/1967_Sloat.pdf" target="_blank">here</a></p>
+        Available online: <a href="http://lingserver.arts.ubc.ca/linguistics/sites/default/files/1967_Sloat.pdf" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Sloat, Clarence.  1966.
         Phonological redundancy rules in Coeur d'Alene.
         University of Washington PhD dissertation.</p>
@@ -349,7 +348,7 @@ class About extends Component {
         Couer d'Alene Tales.
         In F. Boas, ed. Folk-Tales of Salishan and Sahaptin Tribes 119-128.
         New York: American Folk-Lore Society.
-        Available online: <a href="http://archive.org/stream/folktalesofsalis00boas#page/119/mode/1up" target="_blank">here</a></p>
+        Available online: <a href="http://archive.org/stream/folktalesofsalis00boas#page/119/mode/1up" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Thompson, Laurence C.  1985.
         Control in Salish grammar, in Relational Typology, edited by Frans Plank.
         Trends in Linguistics.  Studies and monographs 28.391-428.  Mouton.</p>
@@ -364,7 +363,7 @@ class About extends Component {
       <p>Van Eijk, Jan P. 2008.
         A bibliography of Salish linguistics.
         Northwest Journal of Linguistics 2.3. 1-128.
-        Available online: <a href="http://www.sfu.ca/nwjl/Articles/V002_N03/VanEijkSalishBiblio.pdf" target="_blank">here</a></p>
+        Available online: <a href="http://www.sfu.ca/nwjl/Articles/V002_N03/VanEijkSalishBiblio.pdf" target="_blank" rel="noopener noreferrer">here</a></p>
       <p>Vincent, Audra.  2014.
         Coeur d'Alene Aspect.
         MA Thesis. University of British Columbia.</p>
@@ -383,4 +382,4 @@ class About extends Component {
     }
 }
 
-export default About;
+export default Bibliography;

@@ -4,9 +4,9 @@ import {Grid, List } from 'semantic-ui-react';
 class MainMenu extends Component {
   render() {
     return (
-      <Grid container verticalAlign='middle'>
+      <Grid container verticalAlign='middle' columns={2}>
         <Grid.Row>
-          <Grid.Column color='blue' width={13}>
+          <Grid.Column color='blue' width={10}>
             <Masthead title={this.props.title} />
           </Grid.Column>
           <Grid.Column color='blue' width={3}>
@@ -21,7 +21,7 @@ class MainMenu extends Component {
 class Masthead extends Component {
   render() {
     return (
-      <Grid container verticalAlign='middle'>
+      <Grid container verticalAlign='middle' columns={1}>
         <Grid.Row color='blue'>
           <Grid.Column textAlign='center'>
             Coeur d'Alene Online Language Resource Center
@@ -48,11 +48,13 @@ class Titlebar extends Component {
 class OptionsList extends Component {
   render() {
     return (
-      <ul className='float right'>
-        <List.Item>dictionary</List.Item>
-        <List.Item>history</List.Item>
-        <List.Item>metadata</List.Item>
-      </ul>
+      <Grid container verticalAlign='middle' centered >
+        <Grid.Row color='blue' centered>
+          <Grid.Column centered>
+              dictionary | history | metadata
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     );
   }
 }

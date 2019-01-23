@@ -74,7 +74,7 @@ class Colrc extends Component {
       //];
       return (
         <Router>
-        <div>
+   
           <NavBar rightItems={rightItems}> 
           <MainMenu title="Title"/>
           <Grid container verticalAlign='top'>
@@ -91,8 +91,8 @@ class Colrc extends Component {
                   <Route path="/texts" component={Texts} />
                   <Route path="/bibliography" component={Bibliography} />
                 </Switch>
-                <AudioPlayer sources={audiolist[0].sources} title={audiolist[0].title} />
-                <AudioPlayer sources={audiolist[1].sources} title={audiolist[1].title} />
+             {/*   <AudioPlayer sources={audiolist[0].sources} title={audiolist[0].title} />
+                <AudioPlayer sources={audiolist[1].sources} title={audiolist[1].title} /> */}
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
@@ -102,7 +102,7 @@ class Colrc extends Component {
             </Grid.Row>
           </Grid>
         </NavBar>
-        </div>
+
       </Router>
       );
     }

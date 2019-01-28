@@ -37,7 +37,7 @@ class Texts extends Component {
 
 	      </Grid>
 
-	      <Grid celled='internally' padded='horizontally' verticalAlign='top'>
+	      <Grid celled='internally' padded='horizontally' verticalAlign='top' textAlign='center'>
 	     	 <TextElement2
 	      		color='blue'
 	      		title='Title'
@@ -61,7 +61,7 @@ class Texts extends Component {
 
 	      </Grid>
 
-        <Grid celled='internally' padded='horizontally' verticalAlign='top'>
+        <Grid celled='internally' padded='horizontally' verticalAlign='top' textAlign='center'>
 	          <TextElement2
 	            color='blue'
 	            title='Title'
@@ -110,10 +110,10 @@ class TextElement2 extends Component {
     const color = this.props.color ? this.props.color : 'white';
     return (
       <Grid.Row color={color}>
-        <Grid.Column width={4}>{this.props.title}</Grid.Column>
-        <Grid.Column width={8}>{this.props.versions}</Grid.Column>
+        <Grid.Column width={5}>{this.props.title}</Grid.Column>
+        <Grid.Column width={7}>{this.props.versions}</Grid.Column>
         <Grid.Column width={2}>{this.props.audio}</Grid.Column>
-        <Grid.Column width={1}>{this.props.translation}</Grid.Column>
+        <Grid.Column width={2}>{this.props.translation}</Grid.Column>
       </Grid.Row>
     );
   }

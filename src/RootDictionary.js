@@ -44,7 +44,7 @@ class RootDictionary extends Component {
     return (
       <div className='ui content'>
         <RootDictionaryIntro />
-        <Grid celled='internally' padded='horizontally' verticalAlign='top'>
+        <Grid celled='internally' padded='horizontally' verticalAlign='top' textAlign='center'>
           <RootElement
             color='blue'
             root='Root'
@@ -79,10 +79,10 @@ class RootElement extends Component {
     return (
       <Grid.Row color={color}>
         <Grid.Column width={2}>{this.props.root}</Grid.Column>
-        <Grid.Column width={1}>{this.props.occurrence}</Grid.Column>
+        <Grid.Column width={2}>{this.props.occurrence}</Grid.Column>
         <Grid.Column width={2}>{this.props.salish}</Grid.Column>
         <Grid.Column width={2}>{this.props.nicodemus}</Grid.Column>
-        <Grid.Column width={6}>{this.props.english}</Grid.Column>
+        <Grid.Column width={8}>{this.props.english}</Grid.Column>
       </Grid.Row>
     );
   }

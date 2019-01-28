@@ -31,7 +31,7 @@ class StemList extends Component {
     return (
       <div className='ui content'>
         <StemListIntro />
-        <Grid celled='internally' padded='horizontally' verticalAlign='top'>
+        <Grid celled='internally' padded='horizontally' verticalAlign='top' textAlign='center'>
           <StemListElement
             color='blue'
             salish='Salish'
@@ -41,7 +41,7 @@ class StemList extends Component {
         </Grid>
         <h4>Verbs</h4>
         -a-
-        <Grid celled='internally' padded='horizontally' verticalAlign='top'>
+        <Grid celled='internally' padded='horizontally' verticalAlign='top' textAlign='center'>
           <StemListElement
             salish="acqaʔ"
             nicodemus="atsqa'"
@@ -63,9 +63,9 @@ class StemListElement extends Component {
     const color = this.props.color ? this.props.color : 'white';
     return (
       <Grid.Row color={color}>
-        <Grid.Column width={4}>{this.props.salish}</Grid.Column>
-        <Grid.Column width={3}>{this.props.nicodemus}</Grid.Column>
-        <Grid.Column width={6}>{this.props.english}</Grid.Column>
+        <Grid.Column width={5}>{this.props.salish}</Grid.Column>
+        <Grid.Column width={4}>{this.props.nicodemus}</Grid.Column>
+        <Grid.Column width={7}>{this.props.english}</Grid.Column>
       </Grid.Row>
     );
   }

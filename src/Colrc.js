@@ -16,6 +16,8 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faHome, faFont, faSquareRootAlt, faLeaf, faBars } from '@fortawesome/free-solid-svg-icons';
 import { faPagelines, faAudible } from '@fortawesome/free-brands-svg-icons';
+import 'semantic-ui-css/semantic.min.css';
+import './NavBar.css';
 
 class Colrc extends Component {
   state = {
@@ -74,12 +76,12 @@ class Colrc extends Component {
       //];
       return (
         <Router>
-        <div>
+   
           <NavBar rightItems={rightItems}> 
           <MainMenu title="Title"/>
           <Grid container verticalAlign='top'>
             <Grid.Row>
-              <Grid.Column width={13}>
+              <Grid.Column> 
                 <Switch>
                   <Route exact path="/" component={About} />
                   <Route path="/spelling" component={SpellingPronunciation} />
@@ -91,8 +93,8 @@ class Colrc extends Component {
                   <Route path="/texts" component={Texts} />
                   <Route path="/bibliography" component={Bibliography} />
                 </Switch>
-                <AudioPlayer sources={audiolist[0].sources} title={audiolist[0].title} />
-                <AudioPlayer sources={audiolist[1].sources} title={audiolist[1].title} />
+             {/*   <AudioPlayer sources={audiolist[0].sources} title={audiolist[0].title} />
+                <AudioPlayer sources={audiolist[1].sources} title={audiolist[1].title} /> */}
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
@@ -102,7 +104,7 @@ class Colrc extends Component {
             </Grid.Row>
           </Grid>
         </NavBar>
-        </div>
+
       </Router>
       );
     }

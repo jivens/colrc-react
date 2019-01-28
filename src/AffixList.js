@@ -25,7 +25,7 @@ class AffixList extends Component {
     return (
       <div className='ui content'>
         <AffixListIntro />
-        <Grid celled='internally' padded='horizontally' verticalAlign='top'>
+        <Grid celled='internally' padded='horizontally' verticalAlign='top' textAlign='center'>
           <AffixListElement
             color='blue'
             salish='Salish'
@@ -36,7 +36,7 @@ class AffixList extends Component {
           />
         </Grid>
         <h4>Directional Prefixes</h4>
-        <Grid celled='internally' padded='horizontally' verticalAlign='top'>
+        <Grid celled='internally' padded='horizontally' verticalAlign='top' textAlign='center'>
           <AffixListElement
             salish="ci-"
             nicodemus="tsi-"
@@ -63,9 +63,9 @@ class AffixListElement extends Component {
     const weblink = this.props.link === '' ? this.props.page : <a href={this.props.link} target="_blank" rel="noopener noreferrer">{this.props.page}</a>;
     return (
       <Grid.Row color={color}>
-        <Grid.Column width={3}>{this.props.salish}</Grid.Column>
-        <Grid.Column width={3}>{this.props.nicodemus}</Grid.Column>
-        <Grid.Column width={4}>{this.props.english}</Grid.Column>
+        <Grid.Column width={4}>{this.props.salish}</Grid.Column>
+        <Grid.Column width={4}>{this.props.nicodemus}</Grid.Column>
+        <Grid.Column width={5}>{this.props.english}</Grid.Column>
         <Grid.Column width={3}>{weblink}</Grid.Column>
       </Grid.Row>
     );

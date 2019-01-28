@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import {Grid, List } from 'semantic-ui-react';
+import {Grid, List, Container, Header } from 'semantic-ui-react';
+import './NavBar.css';
 
 class MainMenu extends Component {
   render() {
     return (
-      <Grid container verticalAlign='middle'>
-        <Grid.Row>
-          <Grid.Column color='blue' width={10}>
+    <div class="ui grid" id="Banner">
+      <Grid verticalAlign='middle' columns={3}>
+          <Grid.Column width={13}>
             <Masthead title={this.props.title} />
           </Grid.Column>
-          <Grid.Column color='blue' width={3}>
+          <Grid.Column width={3}>
             <OptionsList />
           </Grid.Column>
-        </Grid.Row>
       </Grid>
+      </div>
     );
   }
 }
@@ -21,17 +22,15 @@ class MainMenu extends Component {
 class Masthead extends Component {
   render() {
     return (
-      <Grid container verticalAlign='middle'>
-        <Grid.Row color='blue'>
+      <Grid verticalAlign='middle' columns={2}> 
           <Grid.Column textAlign='center'>
-            Coeur d'Alene Online Language Resource Center
+            <h3>Coeur d'Alene Online Language Resource Center</h3>
           </Grid.Column>
-        </Grid.Row>
-        <Grid.Row color='blue'>
+          <Grid.Column textAlign='center'>
           <Titlebar
             title={this.props.title}
           />
-        </Grid.Row>
+          </Grid.Column>
       </Grid>
     );
   }
@@ -40,7 +39,7 @@ class Masthead extends Component {
 class Titlebar extends Component {
   render() {
     return (
-        <Grid.Column textAlign='center'><h2>{this.props.title}</h2></Grid.Column>
+		<h3>{this.props.title}</h3>
     );
   }
 }
@@ -48,17 +47,15 @@ class Titlebar extends Component {
 class OptionsList extends Component {
   render() {
     return (
-      <Grid container verticalAlign='middle'>
-        <Grid.Row color='blue'>
-          <Grid.Column textAlign='center'>
-            <ul className='float center'>
-              <List.Item>dictionary</List.Item>
-              <List.Item>history</List.Item>
-              <List.Item>metadata</List.Item>
+
+          <Grid.Column>
+          	<ul>
+              <li>dictionary</li>
+              <li>history</li>
+              <li>metadata</li>
             </ul>
           </Grid.Column>
-        </Grid.Row>
-      </Grid>
+
     );
   }
 }

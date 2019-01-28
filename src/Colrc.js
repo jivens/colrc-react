@@ -16,6 +16,8 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faHome, faFont, faSquareRootAlt, faLeaf, faBars } from '@fortawesome/free-solid-svg-icons';
 import { faPagelines, faAudible } from '@fortawesome/free-brands-svg-icons';
+import 'semantic-ui-css/semantic.min.css';
+import './NavBar.css';
 
 class Colrc extends Component {
   state = {
@@ -79,7 +81,7 @@ class Colrc extends Component {
           <MainMenu title="Title"/>
           <Grid container verticalAlign='top'>
             <Grid.Row>
-              <Grid.Column width={13}>
+              <Grid.Column> 
                 <Switch>
                   <Route exact path="/" component={About} />
                   <Route path="/spelling" component={SpellingPronunciation} />

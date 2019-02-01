@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
-import ReactTable from "react-table";
-import "react-table/react-table.css";
 
 class RootDictionaryIntro extends Component {
   render() {
@@ -33,6 +31,9 @@ class RootDictionaryIntro extends Component {
         by the transliterated Coeur d'Alene, followed by Nicodemus's English
         translation, grammatical notations, and additional information.
         <p></p>
+        <p></p>
+        <p style={{ height: 10, color: 'blue' }}>Lyon and Green-Wood's Root Dictionary</p>
+        <p></p>
       </div>
     );
   }
@@ -40,101 +41,33 @@ class RootDictionaryIntro extends Component {
 
 class RootDictionary extends Component {
   render() {
-	const getColumnWidth = (rows, accessor, headerText) => {
-	  const maxWidth = 600
-	  const magicSpacing = 18
-	  const cellLength = Math.max(
-	    ...rows.map(row => (`${row[accessor]}` || '').length),
-	    headerText.length,
-	  )
-	  return Math.min(maxWidth, cellLength * magicSpacing)
-	};
-
-  	const rootData = [{
-	    root: '√a',
-	    number: '1',
-	    salish: 'a',
-	    nicodemus: 'a',
-	    english: '† hello. (gr.)',
-	  },
-	  {
-	    root: '√a',
-	    number: '2',
-	    salish: 'a',
-	    nicodemus: 'a?',
-	    english: 'so. (lit. Is that so?), (adv.)',
-	  },
-	  {
-	    root: '√a',
-	    number: '3',
-	    salish: 'a·',
-	    nicodemus: 'aaaa...!',
-	    english: 'cut out, knock off!, quit, stop. (lit. Cut it out!, Knock it off, quit it, Stop it!), (imper.)',
-	  },
-	  {
-	    root: '√a',
-	    number: '4',
-	    salish: 'aye',
-	    nicodemus: 'aye',
-	    english: 'hey. (adv.)',
-	  },
-	  {
-	    root: '√bc',
-	    number: '1',
-	    salish: 'buc',
-	    nicodemus: 'buts',
-	    english: '† boots. (n.)',
-	  },
-	  {
-	    root: '√bc',
-	    number: '2',
-	    salish: 'ec+búc+buc=šn',
-	    nicodemus: 'etsbutsbutsshn',
-	    english: '// boots (to be wearing...). ((lit. He is wearing boots), n.)',
-	  },
-	  ];
-
-	  const columns = [{
-	    Header: 'Root',
-	    accessor: 'root',
-	    width: getColumnWidth(rootData, 'root', 'Root'),
-	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-	  	},
-	  {
-	    Header: '#',
-	    accessor: 'number',
-	    width: getColumnWidth(rootData, 'number', '#'),
-	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-	  	}, 
-	  {
-	    Header: 'Salish',
-	    accessor: 'salish',
-	    //width: getColumnWidth(rootData, 'salish', 'Salish'),
-	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-	  	}, 
-	  {
-	    Header: 'Nicodemus',
-	    accessor: 'nicodemus',
-	    //width: getColumnWidth(rootData, 'nicodemus', 'Nicodemus'),
-	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-	  },
-	  {
-	    Header: 'English',
-	    accessor: 'english',
-	    style: { 'white-space': 'unset' } 
-	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-	  	}, ];
-
     return (
       <div className='ui content'>
-       <RootDictionaryIntro />
-        <h3>Lyon and Green-Wood's Root Dictionary</h3>
-		  <ReactTable
-		    data={rootData}
-		    columns={columns}
-	   		defaultPageSize={10}
-	   		className="-striped -highlight"
-		  />
+        <RootDictionaryIntro />
+        <Grid celled='internally' padded='horizontally' verticalAlign='top' textAlign='center'>
+          <RootElement
+            color='blue'
+            root='Root'
+            occurrence='#'
+            salish='Salish'
+            nicodemus='Nicodemus'
+            english='English'
+          />
+          <RootElement
+            root="√k'ʷl'1"
+            occurrence="1"
+            salish="k'ʷul'"
+            nicodemus="k'u'l"
+            english="† do, fix, make, to produce. ((stem), vt.)"
+          />
+          <RootElement
+            root="√k'ʷl'1"
+            occurrence="2"
+            salish="k'ʷul'+l'"
+            nicodemus="k'u'lu'l"
+            english="born, made (to be...). ((lit. H/s was born), vi.)"
+          />
+        </Grid>
       </div>
     );
   }

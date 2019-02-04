@@ -14,10 +14,12 @@ import AudioPlayer from './AudioPlayer';
 import Bibliography from './Bibliography';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faHome, faFont, faSquareRootAlt, faLeaf, faBars } from '@fortawesome/free-solid-svg-icons';
-import { faPagelines, faAudible } from '@fortawesome/free-brands-svg-icons';
+import { faHome, faBars } from '@fortawesome/free-solid-svg-icons';
+//import { faPagelines, faAudible } from '@fortawesome/free-brands-svg-icons';
 import 'semantic-ui-css/semantic.min.css';
 import './NavBar.css';
+import './Colrc.css';
+
 
 class Colrc extends Component {
   state = {

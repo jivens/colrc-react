@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
+import ReactTable from "react-table";
+import "react-table/react-table.css";
 
 class AffixListIntro extends Component {
   render() {
-    return (
+     return (
       <div className='ui content'>
       <p>
         The the nearly 200 affixes included here come
@@ -21,55 +23,128 @@ class AffixListIntro extends Component {
 }
 
 class AffixList extends Component {
-  render() {
-    return (
+	render() {
+	  const directionalData = [{
+	    salish: 'ci-',
+	    nicodemus: 'tsi-',
+	    english: 'first, before',
+	    link: <a href='http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up' target="_blank" rel="noopener noreferrer">page 599 (420)</a>,
+	  },
+
+	 {
+	    salish: 'tɛ-',
+	    nicodemus: 'te-',
+	    english: 'thither',
+	    link: <a href='http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n611/mode/2up' target="_blank" rel="noopener noreferrer">page 598 (416)</a>,
+	  },
+	  {
+	    salish: 'čic-',
+	    nicodemus: 'chits-',
+	    english: 'hither (toward speaker)',
+	    link: <a href='http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n611/mode/2up' target="_blank" rel="noopener noreferrer">page 598 (412)</a>,
+	  }, 
+	 {
+	    salish: 'tkʷɛɫ-',
+	    nicodemus: 'tkweɫ-',
+	    english: 'go about to definite place',
+	    link: <a href='http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n610/mode/2up' target="_blank" rel="noopener noreferrer">page 597 (410)</a>,
+	  }, 
+	  {
+	    salish: 'tɛp-',
+	    nicodemus: 'tep-',
+	    english: 'on the way',
+	    link: <a href='http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up' target="_blank" rel="noopener noreferrer">page 599 (418)</a>,
+	  }, 
+	  {
+	    salish: 'tus-',
+	    nicodemus: 'tus-',
+	    english: 'as far as',
+	    link: <a href='http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up' target="_blank" rel="noopener noreferrer">page 599 (419)</a>,
+	  }, 
+	  ];
+
+	  const locativeData = [{
+	    salish: 'cɛn-',
+	    nicodemus: 'tsen-',
+	    english: 'under, off of',
+	    link: <a href='http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n609/mode/2up' target="_blank" rel="noopener noreferrer">page 599 (420)</a>,
+	  },
+
+	 {
+	    salish: 'č-',
+	    nicodemus: 'ch-',
+	    english: 'on, attached to but not a part of, at a point',
+	    link: <a href='http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up' target="_blank" rel="noopener noreferrer">page 595 (395)</a>,
+	  },
+	  {
+	    salish: 'čt-',
+	    nicodemus: 'cht-',
+	    english: 'R notes the meaning of this morpheme is not clear',
+	    link: <a href='http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up' target="_blank" rel="noopener noreferrer">page 595 (397)</a>,
+	  }, 
+	 {
+	    salish: 'čɛt-',
+	    nicodemus: 'chet-',
+	    english: 'on a surface or object broader the subject, above, over',
+	    link: <a href='http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up' target="_blank" rel="noopener noreferrer">page 595 (398)</a>,
+	  }, 
+	  {
+	    salish: 'čs-',
+	    nicodemus: 'chs-',
+	    english: 'after, behind, for a purpose, in pursuit of',
+	    link: <a href='http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up' target="_blank" rel="noopener noreferrer">page 595 (399)</a>,
+	  }, 
+	  {
+	    salish: 'hn-',
+	    nicodemus: 'hn-',
+	    english: 'in, onto, into, on',
+	    link: <a href='http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n609/mode/2up' target="_blank" rel="noopener noreferrer">page 599 (419)</a>,
+	  }, 
+	  ];
+
+	  const columns = [{
+	    Header: 'Salish',
+	    accessor: 'salish',
+	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+	  	},
+	  {
+	    Header: 'Nicodemus',
+	    accessor: 'nicodemus',
+	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+	  	}, 
+	  {
+	    Header: 'English',
+	    accessor: 'english',
+	    style: { 'white-space': 'unset' } 
+	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+	  	}, 
+	  {
+	    Header: 'Link',
+	    accessor: 'link',
+	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+	  }];
+
+
+	  return (
       <div className='ui content'>
         <AffixListIntro />
-        <Grid celled='internally' padded='horizontally' verticalAlign='top'>
-          <AffixListElement
-            color='blue'
-            salish='Salish'
-            nicodemus='Nicodemus'
-            english='English'
-            link=''
-            page='Link'
-          />
-        </Grid>
-        <h4>Directional Prefixes</h4>
-        <Grid celled='internally' padded='horizontally' verticalAlign='top'>
-          <AffixListElement
-            salish="ci-"
-            nicodemus="tsi-"
-            english="first, before"
-            link="http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up"
-            page="page 599 (420)"
-          />
-          <AffixListElement
-            salish="čic-"
-            nicodemus="chits-"
-            english="hither (toward speaker)"
-            link="http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n611/mode/2up"
-            page="page 598 (412)"
-          />
-        </Grid>
-      </div>
-    );
-  }
-}
-
-class AffixListElement extends Component {
-  render() {
-    const color = this.props.color ? this.props.color : 'white';
-    const weblink = this.props.link === '' ? this.props.page : <a href={this.props.link} target="_blank" rel="noopener noreferrer">{this.props.page}</a>;
-    return (
-      <Grid.Row color={color}>
-        <Grid.Column width={3}>{this.props.salish}</Grid.Column>
-        <Grid.Column width={3}>{this.props.nicodemus}</Grid.Column>
-        <Grid.Column width={4}>{this.props.english}</Grid.Column>
-        <Grid.Column width={3}>{weblink}</Grid.Column>
-      </Grid.Row>
-    );
-  }
+        <h3>Directional Prefixes</h3>
+		  <ReactTable
+		    data={directionalData}
+		    columns={columns}
+	   		defaultPageSize={5}
+	   		className="-striped -highlight"
+		  />
+		<h3>Locative Prefixes</h3>
+		  <ReactTable
+		    data={locativeData}
+		    columns={columns}
+		    defaultPageSize={5}
+	   		className="-striped -highlight"
+		  />
+		</div>
+	  );
+	}
 }
 
 export default AffixList;

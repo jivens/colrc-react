@@ -122,7 +122,8 @@ class AffixList extends Component {
 	    Header: 'Link',
 	    accessor: 'link',
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-	  }];
+	  }
+	  ];
 
 
 	  return (
@@ -134,6 +135,7 @@ class AffixList extends Component {
 		    columns={columns}
 	   		defaultPageSize={5}
 	   		className="-striped -highlight"
+	   		className="left"
 		  />
 		<h3>Locative Prefixes</h3>
 		  <ReactTable

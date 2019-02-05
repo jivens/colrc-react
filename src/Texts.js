@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
+import ReactTable from "react-table";
+import "react-table/react-table.css";
 
 class TextsIntro extends Component {
   render() {
@@ -25,98 +27,341 @@ class TextsIntro extends Component {
 
 class Texts extends Component {
   render() {
-    return (
+
+	const getColumnWidth = (rows, accessor, headerText) => {
+	  const maxWidth = 600
+	  const magicSpacing = 18
+	  const cellLength = Math.max(
+	    ...rows.map(row => (`${row[accessor]}` || '').length),
+	    headerText.length,
+	  )
+	  return Math.min(maxWidth, cellLength * magicSpacing)
+	};
+
+   	const ccrData = [{
+	    name: "Chief Child of the Root (Transformer)",
+	    number: "1",
+	    rNumber: "(1)",
+	    typed: "image, pdf, metadata",
+	    hand: "---", 
+	    both: "---",
+	    english: "image, pdf",
+	    audio: "---",
+
+	  },]
+
+	 const coyoteData = [{
+	    name: "Origin of Indian tribes (From Parts of Monster)",
+	    number: "2",
+	    rNumber: "(2)",
+	    typed: "image, pdf, metadata",
+	    hand: "---", 
+	    both: "---",
+	    english: "image, pdf",
+	    audio: "---",
+
+	  },
+	  {
+	    name: "Coyote Overpowers Sun",
+	    number: "3",
+	    rNumber: "(3)",
+	    typed: "image, pdf, metadata",
+	    hand: "image, pdf, metadata", 
+	    both: "view",
+	    english: "image, pdf",
+	    audio: "---",
+
+	  },
+	  {
+	    name: "Coyote steals his daughter-in-law",
+	    number: "4",
+	    rNumber: "(4)",
+	    typed: "image, pdf, metadata",
+	    hand: "image, pdf, metadata", 
+	    both: "view",
+	    english: "image, pdf",
+	    audio: "---",
+
+	  },
+	  {
+	    name: "Little Beaver",
+	    number: "5",
+	    rNumber: "(6)",
+	    typed: "image, pdf, metadata",
+	    hand: "image, pdf, metadata", 
+	    both: "view",
+	    english: "image, pdf",
+	    audio: "---",
+
+	  },
+	  {
+	    name: "Coyote devours his own children",
+	    number: "6",
+	    rNumber: "(7)",
+	    typed: "image, pdf, metadata",
+	    hand: "image, pdf, metadata", 
+	    both: "view",
+	    english: "image, pdf",
+	    audio: "---",
+	  },	  
+	  {
+	    name: "Coyote loses his eyes (Eye Juggling)",
+	    number: "7",
+	    rNumber: "(8)",
+	    typed: "image, pdf, metadata",
+	    hand: "---", 
+	    both: "---",
+	    english: "image, pdf",
+	    audio: "---",
+	  },	  
+	  {
+	    name: "Story of Lynx (by Tom Miyal)",
+	    number: "9a",
+	    rNumber: "(20)",
+	    typed: "image, pdf, metadata",
+	    hand: "image, pdf, metadata", 
+	    both: "both",
+	    english: "image, pdf",
+	    audio: "---",
+	  },
+	  {
+	    name: "Story of Lynx (by Dorthy Nicodemus)",
+	    number: "9b",
+	    rNumber: "(21)",
+	    typed: "image, pdf, metadata",
+	    hand: "image, pdf, metadata", 
+	    both: "both",
+	    english: "image, pdf",
+	    audio: "---",
+
+	  },	  
+	  {
+	    name: "Cricket Rides Coyote",
+	    number: "20",
+	    rNumber: "(16)",
+	    typed: "image, pdf, metadata",
+	    hand: "image, pdf, metadata", 
+	    both: "both",
+	    english: "image, pdf",
+	    audio: "In Coeur d'Alene, In English",
+
+	  },]
+
+	  const nonCoyoteData = [{
+	    name: "Catbird",
+	    number: "22",
+	    rNumber: "(23)",
+	    typed: "image, pdf, metadata",
+	    hand: "image, pdf, metadata", 
+	    both: "both",
+	    english: "image, pdf",
+	    audio: "---",
+	  },
+	 {
+	    name: "Skunk and Fisher",
+	    number: "23",
+	    rNumber: "(22)",
+	    typed: "image, pdf, metadata",
+	    hand: "image, pdf, metadata", 
+	    both: "both",
+	    english: "image, pdf",
+	    audio: "---",
+	  },
+	 {
+	    name: "The girls who stole dentalia (Kidnapping)",
+	    number: "24",
+	    rNumber: "(24)",
+	    typed: "image, pdf, metadata",
+	    hand: "image, pdf, metadata", 
+	    both: "both",
+	    english: "image, pdf",
+	    audio: "---",
+	  },
+	 {
+	    name: "Thunder",
+	    number: "25",
+	    rNumber: "(26)",
+	    typed: "image, pdf, metadata",
+	    hand: "image, pdf, metadata", 
+	    both: "both",
+	    english: "image, pdf",
+	    audio: "---",
+	  },
+	 ]
+
+	  return (
+
       <div className='ui content'>
-         <TextsIntro />
+        <TextsIntro />
+        <h3>A. Chief Child of the Root (Transformer)</h3>
+		  <ReactTable
+		    data={ccrData}
+		    columns={[	    
+			{
+		   		Header: 'Text',
+		    	columns: [
+			    {
+			    	Header: 'Name',
+			    	accessor: 'name',
+	    			style: { 'white-space': 'unset' } 
+			    }, 
 
-	      <Grid celled='internally' padded='horizontally' verticalAlign='top'>
-	          <TextElement
-	            color='black'
-	            cycle='Chief Child of the Root (Transformer)'
-	          />
+			    {
+			    	Header: '#',
+			    	accessor: 'number',
+			    	width: getColumnWidth(ccrData, 'number', '#'),
+			    },
+			    {
+			    	Header: 'orig.#',
+			    	accessor: 'rNumber',
+			    	width: getColumnWidth(ccrData, 'rNumber', 'orig.#'),
+			    }
+			  ]
+			}, 
+			{
+				Header: 'Formats',
+			    columns: [
+			    {
+			    	Header: 'Typed',
+			    	accessor: 'typed',
+			    },
+			    {
+			    	Header: 'Hand-written',
+			    	accessor: 'hand',
+			    },
+			    {
+			    	Header: 'Both',
+			    	accessor: 'both',
+			    },
+			    {
+			    	Header: 'English',
+			    	accessor: 'english',
+			    },
+			    {
+			    	Header: 'Audio',
+			    	accessor: 'audio',
+			    },
+			  ]
+		    },
+		    ]}
+	   		defaultPageSize={1}
+	   		className="-striped -highlight"
+	   		className="left"
+		  />
+        <h3>B. Coyote Cycle (2-21)</h3>
+		  <ReactTable
+		    data={coyoteData}
+		    columns={[	    
+			{
+		   		Header: 'Text',
+		    	columns: [
+			    {
+			    	Header: 'Name',
+			    	accessor: 'name',
+	    			style: { 'white-space': 'unset' } 
+			    }, 
 
-	      </Grid>
+			    {
+			    	Header: '#',
+			    	accessor: 'number',
+			    	width: getColumnWidth(coyoteData, 'number', '#'),
+			    },
+			    {
+			    	Header: 'orig.#',
+			    	accessor: 'rNumber',
+			    	width: getColumnWidth(coyoteData, 'rNumber', 'orig.#'),
+			    }
+			  ]
+			}, 
+			{
+				Header: 'Formats',
+			    columns: [
+			    {
+			    	Header: 'Typed',
+			    	accessor: 'typed',
+			    },
+			    {
+			    	Header: 'Hand-written',
+			    	accessor: 'hand',
+			    },
+			    {
+			    	Header: 'Both',
+			    	accessor: 'both',
+			    },
+			    {
+			    	Header: 'English',
+			    	accessor: 'english',
+			    },
+			    {
+			    	Header: 'Audio',
+			    	accessor: 'audio',
+			    },
+			  ]
+		    },
+		    ]}
+	   		defaultPageSize={5}
+	   		className="-striped -highlight"
+	   		className="left"
+		  />
+        <h3>C. Texts not in the Coyote cycle (22-36)</h3>
+		  <ReactTable
+		    data={nonCoyoteData}
+		    columns={[	    
+			{
+		   		Header: 'Text',
+		    	columns: [
+			    {
+			    	Header: 'Name',
+			    	accessor: 'name',
+	    			style: { 'white-space': 'unset' } 
+			    }, 
 
-	      <Grid celled='internally' padded='horizontally' verticalAlign='top' textAlign='center'>
-	     	 <TextElement2
-	      		color='blue'
-	      		title='Title'
-	            versions='Versions'
-	            audio='Audio'
-	            translation='Translation'
-	          />
-	          <TextElement2
-	            title='(1) Chief Child of the Root (Transformer)'
-	            versions='typed manuscript (pdf, image, metadata)'
-	            audio=' -- '
-	            translation='link'
-	          />
-	      </Grid>
-
-	      <Grid celled='internally' padded='horizontally' verticalAlign='top'>
-	          <TextElement
-	            color='black'
-	            cycle='Coyote Cycle (2-21)'
-	          />
-
-	      </Grid>
-
-        <Grid celled='internally' padded='horizontally' verticalAlign='top' textAlign='center'>
-	          <TextElement2
-	            color='blue'
-	            title='Title'
-	            versions='Versions'
-	            audio='Audio'
-	            translation='Translation'
-	          />
-
-        <TextElement2
-	    	    title='(2) Origin of Indian tribes (From Parts of Monster)'
-	           	versions='typed manuscript (pdf, image, metadata)'
-	            audio=' -- '
-	            translation='link'
-	           />
-       <TextElement2
-	    	    title='(3) Coyote overpowers Sun'
-	            versions='typed manuscript (pdf, image, metadata), hand-written field notes (pdf, image, metadata), both'
-	            audio=' -- '
-	            translation='link'
-	           />
-	    <TextElement2
-	    	    title='(4) Coyote steals his daughter in law'
-	            versions='typed manuscript (pdf, image, metadata), hand-written field notes (pdf, image, metadata), both'
-	            audio=' -- '
-	            translation='link'
-	           />
-        </Grid>
-      </div>
-    );
-  }
+			    {
+			    	Header: '#',
+			    	accessor: 'number',
+			    	width: getColumnWidth(coyoteData, 'number', '#'),
+			    },
+			    {
+			    	Header: 'orig.#',
+			    	accessor: 'rNumber',
+			    	width: getColumnWidth(coyoteData, 'rNumber', 'orig.#'),
+			    }
+			  ]
+			}, 
+			{
+				Header: 'Formats',
+			    columns: [
+			    {
+			    	Header: 'Typed',
+			    	accessor: 'typed',
+			    },
+			    {
+			    	Header: 'Hand-written',
+			    	accessor: 'hand',
+			    },
+			    {
+			    	Header: 'Both',
+			    	accessor: 'both',
+			    },
+			    {
+			    	Header: 'English',
+			    	accessor: 'english',
+			    },
+			    {
+			    	Header: 'Audio',
+			    	accessor: 'audio',
+			    },
+			  ]
+		    },
+		    ]}
+	   		defaultPageSize={5}
+	   		className="-striped -highlight"
+	   		className="left"
+		  />
+		</div>
+	  );
+	}
 }
 
-class TextElement extends Component {
-  render() {
-    const color = this.props.color ? this.props.color : 'white';
-    return (
-      <Grid.Row color={color}>
-        <Grid.Column width={6}>{this.props.cycle}</Grid.Column>
-      </Grid.Row>
-    );
-  }
-}
-
-class TextElement2 extends Component {
-  render() {
-    const color = this.props.color ? this.props.color : 'white';
-    return (
-      <Grid.Row color={color}>
-        <Grid.Column width={5}>{this.props.title}</Grid.Column>
-        <Grid.Column width={7}>{this.props.versions}</Grid.Column>
-        <Grid.Column width={2}>{this.props.audio}</Grid.Column>
-        <Grid.Column width={2}>{this.props.translation}</Grid.Column>
-      </Grid.Row>
-    );
-  }
-}
 
 export default Texts;

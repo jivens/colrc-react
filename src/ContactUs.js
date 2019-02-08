@@ -69,8 +69,8 @@ class ContactUs extends Component {
 		  <div>
 		  <h3>People</h3>
 		  <ul>
-		  { this.state.people.map(({ name, email }, i) =>
-			<li key={i}>{name} ({ email })</li>
+		  { this.state.people.map(({ name, email, message }, i) =>
+			<li key={i}>{name} { email } { message }</li>
 			) }
 			</ul>
 

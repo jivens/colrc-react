@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import matchSorter from 'match-sorter';
 
 class StemListIntro extends Component {
   render() {
@@ -26,7 +27,19 @@ class StemListIntro extends Component {
 
 class StemList extends Component {
   render() {
-	  const verbsData = [{
+
+ 	const getColumnWidth = (rows, accessor, headerText) => {
+	  const maxWidth = 600
+	  const magicSpacing = 22
+	  const cellLength = Math.max(
+	    ...rows.map(row => (`${row[accessor]}` || '').length),
+	    headerText.length,
+	  )
+	  return Math.min(maxWidth, cellLength * magicSpacing)
+	};
+
+	  const stemData = [{
+		category: "verb",
 	    reichard: "atsqä'ä",
 	    doak: "ʔacqeʔ",
 	    salish: "acqaʔ",
@@ -37,7 +50,8 @@ class StemList extends Component {
 	  },
 
 	  {
-	    reichard: "ats̕x̣",
+		category: "verb",
+		reichard: "ats̕x̣",
 	    doak: "ʔac'x̣",
 	    salish: "acqaʔ",
 	    nicodemus: "ats'qh", 
@@ -46,15 +60,17 @@ class StemList extends Component {
 
 	  },
 	  {
+	    category: "verb",
 	    reichard: "ayx̣ʷ",
 	    doak: "ʔac'x̣",
 	    salish: "ʔayx̣ʷ",
-	    nicodemus: "ayx̣ʷ(-t)", 
+	    nicodemus: "ayqhw(-t)", 
 	    english: "be tired",
 	    note: "",
 
 	  },
 	  {
+		category: "verb",
 	    reichard: "ax̣il",
 	    doak: "ʔax̣il",
 	    salish: "ax̣il",
@@ -64,6 +80,7 @@ class StemList extends Component {
 
 	  },
 	  {
+		category: "verb",
 	    reichard: "aṛʷ",
 	    doak: "ʔaʕʷ",
 	    salish: "aʕʷ",
@@ -73,6 +90,7 @@ class StemList extends Component {
 
 	  },
 	  {
+		category: "verb",
 	    reichard: "äpɬ",
 	    doak: "ʔepɬʷ",
 	    salish: "ɛpɫʷ",
@@ -81,9 +99,8 @@ class StemList extends Component {
 	    note: "",
 
 	  },
-	  ]
-
-	  const adverbsData = [{
+	  {
+		category: "other",
 	    reichard: "aˑˑˑ",
 	    doak: "---",
 	    salish: "a···",
@@ -94,6 +111,7 @@ class StemList extends Component {
 	  },
 
 	  {
+		category: "other",
 	    reichard: "aˑˑˑ",
 	    doak: "---",
 	    salish: "a···",
@@ -103,6 +121,7 @@ class StemList extends Component {
 
 	  },
 	  {
+		category: "other",
 	    reichard: "ax̣iw̕ɬ",
 	    doak: "---",
 	    salish: "ax̣iw'ɫ",
@@ -112,6 +131,7 @@ class StemList extends Component {
 
 	  },
 	  {
+		category: "other",
 	    reichard: "uts̕-ax̣íɬ",
 	    doak: "---",
 	    salish: "uc'-ax̣íɫ",
@@ -121,6 +141,7 @@ class StemList extends Component {
 
 	  },
 	  {
+		category: "other",
 	    reichard: "äy̕níɬ",
 	    doak: "---",
 	    salish: "---",
@@ -130,17 +151,17 @@ class StemList extends Component {
 
 	  },
 	  {
+		category: "other",
 	    reichard: "pintc or pinttc",
-	    doak: "--",
+	    doak: "---",
 	    salish: "pinč or pintč",
 	    nicodemus: "pinch", 
 	    english: "always",
 	    note: "",
 
 	  },
-	  ]
-
-	 const nounsData = [{
+	  {
+		category: "noun",
 	    reichard: "*aapᴐˊtar",
 	    doak: "---",
 	    salish: "apótar",
@@ -151,6 +172,7 @@ class StemList extends Component {
 	  },
 
 	  {
+		category: "noun",
 	    reichard: "aɬq̕ʷäˊt̕ut",
 	    doak: "---",
 	    salish: "aɫq'ʷɛ́t'ut",
@@ -160,6 +182,7 @@ class StemList extends Component {
 
 	  },
 	  {
+		category: "noun",
 	    reichard: "---",
 	    doak: "ɛsčíčɛʔ",
 	    salish: "ɛsčíčɛʔ",
@@ -169,6 +192,7 @@ class StemList extends Component {
 
 	  },
 	  {
+		category: "noun",
 	    reichard: "s-ʀin",
 	    doak: "---",
 	    salish: "s-ʕin",
@@ -178,6 +202,7 @@ class StemList extends Component {
 
 	  },
 	  {
+		category: "noun",
 	    reichard: "s-x̣ʷäˊṛʷ-x̣ʷäṛʷ",
 	    doak: "---",
 	    salish: "s-x̣ʷɛ́ʕʷ-x̣ʷɛʕʷ",
@@ -187,6 +212,7 @@ class StemList extends Component {
 
 	  },
 	  {
+		category: "noun",
 	    reichard: "s-x̣ʷụɬ-x̣ʷáɬ",
 	    doak: "--",
 	    salish: "x̣ʷəɫ-x̣ʷáɫ",
@@ -198,30 +224,70 @@ class StemList extends Component {
 	  ]
 
 	  const columns = [{
+	    Header: 'Type',
+	    accessor: 'category',
+	    width: getColumnWidth(stemData, 'category', 'Type'),
+	    filterMethod: (filter, row) => {
+	            if (filter.value === "all") {
+	              return true;
+	            }
+	            return row[filter.id] === filter.value;
+	        },
+	    Filter: ({ filter, onChange }) =>
+            <select
+              onChange={event => onChange(event.target.value)}
+              style={{ width: "100%" }}
+              value={filter ? filter.value : "all"}
+            >
+              <option value="all">Show All</option>
+              <option value="verb">Verbs</option>
+              <option value="noun">Nouns</option>
+              <option value="other">Other</option>
+            </select>,
+	  	},
+		{
 	    Header: 'Reichard',
 	    accessor: 'reichard',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["reichard"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
 	  	},
 	  {
 	    Header: 'Doak',
 	    accessor: 'doak',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["doak"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
 	  	},
 	  {
 	    Header: 'Salish',
 	    accessor: 'salish',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["salish"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
 	  	},
 	  {
 	    Header: 'Nicodemus',
 	    accessor: 'nicodemus',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["nicodemus"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
 	  	}, 
 	  {
 	    Header: 'English',
 	    accessor: 'english',
-	    style: { 'white-space': 'unset' } 
+	    style: { 'white-space': 'unset' },
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
 	  	}, 
 	  {
 	    Header: 'Note',
 	    accessor: 'note',
-	    style: { 'white-space': 'unset' } 
+	    style: { 'white-space': 'unset' },
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["note"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true, 
 	  }
 	  ];
 
@@ -230,29 +296,15 @@ class StemList extends Component {
       <div className='ui content'>
         <StemListIntro />
         <h3>Annotated Stem List</h3>
-        <h4>Verbs</h4>
+        <p>Stem type as listed by Reichard, 'Other' = 'Adverbs, Interjections, Conjunctions'</p>
 		  <ReactTable
-		    data={verbsData}
+		    data={stemData}
 		    columns={columns}
 	   		defaultPageSize={5}
 	   		className="-striped -highlight"
 	   		className="left"
-		  />
-		 <h4>Adverbs, Interjections, Conjunctions</h4>
-		  <ReactTable
-		    data={adverbsData}
-		    columns={columns}
-	   		defaultPageSize={5}
-	   		className="-striped -highlight"
-	   		className="left"
-		  />
-		 <h4>Nouns</h4>
-		  <ReactTable
-		    data={nounsData}
-		    columns={columns}
-	   		defaultPageSize={5}
-	   		className="-striped -highlight"
-	   		className="left"
+	   		filterable="true"
+	   		filterAll="true"
 		  />
 		</div>
 	  );

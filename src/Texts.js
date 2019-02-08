@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import treeTableHOC from "react-table/lib/hoc/treeTable";
+import matchSorter from 'match-sorter';
 
 class TextsIntro extends Component {
   render() {
@@ -38,8 +40,16 @@ class Texts extends Component {
 	  return Math.min(maxWidth, cellLength * magicSpacing)
 	};
 
-   	const ccrData = [{
-	    name: "Chief Child of the Root (Transformer)",
+	const TreeTable = treeTableHOC(ReactTable);
+
+	function getTdProps(state, ri, ci) {
+	  console.log({ state, ri, ci });
+	  return {};
+	}
+
+   	const textsData = [{
+		cycle: "Chief Child of the Root (Transformer)",
+	    title: "Chief Child of the Root (Transformer)",
 	    number: "1",
 	    rNumber: "(1)",
 	    typed: "image, pdf, metadata",
@@ -48,10 +58,10 @@ class Texts extends Component {
 	    english: "image, pdf",
 	    audio: "---",
 
-	  },]
-
-	 const coyoteData = [{
-	    name: "Origin of Indian tribes (From Parts of Monster)",
+	  },
+	  {
+		cycle: "Coyote Cycle",
+	    title: "Origin of Indian tribes (From Parts of Monster)",
 	    number: "2",
 	    rNumber: "(2)",
 	    typed: "image, pdf, metadata",
@@ -62,18 +72,20 @@ class Texts extends Component {
 
 	  },
 	  {
-	    name: "Coyote Overpowers Sun",
+		cycle: "Coyote Cycle",
+	    title: "Coyote Overpowers Sun",
 	    number: "3",
 	    rNumber: "(3)",
 	    typed: "image, pdf, metadata",
 	    hand: "image, pdf, metadata", 
-	    both: "view",
+	    both: <a href="http://lasrv01.ipfw.edu/COLRC/texts/3_fccsh/dual_view3.php" target="_blank" rel="noopener noreferrer">both</a>,
 	    english: "image, pdf",
 	    audio: "---",
 
 	  },
 	  {
-	    name: "Coyote steals his daughter-in-law",
+		cycle: "Coyote Cycle",
+	    title: "Coyote steals his daughter-in-law",
 	    number: "4",
 	    rNumber: "(4)",
 	    typed: "image, pdf, metadata",
@@ -84,7 +96,8 @@ class Texts extends Component {
 
 	  },
 	  {
-	    name: "Little Beaver",
+		cycle: "Coyote Cycle",
+	    title: "Little Beaver",
 	    number: "5",
 	    rNumber: "(6)",
 	    typed: "image, pdf, metadata",
@@ -95,7 +108,8 @@ class Texts extends Component {
 
 	  },
 	  {
-	    name: "Coyote devours his own children",
+	  	cycle: "Coyote Cycle",
+	    title: "Coyote devours his own children",
 	    number: "6",
 	    rNumber: "(7)",
 	    typed: "image, pdf, metadata",
@@ -105,7 +119,8 @@ class Texts extends Component {
 	    audio: "---",
 	  },	  
 	  {
-	    name: "Coyote loses his eyes (Eye Juggling)",
+		cycle: "Coyote Cycle",
+	    title: "Coyote loses his eyes (Eye Juggling)",
 	    number: "7",
 	    rNumber: "(8)",
 	    typed: "image, pdf, metadata",
@@ -115,7 +130,8 @@ class Texts extends Component {
 	    audio: "---",
 	  },	  
 	  {
-	    name: "Story of Lynx (by Tom Miyal)",
+		cycle: "Coyote Cycle",
+	    title: "Story of Lynx (by Tom Miyal)",
 	    number: "9a",
 	    rNumber: "(20)",
 	    typed: "image, pdf, metadata",
@@ -125,7 +141,8 @@ class Texts extends Component {
 	    audio: "---",
 	  },
 	  {
-	    name: "Story of Lynx (by Dorthy Nicodemus)",
+	  	cycle: "Coyote Cycle",
+	    title: "Story of Lynx (by Dorthy Nicodemus)",
 	    number: "9b",
 	    rNumber: "(21)",
 	    typed: "image, pdf, metadata",
@@ -136,7 +153,8 @@ class Texts extends Component {
 
 	  },	  
 	  {
-	    name: "Cricket Rides Coyote",
+		cycle: "Coyote Cycle",
+	    title: "Cricket Rides Coyote",
 	    number: "20",
 	    rNumber: "(16)",
 	    typed: "image, pdf, metadata",
@@ -145,10 +163,11 @@ class Texts extends Component {
 	    english: "image, pdf",
 	    audio: "In Coeur d'Alene, In English",
 
-	  },]
+	  },
 
-	  const nonCoyoteData = [{
-	    name: "Catbird",
+	{
+		cycle: "Texts not in the Coyote Cycle",
+	    title: "Catbird",
 	    number: "22",
 	    rNumber: "(23)",
 	    typed: "image, pdf, metadata",
@@ -158,7 +177,8 @@ class Texts extends Component {
 	    audio: "---",
 	  },
 	 {
-	    name: "Skunk and Fisher",
+		cycle: "Texts not in the Coyote Cycle",
+	    title: "Skunk and Fisher",
 	    number: "23",
 	    rNumber: "(22)",
 	    typed: "image, pdf, metadata",
@@ -168,7 +188,8 @@ class Texts extends Component {
 	    audio: "---",
 	  },
 	 {
-	    name: "The girls who stole dentalia (Kidnapping)",
+		cycle: "Texts not in the Coyote Cycle",
+		title: "The girls who stole dentalia (Kidnapping)",
 	    number: "24",
 	    rNumber: "(24)",
 	    typed: "image, pdf, metadata",
@@ -178,7 +199,8 @@ class Texts extends Component {
 	    audio: "---",
 	  },
 	 {
-	    name: "Thunder",
+		cycle: "Texts not in the Coyote Cycle",
+	    title: "Thunder",
 	    number: "25",
 	    rNumber: "(26)",
 	    typed: "image, pdf, metadata",
@@ -187,178 +209,131 @@ class Texts extends Component {
 	    english: "image, pdf",
 	    audio: "---",
 	  },
-	 ]
+	 ];
+
+	const columns=[	    
+			{
+			    Header: 'Cycle',
+			    accessor: 'cycle',
+	    		style: { 'white-space': 'unset' },
+	    		filterable: 'true',
+		    	filterMethod: (filter, row) => {
+			            if (filter.value === "all") {
+			              return true;
+			            }
+			            return row[filter.id] === filter.value;
+			        },
+			    Filter: ({ filter, onChange }) =>
+		            <select
+		              onChange={event => onChange(event.target.value)}
+		              style={{ width: "100%" }}
+		              value={filter ? filter.value : "all"}
+		            >
+		              <option value="all">Show All</option>
+		              <option value="Chief Child of the Root (Transformer)">Chief Child of the Root</option>
+		              <option value="Coyote Cycle">Coyote Cycle</option>
+		              <option value="Texts not in the Coyote Cycle">Not Coyote Cycle</option>
+		            </select>,
+			 }, 
+			{
+			    Header: 'Title',
+			    accessor: 'title',
+	    		style: { 'white-space': 'unset' },
+	    		filterable: 'true',
+	    		filterMethod: (filter, rows) =>
+        			matchSorter(rows, filter.value, { keys: ["title"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
+	    		Aggregated: ' ',
+			 }, 
+			{
+			    Header: () => (
+			    	<div style={{ 
+			    		textAlign: "left"
+			    	}}>
+			    	#
+			    	</div>
+			    ),
+			    accessor: 'number',
+			    width: getColumnWidth(textsData, 'number', '#'),
+			    Aggregated: ' ',
+			 },
+			 {
+			   	Header: () => (
+			    	<div style={{ 
+			    		textAlign: "left"
+			    	}}>
+			    	R#
+			    	</div>
+			    ),
+			    accessor: 'rNumber',
+			    width: getColumnWidth(textsData, 'rNumber', 'r#'),
+	    		Aggregated: ' ',
+			 },    
+			 {
+			    Header: 'Typed',
+			    accessor: 'typed',
+			    style: { 'white-space': 'unset' }, 
+	    		Aggregated: ' ',
+			  },
+		    {
+		    	Header: 'Hand-written',
+		    	accessor: 'hand',
+		    	style: { 'white-space': 'unset' }, 
+	    		Aggregated: ' ',
+		    },
+		    {
+		    	Header: 'Both',
+		    	accessor: 'both',
+	    		Aggregated: ' ',		    	
+		    },
+		   {
+		    	Header: 'English',
+		    	accessor: 'english',
+		    	style: { 'white-space': 'unset' },
+	    		Aggregated: ' ',
+		    },
+		    {
+		    	Header: 'Audio',
+		    	accessor: 'audio',
+	    		Aggregated: ' ',
+		    },
+		  ];
+
+  	/*SubComponent={row => {
+			return (
+			<ReactTable 
+				data={textsData}
+				columns={nextColumns}
+				defaultPageSize={10}
+				showPagination={false}	
+			/>
+	   				)}
+	   			}*/
+
+	/* 
+          defaultFilterMethod={(filter, row, column) => {
+            const id = filter.pivotId || filter.id;
+            return row[id] !== undefined
+              ? String(row[id])
+                  .toLowerCase()
+                  .includes(filter.value.toLowerCase())
+              : true;
+          }}       */
 
 	  return (
 
       <div className='ui content'>
         <TextsIntro />
-        <h3>A. Chief Child of the Root (Transformer)</h3>
-		  <ReactTable
-		    data={ccrData}
-		    columns={[	    
-			{
-		   		Header: 'Text',
-		    	columns: [
-			    {
-			    	Header: 'Name',
-			    	accessor: 'name',
-	    			style: { 'white-space': 'unset' } 
-			    }, 
-
-			    {
-			    	Header: '#',
-			    	accessor: 'number',
-			    	width: getColumnWidth(ccrData, 'number', '#'),
-			    },
-			    {
-			    	Header: 'orig.#',
-			    	accessor: 'rNumber',
-			    	width: getColumnWidth(ccrData, 'rNumber', 'orig.#'),
-			    }
-			  ]
-			}, 
-			{
-				Header: 'Formats',
-			    columns: [
-			    {
-			    	Header: 'Typed',
-			    	accessor: 'typed',
-			    },
-			    {
-			    	Header: 'Hand-written',
-			    	accessor: 'hand',
-			    },
-			    {
-			    	Header: 'Both',
-			    	accessor: 'both',
-			    },
-			    {
-			    	Header: 'English',
-			    	accessor: 'english',
-			    },
-			    {
-			    	Header: 'Audio',
-			    	accessor: 'audio',
-			    },
-			  ]
-		    },
-		    ]}
-	   		defaultPageSize={1}
-	   		className="-striped -highlight"
-	   		className="left"
-		  />
-        <h3>B. Coyote Cycle (2-21)</h3>
-		  <ReactTable
-		    data={coyoteData}
-		    columns={[	    
-			{
-		   		Header: 'Text',
-		    	columns: [
-			    {
-			    	Header: 'Name',
-			    	accessor: 'name',
-	    			style: { 'white-space': 'unset' } 
-			    }, 
-
-			    {
-			    	Header: '#',
-			    	accessor: 'number',
-			    	width: getColumnWidth(coyoteData, 'number', '#'),
-			    },
-			    {
-			    	Header: 'orig.#',
-			    	accessor: 'rNumber',
-			    	width: getColumnWidth(coyoteData, 'rNumber', 'orig.#'),
-			    }
-			  ]
-			}, 
-			{
-				Header: 'Formats',
-			    columns: [
-			    {
-			    	Header: 'Typed',
-			    	accessor: 'typed',
-			    },
-			    {
-			    	Header: 'Hand-written',
-			    	accessor: 'hand',
-			    },
-			    {
-			    	Header: 'Both',
-			    	accessor: 'both',
-			    },
-			    {
-			    	Header: 'English',
-			    	accessor: 'english',
-			    },
-			    {
-			    	Header: 'Audio',
-			    	accessor: 'audio',
-			    },
-			  ]
-		    },
-		    ]}
-	   		defaultPageSize={5}
-	   		className="-striped -highlight"
-	   		className="left"
-		  />
-        <h3>C. Texts not in the Coyote cycle (22-36)</h3>
-		  <ReactTable
-		    data={nonCoyoteData}
-		    columns={[	    
-			{
-		   		Header: 'Text',
-		    	columns: [
-			    {
-			    	Header: 'Name',
-			    	accessor: 'name',
-	    			style: { 'white-space': 'unset' } 
-			    }, 
-
-			    {
-			    	Header: '#',
-			    	accessor: 'number',
-			    	width: getColumnWidth(coyoteData, 'number', '#'),
-			    },
-			    {
-			    	Header: 'orig.#',
-			    	accessor: 'rNumber',
-			    	width: getColumnWidth(coyoteData, 'rNumber', 'orig.#'),
-			    }
-			  ]
-			}, 
-			{
-				Header: 'Formats',
-			    columns: [
-			    {
-			    	Header: 'Typed',
-			    	accessor: 'typed',
-			    },
-			    {
-			    	Header: 'Hand-written',
-			    	accessor: 'hand',
-			    },
-			    {
-			    	Header: 'Both',
-			    	accessor: 'both',
-			    },
-			    {
-			    	Header: 'English',
-			    	accessor: 'english',
-			    },
-			    {
-			    	Header: 'Audio',
-			    	accessor: 'audio',
-			    },
-			  ]
-		    },
-		    ]}
-	   		defaultPageSize={5}
-	   		className="-striped -highlight"
-	   		className="left"
-		  />
-		</div>
+        <h3>Texts</h3>
+		<ReactTable
+          data={textsData}
+          //pivotBy={["cycle"]}
+          columns={columns}
+          //filterable
+          defaultPageSize={10}
+	   	  className="-striped -highlight"
+	   	 />
+	   </div>
 	  );
 	}
 }

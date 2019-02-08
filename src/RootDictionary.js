@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import matchSorter from 'match-sorter';
 
 class RootDictionaryIntro extends Component {
   render() {
@@ -147,30 +148,44 @@ class RootDictionary extends Component {
 	  const columns = [{
 	    Header: 'Root',
 	    accessor: 'root',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["root"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
 	    width: getColumnWidth(rootData, 'root', 'Root'),
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	},
 	  {
 	    Header: '#',
 	    accessor: 'number',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["#"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
 	    width: getColumnWidth(rootData, 'number', '#'),
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	}, 
 	  {
 	    Header: 'Salish',
 	    accessor: 'salish',
-	    //width: getColumnWidth(rootData, 'salish', 'Salish'),
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["salish"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,	    //width: getColumnWidth(rootData, 'salish', 'Salish'),
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	}, 
 	  {
 	    Header: 'Nicodemus',
 	    accessor: 'nicodemus',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["nicodemus"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
 	    //width: getColumnWidth(rootData, 'nicodemus', 'Nicodemus'),
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  },
 	  {
 	    Header: 'English',
 	    accessor: 'english',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
 	    style: { 'white-space': 'unset' } 
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	}, ];
@@ -182,6 +197,7 @@ class RootDictionary extends Component {
 		  <ReactTable
 		    data={rootData}
 		    columns={columns}
+		    filterable
 	   		defaultPageSize={10}
 	   		className="-striped -highlight"
 		  />

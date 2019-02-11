@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
 import DecoratedTextSpan from './DecoratedTextSpan';
-import ReactTable from "react-table";
-import "react-table/react-table.css";
-import matchSorter from 'match-sorter';
 
 class SpellingPronunciationIntro extends Component {
   render() {
@@ -42,58 +39,51 @@ class SpellingPronunciationIntro extends Component {
 
 class SpellingPronunciation extends Component {
   render() {
-	const spellData=[{
-	  	"id": 1,
-	  	"nicodemus": "a",
-	  	"reichard": "a",
-	  	"salish": "a",
-	  	"english": "f<bold>a</bold>ther",
-	  	"note": " "
-	  },{
-	  	"id": 2,
-		"nicodemus": "<underline>a</underline>",
-		"reichard": "á",
-        "salish": "á",
-        "english": "no example",
-        "note": "1"
-    	}
-	  ];
-
-	const columns=[{
-			Header: 'Nicodemus',
-		    accessor: 'nicodemus',
-		    Cell: row => ( <DecoratedTextSpan str={row.value} />	),
-        },{
-        	Header: 'Reichard',
-        	accessor: 'reichard',
-        },{
-        	Header: 'Salish',
-        	accessor: 'salish',
-        },{
-        	Header: 'English',
-        	accessor: 'english',
-        	Cell: row => ( <DecoratedTextSpan str={row.value} />	),
-
-        },{
-        	Header: 'Note',
-        	accessor: 'note',
-        	Cell: row => ( <span className="superscript">{row.value}</span> ),
-	}];
-
-
-  return (     
-	  	<div className='ui content'>    
-	        <SpellingPronunciationIntro />
-	        <ReactTable
-			    data={spellData}
-			    columns={columns}
-		   		defaultPageSize={5}
-		   		className="-striped -highlight"
-		   		className="left"
-		  />
-	        <SpellFootnote />
-		</div>
-	);
+    return (
+      <div className='ui content'>
+        <SpellingPronunciationIntro />
+        <Grid celled='internally' padded='horizontally' verticalAlign='top'>
+          <SpellElement
+            color='blue'
+            spanStyle='normal'
+            nicodemus='Nicodemus'
+            reichard='Reichard'
+            salish='Salish'
+            english='English'
+            note='Note'
+          />
+          <SpellElement
+            nicodemus="a"
+            reichard="a"
+            salish="a"
+            english="f<bold>a</bold>ther"
+            note="&nbsp;"
+          />
+          <SpellElement
+            nicodemus="<underline>a</underline>"
+            reichard="á"
+            salish="á"
+            english="no example"
+            note="1"
+          />
+          <SpellElement
+            nicodemus="b"
+            reichard="b"
+            salish="b"
+            english="<bold>b</bold>at"
+            note="&nbsp;"
+          />
+          <SpellElement
+            nicodemus="ch"
+            reichard="tc"
+            salish="č"
+            english="<bold>ch</bold>ur<bold>ch</bold>"
+            note="&nbsp;"
+          />
+        </Grid>
+        <SpellFootnote />
+      </div>
+    );
   }
 }
 

@@ -4,7 +4,7 @@ const router = jsonServer.router('db.json');
 const middleware = jsonServer.defaults();
 
 server.use((req, res, next) => {
-   setTimeout(() => next(), 8000);
+   setTimeout(() => next(), 2000);
 });
 server.use(middleware);
 server.use(router);

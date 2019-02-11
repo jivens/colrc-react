@@ -1,7 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, lazy, Suspense } from 'react';
 import { Grid } from 'semantic-ui-react';
 import ReactTable from "react-table";
+import {createResource} from "simple-cache-provider";
+import {cache} from "./cache";
+import Api from "./Api";
+import ErrorBoundary from "./ErrorBoundary";
 import "react-table/react-table.css";
+import matchSorter from 'match-sorter';
+
+
+let RootsResource = createResource( async () => {
+   const response = await Api.getRoots();
+   const json = await response.json();
+
+   return json;
+});
 
 class RootDictionaryIntro extends Component {
   render() {
@@ -39,23 +52,42 @@ class RootDictionaryIntro extends Component {
 }
 
 class RootDictionary extends Component {
+  constructor() {
+    super();
+    this.state = { data: [], loading: true };
+  }
+  async componentDidMount() {
+    try {
+      const response = await fetch(`http://localhost:4000/roots`);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const json = await response.json();
+      this.setState({ loading: false, data: json });
+    } catch (error) {
+      console.log("This is my Error: " + error);
+      this.setState({ error: error });
+    }
+  }
+
   render() {
-	const getColumnWidth = (rows, accessor, headerText) => {
-	  const maxWidth = 600
-	  const magicSpacing = 18
-	  const cellLength = Math.max(
-	    ...rows.map(row => (`${row[accessor]}` || '').length),
-	    headerText.length,
-	  )
-	  return Math.min(maxWidth, cellLength * magicSpacing)
-	};
+
+  	const getColumnWidth = (rows, accessor, headerText) => {
+  	  const maxWidth = 600
+  	  const magicSpacing = 18
+  	  const cellLength = Math.max(
+  	    ...rows.map(row => (`${row[accessor]}` || '').length),
+  	    headerText.length,
+  	  )
+  	  return Math.min(maxWidth, cellLength * magicSpacing)
+  	};
 
   	const rootData = [{
 	    root: '√a',
 	    number: '1',
-	    salish: 'a',
-	    nicodemus: 'a',
-	    english: '† hello. (gr.)',
+	    salish: "a",
+	    nicodemus: "a",
+	    english: "† hello. (gr.)",
 	  },
 	  {
 	    root: '√a',
@@ -67,74 +99,183 @@ class RootDictionary extends Component {
 	  {
 	    root: '√a',
 	    number: '3',
-	    salish: 'a·',
-	    nicodemus: 'aaaa...!',
-	    english: 'cut out, knock off!, quit, stop. (lit. Cut it out!, Knock it off, quit it, Stop it!), (imper.)',
+	    salish: "a·",
+	    nicodemus: "aaaa...!",
+	    english: "cut out, knock off!, quit, stop. (lit. Cut it out!, Knock it off, quit it, Stop it!), (imper.)",
 	  },
 	  {
 	    root: '√a',
 	    number: '4',
-	    salish: 'aye',
-	    nicodemus: 'aye',
-	    english: 'hey. (adv.)',
+	    salish: "aye",
+	    nicodemus: "aye",
+	    english: "hey. (adv.)",
 	  },
 	  {
 	    root: '√bc',
 	    number: '1',
-	    salish: 'buc',
-	    nicodemus: 'buts',
-	    english: '† boots. (n.)',
+	    salish: "buc",
+	    nicodemus: "buts",
+	    english: "† boots. (n.)",
 	  },
 	  {
 	    root: '√bc',
 	    number: '2',
-	    salish: 'ec+búc+buc=šn',
-	    nicodemus: 'etsbutsbutsshn',
-	    english: '// boots (to be wearing...). ((lit. He is wearing boots), n.)',
+	    salish: "ec+búc+buc=šn",
+	    nicodemus: "etsbutsbutsshn",
+	    english: "// boots (to be wearing...). ((lit. He is wearing boots), n.)",
+	  },
+	  {
+	    root: '√bc',
+	    number: '3',
+	    salish: "s+búc+buc=šn",
+	    nicodemus: "sbutsbutsshn",
+	    english: "boot. ((lit. a borrowed root), n.)",
+	  },
+	  {
+	    root: '√bc',
+	    number: '4',
+	    salish: "s+búc+buc=šn+mš",
+	    nicodemus: "sbutsbutsshnmsh",
+	    english: "rubber boots (putting on...). (vt, pl.n.)",
+	  },
+	  {
+	    root: '√bl',
+	    number: '1',
+	    salish: "bu·lí",
+	    nicodemus: "buuli",
+	    english: "† bull. (n.)",
+	  },
+	  {
+	    root: '√bm 1',
+	    number: '1',
+	    salish: "bam",
+	    nicodemus: "bam",
+	    english: "† go (...fast and far), speeded (be...), be versatile. ((stem), vi.)",
+	  },
+	  {
+	    root: '√bm 1',
+	    number: '2',
+	    salish: "bam",
+	    nicodemus: "bam",
+	    english: "intoxicated. ((stem), vi.)",
+	  },
+	  {
+	    root: '√bm 1',
+	    number: '7',
+	    salish: "niʔ+b[a]m+p=aw'es",
+	    nicodemus: "ni'bmpa'wes",
+	    english: "// orgy. ((lit. there is speeding or intoxication among them), n.)",
+	  },
+	  {
+	  	root: "√dlq'ʷ",
+	  	number: '7',
+	  	salish: "tiʔxʷ+eɫ+n+dol+dolq'ʷ+t=íl'š+n",
+	  	nicodemus: "ti'khweɫndoldolq'wti'lshn",
+	  	english: "confirmed. ((lit. He gained strength, he received the rite of confirmation), vi.)",
 	  },
 	  ];
 
 	  const columns = [{
+	    accessor: 'id',
+      show: false
+	  	},
+    {
 	    Header: 'Root',
 	    accessor: 'root',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["root"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
 	    width: getColumnWidth(rootData, 'root', 'Root'),
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	},
 	  {
 	    Header: '#',
 	    accessor: 'number',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["#"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
 	    width: getColumnWidth(rootData, 'number', '#'),
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-	  	}, 
+	  	},
 	  {
 	    Header: 'Salish',
 	    accessor: 'salish',
-	    //width: getColumnWidth(rootData, 'salish', 'Salish'),
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["salish"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,	    //width: getColumnWidth(rootData, 'salish', 'Salish'),
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-	  	}, 
+	  	},
 	  {
 	    Header: 'Nicodemus',
 	    accessor: 'nicodemus',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["nicodemus"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
 	    //width: getColumnWidth(rootData, 'nicodemus', 'Nicodemus'),
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  },
 	  {
 	    Header: 'English',
 	    accessor: 'english',
-	    style: { 'white-space': 'unset' } 
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
+	    style: { 'white-space': 'unset' }
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	}, ];
 
+    //let roots = RootsResource.read(cache);
+/*
+    <table>
+      <thead>
+      <tr>
+          <th>Root</th>
+          <th>#</th>
+          <th>Salish</th>
+          <th>Nicodemus</th>
+          <th>English</th>
+      </tr>
+      </thead>
+      <tbody>
+      {this.state.data.map(r =>
+          <tr key={r.id}>
+              <td>{r.root}</td>
+              <td>{r.number}</td>
+              <td>{r.salish}</td>
+              <td>{r.nicodemus}</td>
+              <td>{r.english}</td>
+          </tr>
+      )}
+      </tbody>
+    </table>
+*/
+/*
+    <ErrorBoundary>
+      <React.Suspense fallback={<div>Loading</div>}>
+        <ReactTable
+          data={roots}
+          columns={columns}
+          defaultPageSize={10}
+          className="-striped -highlight"
+        />
+      </React.Suspense>
+    </ErrorBoundary>
+*/
+    const dataOrError = this.state.error ?
+      <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
+      <ReactTable
+        data={this.state.data}
+        loading={this.state.loading}
+        columns={columns}
+        filterable
+        defaultPageSize={10}
+        className="-striped -highlight"
+      />;
     return (
       <div className='ui content'>
        <RootDictionaryIntro />
         <h3>Lyon and Green-Wood's Root Dictionary</h3>
-		  <ReactTable
-		    data={rootData}
-		    columns={columns}
-	   		defaultPageSize={10}
-	   		className="-striped -highlight"
-		  />
+        {dataOrError}
       </div>
     );
   }

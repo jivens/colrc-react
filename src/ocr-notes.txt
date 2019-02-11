@@ -1,0 +1,23 @@
+You can get Adobe Acrobat DC Pro from UofA site license
+You want 300-400 dpi for best results at OCR.
+Problems with headers in newspaper columns,
+does not recover bold font and different size fonts very well.
+You lose color. You may lose capitalization.
+Semantics get lost, text, highlights, colors are gone.
+
+preflight DC Pro Acrobat
+PDF/A - required format for court filings. Includes all the necessary fonts.
+PDF/E - required format for engineering.
+3DPDF
+
+
+flatecube
+
+Tj display
+Tr display mode
+Adobe SDK -- need to purchase
+Foxit SDK (Google Chrome) -- need to purchase
+iText (version 7 is the latest) -- free for educational purposes (Java and C#)
+PDFBox -- not as good
+Want to call Java from MatLab
+LSTM OCR -- works with 90% accuracy

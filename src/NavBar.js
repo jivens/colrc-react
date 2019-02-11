@@ -15,7 +15,6 @@ import {
   Responsive
 } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
-import './NavBar.css';
 import ReactTable from "react-table";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 

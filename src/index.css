@@ -5,6 +5,6 @@ body {
 }
 .superscript { position: relative; top: -0.5em; font-size: 80%; }
 
-.left {
-  text-align: left;
+.right {
+  text-align: right;
 }

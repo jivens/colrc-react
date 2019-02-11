@@ -5,7 +5,7 @@ import './NavBar.css';
 class MainMenu extends Component {
   render() {
     return (
-    <div class="ui grid" id="Banner">
+    <div className="ui grid" id="Banner">
       <Grid verticalAlign='middle' columns={3}>
           <Grid.Column width={13}>
             <Masthead title={this.props.title} />
@@ -22,7 +22,7 @@ class MainMenu extends Component {
 class Masthead extends Component {
   render() {
     return (
-      <Grid verticalAlign='middle' columns={2}> 
+      <Grid verticalAlign='middle' columns={2}>
           <Grid.Column textAlign='center'>
             <h3>Coeur d'Alene Online Language Resource Center</h3>
           </Grid.Column>

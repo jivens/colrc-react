@@ -15,6 +15,7 @@ import Bibliography from './Bibliography';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faBars } from '@fortawesome/free-solid-svg-icons';
+import ErrorBoundary from "./ErrorBoundary";
 //import { faPagelines, faAudible } from '@fortawesome/free-brands-svg-icons';
 import 'semantic-ui-css/semantic.min.css';
 import './NavBar.css';
@@ -52,7 +53,7 @@ class Colrc extends Component {
 	  const rightItems = [
 		  { to: "/", name: "Login"},
 		  { to: "/", name: "Register" }
-		]; 
+		];
       const sources=[
         {src:'http://lasrv01.ipfw.edu/COLRC/audio/01_Track_1Crd_Little_Mosquito1.wav', type:'audio/wav', direct:false},
         {src:'http://lasrv01.ipfw.edu/COLRC/audio//01_Track_1Crd_LittleMosq1.mp3', type:'audio/mpeg', direct:true}
@@ -78,12 +79,12 @@ class Colrc extends Component {
       //];
       return (
         <Router>
-   
-          <NavBar rightItems={rightItems}> 
+
+          <NavBar rightItems={rightItems}>
           <MainMenu title="Title"/>
           <Grid container verticalAlign='top'>
             <Grid.Row>
-              <Grid.Column> 
+              <Grid.Column>
                 <Switch>
                   <Route exact path="/" component={About} />
                   <Route path="/spelling" component={SpellingPronunciation} />

@@ -181,6 +181,24 @@
       "note": "the a in the Nicodemus form should be underlined --avf"
     }
   ],
+  "spelling": [
+  	{
+  	  "id": 1,
+  	  "nicodemus": "a",
+  	  "reichard": "a",
+  	  "salish": "a",
+  	  "english": "f<bold>a</bold>ther",
+  	  "note": " "
+    },
+    {
+  	  "id": 2,
+	  "nicodemus": "<underline>a</underline>",
+	  "reichard": "á",
+      "salish": "á",
+      "english": "no example",
+      "note": "1"
+	}
+  ],
   "roots": [
     {
       "id": 1,
@@ -238,5 +256,439 @@
       "nicodemus": "sbutsbutsshn",
       "english": "boot. ((lit. a borrowed root), n.)"
     }
-  ]
+  ],
+   "spelling": [
+        {
+                "id": 1,
+                "reichard": "a",
+                "nicodemus": "a",
+                "salish": "a",
+                "english": "f<bold>a</bold>ther",
+                "note": ""
+        },
+        {
+                "id": 2,
+                "reichard": "á",
+                "nicodemus": "<underline>a</underline>",
+                "salish": "á",
+                "english": "no example",
+                "note": "1"
+        },
+        {
+                "id": 3,
+                "reichard": "b",
+                "nicodemus": "b",
+                "salish": "b",
+                "english": "<bold>b</bold>at",
+                "note": ""
+        },
+        {
+                "id": 4,
+                "reichard": "tc",
+                "nicodemus": "ch",
+                "salish": "č",
+                "english": "<bold>ch</bold>ur<bold>ch</bold>",
+                "note": ""
+        },
+        {
+                "id": 5,
+                "reichard": "tc'",
+                "nicodemus": "ch'",
+                "salish": "č'",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 6,
+                "reichard": "ts",
+                "nicodemus": "ts",
+                "salish": "c",
+                "english": "<bold>ts</bold>i<bold>ts</bold>i fly",
+                "note": ""
+        },
+        {
+                "id": 7,
+                "reichard": "ts'",
+                "nicodemus": "ts'",
+                "salish": "c'",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 8,
+                "reichard": "d",
+                "nicodemus": "d",
+                "salish": "d",
+                "english": "<bold>d</bold>og",
+                "note": ""
+        },
+        {
+                "id": 9,
+                "reichard": "ä",
+                "nicodemus": "e",
+                "salish": "ɛ, e",
+                "english": "<bold>e</bold>gg",
+                "note": ""
+        },
+        {
+                "id": 10,
+                "reichard": "ä́",
+                "nicodemus": "<underline>e</underline>",
+                "salish": "ɛ́, é",
+                "english": "no example",
+                "note": "1"
+        },
+        {
+                "id": 11,
+                "reichard": "E,ι, ụ",
+                "nicodemus": "no form",
+                "salish": "ə",
+                "english": "sof<bold>a</bold>",
+                "note": ""
+        },
+        {
+                "id": 12,
+                "reichard": "gw",
+                "nicodemus": "gw",
+                "salish": "gʷ",
+                "english": "lin<bold>gu</bold>ini",
+                "note": ""
+        },
+        {
+                "id": 13,
+                "reichard": "h",
+                "nicodemus": "h",
+                "salish": "h",
+                "english": "<bold>h</bold>ello",
+                "note": ""
+        },
+        {
+                "id": 14,
+                "reichard": "i",
+                "nicodemus": "i",
+                "salish": "i",
+                "english": "mach<bold>i</bold>ne",
+                "note": ""
+        },
+        {
+                "id": 15,
+                "reichard": "í",
+                "nicodemus": "<underline>i</underline>",
+                "salish": "í",
+                "english": "no example",
+                "note": "1"
+        },
+        {
+                "id": 16,
+                "reichard": "dj",
+                "nicodemus": "j",
+                "salish": "ǰ",
+                "english": "<bold>j</bold>ar",
+                "note": ""
+        },
+        {
+                "id": 17,
+                "reichard": "kʷ",
+                "nicodemus": "kw",
+                "salish": "kʷ",
+                "english": "<bold>qu</bold>een",
+                "note": ""
+        },
+        {
+                "id": 18,
+                "reichard": "k'ʷ",
+                "nicodemus": "k'w",
+                "salish": "k'ʷ",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 19,
+                "reichard": "no form",
+                "nicodemus": "kh",
+                "salish": "no form",
+                "english": "no example",
+                "note": "2"
+        },
+        {
+                "id": 20,
+                "reichard": "xʷ",
+                "nicodemus": "khw",
+                "salish": "xʷ",
+                "english": "no example",
+                "note": "2"
+        },
+        {
+                "id": 21,
+                "reichard": "q",
+                "nicodemus": "q",
+                "salish": "q",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 22,
+                "reichard": "q'",
+                "nicodemus": "q'",
+                "salish": "q'",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 23,
+                "reichard": "qʷ",
+                "nicodemus": "qw",
+                "salish": "qʷ",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 24,
+                "reichard": "q'ʷ",
+                "nicodemus": "q'w",
+                "salish": "q'ʷ",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 25,
+                "reichard": "x̣",
+                "nicodemus": "qh,",
+                "salish": "x̣",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 26,
+                "reichard": "x̣ʷ",
+                "nicodemus": "qhw",
+                "salish": "x̣ʷ",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 27,
+                "reichard": "l",
+                "nicodemus": "l",
+                "salish": "l",
+                "english": "<bold>l</bold>ike",
+                "note": ""
+        },
+        {
+                "id": 28,
+                "reichard": "l'",
+                "nicodemus": "'l",
+                "salish": "l'",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 29,
+                "reichard": "ɫ",
+                "nicodemus": "ɫ",
+                "salish": "ɫ",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 30,
+                "reichard": "m",
+                "nicodemus": "m",
+                "salish": "m",
+                "english": "<bold>m</bold>o<bold>m</bold>",
+                "note": ""
+        },
+        {
+                "id": 31,
+                "reichard": "m'",
+                "nicodemus": "'m",
+                "salish": "m'",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 32,
+                "reichard": "n",
+                "nicodemus": "n",
+                "salish": "n",
+                "english": "now",
+                "note": ""
+        },
+        {
+                "id": 33,
+                "reichard": "n'",
+                "nicodemus": "'n",
+                "salish": "n'",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 34,
+                "reichard": "ɔ",
+                "nicodemus": "o",
+                "salish": "ɔ, o",
+                "english": "law",
+                "note": ""
+        },
+        {
+                "id": 35,
+                "reichard": "ɔ́",
+                "nicodemus": "<underline>o</underline>",
+                "salish": "ɔ́, ó",
+                "english": "no example",
+                "note": "1"
+        },
+        {
+                "id": 36,
+                "reichard": "p",
+                "nicodemus": "p",
+                "salish": "p",
+                "english": "<bold>p</bold>at",
+                "note": ""
+        },
+        {
+                "id": 37,
+                "reichard": "p'",
+                "nicodemus": "p'",
+                "salish": "p'",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 38,
+                "reichard": "r",
+                "nicodemus": "r",
+                "salish": "r",
+                "english": "fa<bold>r</bold>",
+                "note": ""
+        },
+        {
+                "id": 39,
+                "reichard": "r'",
+                "nicodemus": "'r",
+                "salish": "r'",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 40,
+                "reichard": "R",
+                "nicodemus": "(",
+                "salish": "ʕ",
+                "english": "no example",
+                "note": "3"
+        },
+        {
+                "id": 41,
+                "reichard": "R'",
+                "nicodemus": "'(",
+                "salish": "ʕ'",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 42,
+                "reichard": "ṛʷ",
+                "nicodemus": "(w",
+                "salish": "ʕʷ",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 43,
+                "reichard": "ṛ'ʷ",
+                "nicodemus": "'(w",
+                "salish": "ʕ'ʷ",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 44,
+                "reichard": "s",
+                "nicodemus": "s",
+                "salish": "s",
+                "english": "<bold>s</bold>un",
+                "note": ""
+        },
+        {
+                "id": 45,
+                "reichard": "c",
+                "nicodemus": "sh",
+                "salish": "š",
+                "english": "<bold>sh</bold>ell",
+                "note": ""
+        },
+        {
+                "id": 46,
+                "reichard": "t",
+                "nicodemus": "t",
+                "salish": "t",
+                "english": "<bold>t</bold>ar",
+                "note": ""
+        },
+        {
+                "id": 47,
+                "reichard": "t'",
+                "nicodemus": "t'",
+                "salish": "t'",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 48,
+                "reichard": "u",
+                "nicodemus": "u",
+                "salish": "u",
+                "english": "J<bold>u</bold>piter",
+                "note": ""
+        },
+        {
+                "id": 49,
+                "reichard": "ú",
+                "nicodemus": "<underline>u</underline>",
+                "salish": "ú",
+                "english": "no example",
+                "note": "1"
+        },
+        {
+                "id": 50,
+                "reichard": "w",
+                "nicodemus": "w",
+                "salish": "w",
+                "english": "<bold>w</bold>agon",
+                "note": ""
+        },
+        {
+                "id": 51,
+                "reichard": "w'",
+                "nicodemus": "'w",
+                "salish": "w'",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 52,
+                "reichard": "y",
+                "nicodemus": "y",
+                "salish": "y",
+                "english": "<bold>y</bold>ard",
+                "note": ""
+        },
+        {
+                "id": 53,
+                "reichard": "y'",
+                "nicodemus": "'y",
+                "salish": "y'",
+                "english": "no example",
+                "note": ""
+        },
+        {
+                "id": 54,
+                "reichard": "'",
+                "nicodemus": "'",
+                "salish": "ʔ",
+                "english": "uh - oh",
+                "note": ""
+        }
+    ]
 }

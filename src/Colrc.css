@@ -17,3 +17,7 @@
 .left {
   text-align: left;
 }
+
+.ReactTable .rt-resizer {
+	right: 0;
+}

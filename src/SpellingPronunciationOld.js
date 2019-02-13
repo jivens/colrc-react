@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
 import DecoratedTextSpan from './DecoratedTextSpan';
-import ReactTable from "react-table";
-import "react-table/react-table.css";
-import matchSorter from 'match-sorter';
 
 class SpellingPronunciationIntro extends Component {
   render() {
@@ -41,77 +38,52 @@ class SpellingPronunciationIntro extends Component {
 }
 
 class SpellingPronunciation extends Component {
-  constructor() {
-    super();
-    this.state = { data: [], loading: true };
-  }
-  async componentDidMount() {
-    try {
-      const response = await fetch(`http://localhost:4000/spelling`);
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      const json = await response.json();
-      this.setState({ loading: false, data: json });
-    } catch (error) {
-      console.log("This is my Error: " + error);
-      this.setState({ error: error });
-    }
-  }
-
   render() {
-
-	const columns=[{
-			Header: 'Nicodemus',
-		    accessor: 'nicodemus',
-			filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["nicodemus"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-		    Cell: row => ( <DecoratedTextSpan str={row.value} />	),
-        },{
-        	Header: 'Reichard',
-        	accessor: 'reichard',
-		    filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["reichard"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-        },{
-        	Header: 'Salish',
-        	accessor: 'salish',
-	   	    filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["salish"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-        },{
-        	Header: 'English',
-        	accessor: 'english',
-	  	    filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-        	Cell: row => ( <DecoratedTextSpan str={row.value} />	),
-
-        },{
-        	Header: 'Note',
-        	accessor: 'note',
-        	Cell: row => ( <span className="superscript">{row.value}</span> ),
-	}];
-
-    const dataOrError = this.state.error ?
-      <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
-      <ReactTable
-        data={this.state.data}
-        loading={this.state.loading}
-        columns={columns}
-        filterable
-        defaultPageSize={20}
-        className="-striped -highlight"
-      />;
-
-  return (     
-	  	<div className='ui content'>    
-	        <SpellingPronunciationIntro />
-			{dataOrError}
-	        <SpellFootnote />
-		</div>
-	);
+    return (
+      <div className='ui content'>
+        <SpellingPronunciationIntro />
+        <Grid celled='internally' padded='horizontally' verticalAlign='top'>
+          <SpellElement
+            color='blue'
+            spanStyle='normal'
+            nicodemus='Nicodemus'
+            reichard='Reichard'
+            salish='Salish'
+            english='English'
+            note='Note'
+          />
+          <SpellElement
+            nicodemus="a"
+            reichard="a"
+            salish="a"
+            english="f<bold>a</bold>ther"
+            note="&nbsp;"
+          />
+          <SpellElement
+            nicodemus="<underline>a</underline>"
+            reichard="á"
+            salish="á"
+            english="no example"
+            note="1"
+          />
+          <SpellElement
+            nicodemus="b"
+            reichard="b"
+            salish="b"
+            english="<bold>b</bold>at"
+            note="&nbsp;"
+          />
+          <SpellElement
+            nicodemus="ch"
+            reichard="tc"
+            salish="č"
+            english="<bold>ch</bold>ur<bold>ch</bold>"
+            note="&nbsp;"
+          />
+        </Grid>
+        <SpellFootnote />
+      </div>
+    );
   }
 }
 

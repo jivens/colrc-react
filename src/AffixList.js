@@ -188,8 +188,10 @@ class AffixList extends Component {
 
 	  return (
       <div className='ui content'>
-        <AffixListIntro />
         <h3>Affixes</h3>
+        <p></p>
+        <AffixListIntro />
+		<p></p>
 		  <ReactTable
 		    data={affixData}
 		    columns={columns}

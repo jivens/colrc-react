@@ -276,8 +276,10 @@ class RootDictionary extends Component {
       />;
     return (
       <div className='ui content'>
-        <RootDictionaryIntro />
         <h3>Lyon and Green-Wood's Root Dictionary</h3>
+        <p></p>
+        <RootDictionaryIntro />
+		<p></p>
         {dataOrError}
       </div>
     );

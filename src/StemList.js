@@ -343,8 +343,9 @@ class StemList extends Component {
       />;
 	  return (
       <div className='ui content'>
-        <StemListIntro />
         <h3>Annotated Stem List</h3>
+        <p></p>
+        <StemListIntro />
         <p>Stem type as listed by Reichard, 'Other' = 'Adverbs, Interjections, Conjunctions'</p>
 		    {dataOrError}
 		</div>

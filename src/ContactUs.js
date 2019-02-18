@@ -13,7 +13,14 @@ class ContactUs extends Component {
 	};
 
 	onFormSubmit = (evt) => {
-		const people = [ ...this.state.people, this.state.fields ];
+		const people = [...this.state.people];
+		const person = this.state.fields;
+		const fieldErrors = this.validate(person);
+		this.setState({fieldErrors});
+		evt.preventDefault();
+
+		if (Object.keys(fieldErrors).length) return; 
+
 		this.setState({
 			 people, fields:  {
 				name: '',
@@ -21,13 +28,22 @@ class ContactUs extends Component {
 				message: ''
 			}
 		});
-		evt.preventDefault();
 	};
 
 	onInputChange = (evt) => {
 		const fields = Object.assign({}, this.state.fields);
 		fields[evt.target.name] = evt.target.value;
 		this.setState({ fields });
+	};
+
+	validate = person => {
+		const errors = {};
+		if (!person.name) errors.name = 'Name Required';
+		if (!person.email) errors.email = 'Email Required';
+		if (person.email && !isEmail(person.email)) errors.email = 'Invalid Email';
+		if (!person.message) errors.message =
+		'Message required';
+		return errors;
 	};
 
 

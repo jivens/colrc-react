@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Grid, List, Container, Header } from 'semantic-ui-react';
+import {Grid, List, Container, Header, Segment, Label } from 'semantic-ui-react';
+import { Link } from "react-router-dom";
 import './NavBar.css';
 
 class MainMenu extends Component {
@@ -8,7 +9,12 @@ class MainMenu extends Component {
     <div className="ui grid" id="Banner">
       <Grid verticalAlign='middle' columns={3}>
           <Grid.Column width={13}>
-            <Masthead title={this.props.title} />
+            <Segment>
+	           	<Label as={Link} to="/" name="about" color='blue' ribbon>
+	          		COLRC
+	        	</Label>
+	        	<span>Coeur d'Alene Online Language Resource Center</span>
+        	</Segment>
           </Grid.Column>
           <Grid.Column width={3}>
             <OptionsList />
@@ -19,30 +25,8 @@ class MainMenu extends Component {
   }
 }
 
-class Masthead extends Component {
-  render() {
-    return (
-      <Grid verticalAlign='middle' columns={2}>
-          <Grid.Column textAlign='center'>
-            <h3>Coeur d'Alene Online Language Resource Center</h3>
-          </Grid.Column>
-          <Grid.Column textAlign='center'>
-          <Titlebar
-            title={this.props.title}
-          />
-          </Grid.Column>
-      </Grid>
-    );
-  }
-}
 
-class Titlebar extends Component {
-  render() {
-    return (
-		<h3>{this.props.title}</h3>
-    );
-  }
-}
+
 
 class OptionsList extends Component {
   render() {

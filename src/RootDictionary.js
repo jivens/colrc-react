@@ -7,7 +7,16 @@ import Api from "./Api";
 import ErrorBoundary from "./ErrorBoundary";
 import "react-table/react-table.css";
 import matchSorter from 'match-sorter';
-
+import PropTypes from "prop-types";
+import {
+    Accordion,
+    AccordionItem,
+    AccordionItemTitle,
+    AccordionItemBody,
+} from 'react-accessible-accordion';
+//import 'react-accessible-accordion/dist/minimal-example.css';
+//import 'react-accessible-accordion/dist/fancy-example.css';
+import "./AccordionTables.css";
 
 let RootsResource = createResource( async () => {
    const response = await Api.getRoots();
@@ -15,41 +24,6 @@ let RootsResource = createResource( async () => {
 
    return json;
 });
-
-class RootDictionaryIntro extends Component {
-  render() {
-    return (
-      <div className='ui content'>
-        <p></p>
-        The root dictionary presented here was compiled by John Lyon and
-        Rebecca Greene-Wood and contains nearly 1,400 roots and about
-        7690 "word" forms. The data come from Lawrence Nicodemus's
-        Coeur d'Alene dictionary. The original work was published by UMOPL
-        and can be found at <a href="http://meltr.org/Publications/" target="_blank" rel="noopener noreferrer">Lyon and Greene-Wood 2007</a>. All material is
-        copyrighted by the Coeur d'Alene Tribe and may not be copied in
-        any format without written permission from the Coeur d'Alene Tribe.
-        <p></p>
-        <p></p>
-        For reasons of searchability and clarity of presentation, the
-        organization of the dictionary has been altered from its original form.
-        Within a root header, the entries are organized beginning with the
-        least complex and move towards more complex forms. Each entry is
-        separated by a new line and numbered. The entries first appear in the
-        Salishan orthography, then the Nicodemus, and finally an English
-        translation. Nicodemus sometimes identifies the simplest forms as
-        (stem), but not in all cases. Intransitive and simple nominalized
-        forms directly follow, then reduplicated forms, complex forms (those
-        with lexical suffixes), and finally transitive forms and compounds.
-        The following symbols are used to separate the different types of
-        entries: intransitive (†), transitive (‡), complex (//), and
-        compound (§) entries. Entries begin with a root skeleton followed
-        by the transliterated Coeur d'Alene, followed by Nicodemus's English
-        translation, grammatical notations, and additional information.
-        <p></p>
-      </div>
-    );
-  }
-}
 
 class RootDictionary extends Component {
   constructor() {
@@ -71,6 +45,35 @@ class RootDictionary extends Component {
   }
 
   render() {
+  	const RootDictionaryIntro = () => (
+    <Accordion>
+        <AccordionItem>
+            <AccordionItemTitle>
+                <p className="u-position-relative">
+                Introduction
+                <div className="accordion__arrow" role="presentation" />
+            	</p>
+            </AccordionItemTitle>
+            <AccordionItemBody>
+	            <p>The root dictionary presented here was compiled by John Lyon and Rebecca Greene-Wood and contains nearly 1,400 roots and about 7690 "word" forms. The data come from Lawrence Nicodemus's Coeur d'Alene dictionary. The original work was published by UMOPL and can be found at <a href="http://meltr.org/Publications/" target="_blank" rel="noopener noreferrer">Lyon and Greene-Wood 2007</a>. All material is copyrighted by the Coeur d'Alene Tribe and may not be copied in any format without written permission from the Coeur d'Alene Tribe.
+			    </p>
+			</AccordionItemBody>
+		</AccordionItem>
+
+		<AccordionItem>
+            <AccordionItemTitle>
+            	<p className="u-position-relative">
+		    	Guide to Entries
+                <div className="accordion__arrow" role="presentation" />
+                </p>
+		    </AccordionItemTitle>
+		    <AccordionItemBody>
+			    <p>For reasons of searchability and clarity of presentation, the organization of the dictionary has been altered from its original form. Within a root header, the entries are organized beginning with the least complex and move towards more complex forms. Each entry is separated by a new line and numbered. The entries first appear in the Salishan orthography, then the Nicodemus, and finally an English translation. Nicodemus sometimes identifies the simplest forms as (stem), but not in all cases. Intransitive and simple nominalized forms directly follow, then reduplicated forms, complex forms (those with lexical suffixes), and finally transitive forms and compounds. The following symbols are used to separate the different types of entries: intransitive (†), transitive (‡), complex (//), and compound (§) entries. Entries begin with a root skeleton followed by the transliterated Coeur d'Alene, followed by Nicodemus's English translation, grammatical notations, and additional information. 
+			    </p>
+            </AccordionItemBody>
+        </AccordionItem>
+    </Accordion>
+);
 
   	const getColumnWidth = (rows, accessor, headerText) => {
   	  const maxWidth = 600
@@ -261,20 +264,22 @@ class RootDictionary extends Component {
       </React.Suspense>
     </ErrorBoundary>
 */
-    const dataOrError = this.state.error ?
+ const dataOrError = this.state.error ?
       <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
       <ReactTable
         data={this.state.data}
         loading={this.state.loading}
         columns={columns}
         filterable
-        defaultPageSize={10}
+        defaultPageSize={5}
         className="-striped -highlight"
       />;
     return (
       <div className='ui content'>
-       <RootDictionaryIntro />
         <h3>Lyon and Green-Wood's Root Dictionary</h3>
+        <p></p>
+        <RootDictionaryIntro />
+		<p></p>
         {dataOrError}
       </div>
     );

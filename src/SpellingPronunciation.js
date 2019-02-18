@@ -4,41 +4,13 @@ import DecoratedTextSpan from './DecoratedTextSpan';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import matchSorter from 'match-sorter';
-
-class SpellingPronunciationIntro extends Component {
-  render() {
-    return (
-      <div className='ui content'>
-        <p>
-          Coeur d'Alene has been spelled using at least three different
-          systems - the "Reichard Orthography" (see Reichard 1938),
-          the "Nicodemus Orthography" (see Nicodemus 1975a,b)
-          and the "Salishan Orthography". What we refer to as the
-          Reichard Orthography is a variation of the transcription system
-          used by many linguists and anthropologists trained by Franz Boas at
-          Columbia University in the first half of the 20th century. The
-          Nicodemus Orthography was developed for use by the Coeur d'Alene
-          community. The Salishan Orthography is used by many linguists and
-          anthropologists today to transcribe Coeur d'Alene. You will find it
-          used in contemporary scholarly work about the language. This site
-          is intended to support users who want to use any of these systems.
-        </p>
-        <p></p>
-        <p>
-          The list below shows how the symbols used in each of these three
-          systems correspond to each other. Not all of the sounds used in
-          the Coeur d'Alene language are familiar to English speakers, but
-          many of them are. Sounds in Coeur d'Alene that are also found in
-          English words are listed with examples from English so that
-          learners can familiarize themselves with those sounds.
-        </p>
-        <p></p>
-        <p style={{ height: 10, color: 'blue' }}>Spelling and Pronouncing Coeur d'Alene</p>
-        <p></p>
-      </div>
-    );
-  }
-}
+import {
+    Accordion,
+    AccordionItem,
+    AccordionItemTitle,
+    AccordionItemBody,
+} from 'react-accessible-accordion';
+import "./AccordionTables.css";
 
 class SpellingPronunciation extends Component {
   constructor() {
@@ -94,6 +66,43 @@ class SpellingPronunciation extends Component {
         	Cell: row => ( <span className="superscript">{row.value}</span> ),
 	}];
 
+	  const SpellingPronunciationIntro = () => (
+	    <Accordion>
+	        <AccordionItem>
+	            <AccordionItemTitle>
+	                <p className="u-position-relative">
+	                Introduction
+	                <div className="accordion__arrow" role="presentation" />
+	            	</p>
+	            </AccordionItemTitle>
+	            <AccordionItemBody>
+			        <p>
+			          Coeur d'Alene has been spelled using at least three different
+			          systems - the "Reichard Orthography" (see Reichard 1938),
+			          the "Nicodemus Orthography" (see Nicodemus 1975a,b)
+			          and the "Salishan Orthography". What we refer to as the
+			          Reichard Orthography is a variation of the transcription system
+			          used by many linguists and anthropologists trained by Franz Boas at
+			          Columbia University in the first half of the 20th century. The
+			          Nicodemus Orthography was developed for use by the Coeur d'Alene
+			          community. The Salishan Orthography is used by many linguists and
+			          anthropologists today to transcribe Coeur d'Alene. You will find it
+			          used in contemporary scholarly work about the language. This site
+			          is intended to support users who want to use any of these systems.
+			        </p>
+			        <p></p>
+			        <p>
+			          The list below shows how the symbols used in each of these three
+			          systems correspond to each other. Not all of the sounds used in
+			          the Coeur d'Alene language are familiar to English speakers, but
+			          many of them are. Sounds in Coeur d'Alene that are also found in
+			          English words are listed with examples from English so that
+			          learners can familiarize themselves with those sounds.
+			        </p>
+				</AccordionItemBody>
+			</AccordionItem>
+	    </Accordion>
+  	);
     const dataOrError = this.state.error ?
       <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
       <ReactTable
@@ -107,7 +116,10 @@ class SpellingPronunciation extends Component {
 
   return (     
 	  	<div className='ui content'>    
+	        <h3>Spelling and Pronunciation Guide</h3>
+	        <p></p>
 	        <SpellingPronunciationIntro />
+			<p></p>
 			{dataOrError}
 	        <SpellFootnote />
 		</div>

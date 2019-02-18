@@ -24,7 +24,8 @@
     "react-table": "^6.8.6",
     "semantic-ui-css": "^2.4.0",
     "semantic-ui-react": "^0.84.0",
-    "simple-cache-provider": "^0.10.0"
+    "simple-cache-provider": "^0.10.0",
+    "validator": "^10.11.0"
   },
   "scripts": {
     "start": "react-scripts start",

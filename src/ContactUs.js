@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import isEmail from 'validator/lib/isEmail';
+
+const content = document.createElement('div');
+document.body.appendChild(content);
 
 class ContactUs extends Component {
+	static displayName = '07-basic-validation';
 
 	state = {
 		fields: {

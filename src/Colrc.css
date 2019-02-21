@@ -18,6 +18,10 @@
   text-align: left;
 }
 
+.text-right {
+	text-align: right;
+}
+
 .ReactTable .rt-resizer {
 	right: 0;
 }

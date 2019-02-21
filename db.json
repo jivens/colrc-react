@@ -617,6 +617,14 @@
   ],
   "roots": [
     {
+      "id": 1,
+      "root": "√a",
+      "number": "1",
+      "salish": "a",
+      "nicodemus": "a",
+      "english": "† hello. (gr.)"
+    },
+    {
       "id": 2,
       "root": "√a",
       "number": "2",

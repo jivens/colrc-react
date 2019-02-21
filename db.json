@@ -617,60 +617,60 @@
   ],
   "roots": [
     {
-          "id": 1,
-          "root": "√a",
-          "number": "1",
-          "salish": "a",
-          "nicodemus": "a",
-          "english": "† hello. (gr.)"
-        },
-        {
-          "id": 2,
-          "root": "√a",
-          "number": "2",
-          "salish": "a",
-          "nicodemus": "a?",
-          "english": "so. (lit. Is that so?), (adv.)"
-        },
-        {
-          "id": 3,
-          "root": "√a",
-          "number": "3",
-          "salish": "a·",
-          "nicodemus": "aaaa...!",
-          "english": "cut out, knock off!, quit, stop. (lit. Cut it out!, Knock it off, quit it, Stop it!), (imper.)"
-        },
-        {
-          "id": 4,
-          "root": "√a",
-          "number": "4",
-          "salish": "aye",
-          "nicodemus": "aye",
-          "english": "hey. (adv.)"
-        },
-        {
-          "id": 5,
-          "root": "√bc",
-          "number": "1",
-          "salish": "buc",
-          "nicodemus": "buts",
-          "english": "† boots. (n.)"
-        },
-        {
-          "id": 6,
-          "root": "√bc",
-          "number": "2",
-          "salish": "ec+búc+buc=šn",
-          "nicodemus": "etsbutsbutsshn",
-          "english": "// boots (to be wearing...). ((lit. He is wearing boots), n.)"
-        },
-        {
-          "id": 7,
-          "root": "√bc",
-          "number": "3",
-          "salish": "s+búc+buc=šn",
-          "nicodemus": "sbutsbutsshn",
-          "english": "boot. ((lit. a borrowed root), n.)"
-        }
+      "id": 2,
+      "root": "√a",
+      "number": "2",
+      "salish": "a",
+      "nicodemus": "a?",
+      "english": "so. (lit. Is that so?), (adv.)"
+    },
+    {
+      "id": 3,
+      "root": "√a",
+      "number": "3",
+      "salish": "a·",
+      "nicodemus": "aaaa...!",
+      "english": "cut out, knock off!, quit, stop. (lit. Cut it out!, Knock it off, quit it, Stop it!), (imper.)"
+    },
+    {
+      "id": 4,
+      "root": "√a",
+      "number": "4",
+      "salish": "aye",
+      "nicodemus": "aye",
+      "english": "hey. (adv.)"
+    },
+    {
+      "id": 5,
+      "root": "√bc",
+      "number": "1",
+      "salish": "buc",
+      "nicodemus": "buts",
+      "english": "† boots. (n.)"
+    },
+    {
+      "id": 6,
+      "root": "√bc",
+      "number": "2",
+      "salish": "ec+búc+buc=šn",
+      "nicodemus": "etsbutsbutsshn",
+      "english": "// boots (to be wearing...). ((lit. He is wearing boots), n.)"
+    },
+    {
+      "id": 7,
+      "root": "√bc",
+      "number": "3",
+      "salish": "s+búc+buc=šn",
+      "nicodemus": "sbutsbutsshn",
+      "english": "boot. ((lit. a borrowed root), n.)"
+    },
+    {
+      "root": "√a",
+      "number": "1",
+      "salish": "a",
+      "nicodemus": "a",
+      "english": "† hello. (gr.)",
+      "id": 8
+    }
   ]
 }

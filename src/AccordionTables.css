@@ -35,7 +35,7 @@
 }
 
 .accordion__title:hover {
-    background-color: black;
+    background-color: gray;
 }
 
 .accordion__body {

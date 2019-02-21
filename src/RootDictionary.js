@@ -1,5 +1,5 @@
 import React, { Component, lazy, Suspense } from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Button, Icon } from 'semantic-ui-react';
 import ReactTable from "react-table";
 import {createResource} from "simple-cache-provider";
 import {cache} from "./cache";
@@ -20,6 +20,7 @@ import {
 //import 'react-accessible-accordion/dist/minimal-example.css';
 //import 'react-accessible-accordion/dist/fancy-example.css';
 import "./AccordionTables.css";
+import "./Colrc.css";
 
 let RootsResource = createResource( async () => {
    const response = await Api.getRoots();
@@ -301,9 +302,15 @@ const handleDelete = (row) => {
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	},
       {
-        Header: '',
+        Header: 'Edit/Delete',
+        filterable: false,
+        sortable: false,
+        width: 100,
         Cell: ({row, original}) => (
           <div>
+            <Button icon floated='right' onClick={() => this.onDelete(original.id)}>
+                <Icon name='trash' />
+            </Button>
             <Link to={{
               pathname: '/editroot/',
               search: '?id=' + original.id +
@@ -313,9 +320,11 @@ const handleDelete = (row) => {
               '&nicodemus=' + original.nicodemus +
               '&english=' + original.english
             }} >
-              <button>Edit</button>
+            <Button icon floated='right'>
+            	<Icon name='edit' />
+            </Button>
             </Link>
-            <button onClick={() => this.onDelete(original.id)}>Delete</button>
+
           </div>
         )
       }
@@ -408,13 +417,19 @@ const handleDelete = (row) => {
         <h3>Lyon and Green-Wood's Root Dictionary</h3>
         <p></p>
         <RootDictionaryIntro />
+        <p></p>
+        <div className="text-right">
         <Link to={{
           pathname: '/addroot/'
         }} >
-          <button>Add</button>
+          <Button icon labelPosition='left' size='small'>
+          	<Icon name='plus' />
+          	Add a root
+          </Button>
         </Link>
-		    <p></p>
-		    <CheckboxRoot />
+        </div>
+		<p></p>
+		<CheckboxRoot />
         {dataOrError}
       </div>
     );

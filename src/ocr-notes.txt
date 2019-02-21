@@ -21,3 +21,15 @@ iText (version 7 is the latest) -- free for educational purposes (Java and C#)
 PDFBox -- not as good
 Want to call Java from MatLab
 LSTM OCR -- works with 90% accuracy
+
+inital-medial-final characters in Arabic
+post-processing dictates the accuracy in the end
+detect characters by area, small areas are diacritics
+Using MatLab and Python --> C and C++ when done prototyping
+https://github.com/mrychlik/
+http://pashtoenglish.org
+--- 3 phases ---
+segmentation - the right unit of English for OCR (ligatures or characters)
+OCR phase
+post-processing
+----------------

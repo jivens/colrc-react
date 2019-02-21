@@ -343,8 +343,10 @@ class Texts extends Component {
 	  return (
 
       <div className='ui content'>
-        <TextsIntro />
         <h3>Texts</h3>
+        <p></p>
+        <TextsIntro />
+		<p></p>
 		<ReactTable
           data={textsData}
           //pivotBy={["cycle"]}

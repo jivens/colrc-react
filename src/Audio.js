@@ -35,6 +35,19 @@ class Audio extends Component {
   }
 }
 
+
+      //const media=[
+      //  {collective_title:"Chief Child of the Root", collection:chief_child_of_the_root_collection},
+      //  {collective_title:"Coyote Cycle", collection:coyote_cycle_collection}
+      //];
+      //const chief_child_of_the_root_collection = [
+      //  {reichard_1947_number:"1", title:"Chief Child of the Root (Transformer)",
+      //    manuscripts:chief_child_of_the_root_manuscripts}
+      //];
+      //const chief_child_of_the_root_manuscripts = [
+      //  {style:"typed", pdf:"", image:"", metadata:chief_child_of_the_root_typed_metadata}
+      //];
+      
 class AudioElement extends Component {
   render() {
       const sources=[

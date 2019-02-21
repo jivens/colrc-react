@@ -116,8 +116,10 @@ class SpellingPronunciation extends Component {
 
   return (     
 	  	<div className='ui content'>    
-	        <SpellingPronunciationIntro />
 	        <h3>Spelling and Pronunciation Guide</h3>
+	        <p></p>
+	        <SpellingPronunciationIntro />
+			<p></p>
 			{dataOrError}
 	        <SpellFootnote />
 		</div>

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Checkbox } from 'semantic-ui-react';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import matchSorter from 'match-sorter';
-import PropTypes from "prop-types";
 import {
     Accordion,
     AccordionItem,
@@ -14,8 +13,40 @@ import "./AccordionTables.css";
 
 
 class AffixList extends Component {
+	 constructor() {
+	    super();
+	    this.state = {
+	      salishSelected: false,
+	      nicodemusSelected: true,
+	      englishSelected: true,
+	      linkSelected: false,
+	    };
+	  }
+
+	 handleSalishChange(value) {
+	    this.setState({ salishSelected: !this.state.salishSelected });
+	  };
+
+	 handleNicodemusChange(value) {
+	    this.setState({ nicodemusSelected: !this.state.nicodemusSelected });
+	  };
+
+	handleEnglishChange(value) {
+	    this.setState({ englishSelected: !this.state.englishSelected });
+	  };
+
+	handleLinkChange(value) {
+	    this.setState({ linkSelected: !this.state.linkSelected });
+	  };
+
 	render() {
- 
+
+  	const { salishSelected, nicodemusSelected, englishSelected, linkSelected } = this.state;
+
+ 	const Checkbox = props => (
+  		<input type="checkbox" {...props} />
+		)
+
  	const getColumnWidth = (rows, accessor, headerText) => {
 	  const maxWidth = 600
 	  const magicSpacing = 15
@@ -143,6 +174,7 @@ class AffixList extends Component {
 	    filterMethod: (filter, rows) =>
         	matchSorter(rows, filter.value, { keys: ["salish"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,
+        show: salishSelected,
 	  	},
 	  {
 	    Header: 'Nicodemus',
@@ -150,6 +182,7 @@ class AffixList extends Component {
 	    filterMethod: (filter, rows) =>
         	matchSorter(rows, filter.value, { keys: ["nicodemus"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,
+        show: nicodemusSelected,
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	}, 
 	  {
@@ -159,11 +192,13 @@ class AffixList extends Component {
 	    filterMethod: (filter, rows) =>
         	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,
+        show: englishSelected,
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	}, 
 	  {
 	    Header: 'Link',
 	    accessor: 'link',
+	    show: linkSelected,
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  }
 	  ];
@@ -186,10 +221,47 @@ class AffixList extends Component {
 	    </Accordion>
   	);
 
+	const CheckboxAffix = () => (
+		<div className="checkBoxMenu">
+		  <label className="checkBoxLabel">Salish</label>
+		  <input 
+		  	name="salish"
+            type="checkbox"
+            checked={this.state.salishSelected}
+            onChange={this.handleSalishChange.bind(this)}
+          />
+          <label className="checkBoxLabel">Nicodemus</label>
+          <input
+            name="nicodemus"
+            type="checkbox"
+            checked={this.state.nicodemusSelected}
+            onChange={this.handleNicodemusChange.bind(this)}
+          />
+          <label className="checkBoxLabel">English</label>
+          <input
+            name="english"
+            type="checkbox"
+            checked={this.state.englishSelected}
+            onChange={this.handleEnglishChange.bind(this)}
+          />
+          <label className="checkBoxLabel">Link</label>
+          <input
+            name="link"
+            type="checkbox"
+            checked={this.state.linkSelected}
+            onChange={this.handleLinkChange.bind(this)}
+          />
+		</div>
+	  );
+
 	  return (
       <div className='ui content'>
-        <AffixListIntro />
         <h3>Affixes</h3>
+        <p></p>
+        <AffixListIntro />
+		<p></p>
+		<CheckboxAffix />
+        <p></p>
 		  <ReactTable
 		    data={affixData}
 		    columns={columns}
@@ -198,7 +270,6 @@ class AffixList extends Component {
 	   		className="left"
 	   		filterable="true"
 	   		filterAll="true"
-        
 		  />
 		</div>
 	  );

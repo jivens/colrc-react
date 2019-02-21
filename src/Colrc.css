@@ -21,3 +21,16 @@
 .ReactTable .rt-resizer {
 	right: 0;
 }
+
+.checkBoxMenu {
+  background-color: #222;
+  padding: 5px;
+  color: white;
+  text-align: right;
+}
+
+
+.checkBoxLabel {
+	padding-left: 20px;
+	padding-right: 5px;
+}

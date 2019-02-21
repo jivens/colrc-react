@@ -31,10 +31,33 @@ let RootsResource = createResource( async () => {
 class RootDictionary extends Component {
   constructor() {
     super();
-    this.state = { data: [], loading: true };
     this.onDelete = this.onDelete.bind(this);
     this.loadRootData = this.loadRootData.bind(this);
+    this.state = {
+    	data: [],
+    	loading: true,
+    	numberSelected: false,
+	    salishSelected: false,
+	    nicodemusSelected: true,
+	    englishSelected: true,
+     };
   }
+
+ 	 handleNumberChange(value) {
+	    this.setState({ numberSelected: !this.state.numberSelected });
+	  };
+
+  	 handleSalishChange(value) {
+	    this.setState({ salishSelected: !this.state.salishSelected });
+	  };
+
+	 handleNicodemusChange(value) {
+	    this.setState({ nicodemusSelected: !this.state.nicodemusSelected });
+	  };
+
+	handleEnglishChange(value) {
+	    this.setState({ englishSelected: !this.state.englishSelected });
+	  };
 
   async componentDidMount() {
     this.loadRootData();
@@ -76,6 +99,13 @@ class RootDictionary extends Component {
   };
 
   render() {
+
+  	const { salishSelected, nicodemusSelected, englishSelected, numberSelected } = this.state;
+
+ 	const Checkbox = props => (
+  		<input type="checkbox" {...props} />
+		)
+
   	const RootDictionaryIntro = () => (
     <Accordion>
         <AccordionItem>
@@ -219,7 +249,7 @@ const handleDelete = (row) => {
 
 	  const columns = [{
 	    accessor: 'id',
-      show: false
+        show: false
 	  	},
     {
 	    Header: 'Root',
@@ -237,6 +267,7 @@ const handleDelete = (row) => {
         	matchSorter(rows, filter.value, { keys: ["#"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,
 	    width: getColumnWidth(rootData, 'number', '#'),
+	    show: numberSelected,
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	},
 	  {
@@ -244,7 +275,9 @@ const handleDelete = (row) => {
 	    accessor: 'salish',
 	    filterMethod: (filter, rows) =>
         	matchSorter(rows, filter.value, { keys: ["salish"], threshold: matchSorter.rankings.CONTAINS }),
-            filterAll: true,	    //width: getColumnWidth(rootData, 'salish', 'Salish'),
+            filterAll: true,
+        show: salishSelected,
+        //width: getColumnWidth(rootData, 'salish', 'Salish'),
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	},
 	  {
@@ -253,6 +286,7 @@ const handleDelete = (row) => {
 	    filterMethod: (filter, rows) =>
         	matchSorter(rows, filter.value, { keys: ["nicodemus"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,
+	    show: nicodemusSelected,
 	    //width: getColumnWidth(rootData, 'nicodemus', 'Nicodemus'),
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  },
@@ -262,7 +296,8 @@ const handleDelete = (row) => {
 	    filterMethod: (filter, rows) =>
         	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,
-	    style: { 'white-space': 'unset' }
+	    style: { 'white-space': 'unset' },
+		show: englishSelected,
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	},
       {
@@ -323,6 +358,40 @@ const handleDelete = (row) => {
       </React.Suspense>
     </ErrorBoundary>
 */
+
+  const CheckboxRoot = () => (
+		<div className="checkBoxMenu">
+		  <label className="checkBoxLabel">#</label>
+		  <input
+		  	name="number"
+            type="checkbox"
+            checked={this.state.numberSelected}
+            onChange={this.handleNumberChange.bind(this)}
+          />
+		  <label className="checkBoxLabel">Salish</label>
+		  <input
+		  	name="salish"
+            type="checkbox"
+            checked={this.state.salishSelected}
+            onChange={this.handleSalishChange.bind(this)}
+          />
+          <label className="checkBoxLabel">Nicodemus</label>
+          <input
+            name="nicodemus"
+            type="checkbox"
+            checked={this.state.nicodemusSelected}
+            onChange={this.handleNicodemusChange.bind(this)}
+          />
+          <label className="checkBoxLabel">English</label>
+          <input
+            name="english"
+            type="checkbox"
+            checked={this.state.englishSelected}
+            onChange={this.handleEnglishChange.bind(this)}
+          />
+		</div>
+	  );
+
  const dataOrError = this.state.error ?
       <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
       <ReactTable
@@ -333,15 +402,19 @@ const handleDelete = (row) => {
         defaultPageSize={5}
         className="-striped -highlight"
       />;
+
     return (
       <div className='ui content'>
+        <h3>Lyon and Green-Wood's Root Dictionary</h3>
+        <p></p>
         <RootDictionaryIntro />
         <Link to={{
           pathname: '/addroot/'
         }} >
           <button>Add</button>
         </Link>
-        <h3>Lyon and Green-Wood's Root Dictionary</h3>
+		    <p></p>
+		    <CheckboxRoot />
         {dataOrError}
       </div>
     );

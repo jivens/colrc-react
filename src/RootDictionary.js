@@ -8,6 +8,9 @@ import ErrorBoundary from "./ErrorBoundary";
 import "react-table/react-table.css";
 import matchSorter from 'match-sorter';
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 import {
     Accordion,
     AccordionItem,
@@ -29,8 +32,15 @@ class RootDictionary extends Component {
   constructor() {
     super();
     this.state = { data: [], loading: true };
+    this.onDelete = this.onDelete.bind(this);
+    this.loadRootData = this.loadRootData.bind(this);
   }
+
   async componentDidMount() {
+    this.loadRootData();
+  }
+
+  async loadRootData() {
     try {
       const response = await fetch(`http://localhost:4000/roots`);
       if (!response.ok) {
@@ -43,6 +53,27 @@ class RootDictionary extends Component {
       this.setState({ error: error });
     }
   }
+
+  async onDelete(id) {
+    console.log("In deletion");
+    try {
+      const body = {
+        id: id
+      };
+      const path = 'http://localhost:4000/roots/' + id;
+      const headers = {
+        'Content-Type': 'application/json;charset=UTF-8',
+        "Access-Control-Allow-Origin": "*"
+      };
+      const response = await axios.delete(path, body, {headers});
+      console.log(response);
+      //this.props.history.push(`/rootdictionary`);
+      this.loadRootData();
+    } catch (err) {
+      console.log(err);
+      this.loadRootData();
+    }
+  };
 
   render() {
   	const RootDictionaryIntro = () => (
@@ -68,12 +99,20 @@ class RootDictionary extends Component {
                 </p>
 		    </AccordionItemTitle>
 		    <AccordionItemBody>
-			    <p>For reasons of searchability and clarity of presentation, the organization of the dictionary has been altered from its original form. Within a root header, the entries are organized beginning with the least complex and move towards more complex forms. Each entry is separated by a new line and numbered. The entries first appear in the Salishan orthography, then the Nicodemus, and finally an English translation. Nicodemus sometimes identifies the simplest forms as (stem), but not in all cases. Intransitive and simple nominalized forms directly follow, then reduplicated forms, complex forms (those with lexical suffixes), and finally transitive forms and compounds. The following symbols are used to separate the different types of entries: intransitive (†), transitive (‡), complex (//), and compound (§) entries. Entries begin with a root skeleton followed by the transliterated Coeur d'Alene, followed by Nicodemus's English translation, grammatical notations, and additional information. 
+			    <p>For reasons of searchability and clarity of presentation, the organization of the dictionary has been altered from its original form. Within a root header, the entries are organized beginning with the least complex and move towards more complex forms. Each entry is separated by a new line and numbered. The entries first appear in the Salishan orthography, then the Nicodemus, and finally an English translation. Nicodemus sometimes identifies the simplest forms as (stem), but not in all cases. Intransitive and simple nominalized forms directly follow, then reduplicated forms, complex forms (those with lexical suffixes), and finally transitive forms and compounds. The following symbols are used to separate the different types of entries: intransitive (†), transitive (‡), complex (//), and compound (§) entries. Entries begin with a root skeleton followed by the transliterated Coeur d'Alene, followed by Nicodemus's English translation, grammatical notations, and additional information.
 			    </p>
             </AccordionItemBody>
         </AccordionItem>
     </Accordion>
 );
+
+const handleEdit = (row) => {
+
+};
+
+const handleDelete = (row) => {
+
+};
 
   	const getColumnWidth = (rows, accessor, headerText) => {
   	  const maxWidth = 600
@@ -225,7 +264,27 @@ class RootDictionary extends Component {
             filterAll: true,
 	    style: { 'white-space': 'unset' }
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-	  	}, ];
+	  	},
+      {
+        Header: '',
+        Cell: ({row, original}) => (
+          <div>
+            <Link to={{
+              pathname: '/editroot/',
+              search: '?id=' + original.id +
+              '&root=' + original.root +
+              '&number=' + original.number +
+              '&salish=' + original.salish +
+              '&nicodemus=' + original.nicodemus +
+              '&english=' + original.english
+            }} >
+              <button>Edit</button>
+            </Link>
+            <button onClick={() => this.onDelete(original.id)}>Delete</button>
+          </div>
+        )
+      }
+    ];
 
     //let roots = RootsResource.read(cache);
 /*
@@ -277,6 +336,11 @@ class RootDictionary extends Component {
     return (
       <div className='ui content'>
         <RootDictionaryIntro />
+        <Link to={{
+          pathname: '/addroot/'
+        }} >
+          <button>Add</button>
+        </Link>
         <h3>Lyon and Green-Wood's Root Dictionary</h3>
         {dataOrError}
       </div>
@@ -299,4 +363,4 @@ class RootElement extends Component {
   }
 }
 
-export default RootDictionary;
+export default withRouter(RootDictionary);

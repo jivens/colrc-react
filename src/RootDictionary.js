@@ -1,5 +1,5 @@
 import React, { Component, lazy, Suspense } from 'react';
-import { Grid, Button, Icon } from 'semantic-ui-react';
+import { Grid, Button, Icon, Menu } from 'semantic-ui-react';
 import ReactTable from "react-table";
 import {createResource} from "simple-cache-provider";
 import {cache} from "./cache";
@@ -136,6 +136,40 @@ class RootDictionary extends Component {
         </AccordionItem>
     </Accordion>
 );
+
+class RootSubMenu extends Component {
+		
+	 state = {}
+
+	  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+	  render() {
+	    const { activeItem } = this.state
+	    return (
+	      <Menu size='mini'>
+	        <Menu.Item 
+				name='dictionary'
+				active={activeItem === 'Dictionary'}
+				onClick={this.handleItemClick}>
+				Dictionary
+	        </Menu.Item>
+	        <Menu.Item 
+		        name='history' 
+		        active={activeItem === 'history'} 
+		        onClick={this.handleItemClick}>
+		        History of Materials
+	        </Menu.Item>
+	        <Menu.Item 
+				name='metadata'
+				active={activeItem === 'metadata'}
+				onClick={this.handleItemClick}>
+				Metadata
+	        </Menu.Item>
+	      </Menu>
+	    )
+	  }
+	}
+
 
 const handleEdit = (row) => {
 
@@ -414,19 +448,20 @@ const handleDelete = (row) => {
 
     return (
       <div className='ui content'>
+        <RootSubMenu />  
         <h3>Lyon and Green-Wood's Root Dictionary</h3>
         <p></p>
         <RootDictionaryIntro />
         <p></p>
         <div className="text-right">
-        <Link to={{
-          pathname: '/addroot/'
-        }} >
-          <Button icon labelPosition='left' size='small'>
-          	<Icon name='plus' />
-          	Add a root
-          </Button>
-        </Link>
+	        <Link to={{
+	          pathname: '/addroot/'
+	        }} >
+	          <Button icon labelPosition='left' size='small'>
+	          	<Icon name='plus' />
+	          	Add a root
+	          </Button>
+	        </Link>
         </div>
 		<p></p>
 		<CheckboxRoot />

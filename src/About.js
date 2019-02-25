@@ -57,7 +57,7 @@ class About extends Component {
 		            	A second version of the website is was developed in 2013 with the support of the National Science Foundation (award numbers BCS-1160394 and BCS-1160627), using these freely available, open-source, and easily learnable tools - expanded to include xml and ajax. You can find free tutorials for all of these tools at <a href="http://www.w3schools.com" target="blank" rel="noopener noreferrer">w3schools.com</a>.          			
 		          </p>
 		          <p>
-		          		The current version of the site has been redeveloped beginning in 2019 with the support of the National Endowment for the Humanities award number XXXXXXX, using more specialized open-source tools that allow increased functionality and responsive design.  The site is developed and maintained using React and mySQL.  You can find free tutorials for these tools in a number of venues, including YouTube.
+		          		The current version of the site has been redeveloped beginning in 2019 with the support of the National Endowment for the Humanities award number PD-261031-18, using more specialized open-source tools that allow increased functionality and responsive design.  The site is developed and maintained using React and mySQL.  You can find free tutorials for these tools in a number of venues, including YouTube.
 		          		</p>
 				</AccordionItemBody>
 			</AccordionItem>

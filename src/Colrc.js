@@ -27,6 +27,8 @@ import ContactUs from './ContactUs';
 import Texts from './Texts';
 import AudioPlayer from './AudioPlayer';
 import Bibliography from './Bibliography';
+import EditRoot from './EditRoot';
+import AddRoot from './AddRoot';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faBars } from '@fortawesome/free-solid-svg-icons';
@@ -41,9 +43,10 @@ class Colrc extends Component {
     render() {
 
 	  const rightItems = [
-	  	  { to: "/", name: "Login"},
-		  { to: "/", name: "Register"},
-		  { to: "/", icon: "search" }
+	  	  { to: "/", icon: 'search'},
+	  	  { to: "/", icon: 'user'},
+		  { to: "/", icon: 'cog'},
+		  { to: "/", icon: 'ellipsis vertical'},
 		];
 
       return (
@@ -64,6 +67,10 @@ class Colrc extends Component {
   				  <Route path="/contactus" component={ContactUs} />
                   <Route path="/texts" component={Texts} />
                   <Route path="/bibliography" component={Bibliography} />
+                  {/* <Route path="/rootdictionary/:id" exact component={EditRoot} /> */}
+                  <Route path="/editroot" component={EditRoot} />
+                  <Route path="/addroot" component={AddRoot} />
+                  {/* <Route component={NotFound} /> */}
                 </Switch>
               </Grid.Column>
             </Grid.Row>

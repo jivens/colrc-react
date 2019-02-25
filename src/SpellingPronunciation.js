@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Menu } from 'semantic-ui-react';
 import DecoratedTextSpan from './DecoratedTextSpan';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
@@ -10,61 +10,25 @@ import {
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
+import { Link } from 'react-router-dom'
 import "./AccordionTables.css";
+import SpellingPronunciationList from './SpellingPronunciationList';
+import SpellingPronunciationCharts from './SpellingPronunciationCharts';
+
 
 class SpellingPronunciation extends Component {
-  constructor() {
-    super();
-    this.state = { data: [], loading: true };
+  constructor(props) {
+    super(props);
+    this.state = { 
+    	activeItem: 'list', 
+    };
+    this.handleItemClick = this.handleItemClick.bind(this);
   }
-  async componentDidMount() {
-    try {
-      const response = await fetch(`http://localhost:4000/spelling`);
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      const json = await response.json();
-      this.setState({ loading: false, data: json });
-    } catch (error) {
-      console.log("This is my Error: " + error);
-      this.setState({ error: error });
-    }
-  }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-
-	const columns=[{
-			Header: 'Nicodemus',
-		    accessor: 'nicodemus',
-			filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["nicodemus"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-		    Cell: row => ( <DecoratedTextSpan str={row.value} />	),
-        },{
-        	Header: 'Reichard',
-        	accessor: 'reichard',
-		    filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["reichard"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-        },{
-        	Header: 'Salish',
-        	accessor: 'salish',
-	   	    filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["salish"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-        },{
-        	Header: 'English',
-        	accessor: 'english',
-	  	    filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-        	Cell: row => ( <DecoratedTextSpan str={row.value} />	),
-
-        },{
-        	Header: 'Note',
-        	accessor: 'note',
-        	Cell: row => ( <span className="superscript">{row.value}</span> ),
-	}];
+	  const { activeItem } = this.state;
 
 	  const SpellingPronunciationIntro = () => (
 	    <Accordion>
@@ -101,68 +65,50 @@ class SpellingPronunciation extends Component {
 			        </p>
 				</AccordionItemBody>
 			</AccordionItem>
+			<AccordionItem>
+				<AccordionItemTitle>
+	                <p className="u-position-relative">
+	                Pronunciation of Coeur d'Alene sounds
+	                <div className="accordion__arrow" role="presentation" />
+	            	</p>				
+				</AccordionItemTitle>
+				<AccordionItemBody>
+					<p>Coeur d'Alene uses some sounds that will be unfamiliar to English speakers. In this resource, we provide information about how the sounds are pronounced, using the terminology that linguists have developed to describe these processes.  For those who don't (yet) have training in "articulatory phonetics", we recommend working with a teacher who can help you learn to pronounce the sounds.
+					</p>
+					<p>Linguists use the term "phoneme" to refer to a sound that is used to distinguish words in a particular language. The charts below, adapted from Doak 1997 and Barthmaier 1996, show the consonant and vowel phonemes of Coeur d'Alene, based on the ways in which each is pronounced. We have used the Salishan Orthography to represent these sounds, as we anticipate this resource to be of most use to scholars in linguistics. Students interested in learning how to pronounce Coeur d'Alene might also find these charts useful if they have some background in the study of "articulatory phonetics".</p>
+				
+				</AccordionItemBody>
+			</AccordionItem>
 	    </Accordion>
   	);
-    const dataOrError = this.state.error ?
-      <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
-      <ReactTable
-        data={this.state.data}
-        loading={this.state.loading}
-        columns={columns}
-        filterable
-        defaultPageSize={20}
-        className="-striped -highlight"
-      />;
+
+    const currentItem = this.state.activeItem === "list" ?
+      <SpellingPronunciationList /> :
+      <SpellingPronunciationCharts />;
 
   return (     
-	  	<div className='ui content'>    
+	  	<div className='ui content'> 
+	      <Menu size='mini'>
+	        <Menu.Item 
+				name='list'
+				active={activeItem === 'list'}
+				onClick={this.handleItemClick}>
+				List of Symbols
+	        </Menu.Item>
+	        <Menu.Item 
+		        name='charts' 
+		        active={activeItem === 'charts'} 
+		        onClick={this.handleItemClick}>
+		        Phoneme Charts
+	        </Menu.Item>
+	      </Menu> 
 	        <h3>Spelling and Pronunciation Guide</h3>
 	        <p></p>
 	        <SpellingPronunciationIntro />
 			<p></p>
-			{dataOrError}
-	        <SpellFootnote />
+			{currentItem}
 		</div>
 	);
-  }
-}
-
-class SpellElement extends Component {
-  render() {
-    const color = this.props.color ? this.props.color : 'white';
-    const spanStyle = this.props.spanStyle ? this.props.spanStyle : 'superscript';
-    return (
-      <Grid.Row color={color}>
-        <Grid.Column width={2}>
-          <DecoratedTextSpan
-            str={this.props.nicodemus}
-          />
-        </Grid.Column>
-        <Grid.Column width={2}>{this.props.reichard}</Grid.Column>
-        <Grid.Column width={2}>{this.props.salish}</Grid.Column>
-        <Grid.Column width={6}>
-          <DecoratedTextSpan
-            str={this.props.english}
-          />
-        </Grid.Column>
-        <Grid.Column width={2}><span className={spanStyle}>{this.props.note}</span></Grid.Column>
-      </Grid.Row>
-    );
-  }
-}
-
-class SpellFootnote extends Component {
-  render() {
-    return (
-      <div className='ui content'>
-        <p></p>
-        <strong>Notes</strong>
-		    <p></p>
-		    <p><sup>1</sup>  An acute accent is used in the Reichard and Salishan systems to indicate that the vowel is stressed. Underlining is used for this purpose in the Nicodemus system.</p>
-		    <p><sup>2</sup>  The symbol 'x' may be used in the Reichard and Salishan systems to write the sound /xʷ/ when it occurs before /u/.</p>
-		    <p><sup>3</sup>  Nicodemus 1975a,b uses both '(' and ')' occasionally to write the pharyngeals.</p>
-      </div>
-    );
   }
 }
 

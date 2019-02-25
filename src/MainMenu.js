@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Grid, List, Container, Header, Segment, Label } from 'semantic-ui-react';
+import {Grid, List, Container, Header, Segment, Label, Input, Menu } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import './NavBar.css';
 
@@ -7,8 +7,8 @@ class MainMenu extends Component {
   render() {
     return (
     <div className="ui grid" id="Banner">
-      <Grid verticalAlign='middle' columns={3}>
-          <Grid.Column width={13}>
+      <Grid columns={3}>
+          <Grid.Column verticalAlign='top' width={16}>
             <Segment>
 	           	<Label as={Link} to="/" name="about" color='blue' ribbon>
 	          		COLRC
@@ -16,16 +16,27 @@ class MainMenu extends Component {
 	        	<span>Coeur d'Alene Online Language Resource Center</span>
         	</Segment>
           </Grid.Column>
-          <Grid.Column width={3}>
-            <OptionsList />
-          </Grid.Column>
       </Grid>
+
       </div>
     );
   }
 }
 
+class SearchBox extends Component {
+  render() {
+	const inputBox = () => <Input icon='search' placeholder='Search...' />;
 
+    return (
+
+        <div>
+          	<Input icon='search' size='mini'  />
+        <p>Enter Special Characters</p>
+        <p></p>
+        </div>
+    );
+  }
+}
 
 
 class OptionsList extends Component {

@@ -43,9 +43,10 @@ class Colrc extends Component {
     render() {
 
 	  const rightItems = [
-	  	  { to: "/", name: "Login"},
-		  { to: "/", name: "Register"},
-		  { to: "/", icon: "search" }
+	  	  { to: "/", icon: 'search'},
+	  	  { to: "/", icon: 'user'},
+		  { to: "/", icon: 'cog'},
+		  { to: "/", icon: 'ellipsis vertical'},
 		];
 
       return (

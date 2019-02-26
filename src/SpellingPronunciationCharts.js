@@ -5,8 +5,6 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 import matchSorter from 'match-sorter';
 import { Link } from 'react-router-dom'
-import consonant_inventory from './images/consonant_inventory.jpg';
-import vowel_inventory from './images/vowel_inventory.jpg';
 
 
 class SpellingPronunciationCharts extends Component {
@@ -20,7 +18,7 @@ class SpellingPronunciationCharts extends Component {
 
   async componentDidMount() {
     try {
-      const response = await fetch(`http://localhost:4000/spelling`);
+      const response = await fetch(`http://localhost:4000/phonemes`);
       if (!response.ok) {
         throw Error(response.statusText);
       }
@@ -35,37 +33,94 @@ class SpellingPronunciationCharts extends Component {
   render() {
 
 	const columns=[{
-			Header: 'Nicodemus',
-		    accessor: 'nicodemus',
-			filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["nicodemus"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-		    Cell: row => ( <DecoratedTextSpan str={row.value} />	),
-        },{
-        	Header: 'Reichard',
-        	accessor: 'reichard',
-		    filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["reichard"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-        },{
-        	Header: 'Salish',
-        	accessor: 'salish',
-	   	    filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["salish"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-        },{
-        	Header: 'English',
-        	accessor: 'english',
-	  	    filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-        	Cell: row => ( <DecoratedTextSpan str={row.value} />	),
-
-        },{
-        	Header: 'Note',
-        	accessor: 'note',
-        	Cell: row => ( <span className="superscript">{row.value}</span> ),
-		}];
+				Header: 'orth',
+				accessor: 'orthography',
+				id: 'orthography',
+				width: 80,
+				filterMethod: (filter, row) => {
+                    if (filter.value === "all") {
+                      return true;
+                    }
+                    return row[filter.id] === filter.value;
+                },
+	    		Filter: ({ filter, onChange }) =>
+	            <select
+	              onChange={event => onChange(event.target.value)}
+	              style={{ width: "100%" }}
+	              value={filter ? filter.value : "N"}
+	            >
+	              <option value="N">N</option>
+	              <option value="S">S</option>
+	              <option value="R">R</option>
+	              <option value="all">All</option>
+	            </select>,
+			},{
+				Header: 'voice',
+			    accessor: 'voice',
+			    maxWidth: 80,
+				filterMethod: (filter, row) => {
+                    if (filter.value === "all") {
+                      return true;
+                    }
+                    return row[filter.id] === filter.value;
+                },
+	    		Filter: ({ filter, onChange }) =>
+	            <select
+	              onChange={event => onChange(event.target.value)}
+	              style={{ width: "100%" }}
+	              value={filter ? filter.value : "all"}
+	            >
+	              <option value="VL">VL</option>
+	              <option value="V">V</option>
+	              <option value="RN">RN</option>
+	              <option value="all">All</option>
+	            </select>,			    
+			},{
+				Header: 'manner',
+				accessor: 'manner',
+				maxWidth: 70,
+			},{
+				Header: 'secondary',
+				accessor: 'secondary',
+				maxWidth: 100,
+			},{
+	        	Header: 'labial',
+	        	accessor: 'labial',
+	        	minWidth: 30,
+	        },{
+	        	Header: 'alveolar',
+	       		accessor: 'alveolar',
+	        	minWidth: 30,
+	        },{
+	        	Header: 'alveo-pal',
+	        	accessor: 'alveopalatal',
+	        	minWidth: 30,
+	        },{
+	        	Header: 'lateral',
+	        	accessor: 'lateral',
+	        	minWidth: 30,
+	        },{
+	        	Header: 'palatal',
+	        	accessor: 'palatal',
+	        	minWidth: 30,
+	        },{
+	        	Header: 'velar',
+        		accessor: 'velar',
+        		minWidth: 30,
+	        },{
+	        	Header: 'uvular',
+	        	accessor: 'uvular',
+	        	minWidth: 30,
+	        },{
+	        	Header: 'pharyngeal',
+	        	accessor: 'pharyngeal',
+	        	minWidth: 30,
+	        },{
+	        	Header: 'glottal',
+	        	accessor: 'glottal',
+	        	minWidth: 30,
+	        },
+	];
 
 	
 
@@ -74,12 +129,11 @@ class SpellingPronunciationCharts extends Component {
 			<h3>Phoneme Charts</h3>
 	
 			<p>In the consonant chart, sounds are organized based on the location in the mouth where the tongue tip, blade, body or root come into closest contact with the relevant anatomical structure, with those structures listed from the front of the vocal tract (the lips) to the back (the glottis).  Readers may find various interactive IPA charts to be useful aids in understanding the charts presented here.</p>
-			<h4>Consonants of Coeur d'Alene</h4>
-			<img className="consonant_inventory" src={consonant_inventory} alt="consonant inventory"/>
+
 
 			<p>In the vowel chart, sounds are organized based on the location in the mouth where apex of the tongue is located during pronunciation of the vowel, with the highest most front vowel (written 'i' in Salish orthography, and pronounced as in the English word 'bead') pronounced with the tongue in approximately the same position as it is for the resonant 'y'.  Back vowels such as 'u' are pronounced with rounded lips.</p>
-			<h4>Vowels of Coeur d'Alene</h4>
-			<img className="vowel_inventory" src={vowel_inventory} alt="vowel inventory"/>
+
+
 		</div>
 		);
 
@@ -89,14 +143,22 @@ class SpellingPronunciationCharts extends Component {
         data={this.state.data}
         loading={this.state.loading}
         columns={columns}
+        defaultPageSize={17}
         filterable
-        defaultPageSize={20}
+		defaultFiltered={[
+				{
+					id: 'orthography',
+					value: 'N'
+				}
+			]}
         className="-striped -highlight"
       />;
 
   return (     
 	  	<div className='ui content'> 
-			<h3>Phoneme Charts</h3> 
+			<h3>Phoneme Chart - Consonants</h3> 
+			<p>Key to abbreviations:  'orth' stands for 'orthography'.  You can select 'N' for 'Nicodemus', 'S' for 'Salish', 'R' for Reichard or 'All' to see all at once.  The values listed for 'voice' are, 'VL' for 'voiceless', 'V' for 'voiced', 'RN' for 'resonant' - a category that includes nasals and approximants.</p>
+			<p></p>
 			{dataOrError}
 			<p></p>
 			<PhonemeCharts />

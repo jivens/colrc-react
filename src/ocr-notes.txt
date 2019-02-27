@@ -33,3 +33,14 @@ segmentation - the right unit of English for OCR (ligatures or characters)
 OCR phase
 post-processing
 ----------------
+
+kraken and tesseract have multiple models for arabic.
+kraken native correctness is about 60-70-80%.
+kraken works line by line
+kraken is python with some C LSTM library dependencies
+tesseract works either by character or by ligature
+tesseract is implemented in C++/Python
+programs combine the results of scans in multiple directions
+Pashto has about 1000 ligatures in 4 different directions for 4000 models
+Both networks use bi-directional LSTM in order to help limit the vanishing gradient problem
+Use tesseract trained data for MatLab experimentation

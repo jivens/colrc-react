@@ -33,6 +33,11 @@
   text-align: right;
 }
 
+.wordwrap {
+  white-space: pre-line !important;
+  word-wrap: break-word;
+  padding: 2px;
+}
 
 .checkBoxLabel {
 	padding-left: 20px;

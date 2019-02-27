@@ -12,67 +12,95 @@ import vowel_inventory from './images/vowel_inventory.jpg';
 class SpellingPronunciationCharts extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-    	data: [], 
-    	loading: true, 
+    this.state = {
+    	data: [],
+    	loading: false,
     };
-  }
-
-  async componentDidMount() {
-    try {
-      const response = await fetch(`http://localhost:4000/spelling`);
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      const json = await response.json();
-      this.setState({ loading: false, data: json });
-    } catch (error) {
-      console.log("This is my Error: " + error);
-      this.setState({ error: error });
-    }
   }
 
   render() {
 
-	const columns=[{
-			Header: 'Nicodemus',
-		    accessor: 'nicodemus',
-			filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["nicodemus"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-		    Cell: row => ( <DecoratedTextSpan str={row.value} />	),
-        },{
-        	Header: 'Reichard',
-        	accessor: 'reichard',
-		    filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["reichard"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-        },{
-        	Header: 'Salish',
-        	accessor: 'salish',
-	   	    filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["salish"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-        },{
-        	Header: 'English',
-        	accessor: 'english',
-	  	    filterMethod: (filter, rows) =>
-	        	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
-	            filterAll: true,
-        	Cell: row => ( <DecoratedTextSpan str={row.value} />	),
+	const columns=
+  [
+    {
+      Header: 'Id',
+      accessor: 'id',
+      show: false,
+      headerClassName: "wordwrap"
+    },
+    {
+      Header: 'Category',
+      accessor: 'category',
+      style:{ 'white-space': 'unset'}
+    },
+    {
+      Header: () => <div>lab-<br/>ial</div>,
+      accessor: 'labial'
+    },
+    {
+      Header: () => <div>alveo-<br/>lar</div>,
+      accessor: 'alveolar'
+    },
+    {
+      Header: () => <div>alveo-<br/>palatal</div>,
+      accessor: 'alveopalatal'
+    },
+    {
+      Header: () => <div>lat-<br/>eral</div>,
+      accessor: 'lateral'
+		},
+    {
+      Header: () => <div>pal-<br/>atal</div>,
+      accessor: 'palatal'
+    },
+    {
+      Header: () => <div>labio-<br/>velar</div>,
+      accessor: 'labiovelar'
+    },
+    {
+      Header: 'uvular',
+      accessor: 'uvular'
+    },
+    {
+      Header: () => <div>labio-<br/>uvular</div>,
+      accessor: 'labiouvular',
+    },
+    {
+      Header: () => <div>pharyn-<br/>geal</div>,
+      accessor: 'pharyngeal',
+    },
+    {
+      Header: () => <div>labio-<br/>pharyn-<br/>geal</div>,
+      accessor: 'labiopharyngeal',
+    },
+    {
+      Header: 'glottal',
+      accessor: 'glottal',
+    }
+  ];
 
-        },{
-        	Header: 'Note',
-        	accessor: 'note',
-        	Cell: row => ( <span className="superscript">{row.value}</span> ),
-		}];
-
-	
+  const data = [
+    {
+      "id": 1,
+      "category": "voiceless stops and affricates",
+      "labial": "p",
+      "alveolar": "t",
+      "alveopalatal": "c",
+      "lateral": "",
+      "palatal": "č",
+      "labiovelar": "kʷ",
+      "uvular": "q",
+      "labiouvular": "qʷ",
+      "pharyngeal": "",
+      "labiopharyngeal": "",
+      "glottal": "ʔ"
+    },
+  ];
 
     const PhonemeCharts = () => (
 		<div>
 			<h3>Phoneme Charts</h3>
-	
+
 			<p>In the consonant chart, sounds are organized based on the location in the mouth where the tongue tip, blade, body or root come into closest contact with the relevant anatomical structure, with those structures listed from the front of the vocal tract (the lips) to the back (the glottis).  Readers may find various interactive IPA charts to be useful aids in understanding the charts presented here.</p>
 			<h4>Consonants of Coeur d'Alene</h4>
 			<img className="consonant_inventory" src={consonant_inventory} alt="consonant inventory"/>
@@ -83,21 +111,16 @@ class SpellingPronunciationCharts extends Component {
 		</div>
 		);
 
-    const dataOrError = this.state.error ?
-      <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
+  return (
+	  	<div className='ui content'>
+			<h3>Phoneme Charts</h3>
       <ReactTable
-        data={this.state.data}
+        data={data}
         loading={this.state.loading}
         columns={columns}
-        filterable
-        defaultPageSize={20}
+        defaultPageSize={6}
         className="-striped -highlight"
-      />;
-
-  return (     
-	  	<div className='ui content'> 
-			<h3>Phoneme Charts</h3> 
-			{dataOrError}
+      />
 			<p></p>
 			<PhonemeCharts />
 		</div>

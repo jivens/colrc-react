@@ -26,6 +26,12 @@
 	right: 0;
 }
 
+.wordwrap {
+	white-space: pre-line !important;
+	word-wrap: break-word;
+	padding: 2px;
+}
+
 .checkBoxMenu {
   background-color: #222;
   padding: 5px;

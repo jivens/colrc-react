@@ -99,9 +99,10 @@ class ContactUs extends Component {
 
 						<input type='submit' />
 					</form>
+					<br />
 
 					<div>
-						<h5>People</h5>
+						<h5>Your Submitted Information:</h5>
 						<ul>
 							{ this.state.people.map(({ name, email, message}, i) => (
 								<li key={i}>

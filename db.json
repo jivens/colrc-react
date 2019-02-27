@@ -665,7 +665,7 @@
       "english": "boot. ((lit. a borrowed root), n.)"
     }
   ],
-  "phonemes": [
+  "consonants": [
   	{
 	  "id": 1,
 	  "orthography": "N",
@@ -1200,5 +1200,79 @@
  	  "secondary": "both",
  	  "pharyngeal": "ṛ'ʷ"
  	}
-  ]
+  ],
+"vowels": [
+	{
+		"id": 1,
+		"orthography": "N",
+		"height": "high",
+		"front": "i",
+		"central": "",
+		"back": "u"
+	},	
+	{
+		"id": 2,
+		"orthography": "S",
+		"height": "high",
+		"front": "i",
+		"central": "",
+		"back": "u"
+	},	
+	{
+		"id": 3,
+		"orthography": "R",
+		"height": "high",
+		"front": "i",
+		"central": "",
+		"back": "u"
+	},
+	{
+		"id": 4,
+		"orthography": "N",
+		"height": "mid",
+		"front": "e",
+		"central": "",
+		"back": "o"
+	},	
+	{
+		"id": 5,
+		"orthography": "S",
+		"height": "mid",
+		"front": "ɛ, e",
+		"central": "ə",
+		"back": "ɔ, o"
+	},	
+	{
+		"id": 6,
+		"orthography": "R",
+		"height": "mid",
+		"front": "ä",
+		"central": "E,ι, ụ",
+		"back": "ɔ"
+	},
+	{
+		"id": 7,
+		"orthography": "N",
+		"height": "low",
+		"front": "",
+		"central": "a",
+		"back": ""
+	},	
+	{
+		"id": 8,
+		"orthography": "S",
+		"height": "low",
+		"front": "",
+		"central": "a",
+		"back": ""
+	},	
+	{
+		"id": 9,
+		"orthography": "R",
+		"height": "low",
+		"front": "",
+		"central": "a",
+		"back": ""
+	}
+] 
 }

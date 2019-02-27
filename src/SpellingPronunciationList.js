@@ -34,6 +34,8 @@ class SpellingPronunciationList extends Component {
   render() {
 
 	const columns=[{
+		Header: "List of Symbols",
+		columns: [{
 			Header: 'Nicodemus',
 		    accessor: 'nicodemus',
 			filterMethod: (filter, rows) =>
@@ -64,7 +66,8 @@ class SpellingPronunciationList extends Component {
         	Header: 'Note',
         	accessor: 'note',
         	Cell: row => ( <span className="superscript">{row.value}</span> ),
-		}];
+		}]
+	}];
 
 
     const dataOrError = this.state.error ?
@@ -80,7 +83,6 @@ class SpellingPronunciationList extends Component {
 
   return (     
 	  	<div className='ui content'> 
-			<h3>List of Symbols</h3> 
 			{dataOrError}
 			<SpellFootnote />
 		</div>

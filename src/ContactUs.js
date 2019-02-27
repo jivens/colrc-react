@@ -5,16 +5,16 @@ const content = document.createElement('div');
 document.body.appendChild(content);
 
 class ContactUs extends Component {
-	static displayName = '07-basic-validation';
+	static displayName = 'Contact Us';
 
 	state = {
 		fields: {
 			name: '',
 			email: '',
-			message: '',
+			message: ''
 		},
 		fieldErrors: {},
-		people: [],
+		people: []  //<-- initial state
 	};
 
 	onFormSubmit = (evt) => {
@@ -24,10 +24,11 @@ class ContactUs extends Component {
 		this.setState({fieldErrors});
 		evt.preventDefault();
 
+
 		if (Object.keys(fieldErrors).length) return; 
 
 		this.setState({
-			 people, fields:  {
+			 people: people.concat(person), fields:  {
 				name: '',
 				email: '',
 				message: ''
@@ -103,8 +104,10 @@ class ContactUs extends Component {
 						<h5>People</h5>
 						<ul>
 							{ this.state.people.map(({ name, email, message}, i) => (
-								<li key={i}>{name} ({ email }) { message }</li>
-							)) }
+								<li key={i}>
+									{name} ({ email }) { message }
+								</li>
+							))}
 						</ul>
 					</div>
 				</div>

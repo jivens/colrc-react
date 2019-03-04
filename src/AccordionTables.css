@@ -6,7 +6,12 @@
 .indentQuote {
 	margin: 40px;
 }
-
+.imageCenter {
+  	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
 .u-position-absolute {
     position: absolute;
 }

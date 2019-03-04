@@ -17,8 +17,6 @@ import {
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
-//import 'react-accessible-accordion/dist/minimal-example.css';
-//import 'react-accessible-accordion/dist/fancy-example.css';
 import "./AccordionTables.css";
 import "./Colrc.css";
 
@@ -107,78 +105,6 @@ class RootDictionary extends Component {
   		<input type="checkbox" {...props} />
 		);
 
-  	const RootDictionaryIntro = () => (
-    <Accordion>
-        <AccordionItem>
-            <AccordionItemTitle>
-                <p className="u-position-relative">
-                Introduction
-                <div className="accordion__arrow" role="presentation" />
-            	</p>
-            </AccordionItemTitle>
-            <AccordionItemBody>
-	            <p>The root dictionary presented here was compiled by John Lyon and Rebecca Greene-Wood and contains nearly 1,400 roots and about 7690 "word" forms. The data come from Lawrence Nicodemus's Coeur d'Alene dictionary. The original work was published by UMOPL and can be found at <a href="http://meltr.org/Publications/" target="_blank" rel="noopener noreferrer">Lyon and Greene-Wood 2007</a>. All material is copyrighted by the Coeur d'Alene Tribe and may not be copied in any format without written permission from the Coeur d'Alene Tribe.
-			    </p>
-			</AccordionItemBody>
-		</AccordionItem>
-
-		<AccordionItem>
-            <AccordionItemTitle>
-            	<p className="u-position-relative">
-		    	Guide to Entries
-                <div className="accordion__arrow" role="presentation" />
-                </p>
-		    </AccordionItemTitle>
-		    <AccordionItemBody>
-			    <p>For reasons of searchability and clarity of presentation, the organization of the dictionary has been altered from its original form. Within a root header, the entries are organized beginning with the least complex and move towards more complex forms. Each entry is separated by a new line and numbered. The entries first appear in the Salishan orthography, then the Nicodemus, and finally an English translation. Nicodemus sometimes identifies the simplest forms as (stem), but not in all cases. Intransitive and simple nominalized forms directly follow, then reduplicated forms, complex forms (those with lexical suffixes), and finally transitive forms and compounds. The following symbols are used to separate the different types of entries: intransitive (†), transitive (‡), complex (//), and compound (§) entries. Entries begin with a root skeleton followed by the transliterated Coeur d'Alene, followed by Nicodemus's English translation, grammatical notations, and additional information.
-			    </p>
-            </AccordionItemBody>
-        </AccordionItem>
-    </Accordion>
-);
-
-class RootSubMenu extends Component {
-		
-	 state = {}
-
-	  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
-	  render() {
-	    const { activeItem } = this.state
-	    return (
-	      <Menu size='mini'>
-	        <Menu.Item 
-				name='dictionary'
-				active={activeItem === 'Dictionary'}
-				onClick={this.handleItemClick}>
-				Dictionary
-	        </Menu.Item>
-	        <Menu.Item 
-		        name='history' 
-		        active={activeItem === 'history'} 
-		        onClick={this.handleItemClick}>
-		        History of Materials
-	        </Menu.Item>
-	        <Menu.Item 
-				name='metadata'
-				active={activeItem === 'metadata'}
-				onClick={this.handleItemClick}>
-				Metadata
-	        </Menu.Item>
-	      </Menu>
-	    )
-	  }
-	}
-
-
-const handleEdit = (row) => {
-
-};
-
-const handleDelete = (row) => {
-
-};
-
   	const getColumnWidth = (rows, accessor, headerText) => {
   	  const maxWidth = 600
   	  const magicSpacing = 18
@@ -188,99 +114,6 @@ const handleDelete = (row) => {
   	  )
   	  return Math.min(maxWidth, cellLength * magicSpacing)
   	};
-
-  	const rootData = [{
-	    root: '√a',
-	    number: '1',
-	    salish: "a",
-	    nicodemus: "a",
-	    english: "† hello. (gr.)",
-	  },
-	  {
-	    root: '√a',
-	    number: '2',
-	    salish: 'a',
-	    nicodemus: 'a?',
-	    english: 'so. (lit. Is that so?), (adv.)',
-	  },
-	  {
-	    root: '√a',
-	    number: '3',
-	    salish: "a·",
-	    nicodemus: "aaaa...!",
-	    english: "cut out, knock off!, quit, stop. (lit. Cut it out!, Knock it off, quit it, Stop it!), (imper.)",
-	  },
-	  {
-	    root: '√a',
-	    number: '4',
-	    salish: "aye",
-	    nicodemus: "aye",
-	    english: "hey. (adv.)",
-	  },
-	  {
-	    root: '√bc',
-	    number: '1',
-	    salish: "buc",
-	    nicodemus: "buts",
-	    english: "† boots. (n.)",
-	  },
-	  {
-	    root: '√bc',
-	    number: '2',
-	    salish: "ec+búc+buc=šn",
-	    nicodemus: "etsbutsbutsshn",
-	    english: "// boots (to be wearing...). ((lit. He is wearing boots), n.)",
-	  },
-	  {
-	    root: '√bc',
-	    number: '3',
-	    salish: "s+búc+buc=šn",
-	    nicodemus: "sbutsbutsshn",
-	    english: "boot. ((lit. a borrowed root), n.)",
-	  },
-	  {
-	    root: '√bc',
-	    number: '4',
-	    salish: "s+búc+buc=šn+mš",
-	    nicodemus: "sbutsbutsshnmsh",
-	    english: "rubber boots (putting on...). (vt, pl.n.)",
-	  },
-	  {
-	    root: '√bl',
-	    number: '1',
-	    salish: "bu·lí",
-	    nicodemus: "buuli",
-	    english: "† bull. (n.)",
-	  },
-	  {
-	    root: '√bm 1',
-	    number: '1',
-	    salish: "bam",
-	    nicodemus: "bam",
-	    english: "† go (...fast and far), speeded (be...), be versatile. ((stem), vi.)",
-	  },
-	  {
-	    root: '√bm 1',
-	    number: '2',
-	    salish: "bam",
-	    nicodemus: "bam",
-	    english: "intoxicated. ((stem), vi.)",
-	  },
-	  {
-	    root: '√bm 1',
-	    number: '7',
-	    salish: "niʔ+b[a]m+p=aw'es",
-	    nicodemus: "ni'bmpa'wes",
-	    english: "// orgy. ((lit. there is speeding or intoxication among them), n.)",
-	  },
-	  {
-	  	root: "√dlq'ʷ",
-	  	number: '7',
-	  	salish: "tiʔxʷ+eɫ+n+dol+dolq'ʷ+t=íl'š+n",
-	  	nicodemus: "ti'khweɫndoldolq'wti'lshn",
-	  	english: "confirmed. ((lit. He gained strength, he received the rite of confirmation), vi.)",
-	  },
-	  ];
 
 	  const columns = [{
 	    accessor: 'id',
@@ -292,7 +125,7 @@ const handleDelete = (row) => {
 	    filterMethod: (filter, rows) =>
         	matchSorter(rows, filter.value, { keys: ["root"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,
-	    width: getColumnWidth(rootData, 'root', 'Root'),
+	    width: getColumnWidth(this.state.data, 'root', 'Root'),
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	},
 	  {
@@ -301,7 +134,7 @@ const handleDelete = (row) => {
 	    filterMethod: (filter, rows) =>
         	matchSorter(rows, filter.value, { keys: ["#"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,
-	    width: getColumnWidth(rootData, 'number', '#'),
+	    width: getColumnWidth(this.state.data, 'number', '#'),
 	    show: numberSelected,
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	},
@@ -364,44 +197,6 @@ const handleDelete = (row) => {
       }
     ];
 
-    //let roots = RootsResource.read(cache);
-/*
-    <table>
-      <thead>
-      <tr>
-          <th>Root</th>
-          <th>#</th>
-          <th>Salish</th>
-          <th>Nicodemus</th>
-          <th>English</th>
-      </tr>
-      </thead>
-      <tbody>
-      {this.state.data.map(r =>
-          <tr key={r.id}>
-              <td>{r.root}</td>
-              <td>{r.number}</td>
-              <td>{r.salish}</td>
-              <td>{r.nicodemus}</td>
-              <td>{r.english}</td>
-          </tr>
-      )}
-      </tbody>
-    </table>
-*/
-/*
-    <ErrorBoundary>
-      <React.Suspense fallback={<div>Loading</div>}>
-        <ReactTable
-          data={roots}
-          columns={columns}
-          defaultPageSize={10}
-          className="-striped -highlight"
-        />
-      </React.Suspense>
-    </ErrorBoundary>
-*/
-
   const CheckboxRoot = () => (
 		<div className="checkBoxMenu">
 		  <label className="checkBoxLabel">#</label>
@@ -448,10 +243,7 @@ const handleDelete = (row) => {
 
     return (
       <div className='ui content'>
-        <RootSubMenu />  
         <h3>Lyon and Green-Wood's Root Dictionary</h3>
-        <p></p>
-        <RootDictionaryIntro />
         <p></p>
         <div className="text-right">
 	        <Link to={{

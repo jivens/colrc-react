@@ -17,9 +17,9 @@ import {
 
 import MainMenu from './MainMenu';
 import NavBar from './NavBar';
-import RootDictionary from './RootDictionary';
+import Roots from './Roots';
 import SpellingPronunciation from './SpellingPronunciation';
-import About from './About';
+import Home from './Home';
 import StemList from './StemList';
 import AffixList from './AffixList';
 import Audio from "./Audio";
@@ -58,9 +58,9 @@ class Colrc extends Component {
             <Grid.Row>
               <Grid.Column>
                 <Switch>
-                  <Route exact path="/" component={About} />
+                  <Route exact path="/" component={Home} />
                   <Route path="/spelling" component={SpellingPronunciation} />
-                  <Route path="/rootdictionary" component={RootDictionary} />
+                  <Route path="/roots" component={Roots} />
                   <Route path="/stemlist" component={StemList} />
                   <Route path="/affixlist" component={AffixList} />
   				  <Route path="/audio" component={Audio} />

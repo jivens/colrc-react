@@ -37,11 +37,11 @@ const NavBarMobile = ({
       visible={visible}
       width='thin'
     >
-    <Menu.Item as={Link} to="/" name="About" size='mini'>
+    <Menu.Item as={Link} to="/" name="Home" size='mini'>
 	   <Icon name="home" />
       About
     </Menu.Item>
-    <Menu.Item as={Link} to="/rootdictionary" name="Roots" size='mini'>
+    <Menu.Item as={Link} to="/roots" name="Roots" size='mini'>
     <Icon name='sort alphabet down' />
        Roots
     </Menu.Item>
@@ -97,10 +97,10 @@ const NavBarMobile = ({
 
 const NavBarDesktop = ({ rightItems }) => (
   <Menu fixed="top" inverted>
-    <Menu.Item as={Link} to="/" name="about">
+    <Menu.Item as={Link} to="/" name="home">
        <FontAwesomeIcon icon={faHome} />
     </Menu.Item>
-    <Menu.Item as={Link} to="/rootdictionary" name="Roots">
+    <Menu.Item as={Link} to="/roots" name="Roots">
        Roots
     </Menu.Item>
     <Menu.Item as={Link} to="/stemlist" name="Stems">

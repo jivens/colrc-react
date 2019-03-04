@@ -3,6 +3,10 @@
 * COLRC styles, adapted from https://www.npmjs.com/package/react-accessible-accordion
 * ----------------------------------------------
 **/
+.indentQuote {
+	margin: 40px;
+}
+
 .u-position-absolute {
     position: absolute;
 }
@@ -15,6 +19,10 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 2px;
 }
+
+.accordion + .accordion__content {
+	padding: 10px;
+	}
 
 .accordion__item + .accordion__item {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -159,3 +167,4 @@
     animation-name: move-up;
     animation-duration: 1.5s;
 }
+

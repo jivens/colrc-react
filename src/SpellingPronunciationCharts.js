@@ -245,14 +245,12 @@ class SpellingPronunciationCharts extends Component {
 	</div>
 		);
 
-  return (
-	  	<div className='ui content'>
-			<h3>Phoneme Charts</h3>
+    const dataOrError = this.state.error ?
+      <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
       <ReactTable
-        data={data}
+        data={this.state.data}
         loading={this.state.loading}
         columns={columns}
-        title="Consonants"
         defaultPageSize={20}
         filterable
 		defaultFiltered={[

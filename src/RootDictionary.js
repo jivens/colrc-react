@@ -103,9 +103,9 @@ class RootDictionary extends Component {
 
   	const { salishSelected, nicodemusSelected, englishSelected, numberSelected } = this.state;
 
- 	const Checkbox = props => (
+ 	  const Checkbox = props => (
   		<input type="checkbox" {...props} />
-		)
+		);
 
   	const RootDictionaryIntro = () => (
     <Accordion>

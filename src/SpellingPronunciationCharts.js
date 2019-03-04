@@ -22,10 +22,23 @@ class SpellingPronunciationCharts extends Component {
     	data: [], 
     	loading: true,
     	vowelData: [],
-    	vowelLoading: true, 
+    	vowelLoading: true,
+    	voiceSelected: false,
+	    mannerSelected: false,
+	    secondarySelected: false,
     };
   }
+	handleVoiceChange(value) {
+	    this.setState({ voiceSelected: !this.state.voiceSelected });
+	  };
 
+  	 handleMannerChange(value) {
+	    this.setState({ mannerSelected: !this.state.mannerSelected });
+	  };
+
+	 handleSecondaryChange(value) {
+	    this.setState({ secondarySelected: !this.state.secondarySelected });
+	  };
   async componentDidMount() {
     try {
       const response = await fetch(`http://localhost:4000/consonants`);
@@ -47,6 +60,11 @@ class SpellingPronunciationCharts extends Component {
   }
 
   render() {
+  	const { voiceSelected, mannerSelected, secondarySelected } = this.state;
+
+ 	const Checkbox = props => (
+  		<input type="checkbox" {...props} />
+		);
 
 	const columns=[{
 		Header: "Consonants",
@@ -67,9 +85,9 @@ class SpellingPronunciationCharts extends Component {
 	              style={{ width: "100%" }}
 	              value={filter ? filter.value : "N"}
 	            >
-	              <option value="N">N</option>
-	              <option value="S">S</option>
-	              <option value="R">R</option>
+	              <option value="N">Nicodemus</option>
+	              <option value="S">Salish</option>
+	              <option value="R">Reichard</option>
 	              <option value="all">All</option>
 	            </select>,
 			},{
@@ -88,19 +106,58 @@ class SpellingPronunciationCharts extends Component {
 	              style={{ width: "100%" }}
 	              value={filter ? filter.value : "all"}
 	            >
-	              <option value="VL">VL</option>
-	              <option value="V">V</option>
-	              <option value="RN">RN</option>
-	              <option value="all">All</option>
-	            </select>,			    
+	              <option value="VL">voiceless</option>
+	              <option value="V">voiced</option>
+	              <option value="RN">resonant</option>
+	              <option value="all">all</option>
+	            </select>,
+		  		show: voiceSelected,			    
 			},{
 				Header: 'manner',
 				accessor: 'manner',
 				maxWidth: 70,
+				filterMethod: (filter, row) => {
+                    if (filter.value === "all") {
+                      return true;
+                    }
+                    return row[filter.id] === filter.value;
+                },
+	    		Filter: ({ filter, onChange }) =>
+	            <select
+	              onChange={event => onChange(event.target.value)}
+	              style={{ width: "100%" }}
+	              value={filter ? filter.value : "all"}
+	            >
+	              <option value="stop">stops</option>
+	              <option value="affricate">affricates</option>
+	              <option value="fricative">fricatives</option>
+	              <option value="nasal">nasals</option>
+	              <option value="approximant">approximants</option>
+	              <option value="all">all</option>
+	            </select>,	
+	            show: mannerSelected,	
 			},{
 				Header: () => <div>second-<br/>ary</div>,
 				accessor: 'secondary',
+				filterMethod: (filter, row) => {
+                    if (filter.value === "all") {
+                      return true;
+                    }
+                    return row[filter.id] === filter.value;
+                },
+	    		Filter: ({ filter, onChange }) =>
+	            <select
+	              onChange={event => onChange(event.target.value)}
+	              style={{ width: "100%" }}
+	              value={filter ? filter.value : "all"}
+	            >
+	              <option value="none">none</option>
+	              <option value="glottal">glottal</option>
+	              <option value="labial">labial</option>
+	              <option value="all">all</option>
+	            </select>,	
 				maxWidth: 70,
+		  		show: secondarySelected,	
 			},{
 	        	Header: 'labial',
 	        	accessor: 'labial',
@@ -244,7 +301,31 @@ class SpellingPronunciationCharts extends Component {
 	</Accordion>
 	</div>
 		);
-
+	const CheckboxConsonants = () => (
+		<div className="checkBoxMenu">
+		  <label className="checkBoxLabel">Voice</label>
+		  <input
+		  	name="voice"
+            type="checkbox"
+            checked={this.state.voiceSelected}
+            onChange={this.handleVoiceChange.bind(this)}
+          />
+		  <label className="checkBoxLabel">Manner</label>
+		  <input
+		  	name="manner"
+            type="checkbox"
+            checked={this.state.mannerSelected}
+            onChange={this.handleMannerChange.bind(this)}
+          />
+          <label className="checkBoxLabel">Secondary</label>
+          <input
+            name="secondary"
+            type="checkbox"
+            checked={this.state.secondarySelected}
+            onChange={this.handleSecondaryChange.bind(this)}
+          />
+		</div>
+	  );
     const dataOrError = this.state.error ?
       <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
       <ReactTable
@@ -284,6 +365,7 @@ class SpellingPronunciationCharts extends Component {
 	  	<div className='ui content'> 
 			<ConsonantChartInfo /> 
 			<p></p>
+			<CheckboxConsonants />
 			{dataOrError}
 			<p></p>
 			<VowelChartInfo />

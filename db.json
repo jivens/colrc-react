@@ -1274,5 +1274,115 @@
 		"central": "a",
 		"back": ""
 	}
-] 
+],
+"affixes": [
+  	{
+	  "id": 1,
+	  "type": "Directional",
+	  "salish": "ci-",
+	  "nicodemus": "tsi-",
+	  "english": "first, before",
+	  "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
+	  "page": "599 (420)"
+ 	 },
+ 	 {
+ 	 	"id": 2,
+	    "type": "Directional",
+	    "salish": "tɛ-'",
+	    "nicodemus": "te-'",
+	    "english": "thither",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n611/mode/2up",
+	    "page": "598 (416)"
+	  },
+	  {
+	  	"id": 3,
+	    "type": "Directional",
+	    "salish": "čic-",
+	    "nicodemus": "chits-'",
+	    "english": "hither (toward speaker)",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n611/mode/2up",
+	    "page": "598 (412)"
+	  }, 
+	 {
+	 	"id": 4,
+	    "type": "Directional",
+	    "salish": "tkʷɛɫ-",
+	    "nicodemus": "tkweɫ-",
+	    "english": "go about to definite place",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n610/mode/2up",
+	    "page": "597 (410)"
+	  }, 
+	  {
+	  	"id": 5,
+	    "type": "Directional",
+	    "salish": "tɛp-",
+	    "nicodemus": "tep-",
+	    "english": "on the way",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
+	    "page": "599 (418)"
+	  }, 
+	  {
+	  	"id": 6,
+	    "type": "Directional",
+	    "salish": "tus-",
+	    "nicodemus": "tus-",
+	    "english": "as far as",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
+	    "page": "599 (419)"
+	  }, 
+	  {
+	  	"id": 7,
+	    "type": "Locative",
+	    "salish": "cɛn-",
+	    "nicodemus": "tsen-",
+	    "english": "under, off of",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n609/mode/2up",
+	    "page": "599 (420)"
+	  },
+	 {
+	 	"id": 8,
+	    "type": "Locative",
+	    "salish": "č-",
+	    "nicodemus": "ch-",
+	    "english": "on, attached to but not a part of, at a point",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up",
+	    "page": "595 (395)"
+	  },
+	  {
+	  	"id": 9,
+	    "type": "Locative",
+	    "salish": "čt-",
+	    "nicodemus": "cht-",
+	    "english": "R notes the meaning of this morpheme is not clear",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up",
+	    "page": "595 (397)"
+	  }, 
+	 {
+	 	"id": 10,
+	    "type": "Locative",
+	    "salish": "čɛt-",
+	    "nicodemus": "chet-",
+	    "english": "on a surface or object broader the subject, above, over",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up",
+	    "page":  "595 (398)"
+	  }, 
+	  {
+	  	"id": 11,
+	    "type": "Locative",
+	    "salish": "čs-",
+	    "nicodemus": "chs-",
+	    "english": "after, behind, for a purpose, in pursuit of",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
+	    "page": "595 (399)"
+	  }, 
+	  {
+	  	"id": 12,
+	  	"type": "Locative",
+	    "salish": "hn-",
+	    "nicodemus": "hn-",
+	    "english": "in, onto, into, on",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n609/mode/2up",
+	    "page": "599 (419)"
+	  } 
+ ] 
 }

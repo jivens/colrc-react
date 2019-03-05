@@ -20,8 +20,8 @@ import NavBar from './NavBar';
 import Roots from './Roots';
 import SpellingPronunciation from './SpellingPronunciation';
 import Home from './Home';
-import StemList from './StemList';
-import AffixList from './AffixList';
+import Stems from './Stems';
+import Affixes from './Affixes';
 import Audio from "./Audio";
 import ContactUs from './ContactUs';
 import Texts from './Texts';
@@ -61,8 +61,8 @@ class Colrc extends Component {
                   <Route exact path="/" component={Home} />
                   <Route path="/spelling" component={SpellingPronunciation} />
                   <Route path="/roots" component={Roots} />
-                  <Route path="/stemlist" component={StemList} />
-                  <Route path="/affixlist" component={AffixList} />
+                  <Route path="/stems" component={Stems} />
+                  <Route path="/affixes" component={Affixes} />
   				  <Route path="/audio" component={Audio} />
   				  <Route path="/contactus" component={ContactUs} />
                   <Route path="/texts" component={Texts} />

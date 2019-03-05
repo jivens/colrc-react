@@ -39,7 +39,7 @@ const NavBarMobile = ({
     >
     <Menu.Item as={Link} to="/" name="Home" size='mini'>
 	   <Icon name="home" />
-      About
+      Home
     </Menu.Item>
     <Menu.Item as={Link} to="/roots" name="Roots" size='mini'>
     <Icon name='sort alphabet down' />

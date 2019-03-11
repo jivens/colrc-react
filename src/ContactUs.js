@@ -1,33 +1,55 @@
 import React, { Component } from 'react';
+import isEmail from 'validator/lib/isEmail';
+
+const content = document.createElement('div');
+document.body.appendChild(content);
 
 class ContactUs extends Component {
+	static displayName = 'Contact Us';
 
 	state = {
 		fields: {
 			name: '',
 			email: '',
-			message: '',
+			message: ''
 		},
 		fieldErrors: {},
-		people: [],
+		people: []  //<-- initial state
 	};
 
 	onFormSubmit = (evt) => {
-		const people = [ ...this.state.people, this.state.fields ];
+		const people = [...this.state.people];
+		const person = this.state.fields;
+		const fieldErrors = this.validate(person);
+		this.setState({fieldErrors});
+		evt.preventDefault();
+
+
+		if (Object.keys(fieldErrors).length) return; 
+
 		this.setState({
-			 people, fields:  {
+			 people: people.concat(person), fields:  {
 				name: '',
 				email: '',
 				message: ''
 			}
 		});
-		evt.preventDefault();
 	};
 
 	onInputChange = (evt) => {
 		const fields = Object.assign({}, this.state.fields);
 		fields[evt.target.name] = evt.target.value;
 		this.setState({ fields });
+	};
+
+	validate = person => {
+		const errors = {};
+		if (!person.name) errors.name = 'Name Required';
+		if (!person.email) errors.email = 'Email Required';
+		if (person.email && !isEmail(person.email)) errors.email = 'Invalid Email';
+		if (!person.message) errors.message =
+		'Message required';
+		return errors;
 	};
 
 
@@ -77,13 +99,16 @@ class ContactUs extends Component {
 
 						<input type='submit' />
 					</form>
+					<br />
 
 					<div>
-						<h5>People</h5>
+						<h5>Your Submitted Information:</h5>
 						<ul>
 							{ this.state.people.map(({ name, email, message}, i) => (
-								<li key={i}>{name} ({ email }) { message }</li>
-							)) }
+								<li key={i}>
+									{name} ({ email }) { message }
+								</li>
+							))}
 						</ul>
 					</div>
 				</div>

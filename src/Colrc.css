@@ -14,3 +14,37 @@
   font-size: 1.5em;
 }
 
+.left {
+  text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.ReactTable .rt-resizer {
+	right: 0;
+}
+
+.wordwrap {
+	white-space: pre-line !important;
+	word-wrap: break-word;
+	padding: 2px;
+}
+
+.checkBoxMenu {
+  background-color: #222;
+  padding: 5px;
+  color: white;
+  text-align: right;
+}
+
+
+.checkBoxLabel {
+	padding-left: 20px;
+	padding-right: 5px;
+}
+
+.floatRight {
+	float: right;
+}

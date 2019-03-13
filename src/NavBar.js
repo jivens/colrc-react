@@ -15,7 +15,7 @@ import {
   Responsive
 } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
-import './NavBar.css';
+import ReactTable from "react-table";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NavBarMobile = ({
@@ -37,19 +37,19 @@ const NavBarMobile = ({
       visible={visible}
       width='thin'
     >
-    <Menu.Item as={Link} to="/" name="About" size='mini'>
+    <Menu.Item as={Link} to="/" name="Home" size='mini'>
 	   <Icon name="home" />
-      About
+      Home
     </Menu.Item>
-    <Menu.Item as={Link} to="/rootdictionary" name="Roots" size='mini'>
+    <Menu.Item as={Link} to="/roots" name="Roots" size='mini'>
     <Icon name='sort alphabet down' />
        Roots
     </Menu.Item>
-    <Menu.Item as={Link} to="/stemlist" name="Stems">
+    <Menu.Item as={Link} to="/stems" name="Stems">
     <Icon name='code branch' />
        Stems
     </Menu.Item>
-    <Menu.Item as={Link} to="/affixlist" name="Affixes">
+    <Menu.Item as={Link} to="/affixes" name="Affixes">
     <Icon name="leaf" />
        Affixes
     </Menu.Item>
@@ -97,16 +97,16 @@ const NavBarMobile = ({
 
 const NavBarDesktop = ({ rightItems }) => (
   <Menu fixed="top" inverted>
-    <Menu.Item as={Link} to="/" name="about">
+    <Menu.Item as={Link} to="/" name="home">
        <FontAwesomeIcon icon={faHome} />
     </Menu.Item>
-    <Menu.Item as={Link} to="/rootdictionary" name="Roots">
+    <Menu.Item as={Link} to="/roots" name="Roots">
        Roots
     </Menu.Item>
-    <Menu.Item as={Link} to="/stemlist" name="Stems">
+    <Menu.Item as={Link} to="/stems" name="Stems">
        Stems
     </Menu.Item>
-     <Menu.Item as={Link} to="/affixlist" name="Affixes">
+     <Menu.Item as={Link} to="/affixes" name="Affixes">
        Affixes
     </Menu.Item>
     <Menu.Item as={Link} to="/texts" name="Texts">

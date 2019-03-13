@@ -1,0 +1,1388 @@
+{
+  "stems": [
+    {
+      "id": 1,
+      "category": "verb",
+      "reichard": "atsqä'ä",
+      "doak": "ʔacqeʔ",
+      "salish": "acqaʔ",
+      "nicodemus": "atsqa'",
+      "english": "go out, singular and plural",
+      "note": "final ä in Reichard form should be superscript --avf"
+    },
+    {
+      "id": 2,
+      "category": "verb",
+      "reichard": "ats̕x̣",
+      "doak": "ʔac'x̣",
+      "salish": "acqaʔ",
+      "nicodemus": "ats'qh",
+      "english": "look at",
+      "note": "apostrophe in Reichard form should be above s --avf"
+    },
+    {
+      "id": 3,
+      "category": "verb",
+      "reichard": "ayx̣ʷ",
+      "doak": "ʔac'x̣",
+      "salish": "ʔayx̣ʷ",
+      "nicodemus": "ayqhw(-t)",
+      "english": "be tired",
+      "note": ""
+    },
+    {
+      "id": 4,
+      "category": "verb",
+      "reichard": "ax̣il",
+      "doak": "ʔax̣il",
+      "salish": "ax̣il",
+      "nicodemus": "aqhil",
+      "english": "do thus",
+      "note": ""
+    },
+    {
+      "id": 5,
+      "category": "verb",
+      "reichard": "aṛʷ",
+      "doak": "ʔaʕʷ",
+      "salish": "aʕʷ",
+      "nicodemus": "a(w",
+      "english": "be much, many",
+      "note": "the r-dot sorts differently than in our current lists --avf"
+    },
+    {
+      "id": 6,
+      "category": "verb",
+      "reichard": "äpɬ",
+      "doak": "ʔepɬʷ",
+      "salish": "ɛpɫʷ",
+      "nicodemus": "epɫ",
+      "english": "there is, have",
+      "note": ""
+    },
+    {
+      "id": 7,
+      "category": "other",
+      "reichard": "aˑˑˑ",
+      "doak": "---",
+      "salish": "a···",
+      "nicodemus": "a···",
+      "english": "with rising tone, oh!",
+      "note": "no rows in this table have a Doak form, we could remove that column? --avf"
+    },
+    {
+      "id": 8,
+      "category": "other",
+      "reichard": "aˑˑˑ",
+      "doak": "---",
+      "salish": "a···",
+      "nicodemus": "a···",
+      "english": "with even tone, disapproval",
+      "note": ""
+    },
+    {
+      "id": 9,
+      "category": "other",
+      "reichard": "ax̣iw̕ɬ",
+      "doak": "---",
+      "salish": "ax̣iw'ɫ",
+      "nicodemus": "aqhi'wɫ",
+      "english": "now, today",
+      "note": ""
+    },
+    {
+      "id": 10,
+      "category": "other",
+      "reichard": "uts̕-ax̣íɬ",
+      "doak": "---",
+      "salish": "uc'-ax̣íɫ",
+      "nicodemus": "uts'-aqhiɫ",
+      "english": "because",
+      "note": "Nicodemus form, i should be underlined --avf"
+    },
+    {
+      "id": 11,
+      "category": "other",
+      "reichard": "äy̕níɬ",
+      "doak": "---",
+      "salish": "---",
+      "nicodemus": "---",
+      "english": "no gloss",
+      "note": ""
+    },
+    {
+      "id": 12,
+      "category": "other",
+      "reichard": "pintc or pinttc",
+      "doak": "---",
+      "salish": "pinč or pintč",
+      "nicodemus": "pinch",
+      "english": "always",
+      "note": ""
+    },
+    {
+      "id": 13,
+      "category": "noun",
+      "reichard": "*aapᴐˊtar",
+      "doak": "---",
+      "salish": "apótar",
+      "nicodemus": "apotar",
+      "english": "apostle",
+      "note": "the o in the Nicodemus form should be underlined --avf"
+    },
+    {
+      "id": 14,
+      "category": "noun",
+      "reichard": "aɬq̕ʷäˊt̕ut",
+      "doak": "---",
+      "salish": "aɫq'ʷɛ́t'ut",
+      "nicodemus": "aɫq'wet'ut",
+      "english": "Plummer (place name)",
+      "note": ""
+    },
+    {
+      "id": 15,
+      "category": "noun",
+      "reichard": "---",
+      "doak": "ɛsčíčɛʔ",
+      "salish": "ɛsčíčɛʔ",
+      "nicodemus": "eschiche'",
+      "english": "horse, pet, domestic animal",
+      "note": ""
+    },
+    {
+      "id": 16,
+      "category": "noun",
+      "reichard": "s-ʀin",
+      "doak": "---",
+      "salish": "s-ʕin",
+      "nicodemus": "s-(in",
+      "english": "catbird",
+      "note": ""
+    },
+    {
+      "id": 17,
+      "category": "noun",
+      "reichard": "s-x̣ʷäˊṛʷ-x̣ʷäṛʷ",
+      "doak": "---",
+      "salish": "s-x̣ʷɛ́ʕʷ-x̣ʷɛʕʷ",
+      "nicodemus": "s-qhwe(w-qhwe(w",
+      "english": "fox",
+      "note": ""
+    },
+    {
+      "id": 18,
+      "category": "noun",
+      "reichard": "s-x̣ʷụɬ-x̣ʷáɬ",
+      "doak": "--",
+      "salish": "x̣ʷəɫ-x̣ʷáɫ",
+      "nicodemus": "qhwɫ-qhwaɫ",
+      "english": "Rocky Mt. sheep",
+      "note": "the a in the Nicodemus form should be underlined --avf"
+    }
+  ],
+  "spelling": [
+    {
+      "id": 1,
+      "reichard": "a",
+      "nicodemus": "a",
+      "salish": "a",
+      "english": "f<bold>a</bold>ther",
+      "note": ""
+    },
+    {
+      "id": 2,
+      "reichard": "á",
+      "nicodemus": "<underline>a</underline>",
+      "salish": "á",
+      "english": "no example",
+      "note": "1"
+    },
+    {
+      "id": 3,
+      "reichard": "b",
+      "nicodemus": "b",
+      "salish": "b",
+      "english": "<bold>b</bold>at",
+      "note": ""
+    },
+    {
+      "id": 4,
+      "reichard": "tc",
+      "nicodemus": "ch",
+      "salish": "č",
+      "english": "<bold>ch</bold>ur<bold>ch</bold>",
+      "note": ""
+    },
+    {
+      "id": 5,
+      "reichard": "tc'",
+      "nicodemus": "ch'",
+      "salish": "č'",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 6,
+      "reichard": "ts",
+      "nicodemus": "ts",
+      "salish": "c",
+      "english": "<bold>ts</bold>i<bold>ts</bold>i fly",
+      "note": ""
+    },
+    {
+      "id": 7,
+      "reichard": "ts'",
+      "nicodemus": "ts'",
+      "salish": "c'",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 8,
+      "reichard": "d",
+      "nicodemus": "d",
+      "salish": "d",
+      "english": "<bold>d</bold>og",
+      "note": ""
+    },
+    {
+      "id": 9,
+      "reichard": "ä",
+      "nicodemus": "e",
+      "salish": "ɛ, e",
+      "english": "<bold>e</bold>gg",
+      "note": ""
+    },
+    {
+      "id": 10,
+      "reichard": "ä́",
+      "nicodemus": "<underline>e</underline>",
+      "salish": "ɛ́, é",
+      "english": "no example",
+      "note": "1"
+    },
+    {
+      "id": 11,
+      "reichard": "E,ι, ụ",
+      "nicodemus": "no form",
+      "salish": "ə",
+      "english": "sof<bold>a</bold>",
+      "note": ""
+    },
+    {
+      "id": 12,
+      "reichard": "gw",
+      "nicodemus": "gw",
+      "salish": "gʷ",
+      "english": "lin<bold>gu</bold>ini",
+      "note": ""
+    },
+    {
+      "id": 13,
+      "reichard": "h",
+      "nicodemus": "h",
+      "salish": "h",
+      "english": "<bold>h</bold>ello",
+      "note": ""
+    },
+    {
+      "id": 14,
+      "reichard": "i",
+      "nicodemus": "i",
+      "salish": "i",
+      "english": "mach<bold>i</bold>ne",
+      "note": ""
+    },
+    {
+      "id": 15,
+      "reichard": "í",
+      "nicodemus": "<underline>i</underline>",
+      "salish": "í",
+      "english": "no example",
+      "note": "1"
+    },
+    {
+      "id": 16,
+      "reichard": "dj",
+      "nicodemus": "j",
+      "salish": "ǰ",
+      "english": "<bold>j</bold>ar",
+      "note": ""
+    },
+    {
+      "id": 17,
+      "reichard": "kʷ",
+      "nicodemus": "kw",
+      "salish": "kʷ",
+      "english": "<bold>qu</bold>een",
+      "note": ""
+    },
+    {
+      "id": 18,
+      "reichard": "k'ʷ",
+      "nicodemus": "k'w",
+      "salish": "k'ʷ",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 19,
+      "reichard": "no form",
+      "nicodemus": "kh",
+      "salish": "no form",
+      "english": "no example",
+      "note": "2"
+    },
+    {
+      "id": 20,
+      "reichard": "xʷ",
+      "nicodemus": "khw",
+      "salish": "xʷ",
+      "english": "no example",
+      "note": "2"
+    },
+    {
+      "id": 21,
+      "reichard": "q",
+      "nicodemus": "q",
+      "salish": "q",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 22,
+      "reichard": "q'",
+      "nicodemus": "q'",
+      "salish": "q'",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 23,
+      "reichard": "qʷ",
+      "nicodemus": "qw",
+      "salish": "qʷ",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 24,
+      "reichard": "q'ʷ",
+      "nicodemus": "q'w",
+      "salish": "q'ʷ",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 25,
+      "reichard": "x̣",
+      "nicodemus": "qh,",
+      "salish": "x̣",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 26,
+      "reichard": "x̣ʷ",
+      "nicodemus": "qhw",
+      "salish": "x̣ʷ",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 27,
+      "reichard": "l",
+      "nicodemus": "l",
+      "salish": "l",
+      "english": "<bold>l</bold>ike",
+      "note": ""
+    },
+    {
+      "id": 28,
+      "reichard": "l'",
+      "nicodemus": "'l",
+      "salish": "l'",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 29,
+      "reichard": "ɫ",
+      "nicodemus": "ɫ",
+      "salish": "ɫ",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 30,
+      "reichard": "m",
+      "nicodemus": "m",
+      "salish": "m",
+      "english": "<bold>m</bold>o<bold>m</bold>",
+      "note": ""
+    },
+    {
+      "id": 31,
+      "reichard": "m'",
+      "nicodemus": "'m",
+      "salish": "m'",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 32,
+      "reichard": "n",
+      "nicodemus": "n",
+      "salish": "n",
+      "english": "now",
+      "note": ""
+    },
+    {
+      "id": 33,
+      "reichard": "n'",
+      "nicodemus": "'n",
+      "salish": "n'",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 34,
+      "reichard": "ɔ",
+      "nicodemus": "o",
+      "salish": "ɔ, o",
+      "english": "law",
+      "note": ""
+    },
+    {
+      "id": 35,
+      "reichard": "ɔ́",
+      "nicodemus": "<underline>o</underline>",
+      "salish": "ɔ́, ó",
+      "english": "no example",
+      "note": "1"
+    },
+    {
+      "id": 36,
+      "reichard": "p",
+      "nicodemus": "p",
+      "salish": "p",
+      "english": "<bold>p</bold>at",
+      "note": ""
+    },
+    {
+      "id": 37,
+      "reichard": "p'",
+      "nicodemus": "p'",
+      "salish": "p'",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 38,
+      "reichard": "r",
+      "nicodemus": "r",
+      "salish": "r",
+      "english": "fa<bold>r</bold>",
+      "note": ""
+    },
+    {
+      "id": 39,
+      "reichard": "r'",
+      "nicodemus": "'r",
+      "salish": "r'",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 40,
+      "reichard": "R",
+      "nicodemus": "(",
+      "salish": "ʕ",
+      "english": "no example",
+      "note": "3"
+    },
+    {
+      "id": 41,
+      "reichard": "R'",
+      "nicodemus": "'(",
+      "salish": "ʕ'",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 42,
+      "reichard": "ṛʷ",
+      "nicodemus": "(w",
+      "salish": "ʕʷ",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 43,
+      "reichard": "ṛ'ʷ",
+      "nicodemus": "'(w",
+      "salish": "ʕ'ʷ",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 44,
+      "reichard": "s",
+      "nicodemus": "s",
+      "salish": "s",
+      "english": "<bold>s</bold>un",
+      "note": ""
+    },
+    {
+      "id": 45,
+      "reichard": "c",
+      "nicodemus": "sh",
+      "salish": "š",
+      "english": "<bold>sh</bold>ell",
+      "note": ""
+    },
+    {
+      "id": 46,
+      "reichard": "t",
+      "nicodemus": "t",
+      "salish": "t",
+      "english": "<bold>t</bold>ar",
+      "note": ""
+    },
+    {
+      "id": 47,
+      "reichard": "t'",
+      "nicodemus": "t'",
+      "salish": "t'",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 48,
+      "reichard": "u",
+      "nicodemus": "u",
+      "salish": "u",
+      "english": "J<bold>u</bold>piter",
+      "note": ""
+    },
+    {
+      "id": 49,
+      "reichard": "ú",
+      "nicodemus": "<underline>u</underline>",
+      "salish": "ú",
+      "english": "no example",
+      "note": "1"
+    },
+    {
+      "id": 50,
+      "reichard": "w",
+      "nicodemus": "w",
+      "salish": "w",
+      "english": "<bold>w</bold>agon",
+      "note": ""
+    },
+    {
+      "id": 51,
+      "reichard": "w'",
+      "nicodemus": "'w",
+      "salish": "w'",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 52,
+      "reichard": "y",
+      "nicodemus": "y",
+      "salish": "y",
+      "english": "<bold>y</bold>ard",
+      "note": ""
+    },
+    {
+      "id": 53,
+      "reichard": "y'",
+      "nicodemus": "'y",
+      "salish": "y'",
+      "english": "no example",
+      "note": ""
+    },
+    {
+      "id": 54,
+      "reichard": "'",
+      "nicodemus": "'",
+      "salish": "ʔ",
+      "english": "uh - oh",
+      "note": ""
+    }
+  ],
+  "roots": [
+    {
+      "id": 1,
+      "root": "√a",
+      "number": "1",
+      "salish": "a",
+      "nicodemus": "a",
+      "english": "† hello. (gr.)"
+    },
+    {
+      "id": 2,
+      "root": "√a",
+      "number": "2",
+      "salish": "a",
+      "nicodemus": "a?",
+      "english": "so. (lit. Is that so?), (adv.)"
+    },
+    {
+      "id": 3,
+      "root": "√a",
+      "number": "3",
+      "salish": "a·",
+      "nicodemus": "aaaa...!",
+      "english": "cut out, knock off!, quit, stop. (lit. Cut it out!, Knock it off, quit it, Stop it!), (imper.)"
+    },
+    {
+      "id": 5,
+      "root": "√bc",
+      "number": "1",
+      "salish": "buc",
+      "nicodemus": "buts",
+      "english": "† boots. (n.)"
+    },
+    {
+      "id": 6,
+      "root": "√bc",
+      "number": "2",
+      "salish": "ec+búc+buc=šn",
+      "nicodemus": "etsbutsbutsshn",
+      "english": "// boots (to be wearing...). ((lit. He is wearing boots), n.)"
+    },
+    {
+      "id": 7,
+      "root": "√bc",
+      "number": "3",
+      "salish": "s+búc+buc=šn",
+      "nicodemus": "sbutsbutsshn",
+      "english": "boot. ((lit. a borrowed root), n.)"
+    }
+  ],
+  "consonants": [
+  	{
+	  "id": 1,
+	  "orthography": "N",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "stop",
+	  "secondary": "none",
+	  "labial": "p", 
+	  "alveolar": "t",  
+	  "uvular": "q",
+	  "glottal": "'"
+ 	 },
+ 	 {
+	  "id": 2,
+	  "orthography": "S",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "stop",
+	  "secondary": "none",
+	  "labial": "p", 
+	  "alveolar": "t",  
+	  "uvular": "q",
+	  "glottal": "ʔ"
+ 	 },
+ 	 {
+	  "id": 3,
+	  "orthography": "R",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "stop",
+	  "secondary": "none",
+	  "labial": "p", 
+	  "alveolar": "t",  
+	  "uvular": "q",
+	  "glottal": "'"
+ 	 },
+ 	{
+	  "id": 4,
+	  "orthography": "N",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "stop",
+	  "secondary": "glottal",
+	  "labial": "p'", 
+	  "alveolar": "t'",  
+	  "uvular": "q'"
+ 	 },
+ 	{
+	  "id": 5,
+	  "orthography": "S",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "stop",
+	  "secondary": "glottal",
+	  "labial": "p'", 
+	  "alveolar": "t'", 
+	  "uvular": "q'"
+ 	 },
+ 	 {
+	  "id": 6,
+	  "orthography": "R",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "stop",
+	  "secondary": "glottal",
+	  "labial": "p'",
+	  "alveolar": "t'",
+	  "uvular": "q'"
+ 	 },
+ 	 {
+	  "id": 7,
+	  "orthography": "N",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "stop",
+	  "secondary": "labial",
+	  "velar": "kw",  
+	  "uvular": "qw"
+ 	 },
+ 	{
+	  "id": 8,
+	  "orthography": "S",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "stop",
+	  "secondary": "labial",
+	  "velar": "kʷ",  
+	  "uvular": "qʷ"
+ 	 },
+ 	 {
+	  "id": 9,
+	  "orthography": "R",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "stop",
+	  "secondary": "labial",
+	  "velar": "kʷ",  
+	  "uvular": "qʷ"
+ 	 },
+ 	 {
+	  "id": 10,
+	  "orthography": "N",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "stop",
+	  "secondary": "both",
+	  "velar": "k'w",  
+	  "uvular": "q'w"
+ 	 },
+ 	{
+	  "id": 11,
+	  "orthography": "S",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "stop",
+	  "secondary": "both",
+	  "velar": "k'ʷ",  
+	  "uvular": "q'ʷ"
+ 	 },
+ 	 {
+	  "id": 12,
+	  "orthography": "R",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "stop",
+	  "secondary": "both",
+	  "velar": "k'ʷ",  
+	  "uvular": "q'ʷ"
+ 	 },
+ 	 {
+	  "id": 13,
+	  "orthography": "N",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "affricate",
+	  "secondary": "none",
+	  "alveopalatal": "ts",
+	  "palatal": "ch"
+ 	 },
+ 	 {
+	  "id": 14,
+	  "orthography": "S",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "affricate",
+	  "secondary": "none",
+	  "alveopalatal": "c",
+	  "palatal": "č"
+ 	 },
+ 	 {
+	  "id": 15,
+	  "orthography": "R",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "affricate",
+	  "secondary": "none",
+	  "alveopalatal": "ts",
+	  "palatal": "tc"
+ 	 },
+ 	 {
+	  "id": 16,
+	  "orthography": "N",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "affricate",
+	  "secondary": "glottal",
+	  "alveopalatal": "ts'",
+	  "palatal": "ch'"
+ 	 },
+ 	 {
+	  "id": 17,
+	  "orthography": "S",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "affricate",
+	  "secondary": "glottal",
+	  "alveopalatal": "c'",
+	  "palatal": "č'"
+ 	 },
+ 	 {
+	  "id": 18,
+	  "orthography": "R",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "affricate",
+	  "secondary": "glottal",
+	  "alveopalatal": "ts'",
+	  "palatal": "tc'"
+ 	 },
+ 	 {
+	  "id": 19,
+	  "orthography": "N",
+	  "type": "consonant",
+	  "voice": "V",
+	  "manner": "stop",
+	  "secondary": "none",
+	  "labial": "b",
+	  "alveolar": "d"
+ 	 },
+ 	 {
+	  "id": 20,
+	  "orthography": "S",
+	  "type": "consonant",
+	  "voice": "V",
+	  "manner": "stop",
+	  "secondary": "none",
+	  "labial": "b",
+	  "alveolar": "d"
+ 	 },
+ 	 {
+	  "id": 21,
+	  "orthography": "R",
+	  "type": "consonant",
+	  "voice": "V",
+	  "manner": "stop",
+	  "secondary": "none",
+	  "labial": "b",
+	  "alveolar": "d"
+ 	 },
+ 	 {
+	  "id": 22,
+	  "orthography": "N",
+	  "type": "consonant",
+	  "voice": "V",
+	  "manner": "stop",
+	  "secondary": "labial",
+	  "velar": "gw"
+ 	 },
+ 	 {
+	  "id": 23,
+	  "orthography": "S",
+	  "type": "consonant",
+	  "voice": "V",
+	  "manner": "stop",
+	  "secondary": "labial",
+	  "velar": "gʷ"
+ 	 },
+ 	 {
+	  "id": 24,
+	  "orthography": "R",
+	  "type": "consonant",
+	  "voice": "V",
+	  "manner": "stop",
+	  "secondary": "labial",
+	  "velar": "gw"
+ 	 },
+ 	 {
+	  "id": 25,
+	  "orthography": "N",
+	  "type": "consonant",
+	  "voice": "V",
+	  "manner": "affricate",
+	  "secondary": "none",
+	  "palatal": "j"
+ 	 },
+ 	 {
+	  "id": 26,
+	  "orthography": "S",
+	  "type": "consonant",
+	  "voice": "V",
+	  "manner": "affricate",
+	  "secondary": "none",
+	  "palatal": "ǰ"
+ 	 },
+ 	 {
+	  "id": 27,
+	  "orthography": "R",
+	  "type": "consonant",
+	  "voice": "V",
+	  "manner": "affricate",
+	  "secondary": "none",
+	  "palatal": "dj"
+ 	 },
+ 	 {
+	  "id": 28,
+	  "orthography": "N",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "fricative",
+	  "secondary": "none",
+	  "alveolar": "s",
+	  "lateral": "∤",
+	  "palatal": "sh",
+	  "uvular": "qh",
+	  "glottal": "h"
+ 	 },
+ 	 {
+	  "id": 29,
+	  "orthography": "S",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "fricative",
+	  "secondary": "none",
+	  "alveolar": "s",
+	  "lateral": "ɫ",
+	  "palatal": "š",
+	  "uvular": "x̣",
+	  "glottal": "h"
+ 	 },
+ 	 {
+	  "id": 30,
+	  "orthography": "R",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "fricative",
+	  "secondary": "none",
+	  "alveolar": "s",
+	  "lateral": "ɫ",
+	  "palatal": "c",
+	  "uvular": "x̣",
+	  "glottal": "h"
+ 	 },
+ 	 {
+	  "id": 31,
+	  "orthography": "N",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "fricative",
+	  "secondary": "labial",
+	  "velar": "khw",
+	  "uvular": "qhw"
+ 	 },
+ 	 {
+	  "id": 32,
+	  "orthography": "S",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "fricative",
+	  "secondary": "labial",
+	  "velar": "xʷ",
+	  "uvular": "x̣ʷ"
+ 	 },
+ 	 {
+	  "id": 33,
+	  "orthography": "R",
+	  "type": "consonant",
+	  "voice": "VL",
+	  "manner": "fricative",
+	  "secondary": "labial",
+	  "velar": "xʷ",
+	  "uvular": "x̣ʷ"
+ 	 },
+ 	 {
+ 	  "id": 34,
+ 	  "orthography": "N",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "nasal",
+ 	  "secondary": "none",
+ 	  "labial": "m",
+ 	  "alveolar": "n"
+ 	},
+ 	 {
+ 	  "id": 35,
+ 	  "orthography": "S",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "nasal",
+ 	  "secondary": "none",
+ 	  "labial": "m",
+ 	  "alveolar": "n"
+ 	},
+ 	 {
+ 	  "id": 36,
+ 	  "orthography": "R",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "nasal",
+ 	  "secondary": "none",
+ 	  "labial": "m",
+ 	  "alveolar": "n"
+ 	}, 	 
+ 	{
+ 	  "id": 37,
+ 	  "orthography": "N",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "nasal",
+ 	  "secondary": "glottal",
+ 	  "labial": "'m",
+ 	  "alveolar": "'n"
+ 	},
+ 	 {
+ 	  "id": 38,
+ 	  "orthography": "S",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "nasal",
+ 	  "secondary": "glottal",
+ 	  "labial": "m'",
+ 	  "alveolar": "n'"
+ 	},
+ 	 {
+ 	  "id": 39,
+ 	  "orthography": "R",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "nasal",
+ 	  "secondary": "glottal",
+ 	  "labial": "m'",
+ 	  "alveolar": "n'"
+ 	},
+ 	 {
+ 	  "id": 40,
+ 	  "orthography": "N",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "approximant",
+ 	  "secondary": "none",
+ 	  "alveopalatal": "r",
+ 	  "lateral": "l",
+ 	  "palatal": "y",
+ 	  "velar": "w",
+ 	  "pharyngeal": "("
+ 	},
+ 	 {
+ 	  "id": 41,
+ 	  "orthography": "S",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "approximant",
+ 	  "secondary": "none",
+ 	  "alveopalatal": "r",
+ 	  "lateral": "l",
+ 	  "palatal": "y",
+ 	  "velar": "w",
+ 	  "pharyngeal": "ʕ"
+ 	},
+ 	 {
+ 	  "id": 42,
+ 	  "orthography": "R",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "approximant",
+ 	  "secondary": "none",
+ 	  "alveopalatal": "r",
+ 	  "lateral": "l",
+ 	  "palatal": "y",
+ 	  "velar": "w",
+ 	  "pharyngeal": "R"
+ 	},
+ 	 {
+ 	  "id": 43,
+ 	  "orthography": "N",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "approximant",
+ 	  "secondary": "glottal",
+ 	  "alveopalatal": "'r",
+ 	  "lateral": "'l",
+ 	  "palatal": "'y",
+ 	  "velar": "'w",
+ 	  "pharyngeal": "'("
+ 	},
+ 	 {
+ 	  "id": 44,
+ 	  "orthography": "S",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "approximant",
+ 	  "secondary": "none",
+ 	  "alveopalatal": "r'",
+ 	  "lateral": "l'",
+ 	  "palatal": "y'",
+ 	  "velar": "w'",
+ 	  "pharyngeal": "ʕ'"
+ 	},
+ 	 {
+ 	  "id": 45,
+ 	  "orthography": "R",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "approximant",
+ 	  "secondary": "none",
+ 	  "alveopalatal": "r'",
+ 	  "lateral": "l'",
+ 	  "palatal": "y'",
+ 	  "velar": "w'",
+ 	  "pharyngeal": "R'"
+ 	},
+ 	 {
+ 	  "id": 46,
+ 	  "orthography": "N",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "approximant",
+ 	  "secondary": "labial",
+ 	  "pharyngeal": "(w"
+ 	},
+ 	 {
+ 	  "id": 47,
+ 	  "orthography": "S",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "approximant",
+ 	  "secondary": "labial",
+ 	  "pharyngeal": "ʕʷ"
+ 	},
+ 	 {
+ 	  "id": 48,
+ 	  "orthography": "R",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "approximant",
+ 	  "secondary": "labial",
+ 	  "pharyngeal": "ṛʷ"
+ 	},
+ 	 {
+ 	  "id": 49,
+ 	  "orthography": "N",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "approximant",
+ 	  "secondary": "both",
+ 	  "pharyngeal": "'(w"
+ 	},
+ 	 {
+ 	  "id": 50,
+ 	  "orthography": "S",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "approximant",
+ 	  "secondary": "both",
+ 	  "pharyngeal": "ʕ'ʷ"
+ 	},
+ 	 {
+ 	  "id": 51,
+ 	  "orthography": "R",
+ 	  "type": "consonant",
+ 	  "voice": "RN",
+ 	  "manner": "approximant",
+ 	  "secondary": "both",
+ 	  "pharyngeal": "ṛ'ʷ"
+ 	}
+  ],
+"vowels": [
+	{
+		"id": 1,
+		"orthography": "N",
+		"height": "high",
+		"front": "i",
+		"central": "",
+		"back": "u"
+	},	
+	{
+		"id": 2,
+		"orthography": "S",
+		"height": "high",
+		"front": "i",
+		"central": "",
+		"back": "u"
+	},	
+	{
+		"id": 3,
+		"orthography": "R",
+		"height": "high",
+		"front": "i",
+		"central": "",
+		"back": "u"
+	},
+	{
+		"id": 4,
+		"orthography": "N",
+		"height": "mid",
+		"front": "e",
+		"central": "",
+		"back": "o"
+	},	
+	{
+		"id": 5,
+		"orthography": "S",
+		"height": "mid",
+		"front": "ɛ, e",
+		"central": "ə",
+		"back": "ɔ, o"
+	},	
+	{
+		"id": 6,
+		"orthography": "R",
+		"height": "mid",
+		"front": "ä",
+		"central": "E,ι, ụ",
+		"back": "ɔ"
+	},
+	{
+		"id": 7,
+		"orthography": "N",
+		"height": "low",
+		"front": "",
+		"central": "a",
+		"back": ""
+	},	
+	{
+		"id": 8,
+		"orthography": "S",
+		"height": "low",
+		"front": "",
+		"central": "a",
+		"back": ""
+	},	
+	{
+		"id": 9,
+		"orthography": "R",
+		"height": "low",
+		"front": "",
+		"central": "a",
+		"back": ""
+	}
+],
+"affixes": [
+  	{
+	  "id": 1,
+	  "type": "Directional",
+	  "salish": "ci-",
+	  "nicodemus": "tsi-",
+	  "english": "first, before",
+	  "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
+	  "page": "599 (420)"
+ 	 },
+ 	 {
+ 	 	"id": 2,
+	    "type": "Directional",
+	    "salish": "tɛ-'",
+	    "nicodemus": "te-'",
+	    "english": "thither",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n611/mode/2up",
+	    "page": "598 (416)"
+	  },
+	  {
+	  	"id": 3,
+	    "type": "Directional",
+	    "salish": "čic-",
+	    "nicodemus": "chits-'",
+	    "english": "hither (toward speaker)",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n611/mode/2up",
+	    "page": "598 (412)"
+	  }, 
+	 {
+	 	"id": 4,
+	    "type": "Directional",
+	    "salish": "tkʷɛɫ-",
+	    "nicodemus": "tkweɫ-",
+	    "english": "go about to definite place",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n610/mode/2up",
+	    "page": "597 (410)"
+	  }, 
+	  {
+	  	"id": 5,
+	    "type": "Directional",
+	    "salish": "tɛp-",
+	    "nicodemus": "tep-",
+	    "english": "on the way",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
+	    "page": "599 (418)"
+	  }, 
+	  {
+	  	"id": 6,
+	    "type": "Directional",
+	    "salish": "tus-",
+	    "nicodemus": "tus-",
+	    "english": "as far as",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
+	    "page": "599 (419)"
+	  }, 
+	  {
+	  	"id": 7,
+	    "type": "Locative",
+	    "salish": "cɛn-",
+	    "nicodemus": "tsen-",
+	    "english": "under, off of",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n609/mode/2up",
+	    "page": "599 (420)"
+	  },
+	 {
+	 	"id": 8,
+	    "type": "Locative",
+	    "salish": "č-",
+	    "nicodemus": "ch-",
+	    "english": "on, attached to but not a part of, at a point",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up",
+	    "page": "595 (395)"
+	  },
+	  {
+	  	"id": 9,
+	    "type": "Locative",
+	    "salish": "čt-",
+	    "nicodemus": "cht-",
+	    "english": "R notes the meaning of this morpheme is not clear",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up",
+	    "page": "595 (397)"
+	  }, 
+	 {
+	 	"id": 10,
+	    "type": "Locative",
+	    "salish": "čɛt-",
+	    "nicodemus": "chet-",
+	    "english": "on a surface or object broader the subject, above, over",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up",
+	    "page":  "595 (398)"
+	  }, 
+	  {
+	  	"id": 11,
+	    "type": "Locative",
+	    "salish": "čs-",
+	    "nicodemus": "chs-",
+	    "english": "after, behind, for a purpose, in pursuit of",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
+	    "page": "595 (399)"
+	  }, 
+	  {
+	  	"id": 12,
+	  	"type": "Locative",
+	    "salish": "hn-",
+	    "nicodemus": "hn-",
+	    "english": "in, onto, into, on",
+	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n609/mode/2up",
+	    "page": "599 (419)"
+	  } 
+ ] 
+}

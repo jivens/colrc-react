@@ -1,60 +1,56 @@
 import React, { Component } from 'react';
-import {Grid, List } from 'semantic-ui-react';
+import {Grid, List, Container, Header, Segment, Label, Input, Menu } from 'semantic-ui-react';
+import { Link } from "react-router-dom";
+import './NavBar.css';
 
 class MainMenu extends Component {
   render() {
     return (
-      <Grid container verticalAlign='middle' columns={2}>
-        <Grid.Row>
-          <Grid.Column color='blue' width={10}>
-            <Masthead title={this.props.title} />
+    <div className="ui grid" id="Banner">
+      <Grid columns={3}>
+          <Grid.Column verticalAlign='top' width={16}>
+            <Segment>
+	           	<Label as={Link} to="/" name="about" color='blue' ribbon>
+	          		COLRC
+	        	</Label>
+	        	<span>Coeur d'Alene Online Language Resource Center</span>
+        	</Segment>
           </Grid.Column>
-          <Grid.Column color='blue' width={3}>
-            <OptionsList />
-          </Grid.Column>
-        </Grid.Row>
       </Grid>
+
+      </div>
     );
   }
 }
 
-class Masthead extends Component {
+class SearchBox extends Component {
   render() {
+	const inputBox = () => <Input icon='search' placeholder='Search...' />;
+
     return (
-      <Grid container verticalAlign='middle' columns={1}>
-        <Grid.Row color='blue'>
-          <Grid.Column textAlign='center'>
-            Coeur d'Alene Online Language Resource Center
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row color='blue'>
-          <Titlebar
-            title={this.props.title}
-          />
-        </Grid.Row>
-      </Grid>
+
+        <div>
+          	<Input icon='search' size='mini'  />
+        <p>Enter Special Characters</p>
+        <p></p>
+        </div>
     );
   }
 }
 
-class Titlebar extends Component {
-  render() {
-    return (
-        <Grid.Column textAlign='center'><h2>{this.props.title}</h2></Grid.Column>
-    );
-  }
-}
 
 class OptionsList extends Component {
   render() {
     return (
-      <Grid container verticalAlign='middle' centered >
-        <Grid.Row color='blue' centered>
-          <Grid.Column centered>
-              dictionary | history | metadata
+
+          <Grid.Column>
+          	<ul>
+              <li>dictionary</li>
+              <li>history</li>
+              <li>metadata</li>
+            </ul>
           </Grid.Column>
-        </Grid.Row>
-      </Grid>
+
     );
   }
 }

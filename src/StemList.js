@@ -1,74 +1,236 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
-
-class StemListIntro extends Component {
-  render() {
-    return (
-      <div className='ui content'>
-        <h3>Reichard's Stem List</h3>
-        <p>
-          The stem list presented here was built by Gladys Reichard, and first published in 1939.
-          The list is available in several forms.  To access the list in a dictionary form, use
-          the 'browse' or 'search' features above.  Here you will see each stem as Reichard wrote it, and
-          as it would be written using the 'Nicodemus' spelling system.  The stems are presented in
-          several groups - first the 'verbs', then 'adverbs, interjections, and conjunctions', and
-          finally the 'nouns'.  Within each group, stems are ordered alphabetically.
-        </p>
-        <p>
-          You can also view <a href="r_stemlist.pdf" target="_blank">Reichard 1939</a> in its
-          original form (as a pdf), or as
-          a <a href="original_stem_list.html" target="_blank">set of images</a> that you can view
-          in your browser.
-        </p>
-        <br />
-      </div>
-    );
-  }
-}
+import ReactTable from "react-table";
+import "react-table/react-table.css";
+import matchSorter from 'match-sorter';
+import PropTypes from "prop-types";
+import {
+    Accordion,
+    AccordionItem,
+    AccordionItemTitle,
+    AccordionItemBody,
+} from 'react-accessible-accordion';
+import "./AccordionTables.css";
 
 class StemList extends Component {
-  render() {
-    return (
-      <div className='ui content'>
-        <StemListIntro />
-        <Grid celled='internally' padded='horizontally' verticalAlign='top'>
-          <StemListElement
-            color='blue'
-            salish='Salish'
-            nicodemus='Nicodemus'
-            english='English'
-          />
-        </Grid>
-        <h4>Verbs</h4>
-        -a-
-        <Grid celled='internally' padded='horizontally' verticalAlign='top'>
-          <StemListElement
-            salish="acqaʔ"
-            nicodemus="atsqa'"
-            english="go out, singular and plural"
-          />
-          <StemListElement
-            salish="ac'x̣"
-            nicodemus="ats'qh"
-            english="look at"
-          />
-        </Grid>
-      </div>
-    );
+
+  constructor() {
+    super();
+    this.state = { 
+    	data: [], 
+    	loading: true, 
+    	reichardSelected: false,
+    	doakSelected: false,
+    	salishSelected: false,
+	    nicodemusSelected: true,
+	    englishSelected: true,
+	    noteSelected: false,
+	 };
   }
+
+	handleReichardChange(value) {
+	    this.setState({ reichardSelected: !this.state.reichardSelected });
+	  };
+
+	handleDoakChange(value) {
+	    this.setState({ doakSelected: !this.state.doakSelected });
+	  };
+
+	handleSalishChange(value) {
+	    this.setState({ salishSelected: !this.state.salishSelected });
+	  };
+
+	handleNicodemusChange(value) {
+	    this.setState({ nicodemusSelected: !this.state.nicodemusSelected });
+	  };
+
+	handleEnglishChange(value) {
+	    this.setState({ englishSelected: !this.state.englishSelected });
+	  };
+
+	handleNoteChange(value) {
+	    this.setState({ noteSelected: !this.state.noteSelected });
+	  };
+
+
+  async componentDidMount() {
+    try {
+      const response = await fetch(`http://localhost:4000/stems`);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const json = await response.json();
+      this.setState({ loading: false, data: json });
+    } catch (error) {
+      console.log("This is my Error: " + error);
+      this.setState({ error: error });
+    }
+  }
+
+  render() {
+
+  	const { reichardSelected, doakSelected, salishSelected, nicodemusSelected, englishSelected, noteSelected } = this.state;
+
+ 	const Checkbox = props => (
+  		<input type="checkbox" {...props} />
+		)
+
+ 	const getColumnWidth = (rows, accessor, headerText) => {
+	  const maxWidth = 600
+	  const magicSpacing = 22
+	  const cellLength = Math.max(
+	    ...rows.map(row => (`${row[accessor]}` || '').length),
+	    headerText.length,
+	  )
+	  return Math.min(maxWidth, cellLength * magicSpacing)
+	};
+
+	  const columns = [{
+	    Header: 'Type',
+	    accessor: 'category',
+	    width: getColumnWidth(this.state.data, 'category', 'Type'),
+	    filterMethod: (filter, row) => {
+	            if (filter.value === "all") {
+	              return true;
+	            }
+	            return row[filter.id] === filter.value;
+	        },
+	    Filter: ({ filter, onChange }) =>
+            <select
+              onChange={event => onChange(event.target.value)}
+              style={{ width: "100%" }}
+              value={filter ? filter.value : "all"}
+            >
+              <option value="all">Show All</option>
+              <option value="verb">Verbs</option>
+              <option value="noun">Nouns</option>
+              <option value="other">Other</option>
+            </select>,
+	  	},
+		{
+	    Header: 'Reichard',
+	    accessor: 'reichard',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["reichard"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
+        show: reichardSelected,
+	  	},
+	  {
+	    Header: 'Doak',
+	    accessor: 'doak',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["doak"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
+        show: doakSelected,
+	  	},
+	  {
+	    Header: 'Salish',
+	    accessor: 'salish',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["salish"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
+        show: salishSelected,
+	  	},
+	  {
+	    Header: 'Nicodemus',
+	    accessor: 'nicodemus',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["nicodemus"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
+        show: nicodemusSelected,
+	  	},
+	  {
+	    Header: 'English',
+	    accessor: 'english',
+	    style: { 'white-space': 'unset' },
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
+        show: englishSelected,
+	  	},
+	  {
+	    Header: 'Note',
+	    accessor: 'note',
+	    style: { 'white-space': 'unset' },
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["note"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
+        show: noteSelected,
+	  }
+	  ];
+
+	  const CheckboxStem = () => (
+		<div className="checkBoxMenu">
+		  <label className="checkBoxLabel">Reichard</label>
+		  <input 
+		  	name="reichard"
+            type="checkbox"
+            checked={this.state.reichardSelected}
+            onChange={this.handleReichardChange.bind(this)}
+          />
+          <label className="checkBoxLabel">Doak</label>
+		  <input 
+		  	name="doak"
+            type="checkbox"
+            checked={this.state.doakSelected}
+            onChange={this.handleDoakChange.bind(this)}
+          />
+		  <label className="checkBoxLabel">Salish</label>
+		  <input 
+		  	name="salish"
+            type="checkbox"
+            checked={this.state.salishSelected}
+            onChange={this.handleSalishChange.bind(this)}
+          />
+          <label className="checkBoxLabel">Nicodemus</label>
+          <input
+            name="nicodemus"
+            type="checkbox"
+            checked={this.state.nicodemusSelected}
+            onChange={this.handleNicodemusChange.bind(this)}
+          />
+          <label className="checkBoxLabel">English</label>
+          <input
+            name="english"
+            type="checkbox"
+            checked={this.state.englishSelected}
+            onChange={this.handleEnglishChange.bind(this)}
+          />
+          <label className="checkBoxLabel">Note</label>
+          <input
+            name="Note"
+            type="checkbox"
+            checked={this.state.noteSelected}
+            onChange={this.handleNoteChange.bind(this)}
+          />
+		</div>
+	  );
+
+    const dataOrError = this.state.error ?
+      <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
+      <ReactTable
+        data={this.state.data}
+        loading={this.state.loading}
+        columns={columns}
+        filterable
+        defaultPageSize={5}
+        className="-striped -highlight"
+        className="left"
+        filterable="true"
+        filterAll="true"
+      />;
+	  return (
+      <div className='ui content'>
+        <p></p>
+        <p>Stem type as listed by Reichard, 'Other' = 'Adverbs, Interjections, Conjunctions'</p>
+       	<CheckboxStem />
+		    {dataOrError}
+        <p></p>
+		</div>
+	  );
+	}
 }
 
-class StemListElement extends Component {
-  render() {
-    const color = this.props.color ? this.props.color : 'white';
-    return (
-      <Grid.Row color={color}>
-        <Grid.Column width={4}>{this.props.salish}</Grid.Column>
-        <Grid.Column width={3}>{this.props.nicodemus}</Grid.Column>
-        <Grid.Column width={6}>{this.props.english}</Grid.Column>
-      </Grid.Row>
-    );
-  }
-}
+
 
 export default StemList;

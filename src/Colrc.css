@@ -2,7 +2,9 @@
   text-align: center;
 }
 
-
+.Grid {
+	padding: 10px;
+} 
 .Colrc-header {
   background-color: #222;
   height: 150px;

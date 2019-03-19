@@ -42,15 +42,15 @@ const NavBarMobile = ({
       Home
     </Menu.Item>
     <Menu.Item as={Link} to="/roots" name="Roots" size='mini'>
-    <Icon name='sort alphabet down' />
+    <Icon name="leaf" />
        Roots
     </Menu.Item>
     <Menu.Item as={Link} to="/stems" name="Stems">
-    <Icon name='code branch' />
+    <Icon name="code branch" />
        Stems
     </Menu.Item>
     <Menu.Item as={Link} to="/affixes" name="Affixes">
-    <Icon name="leaf" />
+    <Icon name="sort alphabet down" />
        Affixes
     </Menu.Item>
     <Menu.Item as={Link} to="/texts" name="Texts">

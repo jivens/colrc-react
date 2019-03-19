@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Grid, List, Container, Header, Segment, Label, Input, Menu } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
-import './NavBar.css';
 
 class MainMenu extends Component {
   render() {

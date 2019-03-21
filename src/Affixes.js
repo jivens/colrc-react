@@ -12,6 +12,7 @@ import {
 import "./AccordionTables.css";
 import AffixList from "./AffixList";
 import AffixMetadata from "./AffixMetadata";
+import KeyPicker from "./KeyPicker";
 
 class Affixes extends Component {
 	constructor(props) {
@@ -53,6 +54,7 @@ let currentItem;
 	};
     return (
         <div className='ui content'>
+
 	      	<Menu size='mini'>
 		        <Menu.Item 
 					name='list'
@@ -69,6 +71,7 @@ let currentItem;
 	      	</Menu>
 	      	<p></p>
 	      	<AffixListIntro />
+	      	<KeyPicker />
 	      	<p></p>
         	{currentItem}
       	</div>

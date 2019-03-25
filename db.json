@@ -1288,8 +1288,8 @@
  	 {
  	 	"id": 2,
 	    "type": "Directional",
-	    "salish": "tɛ-'",
-	    "nicodemus": "te-'",
+	    "salish": "tɛ-",
+	    "nicodemus": "te-",
 	    "english": "thither",
 	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n611/mode/2up",
 	    "page": "598 (416)"
@@ -1298,7 +1298,7 @@
 	  	"id": 3,
 	    "type": "Directional",
 	    "salish": "čic-",
-	    "nicodemus": "chits-'",
+	    "nicodemus": "chits-",
 	    "english": "hither (toward speaker)",
 	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n611/mode/2up",
 	    "page": "598 (412)"

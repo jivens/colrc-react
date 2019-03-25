@@ -22,36 +22,4 @@ class MainMenu extends Component {
   }
 }
 
-class SearchBox extends Component {
-  render() {
-	const inputBox = () => <Input icon='search' placeholder='Search...' />;
-
-    return (
-
-        <div>
-          	<Input icon='search' size='mini'  />
-        <p>Enter Special Characters</p>
-        <p></p>
-        </div>
-    );
-  }
-}
-
-
-class OptionsList extends Component {
-  render() {
-    return (
-
-          <Grid.Column>
-          	<ul>
-              <li>dictionary</li>
-              <li>history</li>
-              <li>metadata</li>
-            </ul>
-          </Grid.Column>
-
-    );
-  }
-}
-
 export default MainMenu;

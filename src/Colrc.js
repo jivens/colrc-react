@@ -20,10 +20,10 @@ import NavBar from './NavBar';
 import Roots from './Roots';
 import SpellingPronunciation from './SpellingPronunciation';
 import Home from './Home';
-import StemList from './StemList';
-import AffixList from './AffixList';
+import Stems from './Stems';
+import Affixes from './Affixes';
 import Audio from "./Audio";
-import ContactUs from './ContactUs';
+/*import ContactUs from './ContactUs';*/
 import Texts from './Texts';
 import AudioPlayer from './AudioPlayer';
 import Bibliography from './Bibliography';
@@ -61,10 +61,10 @@ class Colrc extends Component {
                   <Route exact path="/" component={Home} />
                   <Route path="/spelling" component={SpellingPronunciation} />
                   <Route path="/roots" component={Roots} />
-                  <Route path="/stemlist" component={StemList} />
-                  <Route path="/affixlist" component={AffixList} />
+                  <Route path="/stems" component={Stems} />
+                  <Route path="/affixes" component={Affixes} />
   				  <Route path="/audio" component={Audio} />
-  				  <Route path="/contactus" component={ContactUs} />
+  				  {/*<Route path="/contactus" component={ContactUs} />*/}
                   <Route path="/texts" component={Texts} />
                   <Route path="/bibliography" component={Bibliography} />
                   {/* <Route path="/rootdictionary/:id" exact component={EditRoot} /> */}
@@ -93,7 +93,7 @@ class Footer extends Component {
       <div className='ui bottom centered'>
         <p></p>
         <p>coeur d'alene online language resource center copyright 2009</p>
-        project supported by the national science foundation awards BCS-1160627 and BCS-1160394 and the national endowment for the humanities award PD-261031-18.
+        <p>project supported by the national science foundation awards BCS-1160627 and BCS-1160394 and the national endowment for the humanities award PD-261031-18.</p>
       </div>
     );
   }

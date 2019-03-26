@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Grid, List, Container, Header, Segment, Label, Input, Menu } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
-import './NavBar.css';
 
 class MainMenu extends Component {
   render() {
@@ -19,38 +18,6 @@ class MainMenu extends Component {
       </Grid>
 
       </div>
-    );
-  }
-}
-
-class SearchBox extends Component {
-  render() {
-	const inputBox = () => <Input icon='search' placeholder='Search...' />;
-
-    return (
-
-        <div>
-          	<Input icon='search' size='mini'  />
-        <p>Enter Special Characters</p>
-        <p></p>
-        </div>
-    );
-  }
-}
-
-
-class OptionsList extends Component {
-  render() {
-    return (
-
-          <Grid.Column>
-          	<ul>
-              <li>dictionary</li>
-              <li>history</li>
-              <li>metadata</li>
-            </ul>
-          </Grid.Column>
-
     );
   }
 }

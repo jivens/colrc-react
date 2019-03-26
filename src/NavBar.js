@@ -39,18 +39,18 @@ const NavBarMobile = ({
     >
     <Menu.Item as={Link} to="/" name="Home" size='mini'>
 	   <Icon name="home" />
-      About
+      Home
     </Menu.Item>
     <Menu.Item as={Link} to="/roots" name="Roots" size='mini'>
-    <Icon name='sort alphabet down' />
+    <Icon name="leaf" />
        Roots
     </Menu.Item>
-    <Menu.Item as={Link} to="/stemlist" name="Stems">
-    <Icon name='code branch' />
+    <Menu.Item as={Link} to="/stems" name="Stems">
+    <Icon name="code branch" />
        Stems
     </Menu.Item>
-    <Menu.Item as={Link} to="/affixlist" name="Affixes">
-    <Icon name="leaf" />
+    <Menu.Item as={Link} to="/affixes" name="Affixes">
+    <Icon name="sort alphabet down" />
        Affixes
     </Menu.Item>
     <Menu.Item as={Link} to="/texts" name="Texts">
@@ -103,10 +103,10 @@ const NavBarDesktop = ({ rightItems }) => (
     <Menu.Item as={Link} to="/roots" name="Roots">
        Roots
     </Menu.Item>
-    <Menu.Item as={Link} to="/stemlist" name="Stems">
+    <Menu.Item as={Link} to="/stems" name="Stems">
        Stems
     </Menu.Item>
-     <Menu.Item as={Link} to="/affixlist" name="Affixes">
+     <Menu.Item as={Link} to="/affixes" name="Affixes">
        Affixes
     </Menu.Item>
     <Menu.Item as={Link} to="/texts" name="Texts">

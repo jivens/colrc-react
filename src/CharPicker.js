@@ -49,14 +49,15 @@ render() {
 			<p>Click to type special characters, then copy and paste into a search or filter box:</p> 
 			<Input autoFocus onChange={this.handleChange} value={this.state.currentText} label="character palette" size="mini" name="char_palette" id = "char_palette" key="char_palette" />
 				<p>
-				<a onClick={this.typeLetter} name="ɫ" className="letter"> ɫ</a> - 
-				<a onClick={this.typeLetter} name="&#269;" className="letter"> &#269;</a> - 
-				<a onClick={this.typeLetter} name="ǰ" className="letter"> ǰ -</a>
-				<a onClick={this.typeLetter} name="&scaron;" className="letter"> &scaron;</a> - 
-				<a onClick={this.typeLetter} name="x&#803;" className="letter"> x&#803;</a> -
-				<a onClick={this.typeLetter} name="&#660;" className="letter"> &#660;</a> -
+				<a onClick={this.typeLetter} name="∤" className="letter"> ∤</a> - 
+				<a onClick={this.typeLetter} name="ɫ" className="letter"> ɫ</a> -
+				<a onClick={this.typeLetter} name="č" className="letter"> č</a> - 
+				<a onClick={this.typeLetter} name="ǰ" className="letter"> ǰ</a> -
+				<a onClick={this.typeLetter} name="š" className="letter"> š</a> - 
+				<a onClick={this.typeLetter} name="x̣" className="letter"> x̣</a> -
+				<a onClick={this.typeLetter} name="ʔ" className="letter"> ʔ</a> -
 				<a onClick={this.typeLetter} name="ʕ" className="letter"> ʕ</a> -
-				<a onClick={this.typeLetter} name="&#695;" className="letter"> &#695;</a> - 
+				<a onClick={this.typeLetter} name="ʷ" className="letter"> ʷ</a> - 
 				<a onClick={this.typeLetter} name="á" className="letter"> á</a> - 
 				<a onClick={this.typeLetter} name="ä" classname="letter"> ä</a> -
 				<a onClick={this.typeLetter} name="ä́" classname="letter"> ä́</a> -
@@ -70,11 +71,11 @@ render() {
 				<a onClick={this.typeLetter} name="ə" className="letter"> ə</a> - 
 				<a onClick={this.typeLetter} name="ɔ" className="letter"> ɔ</a> - 
 				<a onClick={this.typeLetter} name="ụ" classname="letter"> ụ</a> -
-				<a onClick={this.typeLetter} name="&middot;" className="letter"> &middot;</a> - 
+				<a onClick={this.typeLetter} name="·" className="letter"> ·</a> - 
 				<a onClick={this.typeLetter} name="‿" className="letter"> ‿</a> - 
-				<a onClick={this.typeLetter} name="&#8224;" className="letter"> &#8224;</a> - 
-				<a onClick={this.typeLetter} name="&#8225;" className="letter"> &#8225;</a> -
-				<a onClick={this.typeLetter} name="&#167;" className="letter">&#167;</a>
+				<a onClick={this.typeLetter} name="†" className="letter"> †</a> - 
+				<a onClick={this.typeLetter} name="‡" className="letter"> ‡</a> -
+				<a onClick={this.typeLetter} name="§" className="letter"> §</a>
 				</p>
 			</span>
 

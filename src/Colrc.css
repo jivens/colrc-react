@@ -53,3 +53,14 @@
 .alignRight {
 	align: right;
 }
+
+.hidden {
+  display: none;
+}
+
+/*.keyboardContainer {
+  max-width: 250px;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+}*/

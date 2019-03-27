@@ -666,723 +666,723 @@
     }
   ],
   "consonants": [
-  	{
-	  "id": 1,
-	  "orthography": "N",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "stop",
-	  "secondary": "none",
-	  "labial": "p", 
-	  "alveolar": "t",  
-	  "uvular": "q",
-	  "glottal": "'"
- 	 },
- 	 {
-	  "id": 2,
-	  "orthography": "S",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "stop",
-	  "secondary": "none",
-	  "labial": "p", 
-	  "alveolar": "t",  
-	  "uvular": "q",
-	  "glottal": "ʔ"
- 	 },
- 	 {
-	  "id": 3,
-	  "orthography": "R",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "stop",
-	  "secondary": "none",
-	  "labial": "p", 
-	  "alveolar": "t",  
-	  "uvular": "q",
-	  "glottal": "'"
- 	 },
- 	{
-	  "id": 4,
-	  "orthography": "N",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "stop",
-	  "secondary": "glottal",
-	  "labial": "p'", 
-	  "alveolar": "t'",  
-	  "uvular": "q'"
- 	 },
- 	{
-	  "id": 5,
-	  "orthography": "S",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "stop",
-	  "secondary": "glottal",
-	  "labial": "p'", 
-	  "alveolar": "t'", 
-	  "uvular": "q'"
- 	 },
- 	 {
-	  "id": 6,
-	  "orthography": "R",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "stop",
-	  "secondary": "glottal",
-	  "labial": "p'",
-	  "alveolar": "t'",
-	  "uvular": "q'"
- 	 },
- 	 {
-	  "id": 7,
-	  "orthography": "N",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "stop",
-	  "secondary": "labial",
-	  "velar": "kw",  
-	  "uvular": "qw"
- 	 },
- 	{
-	  "id": 8,
-	  "orthography": "S",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "stop",
-	  "secondary": "labial",
-	  "velar": "kʷ",  
-	  "uvular": "qʷ"
- 	 },
- 	 {
-	  "id": 9,
-	  "orthography": "R",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "stop",
-	  "secondary": "labial",
-	  "velar": "kʷ",  
-	  "uvular": "qʷ"
- 	 },
- 	 {
-	  "id": 10,
-	  "orthography": "N",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "stop",
-	  "secondary": "both",
-	  "velar": "k'w",  
-	  "uvular": "q'w"
- 	 },
- 	{
-	  "id": 11,
-	  "orthography": "S",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "stop",
-	  "secondary": "both",
-	  "velar": "k'ʷ",  
-	  "uvular": "q'ʷ"
- 	 },
- 	 {
-	  "id": 12,
-	  "orthography": "R",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "stop",
-	  "secondary": "both",
-	  "velar": "k'ʷ",  
-	  "uvular": "q'ʷ"
- 	 },
- 	 {
-	  "id": 13,
-	  "orthography": "N",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "affricate",
-	  "secondary": "none",
-	  "alveopalatal": "ts",
-	  "palatal": "ch"
- 	 },
- 	 {
-	  "id": 14,
-	  "orthography": "S",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "affricate",
-	  "secondary": "none",
-	  "alveopalatal": "c",
-	  "palatal": "č"
- 	 },
- 	 {
-	  "id": 15,
-	  "orthography": "R",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "affricate",
-	  "secondary": "none",
-	  "alveopalatal": "ts",
-	  "palatal": "tc"
- 	 },
- 	 {
-	  "id": 16,
-	  "orthography": "N",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "affricate",
-	  "secondary": "glottal",
-	  "alveopalatal": "ts'",
-	  "palatal": "ch'"
- 	 },
- 	 {
-	  "id": 17,
-	  "orthography": "S",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "affricate",
-	  "secondary": "glottal",
-	  "alveopalatal": "c'",
-	  "palatal": "č'"
- 	 },
- 	 {
-	  "id": 18,
-	  "orthography": "R",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "affricate",
-	  "secondary": "glottal",
-	  "alveopalatal": "ts'",
-	  "palatal": "tc'"
- 	 },
- 	 {
-	  "id": 19,
-	  "orthography": "N",
-	  "type": "consonant",
-	  "voice": "V",
-	  "manner": "stop",
-	  "secondary": "none",
-	  "labial": "b",
-	  "alveolar": "d"
- 	 },
- 	 {
-	  "id": 20,
-	  "orthography": "S",
-	  "type": "consonant",
-	  "voice": "V",
-	  "manner": "stop",
-	  "secondary": "none",
-	  "labial": "b",
-	  "alveolar": "d"
- 	 },
- 	 {
-	  "id": 21,
-	  "orthography": "R",
-	  "type": "consonant",
-	  "voice": "V",
-	  "manner": "stop",
-	  "secondary": "none",
-	  "labial": "b",
-	  "alveolar": "d"
- 	 },
- 	 {
-	  "id": 22,
-	  "orthography": "N",
-	  "type": "consonant",
-	  "voice": "V",
-	  "manner": "stop",
-	  "secondary": "labial",
-	  "velar": "gw"
- 	 },
- 	 {
-	  "id": 23,
-	  "orthography": "S",
-	  "type": "consonant",
-	  "voice": "V",
-	  "manner": "stop",
-	  "secondary": "labial",
-	  "velar": "gʷ"
- 	 },
- 	 {
-	  "id": 24,
-	  "orthography": "R",
-	  "type": "consonant",
-	  "voice": "V",
-	  "manner": "stop",
-	  "secondary": "labial",
-	  "velar": "gw"
- 	 },
- 	 {
-	  "id": 25,
-	  "orthography": "N",
-	  "type": "consonant",
-	  "voice": "V",
-	  "manner": "affricate",
-	  "secondary": "none",
-	  "palatal": "j"
- 	 },
- 	 {
-	  "id": 26,
-	  "orthography": "S",
-	  "type": "consonant",
-	  "voice": "V",
-	  "manner": "affricate",
-	  "secondary": "none",
-	  "palatal": "ǰ"
- 	 },
- 	 {
-	  "id": 27,
-	  "orthography": "R",
-	  "type": "consonant",
-	  "voice": "V",
-	  "manner": "affricate",
-	  "secondary": "none",
-	  "palatal": "dj"
- 	 },
- 	 {
-	  "id": 28,
-	  "orthography": "N",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "fricative",
-	  "secondary": "none",
-	  "alveolar": "s",
-	  "lateral": "∤",
-	  "palatal": "sh",
-	  "uvular": "qh",
-	  "glottal": "h"
- 	 },
- 	 {
-	  "id": 29,
-	  "orthography": "S",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "fricative",
-	  "secondary": "none",
-	  "alveolar": "s",
-	  "lateral": "ɫ",
-	  "palatal": "š",
-	  "uvular": "x̣",
-	  "glottal": "h"
- 	 },
- 	 {
-	  "id": 30,
-	  "orthography": "R",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "fricative",
-	  "secondary": "none",
-	  "alveolar": "s",
-	  "lateral": "ɫ",
-	  "palatal": "c",
-	  "uvular": "x̣",
-	  "glottal": "h"
- 	 },
- 	 {
-	  "id": 31,
-	  "orthography": "N",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "fricative",
-	  "secondary": "labial",
-	  "velar": "khw",
-	  "uvular": "qhw"
- 	 },
- 	 {
-	  "id": 32,
-	  "orthography": "S",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "fricative",
-	  "secondary": "labial",
-	  "velar": "xʷ",
-	  "uvular": "x̣ʷ"
- 	 },
- 	 {
-	  "id": 33,
-	  "orthography": "R",
-	  "type": "consonant",
-	  "voice": "VL",
-	  "manner": "fricative",
-	  "secondary": "labial",
-	  "velar": "xʷ",
-	  "uvular": "x̣ʷ"
- 	 },
- 	 {
- 	  "id": 34,
- 	  "orthography": "N",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "nasal",
- 	  "secondary": "none",
- 	  "labial": "m",
- 	  "alveolar": "n"
- 	},
- 	 {
- 	  "id": 35,
- 	  "orthography": "S",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "nasal",
- 	  "secondary": "none",
- 	  "labial": "m",
- 	  "alveolar": "n"
- 	},
- 	 {
- 	  "id": 36,
- 	  "orthography": "R",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "nasal",
- 	  "secondary": "none",
- 	  "labial": "m",
- 	  "alveolar": "n"
- 	}, 	 
- 	{
- 	  "id": 37,
- 	  "orthography": "N",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "nasal",
- 	  "secondary": "glottal",
- 	  "labial": "'m",
- 	  "alveolar": "'n"
- 	},
- 	 {
- 	  "id": 38,
- 	  "orthography": "S",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "nasal",
- 	  "secondary": "glottal",
- 	  "labial": "m'",
- 	  "alveolar": "n'"
- 	},
- 	 {
- 	  "id": 39,
- 	  "orthography": "R",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "nasal",
- 	  "secondary": "glottal",
- 	  "labial": "m'",
- 	  "alveolar": "n'"
- 	},
- 	 {
- 	  "id": 40,
- 	  "orthography": "N",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "approximant",
- 	  "secondary": "none",
- 	  "alveopalatal": "r",
- 	  "lateral": "l",
- 	  "palatal": "y",
- 	  "velar": "w",
- 	  "pharyngeal": "("
- 	},
- 	 {
- 	  "id": 41,
- 	  "orthography": "S",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "approximant",
- 	  "secondary": "none",
- 	  "alveopalatal": "r",
- 	  "lateral": "l",
- 	  "palatal": "y",
- 	  "velar": "w",
- 	  "pharyngeal": "ʕ"
- 	},
- 	 {
- 	  "id": 42,
- 	  "orthography": "R",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "approximant",
- 	  "secondary": "none",
- 	  "alveopalatal": "r",
- 	  "lateral": "l",
- 	  "palatal": "y",
- 	  "velar": "w",
- 	  "pharyngeal": "R"
- 	},
- 	 {
- 	  "id": 43,
- 	  "orthography": "N",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "approximant",
- 	  "secondary": "glottal",
- 	  "alveopalatal": "'r",
- 	  "lateral": "'l",
- 	  "palatal": "'y",
- 	  "velar": "'w",
- 	  "pharyngeal": "'("
- 	},
- 	 {
- 	  "id": 44,
- 	  "orthography": "S",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "approximant",
- 	  "secondary": "none",
- 	  "alveopalatal": "r'",
- 	  "lateral": "l'",
- 	  "palatal": "y'",
- 	  "velar": "w'",
- 	  "pharyngeal": "ʕ'"
- 	},
- 	 {
- 	  "id": 45,
- 	  "orthography": "R",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "approximant",
- 	  "secondary": "none",
- 	  "alveopalatal": "r'",
- 	  "lateral": "l'",
- 	  "palatal": "y'",
- 	  "velar": "w'",
- 	  "pharyngeal": "R'"
- 	},
- 	 {
- 	  "id": 46,
- 	  "orthography": "N",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "approximant",
- 	  "secondary": "labial",
- 	  "pharyngeal": "(w"
- 	},
- 	 {
- 	  "id": 47,
- 	  "orthography": "S",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "approximant",
- 	  "secondary": "labial",
- 	  "pharyngeal": "ʕʷ"
- 	},
- 	 {
- 	  "id": 48,
- 	  "orthography": "R",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "approximant",
- 	  "secondary": "labial",
- 	  "pharyngeal": "ṛʷ"
- 	},
- 	 {
- 	  "id": 49,
- 	  "orthography": "N",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "approximant",
- 	  "secondary": "both",
- 	  "pharyngeal": "'(w"
- 	},
- 	 {
- 	  "id": 50,
- 	  "orthography": "S",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "approximant",
- 	  "secondary": "both",
- 	  "pharyngeal": "ʕ'ʷ"
- 	},
- 	 {
- 	  "id": 51,
- 	  "orthography": "R",
- 	  "type": "consonant",
- 	  "voice": "RN",
- 	  "manner": "approximant",
- 	  "secondary": "both",
- 	  "pharyngeal": "ṛ'ʷ"
- 	}
+    {
+      "id": 1,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "stop",
+      "secondary": "none",
+      "labial": "p",
+      "alveolar": "t",
+      "uvular": "q",
+      "glottal": "'"
+    },
+    {
+      "id": 2,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "stop",
+      "secondary": "none",
+      "labial": "p",
+      "alveolar": "t",
+      "uvular": "q",
+      "glottal": "ʔ"
+    },
+    {
+      "id": 3,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "stop",
+      "secondary": "none",
+      "labial": "p",
+      "alveolar": "t",
+      "uvular": "q",
+      "glottal": "'"
+    },
+    {
+      "id": 4,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "stop",
+      "secondary": "glottal",
+      "labial": "p'",
+      "alveolar": "t'",
+      "uvular": "q'"
+    },
+    {
+      "id": 5,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "stop",
+      "secondary": "glottal",
+      "labial": "p'",
+      "alveolar": "t'",
+      "uvular": "q'"
+    },
+    {
+      "id": 6,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "stop",
+      "secondary": "glottal",
+      "labial": "p'",
+      "alveolar": "t'",
+      "uvular": "q'"
+    },
+    {
+      "id": 7,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "stop",
+      "secondary": "labial",
+      "velar": "kw",
+      "uvular": "qw"
+    },
+    {
+      "id": 8,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "stop",
+      "secondary": "labial",
+      "velar": "kʷ",
+      "uvular": "qʷ"
+    },
+    {
+      "id": 9,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "stop",
+      "secondary": "labial",
+      "velar": "kʷ",
+      "uvular": "qʷ"
+    },
+    {
+      "id": 10,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "stop",
+      "secondary": "both",
+      "velar": "k'w",
+      "uvular": "q'w"
+    },
+    {
+      "id": 11,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "stop",
+      "secondary": "both",
+      "velar": "k'ʷ",
+      "uvular": "q'ʷ"
+    },
+    {
+      "id": 12,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "stop",
+      "secondary": "both",
+      "velar": "k'ʷ",
+      "uvular": "q'ʷ"
+    },
+    {
+      "id": 13,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "affricate",
+      "secondary": "none",
+      "alveopalatal": "ts",
+      "palatal": "ch"
+    },
+    {
+      "id": 14,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "affricate",
+      "secondary": "none",
+      "alveopalatal": "c",
+      "palatal": "č"
+    },
+    {
+      "id": 15,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "affricate",
+      "secondary": "none",
+      "alveopalatal": "ts",
+      "palatal": "tc"
+    },
+    {
+      "id": 16,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "affricate",
+      "secondary": "glottal",
+      "alveopalatal": "ts'",
+      "palatal": "ch'"
+    },
+    {
+      "id": 17,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "affricate",
+      "secondary": "glottal",
+      "alveopalatal": "c'",
+      "palatal": "č'"
+    },
+    {
+      "id": 18,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "affricate",
+      "secondary": "glottal",
+      "alveopalatal": "ts'",
+      "palatal": "tc'"
+    },
+    {
+      "id": 19,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "V",
+      "manner": "stop",
+      "secondary": "none",
+      "labial": "b",
+      "alveolar": "d"
+    },
+    {
+      "id": 20,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "V",
+      "manner": "stop",
+      "secondary": "none",
+      "labial": "b",
+      "alveolar": "d"
+    },
+    {
+      "id": 21,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "V",
+      "manner": "stop",
+      "secondary": "none",
+      "labial": "b",
+      "alveolar": "d"
+    },
+    {
+      "id": 22,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "V",
+      "manner": "stop",
+      "secondary": "labial",
+      "velar": "gw"
+    },
+    {
+      "id": 23,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "V",
+      "manner": "stop",
+      "secondary": "labial",
+      "velar": "gʷ"
+    },
+    {
+      "id": 24,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "V",
+      "manner": "stop",
+      "secondary": "labial",
+      "velar": "gw"
+    },
+    {
+      "id": 25,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "V",
+      "manner": "affricate",
+      "secondary": "none",
+      "palatal": "j"
+    },
+    {
+      "id": 26,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "V",
+      "manner": "affricate",
+      "secondary": "none",
+      "palatal": "ǰ"
+    },
+    {
+      "id": 27,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "V",
+      "manner": "affricate",
+      "secondary": "none",
+      "palatal": "dj"
+    },
+    {
+      "id": 28,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "fricative",
+      "secondary": "none",
+      "alveolar": "s",
+      "lateral": "∤",
+      "palatal": "sh",
+      "uvular": "qh",
+      "glottal": "h"
+    },
+    {
+      "id": 29,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "fricative",
+      "secondary": "none",
+      "alveolar": "s",
+      "lateral": "ɫ",
+      "palatal": "š",
+      "uvular": "x̣",
+      "glottal": "h"
+    },
+    {
+      "id": 30,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "fricative",
+      "secondary": "none",
+      "alveolar": "s",
+      "lateral": "ɫ",
+      "palatal": "c",
+      "uvular": "x̣",
+      "glottal": "h"
+    },
+    {
+      "id": 31,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "fricative",
+      "secondary": "labial",
+      "velar": "khw",
+      "uvular": "qhw"
+    },
+    {
+      "id": 32,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "fricative",
+      "secondary": "labial",
+      "velar": "xʷ",
+      "uvular": "x̣ʷ"
+    },
+    {
+      "id": 33,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "VL",
+      "manner": "fricative",
+      "secondary": "labial",
+      "velar": "xʷ",
+      "uvular": "x̣ʷ"
+    },
+    {
+      "id": 34,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "nasal",
+      "secondary": "none",
+      "labial": "m",
+      "alveolar": "n"
+    },
+    {
+      "id": 35,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "nasal",
+      "secondary": "none",
+      "labial": "m",
+      "alveolar": "n"
+    },
+    {
+      "id": 36,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "nasal",
+      "secondary": "none",
+      "labial": "m",
+      "alveolar": "n"
+    },
+    {
+      "id": 37,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "nasal",
+      "secondary": "glottal",
+      "labial": "'m",
+      "alveolar": "'n"
+    },
+    {
+      "id": 38,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "nasal",
+      "secondary": "glottal",
+      "labial": "m'",
+      "alveolar": "n'"
+    },
+    {
+      "id": 39,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "nasal",
+      "secondary": "glottal",
+      "labial": "m'",
+      "alveolar": "n'"
+    },
+    {
+      "id": 40,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "approximant",
+      "secondary": "none",
+      "alveopalatal": "r",
+      "lateral": "l",
+      "palatal": "y",
+      "velar": "w",
+      "pharyngeal": "("
+    },
+    {
+      "id": 41,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "approximant",
+      "secondary": "none",
+      "alveopalatal": "r",
+      "lateral": "l",
+      "palatal": "y",
+      "velar": "w",
+      "pharyngeal": "ʕ"
+    },
+    {
+      "id": 42,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "approximant",
+      "secondary": "none",
+      "alveopalatal": "r",
+      "lateral": "l",
+      "palatal": "y",
+      "velar": "w",
+      "pharyngeal": "R"
+    },
+    {
+      "id": 43,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "approximant",
+      "secondary": "glottal",
+      "alveopalatal": "'r",
+      "lateral": "'l",
+      "palatal": "'y",
+      "velar": "'w",
+      "pharyngeal": "'("
+    },
+    {
+      "id": 44,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "approximant",
+      "secondary": "none",
+      "alveopalatal": "r'",
+      "lateral": "l'",
+      "palatal": "y'",
+      "velar": "w'",
+      "pharyngeal": "ʕ'"
+    },
+    {
+      "id": 45,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "approximant",
+      "secondary": "none",
+      "alveopalatal": "r'",
+      "lateral": "l'",
+      "palatal": "y'",
+      "velar": "w'",
+      "pharyngeal": "R'"
+    },
+    {
+      "id": 46,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "approximant",
+      "secondary": "labial",
+      "pharyngeal": "(w"
+    },
+    {
+      "id": 47,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "approximant",
+      "secondary": "labial",
+      "pharyngeal": "ʕʷ"
+    },
+    {
+      "id": 48,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "approximant",
+      "secondary": "labial",
+      "pharyngeal": "ṛʷ"
+    },
+    {
+      "id": 49,
+      "orthography": "N",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "approximant",
+      "secondary": "both",
+      "pharyngeal": "'(w"
+    },
+    {
+      "id": 50,
+      "orthography": "S",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "approximant",
+      "secondary": "both",
+      "pharyngeal": "ʕ'ʷ"
+    },
+    {
+      "id": 51,
+      "orthography": "R",
+      "type": "consonant",
+      "voice": "RN",
+      "manner": "approximant",
+      "secondary": "both",
+      "pharyngeal": "ṛ'ʷ"
+    }
   ],
-"vowels": [
-	{
-		"id": 1,
-		"orthography": "N",
-		"height": "high",
-		"front": "i",
-		"central": "",
-		"back": "u"
-	},	
-	{
-		"id": 2,
-		"orthography": "S",
-		"height": "high",
-		"front": "i",
-		"central": "",
-		"back": "u"
-	},	
-	{
-		"id": 3,
-		"orthography": "R",
-		"height": "high",
-		"front": "i",
-		"central": "",
-		"back": "u"
-	},
-	{
-		"id": 4,
-		"orthography": "N",
-		"height": "mid",
-		"front": "e",
-		"central": "",
-		"back": "o"
-	},	
-	{
-		"id": 5,
-		"orthography": "S",
-		"height": "mid",
-		"front": "ɛ, e",
-		"central": "ə",
-		"back": "ɔ, o"
-	},	
-	{
-		"id": 6,
-		"orthography": "R",
-		"height": "mid",
-		"front": "ä",
-		"central": "E,ι, ụ",
-		"back": "ɔ"
-	},
-	{
-		"id": 7,
-		"orthography": "N",
-		"height": "low",
-		"front": "",
-		"central": "a",
-		"back": ""
-	},	
-	{
-		"id": 8,
-		"orthography": "S",
-		"height": "low",
-		"front": "",
-		"central": "a",
-		"back": ""
-	},	
-	{
-		"id": 9,
-		"orthography": "R",
-		"height": "low",
-		"front": "",
-		"central": "a",
-		"back": ""
-	}
-],
-"affixes": [
-  	{
-	  "id": 1,
-	  "type": "Directional",
-	  "salish": "ci-",
-	  "nicodemus": "tsi-",
-	  "english": "first, before",
-	  "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
-	  "page": "599 (420)"
- 	 },
- 	 {
- 	 	"id": 2,
-	    "type": "Directional",
-	    "salish": "tɛ-",
-	    "nicodemus": "te-",
-	    "english": "thither",
-	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n611/mode/2up",
-	    "page": "598 (416)"
-	  },
-	  {
-	  	"id": 3,
-	    "type": "Directional",
-	    "salish": "čic-",
-	    "nicodemus": "chits-",
-	    "english": "hither (toward speaker)",
-	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n611/mode/2up",
-	    "page": "598 (412)"
-	  }, 
-	 {
-	 	"id": 4,
-	    "type": "Directional",
-	    "salish": "tkʷɛɫ-",
-	    "nicodemus": "tkweɫ-",
-	    "english": "go about to definite place",
-	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n610/mode/2up",
-	    "page": "597 (410)"
-	  }, 
-	  {
-	  	"id": 5,
-	    "type": "Directional",
-	    "salish": "tɛp-",
-	    "nicodemus": "tep-",
-	    "english": "on the way",
-	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
-	    "page": "599 (418)"
-	  }, 
-	  {
-	  	"id": 6,
-	    "type": "Directional",
-	    "salish": "tus-",
-	    "nicodemus": "tus-",
-	    "english": "as far as",
-	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
-	    "page": "599 (419)"
-	  }, 
-	  {
-	  	"id": 7,
-	    "type": "Locative",
-	    "salish": "cɛn-",
-	    "nicodemus": "tsen-",
-	    "english": "under, off of",
-	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n609/mode/2up",
-	    "page": "599 (420)"
-	  },
-	 {
-	 	"id": 8,
-	    "type": "Locative",
-	    "salish": "č-",
-	    "nicodemus": "ch-",
-	    "english": "on, attached to but not a part of, at a point",
-	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up",
-	    "page": "595 (395)"
-	  },
-	  {
-	  	"id": 9,
-	    "type": "Locative",
-	    "salish": "čt-",
-	    "nicodemus": "cht-",
-	    "english": "R notes the meaning of this morpheme is not clear",
-	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up",
-	    "page": "595 (397)"
-	  }, 
-	 {
-	 	"id": 10,
-	    "type": "Locative",
-	    "salish": "čɛt-",
-	    "nicodemus": "chet-",
-	    "english": "on a surface or object broader the subject, above, over",
-	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up",
-	    "page":  "595 (398)"
-	  }, 
-	  {
-	  	"id": 11,
-	    "type": "Locative",
-	    "salish": "čs-",
-	    "nicodemus": "chs-",
-	    "english": "after, behind, for a purpose, in pursuit of",
-	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
-	    "page": "595 (399)"
-	  }, 
-	  {
-	  	"id": 12,
-	  	"type": "Locative",
-	    "salish": "hn-",
-	    "nicodemus": "hn-",
-	    "english": "in, onto, into, on",
-	    "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n609/mode/2up",
-	    "page": "599 (419)"
-	  } 
- ] 
+  "vowels": [
+    {
+      "id": 1,
+      "orthography": "N",
+      "height": "high",
+      "front": "i",
+      "central": "",
+      "back": "u"
+    },
+    {
+      "id": 2,
+      "orthography": "S",
+      "height": "high",
+      "front": "i",
+      "central": "",
+      "back": "u"
+    },
+    {
+      "id": 3,
+      "orthography": "R",
+      "height": "high",
+      "front": "i",
+      "central": "",
+      "back": "u"
+    },
+    {
+      "id": 4,
+      "orthography": "N",
+      "height": "mid",
+      "front": "e",
+      "central": "",
+      "back": "o"
+    },
+    {
+      "id": 5,
+      "orthography": "S",
+      "height": "mid",
+      "front": "ɛ, e",
+      "central": "ə",
+      "back": "ɔ, o"
+    },
+    {
+      "id": 6,
+      "orthography": "R",
+      "height": "mid",
+      "front": "ä",
+      "central": "E,ι, ụ",
+      "back": "ɔ"
+    },
+    {
+      "id": 7,
+      "orthography": "N",
+      "height": "low",
+      "front": "",
+      "central": "a",
+      "back": ""
+    },
+    {
+      "id": 8,
+      "orthography": "S",
+      "height": "low",
+      "front": "",
+      "central": "a",
+      "back": ""
+    },
+    {
+      "id": 9,
+      "orthography": "R",
+      "height": "low",
+      "front": "",
+      "central": "a",
+      "back": ""
+    }
+  ],
+  "affixes": [
+    {
+      "id": 1,
+      "type": "Directional",
+      "salish": "ci-",
+      "nicodemus": "tsi-",
+      "english": "first, before",
+      "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
+      "page": "599 (420)"
+    },
+    {
+      "id": 2,
+      "type": "Directional",
+      "salish": "tɛ-",
+      "nicodemus": "te-",
+      "english": "thither",
+      "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n611/mode/2up",
+      "page": "598 (416)"
+    },
+    {
+      "id": 3,
+      "type": "Directional",
+      "salish": "čic-",
+      "nicodemus": "chits-",
+      "english": "hither (toward speaker)",
+      "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n611/mode/2up",
+      "page": "598 (412)"
+    },
+    {
+      "id": 4,
+      "type": "Directional",
+      "salish": "tkʷɛɫ-",
+      "nicodemus": "tkweɫ-",
+      "english": "go about to definite place",
+      "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n610/mode/2up",
+      "page": "597 (410)"
+    },
+    {
+      "id": 5,
+      "type": "Directional",
+      "salish": "tɛp-",
+      "nicodemus": "tep-",
+      "english": "on the way",
+      "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
+      "page": "599 (418)"
+    },
+    {
+      "id": 6,
+      "type": "Directional",
+      "salish": "tus-",
+      "nicodemus": "tus-",
+      "english": "as far as",
+      "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
+      "page": "599 (419)"
+    },
+    {
+      "id": 7,
+      "type": "Locative",
+      "salish": "cɛn-",
+      "nicodemus": "tsen-",
+      "english": "under, off of",
+      "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n609/mode/2up",
+      "page": "599 (420)"
+    },
+    {
+      "id": 8,
+      "type": "Locative",
+      "salish": "č-",
+      "nicodemus": "ch-",
+      "english": "on, attached to but not a part of, at a point",
+      "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up",
+      "page": "595 (395)"
+    },
+    {
+      "id": 9,
+      "type": "Locative",
+      "salish": "čt-",
+      "nicodemus": "cht-",
+      "english": "R notes the meaning of this morpheme is not clear",
+      "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up",
+      "page": "595 (397)"
+    },
+    {
+      "id": 10,
+      "type": "Locative",
+      "salish": "čɛt-",
+      "nicodemus": "chet-",
+      "english": "on a surface or object broader the subject, above, over",
+      "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n608/mode/2up",
+      "page": "595 (398)"
+    },
+    {
+      "id": 11,
+      "type": "Locative",
+      "salish": "čs-",
+      "nicodemus": "chs-",
+      "english": "after, behind, for a purpose, in pursuit of",
+      "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n612/mode/2up",
+      "page": "595 (399)"
+    },
+    {
+      "id": 12,
+      "type": "Locative",
+      "salish": "hn-",
+      "nicodemus": "hn-",
+      "english": "in, onto, into, on",
+      "link": "http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n609/mode/2up",
+      "page": "599 (419)"
+    }
+  ]
 }

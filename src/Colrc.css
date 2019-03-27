@@ -4,7 +4,7 @@
 
 .Grid {
 	padding: 10px;
-} 
+}
 .Colrc-header {
   background-color: #222;
   height: 150px;
@@ -41,6 +41,11 @@
   text-align: right;
 }
 
+.wordwrap {
+  white-space: pre-line !important;
+  word-wrap: break-word;
+  padding: 2px;
+}
 
 .checkBoxLabel {
 	padding-left: 20px;
@@ -50,6 +55,7 @@
 .floatRight {
 	float: right;
 }
+
 .alignRight {
 	align: right;
 }

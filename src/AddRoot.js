@@ -59,9 +59,9 @@ class AddRoot extends Component {
 	render() {
 		return (
 			<div>
-				<h3>Edit a Root</h3>
+				<h3>Add a Root</h3>
 				<p>
-					Change your root in wonderful ways.
+					Make a new and beautiful root.
 				</p>
 
 				<div>

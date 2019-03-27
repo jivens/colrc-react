@@ -19,6 +19,7 @@ import {
 } from 'react-accessible-accordion';
 import "./AccordionTables.css";
 import "./Colrc.css";
+import CharPicker from "./CharPicker"; 
 
 let RootsResource = createResource( async () => {
    const response = await Api.getRoots();
@@ -255,6 +256,8 @@ class RootDictionary extends Component {
 	          </Button>
 	        </Link>
         </div>
+		<p></p>
+		<CharPicker />
 		<p></p>
 		<CheckboxRoot />
         {dataOrError}

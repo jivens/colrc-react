@@ -2,7 +2,9 @@
   text-align: center;
 }
 
-
+.Grid {
+	padding: 10px;
+} 
 .Colrc-header {
   background-color: #222;
   height: 150px;
@@ -48,3 +50,17 @@
 .floatRight {
 	float: right;
 }
+.alignRight {
+	align: right;
+}
+
+.hidden {
+  display: none;
+}
+
+/*.keyboardContainer {
+  max-width: 250px;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+}*/

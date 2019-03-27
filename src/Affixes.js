@@ -13,6 +13,7 @@ import "./AccordionTables.css";
 import AffixList from "./AffixList";
 import AffixMetadata from "./AffixMetadata";
 
+
 class Affixes extends Component {
 	constructor(props) {
 	    super(props);
@@ -53,6 +54,7 @@ let currentItem;
 	};
     return (
         <div className='ui content'>
+
 	      	<Menu size='mini'>
 		        <Menu.Item 
 					name='list'

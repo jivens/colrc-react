@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import Keyboard from 'react-simple-keyboard';
-import { Form, Input } from 'semantic-ui-react';
+import { Form, Input, Button, Icon } from 'semantic-ui-react';
 import 'react-simple-keyboard/build/css/index.css';
 
 class SimpleKeyboard extends Component {
 	keyboardRef: Keyboard;
 	state = {
 	    layoutName: "default",
-	    input: ""
+	    input: "",
+	    keyboardOpen: false
 	  };
 
 	onChange = input => {
@@ -45,12 +46,31 @@ class SimpleKeyboard extends Component {
     );
   };
 
+setActiveInput = keyInput => {
+    this.setState(
+      {
+        inputName: keyInput,
+        keyboardOpen: true
+      },
+      () => {
+        console.log("Active input", keyInput);
+      }
+    );
+  };
+
+closeKeyboard = () => {
+    this.setState({
+      keyboardOpen: false
+    });
+  };
 
   render(){
-  const salish = {
+  let { input, keyboardOpen, submittedData } = this.state;
+  
+  const colrc = {
   'default' : [
     "á ä ä́ é ɛ ɛ́ í ι ó ú ə ɔ ụ ʷ",
-    "ɫ ∤ č ǰ š x̣ ʔ ʕ ‿ · † ‡ §",
+    "ɫ ∤ č ǰ š x̣ ʔ ʕ ‿ · † ‡ § √",
     "1 2 3 4 5 6 7 8 9 0 - = {bksp}",
     "q w e r t y u i o p [ ] \\",
     "{lock} a s d f g h j k l ; '",
@@ -59,7 +79,7 @@ class SimpleKeyboard extends Component {
   ],
   'shift' : [
     "á ä ä́ é ɛ ɛ́ í ι ó ú ə ɔ ụ ʷ",
-    "ɫ ∤ č ǰ š x̣ ʔ ʕ ‿ · † ‡ §",
+    "ɫ ∤ č ǰ š x̣ ʔ ʕ ‿ · † ‡ § √",
     "! @ # $ % ^ & * ( ) _ + {bksp}",
     "Q W E R T Y U I O P { } |",
     "{lock} A S D F G H J K L : \"",
@@ -69,26 +89,35 @@ class SimpleKeyboard extends Component {
 };
 
     return (
-      <Form>
-        <input
-          autoFocus
-          key="keyInput"
-          value={this.state.input}
-          placeholder={"Tap on the virtual keyboard to start"}
-          onChange={e => this.onChangeInput(e)}
-        />
-      <Keyboard
-        ref={r => (this.keyboardRef = r)}
-        key="keyboard"
-        layout={salish}
-        layoutName={this.state.layoutName}
-		preventMouseDownDefault={true}
-        onChange={input =>
-          this.onChange(input)}
-        onKeyPress={button =>
-          this.onKeyPress(button)}
-      />
-      </Form>
+    <div>
+	    <Form>
+	        <input
+	          key="keyInput"
+	          name="keyInput"
+	          value={this.state.input}
+	          placeholder={"Tap to launch virtual keyboard"}
+	          onChange={e => this.onChangeInput(e)}
+           	  onFocus={() => this.setActiveInput("keyInput")}
+	        />
+	        <div className={`keyboardContainer ${!keyboardOpen ? "hidden" : ""}`}>
+		    <Keyboard
+		        ref={r => (this.keyboardRef = r)}
+		        key="keyboard"
+		        layout={colrc}
+		        layoutName={this.state.layoutName}
+				preventMouseDownDefault={true}
+		        onChange={input =>
+		          this.onChange(input)}
+		        onKeyPress={button =>
+		          this.onKeyPress(button)}
+		    />
+          	<Button basic color="blue" icon size="mini" labelPosition="right" className="closeBtn" onClick={this.closeKeyboard}>
+            	<Icon name='close' />
+            	Close Keyboard
+          	</Button>
+          </div>
+	      </Form>
+    </div>
     );
   }
 }

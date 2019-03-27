@@ -13,6 +13,39 @@ import "./AccordionTables.css";
 
 
 class Bibliography extends Component {
+  constructor() {
+    super();
+    // this.onDelete = this.onDelete.bind(this);
+    this.loadBibData = this.loadBibData.bind(this);
+    this.state = {
+      data: [],
+      loading: true,
+     };
+  }
+
+  weblink(link, page) {
+    return (
+      link === '' ? page : <a href={link} target="_blank" rel="noopener noreferrer">{page}</a>
+    );
+  }
+
+  async componentDidMount() {
+    this.loadBibData();
+  }
+
+  async loadBibData() {
+    try {
+      const response = await fetch(`http://localhost:4000/bibliography`);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const json = await response.json();
+      this.setState({ loading: false, data: json });
+    } catch (error) {
+      console.log("This is my Error: " + error);
+      this.setState({ error: error });
+    }
+  }
 
 render() {
 
@@ -50,53 +83,67 @@ const BibIntro = () => (
 
 const bibData = [
   {
-    author: 'Barthmaier, Paul T.',
-    year: '1996',
-    title: "A Dictionary of Coeur d'Alene Salish from Gladys Reichard's file slips",
-    reference: 'University of Montana M.A. Thesis',
-    link: <a href="http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9309&context=etd" target="_blank" rel="noopener noreferrer">here</a>
+    "id": 1,
+    "author": "Barthmaier, Paul T.",
+    "year": "1996",
+    "title": "A Dictionary of Coeur d'Alene Salish from Gladys Reichard's file slips",
+    "reference": "University of Montana M.A. Thesis",
+    "link":  "http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9309&context=etd",
+    "linktext": "here"
   },
   {
-    author: 'Bischoff, Shannon T.',
-    year: '2011',
-    title: "Lexical affixes, incorporation, and conflation: The case of Coeur d'Alene",
-    reference: 'Studia Linguistica 65.1:1-32',
-    link: ''
+    "id": 2,
+    "author": "Bischoff, Shannon T.",
+    "year": "2011",
+    "title": "Lexical affixes, incorporation, and conflation: The case of Coeur d'Alene",
+    "reference": "Studia Linguistica 65.1:1-32",
+    "link": "",
+    "linktext": ""
   },
   {
-    author: 'Bischoff, Shannon T.',
-    year: '2011',
-    title: "Formal notes on Coeur d'Alene clause structure",
-    reference: "Newcastle: Cambridge Scholars Press",
-    link: ""
+    "id": 3,
+    "author": "Bischoff, Shannon T.",
+    "year": "2011",
+    "title": "Formal notes on Coeur d'Alene clause structure",
+    "reference": "Newcastle: Cambridge Scholars Press",
+    "link": "",
+    "linktext": ""
   },
   {
-    author: "Bischoff, Shannon T.",
-    year: "2007",
-    title: "Functional Forms-Formal Functions: An account of Coeur d'Alene clause structure",
-    reference: "PhD dissertation University of Arizona",
-    link: ""
+    "id": 4,
+    "author": "Bischoff, Shannon T.",
+    "year": "2007",
+    "title": "Functional Forms-Formal Functions: An account of Coeur d'Alene clause structure",
+    "reference": "PhD dissertation University of Arizona",
+    "link": "",
+    "linktext": ""
   },
   {
-    author: "Bischoff, Shannon T.",
-    year: "2006",
-    title: "Basic clause structure in Coeur d'Alene A preliminary working paper",
-    reference: "In MIT Working Papers on Endangered and Less Familiar Languages Volume on Salish, (eds) Shannon T. Bischoff, Lynnika Buttler, Peter Norquist, and Daniel Siddiqi. Cambridge MIT Press.",
-    link: ""
+    "id": 5,
+    "author": "Bischoff, Shannon T.",
+    "year": "2006",
+    "title": "Basic clause structure in Coeur d'Alene A preliminary working paper",
+    "reference": "In MIT Working Papers on Endangered and Less Familiar Languages Volume on Salish, (eds) Shannon T. Bischoff, Lynnika Buttler, Peter Norquist, and Daniel Siddiqi. Cambridge MIT Press.",
+    "link": "",
+    "linktext": ""
   },
   {
-    author: "Bischoff, Shannon T.",
-    year: "2006",
-    title: "The left periphery in Coeur d'Alene Evidence from the Reichard Manuscripts",
-    reference: "In Proceedings of WSCLA 10 UBCWPL 17, (eds) Solveiga Armoskaite and James J. Thompson. 43-55.",
-    link: ""
+    "id": 6,
+    "author": "Bischoff, Shannon T.",
+    "year": "2006",
+    "title": "The left periphery in Coeur d'Alene Evidence from the Reichard Manuscripts",
+    "reference": "In Proceedings of WSCLA 10 UBCWPL 17, (eds) Solveiga Armoskaite and James J. Thompson. 43-55.",
+    "link": "",
+    "linktext": ""
   },
   {
-    author: "Bischoff, Shannon T.",
-    year: "2001",
-    title: "Lynx : a morphological analysis and translation of Dorothy Nicodemus' Coeur d'Alene narrative",
-    reference: "University of Montana M.A. thesis.",
-    link: <a href="http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9310&context=etd" target="_blank" rel="noopener noreferrer">here</a>
+    "id": 7,
+    "author": "Bischoff, Shannon T.",
+    "year": "2001",
+    "title": "Lynx : a morphological analysis and translation of Dorothy Nicodemus' Coeur d'Alene narrative",
+    "reference": "University of Montana M.A. thesis.",
+    "link": "http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9310&context=etd",
+    "linktext": "here"
   }
 
 
@@ -149,22 +196,25 @@ filterMethod: (filter, row) => {
 {
   Header: 'Link',
   accessor: 'link',
+  Cell: ({row, original}) => ( this.weblink(original.link, original.linktext) ),
   //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 }
 ];
+
+const dataOrError = this.state.error ?
+     <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
+     <ReactTable
+       data={this.state.data}
+       loading={this.state.loading}
+       columns={columns}
+       filterable
+       defaultPageSize={5}
+       className="-striped -highlight"
+     />;
+
     return (
-
-      <ReactTable
-		    data={bibData}
-		    columns={columns}
-	   		defaultPageSize={5}
-	   		className="-striped -highlight"
-	   		className="left"
-	   		filterable="true"
-	   		filterAll="true"
-		  />
-
-
+      <div>{dataOrError}</div>
+    );
       //leaving this here in case we need it, for now
       // <h3>Coeur d'Alene Bibliography</h3>
       // <p>Barthmaier, Paul T.  1996.
@@ -539,7 +589,7 @@ filterMethod: (filter, row) => {
       //   Tribal sovereignty betrayed: the conquest of the Coeur d'Alene Indian reservation, 1840-1905.
       //   Pullum: Washington State University dissertation.</p>
 
-      );
+
     }
   }
 

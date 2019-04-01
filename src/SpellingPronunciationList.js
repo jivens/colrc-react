@@ -4,7 +4,8 @@ import DecoratedTextSpan from './DecoratedTextSpan';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import matchSorter from 'match-sorter';
-import { Link } from 'react-router-dom'
+import SimpleKeyboard from './SimpleKeyboard';
+import { Link } from 'react-router-dom';
 
 
 
@@ -83,6 +84,8 @@ class SpellingPronunciationList extends Component {
 
   return (     
 	  	<div className='ui content'> 
+	  		<SimpleKeyboard />
+	  		<p></p>
 			{dataOrError}
 			<SpellFootnote />
 		</div>

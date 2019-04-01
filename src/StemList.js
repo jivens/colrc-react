@@ -15,7 +15,7 @@ import {
 	AccordionItemBody,
 } from 'react-accessible-accordion';
 import "./AccordionTables.css";
-import SimpleKeyboard from "./SimpleKeyboard"
+import SimpleKeyboard from "./SimpleKeyboard";
 
 class StemList extends Component {
 
@@ -309,18 +309,14 @@ class StemList extends Component {
 		filterable = "true"
 		filterAll = "true" /
 			> ;
-		return ( <
-			div className = 'ui content' >
-			<
-			p > < /p> <
-			SimpleKeyboard / >
-			<
-			p > Stem type as listed by Reichard, 'Other' = 'Adverbs, Interjections, Conjunctions' < /p> <
-			CheckboxStem / > {
-				dataOrError
-			} <
-			p > < /p> <
-			/div>
+		return ( <div className = 'ui content'>
+			<p> < /p> 
+			<SimpleKeyboard / >
+			<p> Stem type as listed by Reichard, 'Other' = 'Adverbs, Interjections, Conjunctions' </p> 
+			<CheckboxStem / > 
+			{dataOrError} 
+			<p> </p> 
+			</div>
 		);
 	}
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import matchSorter from 'match-sorter';
-import CharPicker from "./CharPicker"; 
+import SimpleKeyboard from "./SimpleKeyboard"; 
 
 class AffixList extends Component {
 	 constructor() {
@@ -176,7 +176,7 @@ class AffixList extends Component {
 	  return (
       <div className='ui content'>
 		<p></p>
-		<CharPicker />
+		<SimpleKeyboard />
 		<p></p>
 		<CheckboxAffix />
         <p></p>

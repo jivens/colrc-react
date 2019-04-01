@@ -69,8 +69,8 @@ closeKeyboard = () => {
   
   const colrc = {
   'default' : [
-    "á ä ä́ é ɛ ɛ́ í ι ó ú ə ɔ ụ ʷ",
-    "ɫ ∤ č ǰ š x̣ ʔ ʕ ‿ · † ‡ § √",
+    "á ä ä́ é ɛ ɛ́ í ι ó ú ə ɔ ụ · ʷ",
+    "ɫ ∤ ɬ č ǰ š x̣ ʔ ʕ ‿ † ‡ § √",
     "1 2 3 4 5 6 7 8 9 0 - = {bksp}",
     "q w e r t y u i o p [ ] \\",
     "{lock} a s d f g h j k l ; '",

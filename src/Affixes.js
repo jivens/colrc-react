@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Checkbox, Menu } from 'semantic-ui-react';
-import ReactTable from "react-table";
-import "react-table/react-table.css";
-import matchSorter from 'match-sorter';
+import { Menu } from 'semantic-ui-react';
 import {
     Accordion,
     AccordionItem,

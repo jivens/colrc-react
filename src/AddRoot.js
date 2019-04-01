@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import queryString from 'query-string';
 import axios from 'axios';
-import { Form, Input, Button, Icon } from 'semantic-ui-react';
+import { Form,  Button, Icon } from 'semantic-ui-react';
 import SimpleKeyboard from "./SimpleKeyboard";
 import { withRouter } from 'react-router-dom';
 

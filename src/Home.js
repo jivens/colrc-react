@@ -1,21 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
-import {
-  Button,
-  Container,
-  Divider,
-  Grid,
-  Header,
-  Icon,
-  Image,
-  List,
-  Menu,
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility,
-} from 'semantic-ui-react'
-import PropTypes from "prop-types";
+import { Menu } from 'semantic-ui-react'
 import {
     Accordion,
     AccordionItem,

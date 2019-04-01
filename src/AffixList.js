@@ -56,10 +56,7 @@ class AffixList extends Component {
 
   	const { salishSelected, nicodemusSelected, englishSelected, linkSelected } = this.state;
 
- 	const Checkbox = props => (
-  		<input type="checkbox" {...props} />
-		)
-
+ 
  	const getColumnWidth = (rows, accessor, headerText) => {
 	  const maxWidth = 600
 	  const magicSpacing = 15

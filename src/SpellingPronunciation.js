@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import { Grid, Menu } from 'semantic-ui-react';
-import DecoratedTextSpan from './DecoratedTextSpan';
-import ReactTable from "react-table";
-import "react-table/react-table.css";
-import matchSorter from 'match-sorter';
+import { Menu } from 'semantic-ui-react';
 import {
     Accordion,
     AccordionItem,
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
-import { Link } from 'react-router-dom'
 import "./AccordionTables.css";
 import SpellingPronunciationList from './SpellingPronunciationList';
 import SpellingPronunciationCharts from './SpellingPronunciationCharts';

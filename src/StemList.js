@@ -1,20 +1,9 @@
 import React, {
 	Component
 } from 'react';
-import {
-	Grid
-} from 'semantic-ui-react';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import matchSorter from 'match-sorter';
-import PropTypes from "prop-types";
-import {
-	Accordion,
-	AccordionItem,
-	AccordionItemTitle,
-	AccordionItemBody,
-} from 'react-accessible-accordion';
-import "./AccordionTables.css";
 import SimpleKeyboard from "./SimpleKeyboard";
 
 class StemList extends Component {
@@ -100,11 +89,6 @@ class StemList extends Component {
 			noteSelected
 		} = this.state;
 
-		const Checkbox = props => ( <
-			input type = "checkbox" { ...props
-			}
-			/>
-		)
 
 		const getColumnWidth = (rows, accessor, headerText) => {
 			const maxWidth = 600

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { Grid, Menu } from 'semantic-ui-react';
 import DecoratedTextSpan from './DecoratedTextSpan';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import matchSorter from 'match-sorter';
 import SimpleKeyboard from './SimpleKeyboard';
-import { Link } from 'react-router-dom';
 
 
 
@@ -90,30 +88,6 @@ class SpellingPronunciationList extends Component {
 			<SpellFootnote />
 		</div>
 	);
-  }
-}
-
-class SpellElement extends Component {
-  render() {
-    const color = this.props.color ? this.props.color : 'white';
-    const spanStyle = this.props.spanStyle ? this.props.spanStyle : 'superscript';
-    return (
-      <Grid.Row color={color}>
-        <Grid.Column width={2}>
-          <DecoratedTextSpan
-            str={this.props.nicodemus}
-          />
-        </Grid.Column>
-        <Grid.Column width={2}>{this.props.reichard}</Grid.Column>
-        <Grid.Column width={2}>{this.props.salish}</Grid.Column>
-        <Grid.Column width={6}>
-          <DecoratedTextSpan
-            str={this.props.english}
-          />
-        </Grid.Column>
-        <Grid.Column width={2}><span className={spanStyle}>{this.props.note}</span></Grid.Column>
-      </Grid.Row>
-    );
   }
 }
 

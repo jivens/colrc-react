@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import {
-    Accordion,
-	Icon,
-} from 'semantic-ui-react';
-import "./AccordionTables.css";
 
 class About extends Component {
 

@@ -18,8 +18,8 @@ import "./AccordionTables.css";
 class SpellingPronunciationCharts extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-    	data: [], 
+    this.state = {
+    	data: [],
     	loading: true,
     	vowelData: [],
     	vowelLoading: true,
@@ -111,7 +111,7 @@ class SpellingPronunciationCharts extends Component {
 	              <option value="RN">resonant</option>
 	              <option value="all">all</option>
 	            </select>,
-		  		show: voiceSelected,			    
+		  		show: voiceSelected,
 			},{
 				Header: 'manner',
 				accessor: 'manner',
@@ -134,8 +134,8 @@ class SpellingPronunciationCharts extends Component {
 	              <option value="nasal">nasals</option>
 	              <option value="approximant">approximants</option>
 	              <option value="all">all</option>
-	            </select>,	
-	            show: mannerSelected,	
+	            </select>,
+	            show: mannerSelected,
 			},{
 				Header: () => <div>second-<br/>ary</div>,
 				accessor: 'secondary',
@@ -155,9 +155,9 @@ class SpellingPronunciationCharts extends Component {
 	              <option value="glottal">glottal</option>
 	              <option value="labial">labial</option>
 	              <option value="all">all</option>
-	            </select>,	
+	            </select>,
 				maxWidth: 70,
-		  		show: secondarySelected,	
+		  		show: secondarySelected,
 			},{
 	        	Header: 'labial',
 	        	accessor: 'labial',
@@ -332,7 +332,6 @@ class SpellingPronunciationCharts extends Component {
         data={this.state.data}
         loading={this.state.loading}
         columns={columns}
-        title="Consonants"
         defaultPageSize={20}
         filterable
 		defaultFiltered={[
@@ -361,9 +360,9 @@ class SpellingPronunciationCharts extends Component {
         className="-striped -highlight"
       />;
 
-  return (     
-	  	<div className='ui content'> 
-			<ConsonantChartInfo /> 
+  return (
+	  	<div className='ui content'>
+			<ConsonantChartInfo />
 			<p></p>
 			<CheckboxConsonants />
 			{dataOrError}

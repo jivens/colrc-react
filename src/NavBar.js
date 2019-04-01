@@ -1,22 +1,14 @@
 import _ from "lodash";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { render } from "react-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faHome, faFont, faSquareRootAlt, faLeaf, faBars, faEnvelope,faBookOpen } from '@fortawesome/free-solid-svg-icons';
-import { faPagelines, faAudible } from '@fortawesome/free-brands-svg-icons';
 import {
   Container,
   Icon,
-  Image,
   Menu,
   Sidebar,
-  Segment,
   Responsive
 } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
-import ReactTable from "react-table";
-//import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NavBarMobile = ({
   children,
@@ -81,7 +73,7 @@ const NavBarMobile = ({
     >
         <Menu fixed="top" inverted>
           <Menu.Item>
-            <FontAwesomeIcon icon={faHome} />
+            <Icon name="home" />
           </Menu.Item>
           <Menu.Item onClick={onToggle}>
             <Icon name="sidebar" />
@@ -98,7 +90,7 @@ const NavBarMobile = ({
 const NavBarDesktop = ({ rightItems }) => (
   <Menu fixed="top" inverted>
     <Menu.Item as={Link} to="/" name="home">
-       <FontAwesomeIcon icon={faHome} />
+       <Icon name="home" />
     </Menu.Item>
     <Menu.Item as={Link} to="/roots" name="Roots">
        Roots

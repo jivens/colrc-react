@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Grid, List, Container, Header, Segment, Label, Input, Menu } from 'semantic-ui-react';
+import { Grid, Segment, Label } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 
 class MainMenu extends Component {
@@ -16,7 +16,6 @@ class MainMenu extends Component {
         	</Segment>
           </Grid.Column>
       </Grid>
-
       </div>
     );
   }

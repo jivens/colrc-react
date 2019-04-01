@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import { Grid, Menu } from 'semantic-ui-react';
-import DecoratedTextSpan from './DecoratedTextSpan';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import matchSorter from 'match-sorter';
 import {
     Accordion,
     AccordionItem,
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
-import { Link } from 'react-router-dom';
 import "./AccordionTables.css";
 
 
@@ -61,10 +57,6 @@ class SpellingPronunciationCharts extends Component {
 
   render() {
   	const { voiceSelected, mannerSelected, secondarySelected } = this.state;
-
- 	const Checkbox = props => (
-  		<input type="checkbox" {...props} />
-		);
 
 	const columns=[{
 		Header: "Consonants",

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import queryString from 'query-string';
 import axios from 'axios';
+import { Form,  Button, Icon } from 'semantic-ui-react';
+import SimpleKeyboard from "./SimpleKeyboard";
 import { withRouter } from 'react-router-dom';
 
 class AddRoot extends Component {
@@ -41,11 +42,11 @@ class AddRoot extends Component {
 			};
 			const response = await axios.post(path, body, {headers});
 			console.log(response);
-			this.props.history.push('/rootdictionary');
+			this.props.history.push('/roots');
 			//history.push('/rootdictionary');
 		} catch (err) {
 			console.log(err);
-			this.props.history.push('/rootdictionary');
+			this.props.history.push('/roots');
 		}
 	};
 
@@ -61,67 +62,56 @@ class AddRoot extends Component {
 			<div>
 				<h3>Add a Root</h3>
 				<p>
-					Make a new and beautiful root.
+					Fill in the fields below to add a new root to the dictionary.
 				</p>
 
 				<div>
-					<form onSubmit={this.onFormSubmit}>
-
-						<h5>Root:</h5>
-						<input
+					<Form onSubmit={this.onFormSubmit}>
+						<Form.Group widths='equal'>
+							<Form.Input fluid label="Root"
 							placeholder='Root'
 							name='root'
 							value={this.state.fields.root}
 							onChange={this.onInputChange}
 						/>
 						<span style={{ color: 'red' }}>{this.state.fieldErrors.root}</span>
-						<br />
-
-						<h5>Number:</h5>
-						<input
+							<Form.Input fluid label="Number"
 							placeholder='Number'
 							name='number'
 							value={this.state.fields.number}
 							onChange={this.onInputChange}
 						/>
 						<span style={{ color: 'red' }}>{this.state.fieldErrors.number}</span>
-						<br />
-
-						<h5>Salish:</h5>
-						<input
+						<Form.Input fluid label="Salish"
 							placeholder='Salish'
 							name='salish'
 							value={this.state.fields.salish}
 							onChange={this.onInputChange}
 						/>
 						<span style={{ color: 'red' }}>{this.state.fieldErrors.salish}</span>
-						<br />
-
-						<h5>Nicodemus:</h5>
-						<input
+						<Form.Input fluid label="Nicodemus"
 							placeholder='Nicodemus'
 							name='nicodemus'
 							value={this.state.fields.nicodemus}
 							onChange={this.onInputChange}
 						/>
 						<span style={{ color: 'red' }}>{this.state.fieldErrors.nicodemus}</span>
-						<br />
-
-						<h5>English:</h5>
-						<input
+						<Form.Input fluid label="English"
 							placeholder='English'
 							name='english'
 							value={this.state.fields.english}
 							onChange={this.onInputChange}
 						/>
 						<span style={{ color: 'red' }}>{this.state.fieldErrors.english}</span>
-						<br />
-
-						<input type='submit' />
-					</form>
-
-
+						</Form.Group>
+			         	<Button basic color="blue" type='submit' icon size="mini" labelPosition="right">
+			            	<Icon name='save' />
+			            	Save Changes
+			          	</Button>					
+					</Form>
 				</div>
+				<h3>Virtual Keyboard</h3>
+				<SimpleKeyboard / >
 			</div>
 		);
 	}

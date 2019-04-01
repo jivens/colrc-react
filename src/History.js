@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 import { 
 	Accordion, 
 	Icon,
 	Image,
 	Label,
-} from 'semantic-ui-react'
-import PropTypes from "prop-types";
+} from 'semantic-ui-react';
 
 class History extends Component {
  	state = { activeIndex: 0 }

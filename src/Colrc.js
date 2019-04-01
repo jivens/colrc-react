@@ -1,20 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Button,
-  Container,
-  Divider,
-  Grid,
-  Header,
-  Icon,
-  Image,
-  List,
-  Menu,
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility,
-} from 'semantic-ui-react'
-
+import { Grid } from 'semantic-ui-react';
 import MainMenu from './MainMenu';
 import NavBar from './NavBar';
 import Roots from './Roots';
@@ -25,14 +10,10 @@ import Affixes from './Affixes';
 import Audio from "./Audio";
 /*import ContactUs from './ContactUs';*/
 import Texts from './Texts';
-import AudioPlayer from './AudioPlayer';
 import Bibliography from './Bibliography';
 import EditRoot from './EditRoot';
 import AddRoot from './AddRoot';
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faBars } from '@fortawesome/free-solid-svg-icons';
-import ErrorBoundary from "./ErrorBoundary";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'semantic-ui-css/semantic.min.css';
 import './NavBar.css';
 import './Colrc.css';

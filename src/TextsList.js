@@ -1,34 +1,14 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
-import { Grid, Image } from 'semantic-ui-react';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import treeTableHOC from "react-table/lib/hoc/treeTable";
-import matchSorter from 'match-sorter';
-import PropTypes from "prop-types";
-import "./AccordionTables.css";
 import TextsTableBuilder from "./TextsTableBuilder";
-import Audio from "./Audio";
 
 class TextsList extends Component {
   render() {
-
-	const getColumnWidth = (rows, accessor, headerText) => {
-	  const maxWidth = 600
-	  const magicSpacing = 18
-	  const cellLength = Math.max(
-	    ...rows.map(row => (`${row[accessor]}` || '').length),
-	    headerText.length,
-	  )
-	  return Math.min(maxWidth, cellLength * magicSpacing)
-	};
-
-	const TreeTable = treeTableHOC(ReactTable);
-
-	function getTdProps(state, ri, ci) {
+	/*function getTdProps(state, ri, ci) {
 	  console.log({ state, ri, ci });
 	  return {};
-	}
+	}*/
 var media = [
   {
     id: "1",

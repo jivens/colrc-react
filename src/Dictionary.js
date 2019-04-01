@@ -1,32 +1,12 @@
-import React, { Component, lazy, Suspense } from 'react';
-import { Grid, Button, Icon, Menu } from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { Button, Icon } from 'semantic-ui-react';
 import ReactTable from "react-table";
-import {createResource} from "simple-cache-provider";
-import {cache} from "./cache";
-import Api from "./Api";
-import ErrorBoundary from "./ErrorBoundary";
 import "react-table/react-table.css";
 import matchSorter from 'match-sorter';
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-import {
-    Accordion,
-    AccordionItem,
-    AccordionItemTitle,
-    AccordionItemBody,
-} from 'react-accessible-accordion';
-import "./AccordionTables.css";
-import "./Colrc.css";
-import CharPicker from "./CharPicker"; 
-
-let RootsResource = createResource( async () => {
-   const response = await Api.getRoots();
-   const json = await response.json();
-
-   return json;
-});
+import SimpleKeyboard from "./SimpleKeyboard"; 
 
 class RootDictionary extends Component {
   constructor() {
@@ -101,10 +81,6 @@ class RootDictionary extends Component {
   render() {
 
   	const { salishSelected, nicodemusSelected, englishSelected, numberSelected } = this.state;
-
- 	  const Checkbox = props => (
-  		<input type="checkbox" {...props} />
-		);
 
   	const getColumnWidth = (rows, accessor, headerText) => {
   	  const maxWidth = 600
@@ -257,26 +233,11 @@ class RootDictionary extends Component {
 	        </Link>
         </div>
 		<p></p>
-		<CharPicker />
+		<SimpleKeyboard / >
 		<p></p>
 		<CheckboxRoot />
         {dataOrError}
       </div>
-    );
-  }
-}
-
-class RootElement extends Component {
-  render() {
-    const color = this.props.color ? this.props.color : 'white';
-    return (
-      <Grid.Row color={color}>
-        <Grid.Column width={2}>{this.props.root}</Grid.Column>
-        <Grid.Column width={2}>{this.props.occurrence}</Grid.Column>
-        <Grid.Column width={2}>{this.props.salish}</Grid.Column>
-        <Grid.Column width={2}>{this.props.nicodemus}</Grid.Column>
-        <Grid.Column width={8}>{this.props.english}</Grid.Column>
-      </Grid.Row>
     );
   }
 }

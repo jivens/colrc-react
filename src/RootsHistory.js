@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 import { 
 	Accordion, 
 	Icon,
 } from 'semantic-ui-react'
-import PropTypes from "prop-types";
 
 class RootsHistory extends Component {
  	state = { activeIndex: 0 }

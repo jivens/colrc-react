@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
-import SimpleKeyboard from "./utilities/SimpleKeyboard"; 
+import SimpleKeyboard from "../utilities/SimpleKeyboard"; 
 
 class AffixList extends Component {
 	 constructor() {

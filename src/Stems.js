@@ -6,7 +6,6 @@ import {
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
-import "./AccordionTables.css";
 import StemList from "./StemList";
 import StemsMetadata from "./StemsMetadata";
 

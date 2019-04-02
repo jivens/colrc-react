@@ -3,7 +3,6 @@ import {
     Accordion,
 	Icon,
 } from 'semantic-ui-react';
-import "./AccordionTables.css";
 
 class TextsMetadata extends Component {
 	state = { activeIndex: 0 }

@@ -6,7 +6,6 @@ import {
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
-import "./AccordionTables.css";
 import TextsList from "./TextsList";
 import TextsMetadata from "./TextsMetadata";
 

@@ -6,7 +6,6 @@ import {
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
-import "./AccordionTables.css";
 import AffixList from "./AffixList";
 import AffixMetadata from "./AffixMetadata";
 

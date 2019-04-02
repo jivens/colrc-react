@@ -6,8 +6,8 @@ import {
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
-import "./AccordionTables.css";
-import "./Colrc.css";
+import "./stylesheets/AccordionTables.css";
+import "./stylesheets/Colrc.css";
 import Dictionary from "./Dictionary";
 import RootsHistory from "./RootsHistory";
 import RootsMetadata from "./RootsMetadata";

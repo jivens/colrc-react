@@ -15,9 +15,10 @@ import EditRoot from './EditRoot';
 import AddRoot from './AddRoot';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'semantic-ui-css/semantic.min.css';
-import './NavBar.css';
-import './Colrc.css';
-
+import "react-table/react-table.css";
+import './stylesheets/NavBar.css';
+import './stylesheets/Colrc.css';
+import './stylesheets/AccordionTables.css';
 
 class Colrc extends Component {
 

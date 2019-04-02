@@ -6,7 +6,7 @@ import {
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
-import "./AccordionTables.css";
+import "./stylesheets/AccordionTables.css";
 import Mission from './Mission';
 import History from './History';
 import About from './About';

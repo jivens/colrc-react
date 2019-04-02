@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Form,  Button, Icon } from 'semantic-ui-react';
-import SimpleKeyboard from "./SimpleKeyboard";
+import SimpleKeyboard from "./utilities/SimpleKeyboard";
 import { withRouter } from 'react-router-dom';
 
 class AddRoot extends Component {

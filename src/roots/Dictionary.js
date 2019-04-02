@@ -5,7 +5,7 @@ import matchSorter from 'match-sorter';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-import SimpleKeyboard from "./SimpleKeyboard"; 
+import SimpleKeyboard from "./utilities/SimpleKeyboard"; 
 
 class RootDictionary extends Component {
   constructor() {

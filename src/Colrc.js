@@ -4,7 +4,7 @@ import MainMenu from './MainMenu';
 import NavBar from './NavBar';
 import Roots from './Roots';
 import SpellingPronunciation from './SpellingPronunciation';
-import Home from './Home';
+import Home from './home/Home';
 import Stems from './Stems';
 import Affixes from './Affixes';
 import Audio from "./Audio";

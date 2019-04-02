@@ -7,8 +7,6 @@ import {
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
-import "./stylesheets/AccordionTables.css";
-
 
 
 class SpellingPronunciationCharts extends Component {

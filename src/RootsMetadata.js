@@ -3,7 +3,6 @@ import {
     Accordion,
 	Icon,
 } from 'semantic-ui-react';
-import "./stylesheets/AccordionTables.css";
 
 class RootsMetadata extends Component {
 	state = { activeIndex: 0 }

@@ -6,7 +6,6 @@ import {
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
-import "./stylesheets/AccordionTables.css";
 import SpellingPronunciationList from './SpellingPronunciationList';
 import SpellingPronunciationCharts from './SpellingPronunciationCharts';
 

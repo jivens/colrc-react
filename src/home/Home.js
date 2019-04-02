@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react'
-import HomeAccordion from '../accordions/HomeAccordion';
+import HomeAccordion from './accordions/HomeAccordion';
 import Mission from './Mission';
 import History from './History';
 import About from './About';

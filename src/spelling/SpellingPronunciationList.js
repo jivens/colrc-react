@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DecoratedTextSpan from './DecoratedTextSpan';
 import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
-import SimpleKeyboard from './SimpleKeyboard';
+import SimpleKeyboard from './utilities/SimpleKeyboard';
 
 
 

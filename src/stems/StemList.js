@@ -283,12 +283,10 @@ class StemList extends Component {
 		columns = {
 			columns
 		}
-		filterable
 		defaultPageSize = {
 			5
 		}
-		className = "-striped -highlight"
-		className = "left"
+		className = "-striped -highlight left"
 		filterable = "true"
 		filterAll = "true" /
 			> ;

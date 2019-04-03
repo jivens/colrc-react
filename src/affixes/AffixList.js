@@ -161,10 +161,8 @@ class AffixList extends Component {
         data={this.state.data}
         loading={this.state.loading}
         columns={columns}
-        filterable
         defaultPageSize={10}
-        className="-striped -highlight"
-        className="left"
+        className="-striped -highlight left"
         filterable="true"
         filterAll="true"
       />;

@@ -1,4 +1,30 @@
 {
+  "elicitations": [
+    {
+      "id": 1,
+      "title": "He is clubbing him on the neck - English"
+    },
+    {
+      "id": 2,
+      "title": "He is clubbing him on the neck - Couer d'Alene"
+    }
+  ],
+  "audiofiles": [
+    {
+      "id": 1,
+      "src": "1835_027_CoeurdAlene_2_bNoiseReduced_8.wav",
+      "type": "audio/wav",
+      "direct": "yes",
+      "elicitationId": 1
+    },
+    {
+      "id": 2,
+      "src": "1835_027_CoeurdAlene_2_bNoiseReduced_9.wav",
+      "type": "audio/wav",
+      "direct": "yes",
+      "elicitationId": 2
+    }
+  ],
   "bibliography": [
     {
       "id": 1,

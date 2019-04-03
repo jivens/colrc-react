@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Button, Icon, Checkbox } from 'semantic-ui-react';
 import ReactTable from "react-table";
-import "react-table/react-table.css";
 import matchSorter from 'match-sorter';
 import {
     Accordion,
@@ -9,8 +8,6 @@ import {
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
-import "./AccordionTables.css";
-import { Link } from "react-router-dom";
 
 
 class Bibliography extends Component {

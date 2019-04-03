@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { findDecorations } from './utilities/Helpers';
+import { findDecorations } from './Helpers';
 
 class DecoratedTextSpan extends Component {
 

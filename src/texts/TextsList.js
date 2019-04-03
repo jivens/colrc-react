@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactTable from "react-table";
-import "react-table/react-table.css";
 import TextsTableBuilder from "./TextsTableBuilder";
 
 class TextsList extends Component {

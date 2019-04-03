@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import DecoratedTextSpan from './DecoratedTextSpan';
+import DecoratedTextSpan from '../utilities/DecoratedTextSpan';
 import ReactTable from "react-table";
-import "react-table/react-table.css";
 import matchSorter from 'match-sorter';
-import SimpleKeyboard from './SimpleKeyboard';
+import SimpleKeyboard from '../utilities/SimpleKeyboard';
 
 
 

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ReactTable from "react-table";
-import "react-table/react-table.css";
 import matchSorter from 'match-sorter';
-import SimpleKeyboard from "./SimpleKeyboard"; 
+import SimpleKeyboard from "../utilities/SimpleKeyboard"; 
 
 class AffixList extends Component {
 	 constructor() {
@@ -162,10 +161,8 @@ class AffixList extends Component {
         data={this.state.data}
         loading={this.state.loading}
         columns={columns}
-        filterable
         defaultPageSize={10}
-        className="-striped -highlight"
-        className="left"
+        className="-striped -highlight left"
         filterable="true"
         filterAll="true"
       />;

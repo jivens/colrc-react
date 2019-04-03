@@ -2,10 +2,6 @@ import React, { Component, lazy, Suspense } from 'react';
 import { Grid, Button, Icon, Menu } from 'semantic-ui-react';
 import ReactTable from "react-table";
 import {createResource} from "simple-cache-provider";
-import {cache} from "./cache";
-import Api from "./Api";
-import ErrorBoundary from "./ErrorBoundary";
-import "react-table/react-table.css";
 import matchSorter from 'match-sorter';
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
@@ -17,8 +13,6 @@ import {
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
-import "./AccordionTables.css";
-import "./Colrc.css";
 import Dictionary from "./Dictionary";
 import RootsHistory from "./RootsHistory";
 import RootsMetadata from "./RootsMetadata";

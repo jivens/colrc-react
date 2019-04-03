@@ -3,9 +3,8 @@ import {
     Accordion,
 	Icon,
 } from 'semantic-ui-react';
-import "./AccordionTables.css";
 
-class AffixMetadata extends Component {
+class StemsMetadata extends Component {
 	state = { activeIndex: 0 }
 
 	  handleClick = (e, titleProps) => {
@@ -19,25 +18,25 @@ class AffixMetadata extends Component {
     render() {
        const { activeIndex } = this.state
 
-		const MetadataAffixesSubmenu = () => (
+		const MetadataStemsSubmenu = () => (
 		    <Accordion fluid styled>
 				<Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick}>
 					<Icon name='dropdown' />
-					Affix List (unfinished)
+					Stem List (unfinished)
 				</Accordion.Title>
 				<Accordion.Content active={activeIndex === 0}>
-				<p>Metadata for Affix List goes here.</p>  
+				<p>Metadata for Stem List goes here.</p>  
 				</Accordion.Content>  
 			</Accordion>
 	);
 	
       return (     
 	  	<div className='ui content'>
-			<MetadataAffixesSubmenu />
+			<MetadataStemsSubmenu />
 		</div>
 	);
   }
 }
 
 
-export default AffixMetadata;
+export default StemsMetadata;

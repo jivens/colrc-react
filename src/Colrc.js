@@ -13,6 +13,8 @@ import Texts from './texts/Texts';
 import Bibliography from './bibliography/Bibliography';
 import EditRoot from './roots/EditRoot';
 import AddRoot from './roots/AddRoot';
+import EditBib from './bibliography/EditBib';
+import AddBib from './bibliography/AddBib';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'semantic-ui-css/semantic.min.css';
 import "react-table/react-table.css";
@@ -51,7 +53,9 @@ class Colrc extends Component {
                   <Route path="/bibliography" component={Bibliography} />
                   {/* <Route path="/rootdictionary/:id" exact component={EditRoot} /> */}
                   <Route path="/editroot" component={EditRoot} />
+                  <Route path="/editbib" component={EditBib} />
                   <Route path="/addroot" component={AddRoot} />
+                  <Route path="/addbib" component={AddBib} />
                   {/* <Route component={NotFound} /> */}
                 </Switch>
               </Grid.Column>

@@ -8,12 +8,14 @@ import {
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
+import { Link } from "react-router-dom";
+import axios from 'axios';
 
 
 class Bibliography extends Component {
   constructor() {
     super();
-    // this.onDelete = this.onDelete.bind(this);
+    this.onDelete = this.onDelete.bind(this);
     this.loadBibData = this.loadBibData.bind(this);
     this.state = {
       data: [],
@@ -44,6 +46,27 @@ class Bibliography extends Component {
       this.setState({ error: error });
     }
   }
+
+  async onDelete(id) {
+    console.log("In deletion");
+    try {
+      const body = {
+        id: id
+      };
+      const path = 'http://localhost:4000/bibliography/' + id;
+      const headers = {
+        'Content-Type': 'application/json;charset=UTF-8',
+        "Access-Control-Allow-Origin": "*"
+      };
+      const response = await axios.delete(path, body, {headers});
+      console.log(response);
+      //this.props.history.push(`/rootdictionary`);
+      this.loadBibData();
+    } catch (err) {
+      console.log(err);
+      this.loadBibData();
+    }
+  };
 
 render() {
 
@@ -79,78 +102,10 @@ const BibIntro = () => (
   </Accordion>
 );
 
-const bibData = [
-  {
-    "id": 1,
-    "author": "Barthmaier, Paul T.",
-    "year": "1996",
-    "title": "A Dictionary of Coeur d'Alene Salish from Gladys Reichard's file slips",
-    "reference": "University of Montana M.A. Thesis",
-    "link":  "http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9309&context=etd",
-    "linktext": "here"
-  },
-  {
-    "id": 2,
-    "author": "Bischoff, Shannon T.",
-    "year": "2011",
-    "title": "Lexical affixes, incorporation, and conflation: The case of Coeur d'Alene",
-    "reference": "Studia Linguistica 65.1:1-32",
-    "link": "",
-    "linktext": ""
-  },
-  {
-    "id": 3,
-    "author": "Bischoff, Shannon T.",
-    "year": "2011",
-    "title": "Formal notes on Coeur d'Alene clause structure",
-    "reference": "Newcastle: Cambridge Scholars Press",
-    "link": "",
-    "linktext": ""
-  },
-  {
-    "id": 4,
-    "author": "Bischoff, Shannon T.",
-    "year": "2007",
-    "title": "Functional Forms-Formal Functions: An account of Coeur d'Alene clause structure",
-    "reference": "PhD dissertation University of Arizona",
-    "link": "",
-    "linktext": ""
-  },
-  {
-    "id": 5,
-    "author": "Bischoff, Shannon T.",
-    "year": "2006",
-    "title": "Basic clause structure in Coeur d'Alene A preliminary working paper",
-    "reference": "In MIT Working Papers on Endangered and Less Familiar Languages Volume on Salish, (eds) Shannon T. Bischoff, Lynnika Buttler, Peter Norquist, and Daniel Siddiqi. Cambridge MIT Press.",
-    "link": "",
-    "linktext": ""
-  },
-  {
-    "id": 6,
-    "author": "Bischoff, Shannon T.",
-    "year": "2006",
-    "title": "The left periphery in Coeur d'Alene Evidence from the Reichard Manuscripts",
-    "reference": "In Proceedings of WSCLA 10 UBCWPL 17, (eds) Solveiga Armoskaite and James J. Thompson. 43-55.",
-    "link": "",
-    "linktext": ""
-  },
-  {
-    "id": 7,
-    "author": "Bischoff, Shannon T.",
-    "year": "2001",
-    "title": "Lynx : a morphological analysis and translation of Dorothy Nicodemus' Coeur d'Alene narrative",
-    "reference": "University of Montana M.A. thesis.",
-    "link": "http://scholarworks.umt.edu/cgi/viewcontent.cgi?article=9310&context=etd",
-    "linktext": "here"
-  }
-
-
-];
 
 const columns = [{
   Header: 'Author',
   accessor: 'author',
-  width: getColumnWidth(bibData, 'author', 'Author'),
 filterMethod: (filter, rows) =>
     matchSorter(rows, filter.value, { keys: ["author"], threshold: matchSorter.rankings.CONTAINS }),
       filterAll: true,
@@ -197,7 +152,7 @@ filterMethod: (filter, rows) =>
           <Icon name='trash' />
       </Button>
       <Link to={{
-        pathname: '/editroot/',
+        pathname: '/editbib/',
         search: '?id=' + original.id +
         '&author=' + original.author +
         '&year=' + original.year +
@@ -228,7 +183,20 @@ const dataOrError = this.state.error ?
      />;
 
     return (
-      <div>{dataOrError}</div>
+      <div>
+        <div className="text-right">
+          <Link to={{
+            pathname: '/addbib/'
+          }} >
+            <Button icon labelPosition='left' size='small'>
+              <Icon name='plus' />
+              Add an entry
+            </Button>
+          </Link>
+        </div>
+        <div>{dataOrError}</div>
+      </div>
+
     );
 
 

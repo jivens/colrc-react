@@ -65,6 +65,10 @@ const NavBarMobile = ({
     <Icon name="mail" />
        Contact
     </Menu.Item>
+    <Menu.Item as={Link} to="/elicitations" name="Elicitations">
+    <Icon name="talk" />
+       Elicitations
+    </Menu.Item>
     </Sidebar>
     <Sidebar.Pusher
       dimmed={visible}
@@ -115,6 +119,9 @@ const NavBarDesktop = ({ rightItems }) => (
     </Menu.Item>
     <Menu.Item as={Link} to="/contactus" name="Contact">
        Contact
+    </Menu.Item>
+    <Menu.Item as={Link} to="/elicitations" name="Elicitations">
+       Elicitations
     </Menu.Item>
     <Menu.Menu position="right">
       {_.map(rightItems, item => <Menu.Item as={Link} {...item} />)}

@@ -7,7 +7,7 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import SimpleKeyboard from "../utilities/SimpleKeyboard"; 
 
-class RootDictionary extends Component {
+class RootsDictionary extends Component {
   constructor() {
     super();
     this.onDelete = this.onDelete.bind(this);
@@ -139,7 +139,7 @@ class RootDictionary extends Component {
 	    accessor: 'english',
 	    filterMethod: (filter, rows) =>
         	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
-            filterAll: true,
+        filterAll: true,
 	    style: { 'white-space': 'unset' },
 		show: englishSelected,
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
@@ -241,4 +241,4 @@ class RootDictionary extends Component {
   }
 }
 
-export default withRouter(RootDictionary);
+export default withRouter(RootsDictionary);

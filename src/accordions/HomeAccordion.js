@@ -6,10 +6,10 @@ import {
     AccordionItemBody,
 } from 'react-accessible-accordion';
 
-class homeAccordion extends Component {
+class HomeAccordion extends Component {
 
     render() {
-	  const HomeIntro = () => (
+	  const homeIntro =
 	    <Accordion>
 			<AccordionItem>
 				<AccordionItemTitle>
@@ -50,14 +50,13 @@ class homeAccordion extends Component {
 				</AccordionItemBody>
 			</AccordionItem>
 	    </Accordion>
-  	);
-	
+  	;	
       return (     
 	  	<div className='ui content'>
-			<HomeIntro />
+			{homeIntro}
 		</div>
 	);
     }
 }
 
-export default homeAccordion;
+export default HomeAccordion;

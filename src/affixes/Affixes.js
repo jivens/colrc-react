@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
-import {
-    Accordion,
-    AccordionItem,
-    AccordionItemTitle,
-    AccordionItemBody,
-} from 'react-accessible-accordion';
+import AffixesAccordion from "../accordions/AffixesAccordion";
 import AffixList from "./AffixList";
 import AffixMetadata from "./AffixMetadata";
 
@@ -23,23 +18,6 @@ class Affixes extends Component {
 
     render() {
 		const { activeItem } = this.state;	
-	  	const AffixListIntro = () => (
-		    <Accordion>
-		        <AccordionItem>
-		            <AccordionItemTitle>
-		                <p className="u-position-relative">
-		                Introduction
-		                <div className="accordion__arrow" role="presentation" />
-		            	</p>
-		            </AccordionItemTitle>
-		            <AccordionItemBody>
-				      <p>
-				        The the nearly 200 affixes included here come from <a href="http://www.archive.org/stream/rosettaproject_tqw_morsyn-2#page/n529/mode/2up" target="_blank" rel="noopener noreferrer">Reichard's 1938 grammar</a> (listed as 'Reichard 1938' on the left menu). Nearly all affixes are taken from Reichard 1938, these include a link to the relevant page of the original publication.  The sub-section in which the affix appears is given in parentheses "( )". A very small number of entries come from Doak 1997, which is not accessible online. Affixes that Reichard identified as variants of other forms are indicated as such, with links to the main entry given by Reichard.
-				      </p>
-					</AccordionItemBody>
-				</AccordionItem>
-		    </Accordion>
-	  );
 
 let currentItem; 
     if (this.state.activeItem === "list") {
@@ -66,7 +44,7 @@ let currentItem;
 		        </Menu.Item>
 	      	</Menu>
 	      	<p></p>
-	      	<AffixListIntro />
+	      	<AffixesAccordion />
 	      	<p></p>
         	{currentItem}
       	</div>

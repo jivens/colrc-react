@@ -1,36 +1,15 @@
-import React, { Component, lazy, Suspense } from 'react';
-import { Grid, Button, Icon, Menu } from 'semantic-ui-react';
-import ReactTable from "react-table";
-import {createResource} from "simple-cache-provider";
-import matchSorter from 'match-sorter';
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import axios from 'axios';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from 'react';
 import {
     Accordion,
     AccordionItem,
     AccordionItemTitle,
     AccordionItemBody,
 } from 'react-accessible-accordion';
-import Dictionary from "./Dictionary";
-import RootsHistory from "./RootsHistory";
-import RootsMetadata from "./RootsMetadata";
 
-class Roots extends Component {
-	constructor(props) {
-	    super(props);
-	    this.state = { 
-	    	activeItem: 'dictionary', 
-	    };
-	    this.handleItemClick = this.handleItemClick.bind(this);
-	  };
-
-	handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+class RootsAccordion extends Component {
 
     render() {
-		const { activeItem } = this.state;
-  		const RootsIntro = () => (
+  		const rootsIntro = 
 		    <Accordion>
 		        <AccordionItem>
 		            <AccordionItemTitle>
@@ -57,46 +36,13 @@ class Roots extends Component {
 		            </AccordionItemBody>
 		        </AccordionItem>
 		    </Accordion>
-	);
-let currentItem; 
-    if (this.state.activeItem === "dictionary") {
-      	currentItem = <Dictionary />;
-    }
-    else if (this.state.activeItem === "history") {
-		currentItem = <RootsHistory />;
-	}
-	else {
-		currentItem = <RootsMetadata />;
-	};
+	;
     return (
         <div className='ui content'>
-	      	<Menu size='mini'>
-		        <Menu.Item 
-					name='dictionary'
-					active={activeItem === 'dictionary'}
-					onClick={this.handleItemClick}>
-					Dictionary
-		        </Menu.Item>
-		        <Menu.Item 
-			        name='history' 
-			        active={activeItem === 'history'} 
-			        onClick={this.handleItemClick}>
-			        History 
-		        </Menu.Item>
-		        <Menu.Item 
-					name='metadata'
-					active={activeItem === 'metadata'}
-					onClick={this.handleItemClick}>
-					Metadata
-		        </Menu.Item>
-	      	</Menu>
-	      	<p></p>
-	      	<RootsIntro />
-	      	<p></p>
-        	{currentItem}
+        	{rootsIntro}
       	</div>
       );
     }
 }
 
-export default Roots;
+export default RootsAccordion;

@@ -3,6 +3,7 @@ import { Button, Icon } from 'semantic-ui-react';
 import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
 import { Link } from "react-router-dom";
+import AudioPlayer from "../audio/AudioPlayer";
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
@@ -25,7 +26,8 @@ class Elicitations extends Component {
 
   async loadElicitationData() {
     try {
-      const response = await fetch(`http://localhost:4000/elicitations`);
+      const staticPath = 'http://localhost:3500/elicitations/';
+      const response = await fetch(`http://localhost:4000/elicitations?_embed=audiofiles`);
       if (!response.ok) {
         throw Error(response.statusText);
       }
@@ -34,8 +36,14 @@ class Elicitations extends Component {
       // Find audio files for each elicitation from the static server
       let i = 0;
       while (i < json.length) {
-        let audioJson = await this.loadAudioFiles(json[i]["id"]);
-        json[i]["audiofiles"] = audioJson;
+        //let audioJson = await this.loadAudioFiles(json[i]["id"]);
+        let j = 0;
+        while (j < json[i]["audiofiles"].length) {
+          json[i]["audiofiles"][j]["src"] = staticPath + json[i]["audiofiles"][j]["src"];
+          j++;
+        }
+        //json[i]["audiofiles"] = audioJson;
+        json[i]["key"] = json[i]["id"];
         i++;
       }
       console.log(json);
@@ -85,20 +93,38 @@ class Elicitations extends Component {
 
   render() {
 
-  	const getColumnWidth = (rows, accessor, headerText) => {
-  	  const maxWidth = 600
-  	  const magicSpacing = 18
-  	  const cellLength = Math.max(
-  	    ...rows.map(row => (`${row[accessor]}` || '').length),
-  	    headerText.length,
-  	  )
-  	  return Math.min(maxWidth, cellLength * magicSpacing)
-  	};
+    const columns = [
+    {
+      Header: 'Title',
+      accessor: 'title',
+      filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ["title"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
+      //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+    },
+    {
+      Header: 'Audio',
+      accessor: 'audio',
+      Cell: ({row, original}) => ( <AudioPlayer key={original.id} title='' sources={original.audiofiles} />),
+    }
+    ];
+
+    const dataOrError = this.state.error ?
+         <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
+         <ReactTable
+           data={this.state.data}
+           loading={this.state.loading}
+           columns={columns}
+           filterable
+           defaultPageSize={5}
+           className="-striped -highlight"
+         />;
 
     return (
       <div className='ui content'>
         <h3>Elicitations</h3>
         <p></p>
+        {dataOrError}
 		    <p></p>
 		    <SimpleKeyboard / >
 		    <p></p>

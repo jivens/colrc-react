@@ -7,6 +7,38 @@
     {
       "id": 2,
       "title": "He is clubbing him on the neck - Couer d'Alene"
+    },
+    {
+      "id": 3,
+      "title": "He is being clubbed on the neck - English"
+    },
+    {
+      "id": 4,
+      "title": "He is being clubbed on the neck - Couer d'Alene"
+    },
+    {
+      "id": 5,
+      "title": "I am clubbing him on the neck - English"
+    },
+    {
+      "id": 6,
+      "title": "I am clubbing him on the neck - Couer d'Alene"
+    },
+    {
+      "id": 7,
+      "title": "I am being clubbed on the neck - English"
+    },
+    {
+      "id": 8,
+      "title": "I am being clubbed on the neck - Couer d'Alene"
+    },
+    {
+      "id": 9,
+      "title": "You are being clubbed on the neck - English"
+    },
+    {
+      "id": 10,
+      "title": "You are being clubbed on the neck - Couer d'Alene"
     }
   ],
   "audiofiles": [
@@ -23,6 +55,62 @@
       "type": "audio/wav",
       "direct": "yes",
       "elicitationId": 2
+    },
+    {
+      "id": 3,
+      "src": "1835_027_CoeurdAlene_2_bNoiseReduced_10.wav",
+      "type": "audio/wav",
+      "direct": "yes",
+      "elicitationId": 3
+    },
+    {
+      "id": 4,
+      "src": "1835_027_CoeurdAlene_2_bNoiseReduced_11.wav",
+      "type": "audio/wav",
+      "direct": "yes",
+      "elicitationId": 4
+    },
+    {
+      "id": 5,
+      "src": "1835_027_CoeurdAlene_2_bNoiseReduced_12.wav",
+      "type": "audio/wav",
+      "direct": "yes",
+      "elicitationId": 5
+    },
+    {
+      "id": 6,
+      "src": "1835_027_CoeurdAlene_2_bNoiseReduced_13.wav",
+      "type": "audio/wav",
+      "direct": "yes",
+      "elicitationId": 6
+    },
+    {
+      "id": 7,
+      "src": "1835_027_CoeurdAlene_2_bNoiseReduced_14.wav",
+      "type": "audio/wav",
+      "direct": "yes",
+      "elicitationId": 7
+    },
+    {
+      "id": 8,
+      "src": "1835_027_CoeurdAlene_2_bNoiseReduced_15.wav",
+      "type": "audio/wav",
+      "direct": "yes",
+      "elicitationId": 8
+    },
+    {
+      "id": 9,
+      "src": "1835_027_CoeurdAlene_2_bNoiseReduced_16.wav",
+      "type": "audio/wav",
+      "direct": "yes",
+      "elicitationId": 9
+    },
+    {
+      "id": 10,
+      "src": "1835_027_CoeurdAlene_2_bNoiseReduced_17.wav",
+      "type": "audio/wav",
+      "direct": "yes",
+      "elicitationId": 10
     }
   ],
   "bibliography": [

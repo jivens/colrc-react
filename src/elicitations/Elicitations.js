@@ -27,7 +27,7 @@ class Elicitations extends Component {
   async loadElicitationData() {
     try {
       const staticPath = 'http://localhost:3500/elicitations/';
-      const response = await fetch(`http://localhost:4000/elicitations`);
+      const response = await fetch(`http://localhost:4000/elicitations?_embed=audiofiles`);
       if (!response.ok) {
         throw Error(response.statusText);
       }
@@ -36,13 +36,13 @@ class Elicitations extends Component {
       // Find audio files for each elicitation from the static server
       let i = 0;
       while (i < json.length) {
-        let audioJson = await this.loadAudioFiles(json[i]["id"]);
+        //let audioJson = await this.loadAudioFiles(json[i]["id"]);
         let j = 0;
-        while (j < audioJson.length) {
-          audioJson[j]["src"] = staticPath + audioJson[j]["src"];
+        while (j < json[i]["audiofiles"].length) {
+          json[i]["audiofiles"][j]["src"] = staticPath + json[i]["audiofiles"][j]["src"];
           j++;
         }
-        json[i]["audiofiles"] = audioJson;
+        //json[i]["audiofiles"] = audioJson;
         json[i]["key"] = json[i]["id"];
         i++;
       }

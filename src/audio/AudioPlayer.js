@@ -21,9 +21,11 @@ class AudioPlayer extends Component {
    }
 
   render() {
+    const hasTitle = this.props.title.length > 0;
+    const conditionalTitle = hasTitle ? <p>{this.props.title}</p> : '';
     return (
       <div>
-        <p>{this.props.title}</p>
+        {conditionalTitle}
         <audio controls="controls" preload="none">
           {this.createAudioSources(this.props.sources)}
         </audio>

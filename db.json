@@ -1,5 +1,91 @@
 {
-  "elicitations": [
+	"texts": [
+	{
+		"id": 1,
+		"title": "Cricket Rides Coyote",
+		"artist": "Dorthy Nicodemus or Tom Miyal (unconfirmed)",
+		"cycle": "Coyote Cycle"
+	},
+	{	
+		"id": 2,
+		"title": "Calling One's Kind",
+		"artist": "Dorthy Nicodemus",
+		"cycle": "Coyote Cycle"
+	},
+	{	"id": 3,
+		"title": "Calling One's Kind",
+		"artist": "Tom Miyal",
+		"cycle": "Coyote Cycle" 
+	}
+	],
+	"textfiles": [
+	{
+		"id": 1,
+		"subdir": "CricketRidesCoyote",
+     	"src": "CricketRidesCoyote_Hand.pdf",
+     	"title": "Handwritten Fieldnotes",
+		"msType": "Handwritten",
+      	"fileType": "pdf",	
+		"textId": 1
+	},
+	{
+		"id": 2,
+		"subdir": "CricketRidesCoyote",
+     	"src": "CricketRidesCoyote_Typed.pdf",
+     	"title": "Typed Manuscript",
+		"msType": "Typed",
+      	"fileType": "pdf",	
+		"textId": 1
+	},
+	{
+		"id": 3,
+		"subdir": "CricketRidesCoyote",
+     	"src": "CricketRidesCoyote_Engl.pdf",
+     	"title": "English Translation",
+		"msType": "English",
+      	"fileType": "pdf",	
+		"textId": 1
+	},
+	{
+		"id": 4,
+		"subdir": "CallingOnesKind",
+     	"src": "CallingOnesKind__Dorthy_Engl.pdf",
+     	"title": "English Translation",
+		"msType": "English",
+      	"fileType": "pdf",	
+		"textId": 2
+	},
+	{
+		"id": 5,
+		"subdir": "CallingOnesKind",
+     	"src": "CallingOnesKind__Dorthy_Typed.pdf",
+     	"title": "Typed Manuscript",
+		"msType": "Typed",
+      	"fileType": "pdf",	
+		"textId": 2
+	},
+	{
+		"id": 6,
+		"subdir": "CallingOnesKind",
+     	"src": "CallingOnesKind__Tom_Engl.pdf",
+     	"title": "English Translation",
+		"msType": "English",
+      	"fileType": "pdf",	
+		"textId": 3
+	},
+	{
+		"id": 7,
+		"subdir": "CallingOnesKind",
+     	"src": "CallingOnesKind__Tom_Typed.pdf",
+     	"title": "Typed Manuscript",
+		"msType": "English",
+      	"fileType": "pdf",	
+		"textId": 3
+	}
+
+	],
+
+  	"elicitations": [
     {
       "id": 1,
       "title": "He is clubbing him on the neck - English"
@@ -111,7 +197,15 @@
       "type": "audio/wav",
       "direct": "yes",
       "elicitationId": 10
-    }
+    },
+    {
+		"id": 11,
+     	"src": "CricketRidesCoyote_Crd.wav",
+		"type": "audio/wav",
+      	"direct": "yes",
+      	"elicitationId": 0,	
+		"textId": 1
+	}
   ],
   "bibliography": [
     {

@@ -3,18 +3,18 @@
 	{
 		"id": 1,
 		"title": "Cricket Rides Coyote",
-		"artist": "Dorthy Nicodemus or Tom Miyal (unconfirmed)",
+		"speaker": "Dorthy Nicodemus or Tom Miyal (unconfirmed)",
 		"cycle": "Coyote Cycle"
 	},
 	{	
 		"id": 2,
 		"title": "Calling One's Kind",
-		"artist": "Dorthy Nicodemus",
+		"speaker": "Dorthy Nicodemus",
 		"cycle": "Coyote Cycle"
 	},
 	{	"id": 3,
 		"title": "Calling One's Kind",
-		"artist": "Tom Miyal",
+		"speaker": "Tom Miyal",
 		"cycle": "Coyote Cycle" 
 	}
 	],
@@ -66,7 +66,7 @@
 	},
 	{
 		"id": 6,
-		"subdir": "CallingOnesKind",
+		"subdir": "CallingOnesKind",	
      	"src": "CallingOnesKind__Tom_Engl.pdf",
      	"title": "English Translation",
 		"msType": "English",
@@ -82,7 +82,6 @@
       	"fileType": "pdf",	
 		"textId": 3
 	}
-
 	],
 
   	"elicitations": [
@@ -127,84 +126,136 @@
       "title": "You are being clubbed on the neck - Couer d'Alene"
     }
   ],
+  "audiosets": [
+  	{ 
+  		"id": 1,
+  		"title": "Cricket Rides Coyote - Coeur d'Alene",
+  		"speaker": "Lawrence Nicodemus",
+  		"textId": 1
+  	},
+  	{ 
+  		"id": 2,
+  		"title": "Cricket Rides Coyote - English",
+  		"speaker": "Lawrence Nicodemus",
+  		"textId": 1
+  	}
+  ],
   "audiofiles": [
     {
       "id": 1,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_8.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 1
+      "elicitationId": 1,
+      "audiosetId": 0
     },
     {
       "id": 2,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_9.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 2
+      "elicitationId": 2,
+      "audiosetId": 0
     },
     {
       "id": 3,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_10.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 3
+      "elicitationId": 3,
+      "audiosetId": 0
     },
     {
       "id": 4,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_11.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 4
+      "elicitationId": 4,
+      "audiosetId": 0
     },
     {
       "id": 5,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_12.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 5
+      "elicitationId": 5,
+      "audiosetId": 0
     },
     {
       "id": 6,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_13.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 6
+      "elicitationId": 6,
+      "audiosetId": 0
     },
     {
       "id": 7,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_14.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 7
+      "elicitationId": 7,
+      "audiosetId": 0
     },
     {
       "id": 8,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_15.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 8
+      "elicitationId": 8,
+      "audiosetId": 0
     },
     {
       "id": 9,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_16.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 9
+      "elicitationId": 9,
+      "audiosetId": 0
     },
     {
       "id": 10,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_17.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 10
+      "elicitationId": 10,
+      "audiosetId": 0
     },
     {
 		"id": 11,
+		"subdir": "CricketRidesCoyote",
      	"src": "CricketRidesCoyote_Crd.wav",
 		"type": "audio/wav",
       	"direct": "yes",
       	"elicitationId": 0,	
-		"textId": 1
+		"audiosetId": 1
+	},
+    {
+		"id": 12,
+		"subdir": "CricketRidesCoyote",		
+     	"src": "CricketRidesCoyote_Crd.mp3",
+		"type": "audio/mp3",
+      	"direct": "yes",
+      	"elicitationId": 0,	
+		"audiosetId": 1
+	},
+    {
+		"id": 13,
+		"subdir": "CricketRidesCoyote",
+     	"src": "CricketRidesCoyote_Engl.mp3",
+		"type": "audio/mp3",
+      	"direct": "yes",
+      	"elicitationId": 0,	
+		"audiosetId": 2
+	},
+    {
+		"id": 14,
+		"subdir": "CricketRidesCoyote",
+     	"src": "CricketRidesCoyote_Engl.wav",
+		"type": "audio/wav",
+      	"direct": "yes",
+      	"elicitationId": 0,	
+		"audiosetId": 2
 	}
   ],
   "bibliography": [

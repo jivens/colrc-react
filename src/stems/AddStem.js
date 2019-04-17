@@ -1,74 +1,56 @@
 import React, { Component } from 'react';
-import queryString from 'query-string';
-import { Form, Button, Icon } from 'semantic-ui-react';
-import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import axios from 'axios';
+import { Form,  Button, Icon } from 'semantic-ui-react';
+import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import { withRouter } from 'react-router-dom';
 
-class EditRoot extends Component {
+class AddStem extends Component {
 
 	constructor(props) {
     super(props);
 		this.onSubmit = this.onFormSubmit.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
     // create a ref to store the textInput DOM element
-    this.idInput = React.createRef();
 		this.state = {
 			fields: {
-				id: "",
-				root: "",
-				number: "",
-				salish: "",
-				nicodemus: "",
-				english: "",
+	      category: "",
+	      reichard: "",
+	      doak: "",
+	      salish: "",
+	      nicodemus: "",
+	      english: "",
+	      note: ""
 			},
 			fieldErrors: {}
 		};
   }
 
-	componentDidMount() {
-	  const values = queryString.parse(this.props.location.search);
-		this.setState({
-			fields: {
-				id: values.id,
-				root: values.root,
-				number: values.number,
-				salish: values.salish,
-				nicodemus: values.nicodemus,
-				english: values.english
-			}
-		}, () => {
-			//this.idInput.current.value = values.id;
-			console.log("The current Id: " + values.id);
-			//this.forceUpdate();
-		});
-	}
-
 	onFormSubmit = async (evt) => {
 		evt.preventDefault();
-		console.log("In form submission");
+		console.log("In add form submission");
 		try {
-			const { id, root, number, salish, nicodemus, english } = this.state.fields;
+			const { category, reichard, doak, salish, nicodemus, english, note } = this.state.fields;
 			const body = {
-				id: id,
-				root: root,
-				number: number,
-				salish: salish,
-				nicodemus: nicodemus,
-				english: english
+				category: category,
+	      reichard: reichard,
+	      doak: doak,
+	      salish: salish,
+	      nicodemus: nicodemus,
+	      english: english,
+	      note: note
 			};
-			const path = 'http://localhost:4000/roots/' + id;
+			const path = 'http://localhost:4000/stems';
 			const headers = {
 				'Content-Type': 'application/json;charset=UTF-8',
 	      "Access-Control-Allow-Origin": "*"
 			};
-			const response = await axios.put(path, body, {headers});
+			const response = await axios.post(path, body, {headers});
 			console.log(response);
-			this.props.history.push('/roots');
+			this.props.history.push('/stem');
 			//history.push('/rootdictionary');
 		} catch (err) {
 			console.log(err);
-			this.props.history.push('/roots');
+			this.props.history.push('/stem');
 		}
 	};
 
@@ -82,33 +64,35 @@ class EditRoot extends Component {
 	render() {
 		return (
 			<div>
-				<h3>Edit a Root</h3>
-				<p>Change your root in wonderful ways.</p>
+				<h3>Add a Stem</h3>
+				<p>
+					Fill in the fields below to add a new stem to the dictionary.
+				</p>
+
 				<div>
 					<Form onSubmit={this.onFormSubmit}>
 						<Form.Group widths='equal'>
-						<Form.Input fluid label="Id"
-							placeholder='Id'
-							name='id'
-							value={this.state.fields.id}
-							onChange={this.onInputChange}
-							ref={this.idInput}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.id}</span>
-						<Form.Input fluid label="Root"
-							placeholder='Root'
-							name='root'
-							value={this.state.fields.root}
+							<Form.Input fluid label="Category"
+							placeholder='Category'
+							name='category'
+							value={this.state.fields.category}
 							onChange={this.onInputChange}
 						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.root}</span>
-						<Form.Input fluid label="Number"
-							placeholder='Number'
-							name='number'
-							value={this.state.fields.number}
+						<span style={{ color: 'red' }}>{this.state.fieldErrors.category}</span>
+							<Form.Input fluid label="Reichard"
+							placeholder='Reichard'
+							name='reichard'
+							value={this.state.fields.reichard}
 							onChange={this.onInputChange}
 						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.number}</span>
+						<span style={{ color: 'red' }}>{this.state.fieldErrors.reichard}</span>
+						<Form.Input fluid label="Doak"
+							placeholder='Doak'
+							name='doak'
+							value={this.state.fields.doak}
+							onChange={this.onInputChange}
+						/>
+						<span style={{ color: 'red' }}>{this.state.fieldErrors.doak}</span>
 						<Form.Input fluid label="Salish"
 							placeholder='Salish'
 							name='salish'
@@ -130,6 +114,13 @@ class EditRoot extends Component {
 							onChange={this.onInputChange}
 						/>
 						<span style={{ color: 'red' }}>{this.state.fieldErrors.english}</span>
+						<Form.Input fluid label="Note"
+							placeholder='Note'
+							name='note'
+							value={this.state.fields.note}
+							onChange={this.onInputChange}
+						/>
+						<span style={{ color: 'red' }}>{this.state.fieldErrors.note}</span>
 						</Form.Group>
 			         	<Button basic color="blue" type='submit' icon size="mini" labelPosition="right">
 			            	<Icon name='save' />
@@ -144,4 +135,4 @@ class EditRoot extends Component {
 	}
 };
 
-export default withRouter(EditRoot);
+export default withRouter(AddStem);

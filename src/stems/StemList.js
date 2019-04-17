@@ -4,6 +4,8 @@ import React, {
 import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
+import { Link } from "react-router-dom";
+import { Button, Icon } from 'semantic-ui-react';
 
 class StemList extends Component {
 
@@ -291,12 +293,22 @@ class StemList extends Component {
 		filterAll = "true" /
 			> ;
 		return ( <div className = 'ui content'>
-			<p> < /p> 
+			<p> < /p>
 			<SimpleKeyboard / >
-			<p> Stem type as listed by Reichard, 'Other' = 'Adverbs, Interjections, Conjunctions' </p> 
-			<CheckboxStem / > 
-			{dataOrError} 
-			<p> </p> 
+			<p> Stem type as listed by Reichard, 'Other' = 'Adverbs, Interjections, Conjunctions' </p>
+			<div className="text-right">
+				<Link to={{
+					pathname: '/addstem/'
+				}} >
+					<Button icon labelPosition='left' size='small'>
+						<Icon name='plus' />
+						Add a stem
+					</Button>
+				</Link>
+			</div>
+			<CheckboxStem / >
+			{dataOrError}
+			<p> </p>
 			</div>
 		);
 	}

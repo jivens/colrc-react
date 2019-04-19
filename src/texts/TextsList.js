@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import ReactTable from "react-table";
-import matchSorter from 'match-sorter';
 import AudioPlayer from "../audio/AudioPlayer";
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
+import ImageViewer from "../utilities/ImageViewer";
+import "react-image-gallery/styles/css/image-gallery.css";
 import { withRouter } from 'react-router-dom';
 
 class TextsList extends Component {
@@ -10,6 +11,7 @@ class TextsList extends Component {
     super();
     this.loadTextsData = this.loadTextsData.bind(this);
     this.loadAudioFiles = this.loadAudioFiles.bind(this);
+    this.loadTextImages = this.loadTextImages.bind(this);
     this.sourcefiles = this.sourcefiles.bind(this);
     this.state = {
     	data: [],
@@ -36,13 +38,15 @@ class TextsList extends Component {
         	let audioJson = await this.loadAudioFiles(json[i]["id"]);
         	let j = 0;
         	while (j < json[i]["textfiles"].length) {
-          	json[i]["textfiles"][j]["src"] = staticPath + json[i]["textfiles"][j]["subdir"] + "/" + json[i]["textfiles"][j]["src"];
-          j++;
-       }
-        json[i]["audiofiles"] = audioJson;
-        json[i]["key"] = json[i]["id"];
-        i++;
-      }
+          		json[i]["textfiles"][j]["src"] = staticPath + json[i]["textfiles"][j]["subdir"] + "/" + json[i]["textfiles"][j]["src"];
+          		let imageJson = await this.loadTextImages(json[i]["textfiles"][j]["id"]);
+				json[i]["textfiles"][j]["textimages"] = imageJson;
+          		j++;
+       		}
+        	json[i]["audiofiles"] = audioJson;
+        	json[i]["key"] = json[i]["id"];
+        	i++;
+      	}
       json=this.sourcefiles(json);
       console.log(json);
       this.setState({ loading: false, data: json });
@@ -78,6 +82,29 @@ class TextsList extends Component {
     }
   }
 
+  async loadTextImages(textfileId) {
+    //console.log("Elicitation ID = " + elicitationId);
+	const staticPath = 'http://localhost:3500/texts/';
+    try {
+      const response = await fetch(`http://localhost:4000/textimages?textfileId=${textfileId}`);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const json = await response.json();
+      //console.log(json);
+  	  let i = 0;
+  	  while (i < json.length) {
+      	json[i]["src"] = staticPath + json[i]["subdir"] + "/" + json[i]["src"];
+      	i++;
+      }
+      console.log(json);
+      return json;
+    } catch (error) {
+      console.log("This is my Error: " + error);
+      throw Error(error);
+    }
+  }
+
 sourcefiles(json) {
   	let i = 0;
   	let k = 0;
@@ -89,10 +116,30 @@ sourcefiles(json) {
   				{
   					src: json[i]["textfiles"][j].src,
   					title: json[i]["textfiles"][j].title,
-  					fileType: "text",
+  					fileType: json[i]["textfiles"][j].fileType,
+  					type: "text",
   					key: k
   				}
   			);
+  			if (json[i]["textfiles"][j]["textimages"].length > 0) {
+  				k++;
+  				// Add 'original' redundant to 'src' so ImageViewer is happy
+  				let l = 0;
+  				while (l < json[i]["textfiles"][j]["textimages"].length) {
+  					json[i]["textfiles"][j]["textimages"][l]["original"] = json[i]["textfiles"][j]["textimages"][l]["src"];
+  					l++;
+  				}
+
+	 			json[i]["sourcefiles"].push(
+	  				{
+	  					src: json[i]["textfiles"][j]["textimages"],
+	  					title: json[i]["textfiles"][j].title + " Images",
+	  					fileType: json[i]["textfiles"][j].fileType,
+	  					type: "textimages",
+	  					key: k
+	  				}
+	  			);
+  			}
   			j++; k++;
   		}
   		j=0;
@@ -102,7 +149,7 @@ sourcefiles(json) {
   					speaker: json[i]["audiofiles"][j].speaker,
   					title: json[i]["audiofiles"][j].title,
   					sources: json[i]["audiofiles"][j].audiofiles,
-  					fileType: "audio",
+  					type: "audio",
   					key: k
   				}
   			);
@@ -115,44 +162,10 @@ sourcefiles(json) {
 
 	weblink(link, page) {
 		return (
-			link === '' ? page : <a href={link} target="_blank" rel="noopener noreferrer">{page}</a>
+			link === '' ? page : <a href={link} target="_blank" rel="noopener noreferrer">{page}</a> 
 		);
 	}
  render() {
- 	//const sources1=[
-					//{src: "http://localhost:3500/texts/CricketRidesCoyote/CricketRidesCoyote_Crd.wav",
-						//"type": "audio/wav",
-					//},
-					//{src: "http://localhost:3500/texts/CricketRidesCoyote/CricketRidesCoyote_Crd.mp3",
-					//	"type": "audio/mp3",
-					//}				
-	//];
-
- 	//const sources2=[
-					//{src: "http://localhost:3500/texts/CricketRidesCoyote/CricketRidesCoyote_Engl.wav",
-						//"type": "audio/wav",
-					//},
-					//{src: "http://localhost:3500/texts/CricketRidesCoyote/CricketRidesCoyote_Engl.mp3",
-						//"type": "audio/mp3",
-					//}				
-	//];
-  	//const testRecord = [
-	  	//{
-		    //"key": 1,
-		    //"speaker": "Lawrence Nicodemus",
-			//"source": <AudioPlayer title="Cricket Rides Coyote - Coeur d'Alene" sources={sources1} key={sources1.key}/>
-	  	//},
-	  	//{
-		    //"key": 2,
-		    //"speaker": "Lawrence Nicodemus",
-			//"source": <AudioPlayer title="Cricket Rides Coyote - English" sources={sources2} key={sources2.key} />
-	  	//},
-	  	//{
-	  		//"key": 3,
-	  		//"speaker": "Dorthy Nicodemus or Tom Miyal (unconfirmed)",
-	  		//"source": <a href="http://localhost:3500/texts/CricketRidesCoyote/CricketRidesCoyote_Hand.pdf" target="_blank" rel="noopener noreferrer">Hand written fieldnotes</a>
-	  	//}
- //];	
 	const columns = [
 	    {
 		    Header: 'Title',
@@ -175,12 +188,14 @@ sourcefiles(json) {
 			accessor: 'source',
 	    	Cell: ({row, original}) => 
 	    	(
-	    		original.fileType === "text" 
-	    		? this.weblink(original.src, original.title)
-	    		: <AudioPlayer key={original.key} title={original.title} sources={original.sources} />
+	    		original.type === "text" 
+	    		? this.weblink(original.src, original.title) 
+	    		: (original.type === "audio" 
+	    			? <AudioPlayer key={original.key} title={original.title} sources={original.sources} /> 
+	    			: <ImageViewer key={original.key} images={original.src} />)
 	    	),
 	    	//Cell: ({row, original}) => (original.msType), 
-		}
+		},
     ];
     const dataOrError = this.state.error ?
          <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :

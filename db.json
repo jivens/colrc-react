@@ -78,10 +78,79 @@
 		"subdir": "CallingOnesKind",
      	"src": "CallingOnesKind__Tom_Typed.pdf",
      	"title": "Typed Manuscript",
-		"msType": "English",
+		"msType": "Typed",
       	"fileType": "pdf",	
 		"textId": 3
 	}
+	],
+	"textimages": [
+	{
+		"id": 1,
+		"textfileId": 7,
+		"subdir": "CallingOnesKind/CallingOnesKind__Tom_Typed_Images",
+     	"src": "CallingOnesKind__Tom_Typed1.png"
+	},
+	{
+		"id": 2,
+		"textfileId": 7,
+		"subdir": "CallingOnesKind/CallingOnesKind__Tom_Typed_Images",
+     	"src": "CallingOnesKind__Tom_Typed2.png"
+	},
+	{
+		"id": 3,
+		"textfileId": 7,
+		"subdir": "CallingOnesKind/CallingOnesKind__Tom_Typed_Images",
+     	"src": "CallingOnesKind__Tom_Typed3.png"
+	},
+	{
+		"id": 4,
+		"textfileId": 7,
+		"subdir": "CallingOnesKind/CallingOnesKind__Tom_Typed_Images",
+     	"src": "CallingOnesKind__Tom_Typed4.png"
+	},
+	{
+		"id": 5,
+		"textfileId": 6,
+		"subdir": "CallingOnesKind/CallingOnesKind__Tom_Engl_Images",
+     	"src": "CallingOnesKind__Tom_Engl.png"
+	},
+	{
+		"id": 6,
+		"textfileId": 4,
+		"subdir": "CallingOnesKind/CallingOnesKind__Dorthy_Engl_Images",
+     	"src": "CallingOnesKind__Dorthy_Engl.png"
+	},
+	{
+		"id": 7,
+		"textfileId": 5,
+		"subdir": "CallingOnesKind/CallingOnesKind__Dorthy_Typed_Images",
+     	"src": "CallingOnesKind__Dorthy_Typed1.png"
+	},
+	{
+		"id": 8,
+		"textfileId": 5,
+		"subdir": "CallingOnesKind/CallingOnesKind__Dorthy_Typed_Images",
+     	"src": "CallingOnesKind__Dorthy_Typed2.png"
+	},
+	{
+		"id": 9,
+		"textfileId": 5,
+		"subdir": "CallingOnesKind/CallingOnesKind__Dorthy_Typed_Images",
+     	"src": "CallingOnesKind__Dorthy_Typed3.png"
+	},
+	{
+		"id": 10,
+		"textfileId": 5,
+		"subdir": "CallingOnesKind/CallingOnesKind__Dorthy_Typed_Images",
+     	"src": "CallingOnesKind__Dorthy_Typed4.png"
+	},
+	{
+		"id": 11,
+		"textfileId": 5,
+		"subdir": "CallingOnesKind/CallingOnesKind__Dorthy_Typed_Images",
+     	"src": "CallingOnesKind__Dorthy_Typed5.png"
+	}
+
 	],
 
   	"elicitations": [

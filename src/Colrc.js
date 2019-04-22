@@ -18,6 +18,7 @@ import EditBib from './bibliography/EditBib';
 import AddBib from './bibliography/AddBib';
 import EditStem from './stems/EditStem';
 import AddStem from './stems/AddStem';
+import ImageViewer from './utilities/ImageViewer';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'semantic-ui-css/semantic.min.css';
 import "react-table/react-table.css";
@@ -62,6 +63,7 @@ class Colrc extends Component {
                   <Route path="/editstem" component={EditStem} />
                   <Route path="/addstem" component={AddStem} />
                   <Route path="/elicitations" component={Elicitations} />
+                  <Route path="/imageviewer" component={ImageViewer} />
                   {/* <Route component={NotFound} /> */}
                 </Switch>
               </Grid.Column>

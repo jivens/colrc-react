@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import ReactTable from "react-table";
 import AudioPlayer from "../audio/AudioPlayer";
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
+import { Form, Button, Icon } from 'semantic-ui-react';
 import ImageViewer from "../utilities/ImageViewer";
 import "react-image-gallery/styles/css/image-gallery.css";
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class TextsList extends Component {
   constructor() {
@@ -123,16 +124,17 @@ sourcefiles(json) {
   			);
   			if (json[i]["textfiles"][j]["textimages"].length > 0) {
   				k++;
-  				// Add 'original' redundant to 'src' so ImageViewer is happy
+  				// building the query string so that imageviewer can derive the images from it
   				let l = 0;
+  				json[i]["textfiles"][j]["imagequerystring"]='';
   				while (l < json[i]["textfiles"][j]["textimages"].length) {
-  					json[i]["textfiles"][j]["textimages"][l]["original"] = json[i]["textfiles"][j]["textimages"][l]["src"];
+  					json[i]["textfiles"][j]["imagequerystring"] = json[i]["textfiles"][j]["imagequerystring"] + '&images=' + json[i]["textfiles"][j]["textimages"][l]["src"];
   					l++;
   				}
-
+	  			console.log(json[i]["textfiles"][j]["imagequerystring"]);
 	 			json[i]["sourcefiles"].push(
 	  				{
-	  					src: json[i]["textfiles"][j]["textimages"],
+	  					src: json[i]["textfiles"][j]["imagequerystring"],
 	  					title: json[i]["textfiles"][j].title + " Images",
 	  					fileType: json[i]["textfiles"][j].fileType,
 	  					type: "textimages",
@@ -192,9 +194,16 @@ sourcefiles(json) {
 	    		? this.weblink(original.src, original.title) 
 	    		: (original.type === "audio" 
 	    			? <AudioPlayer key={original.key} title={original.title} sources={original.sources} /> 
-	    			: <ImageViewer key={original.key} images={original.src} />)
-	    	),
-	    	//Cell: ({row, original}) => (original.msType), 
+	    			: <Link to={{
+			              pathname: '/imageviewer/',
+			              search: '?key=' + original.key + original.src
+			            }} >
+			            <Button icon floated='right'>
+			            	<Icon name='image' />
+			            </Button>
+			            </Link>
+	    			)
+	    	)
 		},
     ];
     const dataOrError = this.state.error ?

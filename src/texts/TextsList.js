@@ -4,7 +4,7 @@ import AudioPlayer from "../audio/AudioPlayer";
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import { Form, Button, Icon } from 'semantic-ui-react';
 import ImageViewer from "../utilities/ImageViewer";
-import "react-image-gallery/styles/css/image-gallery.css";
+import SplitView from "../utilities/SplitView";
 import { withRouter, Link } from 'react-router-dom';
 
 class TextsList extends Component {
@@ -116,7 +116,7 @@ sourcefiles(json) {
   			json[i]["sourcefiles"].push(
   				{
   					src: json[i]["textfiles"][j].src,
-  					title: json[i]["textfiles"][j].title,
+  					title: json[i]["textfiles"][j].title + " pdf",
   					fileType: json[i]["textfiles"][j].fileType,
   					type: "text",
   					key: k
@@ -135,7 +135,7 @@ sourcefiles(json) {
 	 			json[i]["sourcefiles"].push(
 	  				{
 	  					src: json[i]["textfiles"][j]["imagequerystring"],
-	  					title: json[i]["textfiles"][j].title + " Images",
+	  					title: json[i]["textfiles"][j].title + " image files",
 	  					fileType: json[i]["textfiles"][j].fileType,
 	  					type: "textimages",
 	  					key: k
@@ -195,13 +195,13 @@ sourcefiles(json) {
 	    		: (original.type === "audio" 
 	    			? <AudioPlayer key={original.key} title={original.title} sources={original.sources} /> 
 	    			: <Link to={{
-			              pathname: '/imageviewer/',
-			              search: '?key=' + original.key + original.src
-			            }} >
-			            <Button icon floated='right'>
-			            	<Icon name='image' />
-			            </Button>
-			            </Link>
+			              	pathname: '/imageviewer/',
+			              	search: '?key=' + original.key + original.src }}
+			              	target="_blank"
+			              	rel="noopener noreferrer" 
+			          >
+			            {original.title}
+			          </Link>
 	    			)
 	    	)
 		},
@@ -233,6 +233,7 @@ sourcefiles(json) {
         <p></p>
         {dataOrError}
       </div>
+
     );
   }
 }

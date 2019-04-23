@@ -9,6 +9,7 @@ class ImageViewer extends Component {
 		this.state = {
 			key: 0,
 			images: [],
+			showBullets: true,
 		};
   }
 
@@ -35,7 +36,12 @@ class ImageViewer extends Component {
   render() {
 
     return (
-      <ImageGallery key={this.state.key} items={this.state.images} />
+    	<div className='ui content'>
+    	<h3>Image File View</h3>
+    	<ImageGallery key={this.state.key} items={this.state.images} 
+      		showBullets={this.state.showBullets}
+      		/>
+      	</div>
     );
   }
  

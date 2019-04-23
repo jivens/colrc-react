@@ -28,10 +28,12 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
     "react-simple-keyboard": "^1.21.2",
+    "react-split-pane": "^0.1.87",
     "react-table": "^6.8.6",
     "semantic-ui-css": "^2.4.0",
     "semantic-ui-react": "^0.84.0",
     "simple-cache-provider": "^0.10.0",
+    "styled-components": "^4.2.0",
     "validator": "^10.11.0"
   },
   "scripts": {

@@ -22,10 +22,17 @@ class AudioPlayer extends Component {
 
   render() {
     const hasTitle = this.props.title.length > 0;
-    const conditionalTitle = hasTitle ? <p>{this.props.title}</p> : '';
+    const hasSpeaker = this.props.speaker ? true : false;
+    const conditionalTitle = hasTitle ? this.props.title : '';
+    const title = hasSpeaker && hasTitle
+    	? <p>{this.props.title}, spoken by {this.props.speaker}</p> 
+    	: (hasTitle 
+    		? <p>{this.props.title}</p>
+    		: '');
+
     return (
       <div>
-        {conditionalTitle}
+  		{title}
         <audio controls="controls" preload="none">
           {this.createAudioSources(this.props.sources)}
         </audio>

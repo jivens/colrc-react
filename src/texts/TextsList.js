@@ -366,6 +366,7 @@ sourcefiles(json) {
 		{
 			Header: 'Versions',
 			accessor: 'source',
+			style: { paddingLeft: "50px" },
 	    	Cell: ({row, original}) =>
 	    	//This builds the different kinds of entries via the sourcefiles
 	    	//json.  If the file is a text (pdf), then weblink is called to 
@@ -376,7 +377,7 @@ sourcefiles(json) {
 	    		original.type === "text" 
 	    		? this.weblink(original.src, original.title) 
 	    		: (original.type === "audio" 
-	    			? <AudioPlayer key={original.key} title={original.title} sources={original.sources} /> 
+	    			? <AudioPlayer key={original.key} title={original.title} speaker={original.speaker} sources={original.sources} /> 
 	    			: (original.type ==="textimages"
 	    				? <Link to={{
 			              	pathname: '/imageviewer/',

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactTable from "react-table";
-import AudioPlayer from "../audio/AudioPlayer";
+import AudioPlayer from "../utilities/AudioPlayer";
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import { withRouter, Link } from 'react-router-dom';
 

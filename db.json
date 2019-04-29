@@ -267,6 +267,12 @@
   		"title": "Cricket Rides Coyote - English",
   		"speaker": "Lawrence Nicodemus",
   		"textId": 1
+  	},
+  	{ 
+  		"id": 3,
+  		"title": "When Deer Kills Children - Song, in Coeur d'Alene",
+  		"speaker": "Unknown",
+  		"textId": 0
   	}
   ],
   "audiofiles": [
@@ -385,6 +391,24 @@
       	"direct": "yes",
       	"elicitationId": 0,	
 		"audiosetId": 2
+	},
+    {
+		"id": 15,
+		"subdir": "WhenDeerKillsChildren",
+     	"src": "WhenDeerKillsChildren.wav",
+		"type": "audio/wav",
+      	"direct": "yes",
+      	"elicitationId": 0,	
+		"audiosetId": 3
+	},
+    {
+		"id": 16,
+		"subdir": "WhenDeerKillsChildren",
+     	"src": "WhenDeerKillsChildren.mp3",
+		"type": "audio/mp3",
+      	"direct": "yes",
+      	"elicitationId": 0,	
+		"audiosetId": 3
 	}
   ],
   "bibliography": [

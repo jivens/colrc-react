@@ -5,12 +5,15 @@ import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 import { Button, Icon } from 'semantic-ui-react';
 
 class StemList extends Component {
 
 	constructor() {
 		super();
+    	this.onDelete = this.onDelete.bind(this);
+    	this.loadStemData = this.loadStemData.bind(this);
 		this.state = {
 			data: [],
 			loading: true,
@@ -61,6 +64,10 @@ class StemList extends Component {
 
 
 	async componentDidMount() {
+		this.loadStemData();
+	}
+
+	async loadStemData() {
 		try {
 			const response = await fetch(`http://localhost:4000/stems`);
 			if (!response.ok) {
@@ -79,6 +86,27 @@ class StemList extends Component {
 		}
 	}
 
+	async onDelete(id) {
+	    console.log("In deletion");
+	    try {
+	      const body = {
+	        id: id
+	      };
+	      const path = 'http://localhost:4000/stems/' + id;
+	      const headers = {
+	        'Content-Type': 'application/json;charset=UTF-8',
+	        "Access-Control-Allow-Origin": "*"
+	      };
+	      const response = await axios.delete(path, body, {headers});
+	      console.log(response);
+	      //this.props.history.push(`/rootdictionary`);
+	      this.loadStemData();
+	    } catch (err) {
+	      console.log(err);
+	      this.loadStemData();
+	    }
+	  };
+	  
 	render() {
 
 		const {
@@ -200,7 +228,35 @@ class StemList extends Component {
 				}),
 			filterAll: true,
 			show: noteSelected,
-		}];
+		},
+      {
+        Header: 'Edit/Delete',
+        filterable: false,
+        sortable: false,
+        width: 100,
+        Cell: ({row, original}) => (
+          <div>
+            <Button icon floated='right' onClick={() => this.onDelete(original.id)}>
+                <Icon name='trash' />
+            </Button>
+            <Link to={{
+              pathname: '/editstem/',
+              search: '?id=' + original.id +
+              '&category=' + original.category +
+              '&reichard=' + original.reichard +
+              '&doak=' + original.doak +
+              '&salish=' + original.salish +
+              '&nicodemus=' + original.nicodemus +
+              '&english=' + original.english +
+              '&note=' + original.note
+            }} >
+            <Button icon floated='right'>
+            	<Icon name='edit' />
+            </Button>
+            </Link>
+          </div>
+        )
+      }];
 
 		const CheckboxStem = () => ( <
 			div className = "checkBoxMenu" >

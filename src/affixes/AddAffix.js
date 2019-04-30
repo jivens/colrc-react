@@ -4,7 +4,7 @@ import { Form,  Button, Icon } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import { withRouter } from 'react-router-dom';
 
-class AddStem extends Component {
+class AddAffix extends Component {
 
 	constructor(props) {
     super(props);
@@ -13,13 +13,12 @@ class AddStem extends Component {
     // create a ref to store the textInput DOM element
 		this.state = {
 			fields: {
-	      category: "",
-	      reichard: "",
-	      doak: "",
-	      salish: "",
-	      nicodemus: "",
-	      english: "",
-	      note: ""
+		      type: "",
+		      salish: "",
+		      nicodemus: "",
+		      english: "",
+		      link: "",
+		      page: ""
 			},
 			fieldErrors: {}
 		};
@@ -29,28 +28,27 @@ class AddStem extends Component {
 		evt.preventDefault();
 		console.log("In add form submission");
 		try {
-			const { category, reichard, doak, salish, nicodemus, english, note } = this.state.fields;
+			const { type, salish, nicodemus, english, link, page } = this.state.fields;
 			const body = {
-				category: category,
-	      reichard: reichard,
-	      doak: doak,
-	      salish: salish,
-	      nicodemus: nicodemus,
-	      english: english,
-	      note: note
+				type: type,
+		      	salish: salish,
+	      		nicodemus: nicodemus,
+	      		english: english,
+	      		link: link,
+	      		page: page
 			};
-			const path = 'http://localhost:4000/stems';
+			const path = 'http://localhost:4000/affixes';
 			const headers = {
 				'Content-Type': 'application/json;charset=UTF-8',
 	      "Access-Control-Allow-Origin": "*"
 			};
 			const response = await axios.post(path, body, {headers});
 			console.log(response);
-			this.props.history.push('/stems');
+			this.props.history.push('/affixes');
 			//history.push('/rootdictionary');
 		} catch (err) {
 			console.log(err);
-			this.props.history.push('/stems');
+			this.props.history.push('/affixes');
 		}
 	};
 
@@ -64,7 +62,7 @@ class AddStem extends Component {
 	render() {
 		return (
 			<div>
-				<h3>Add a Stem</h3>
+				<h3>Add an Affix</h3>
 				<p>
 					Fill in the fields below to add a new stem to the dictionary.
 				</p>
@@ -72,27 +70,13 @@ class AddStem extends Component {
 				<div>
 					<Form onSubmit={this.onFormSubmit}>
 						<Form.Group widths='equal'>
-							<Form.Input fluid label="Category"
-							placeholder='Category'
-							name='category'
-							value={this.state.fields.category}
+							<Form.Input fluid label="Type"
+							placeholder='Type'
+							name='type'
+							value={this.state.fields.type}
 							onChange={this.onInputChange}
 						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.category}</span>
-							<Form.Input fluid label="Reichard"
-							placeholder='Reichard'
-							name='reichard'
-							value={this.state.fields.reichard}
-							onChange={this.onInputChange}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.reichard}</span>
-						<Form.Input fluid label="Doak"
-							placeholder='Doak'
-							name='doak'
-							value={this.state.fields.doak}
-							onChange={this.onInputChange}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.doak}</span>
+						<span style={{ color: 'red' }}>{this.state.fieldErrors.type}</span>
 						<Form.Input fluid label="Salish"
 							placeholder='Salish'
 							name='salish'
@@ -114,13 +98,20 @@ class AddStem extends Component {
 							onChange={this.onInputChange}
 						/>
 						<span style={{ color: 'red' }}>{this.state.fieldErrors.english}</span>
-						<Form.Input fluid label="Note"
-							placeholder='Note'
-							name='note'
-							value={this.state.fields.note}
+						<Form.Input fluid label="Link"
+							placeholder='Link'
+							name='link'
+							value={this.state.fields.link}
 							onChange={this.onInputChange}
 						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.note}</span>
+						<span style={{ color: 'red' }}>{this.state.fieldErrors.link}</span>
+						<Form.Input fluid label="Page"
+							placeholder='Page'
+							name='page'
+							value={this.state.fields.page}
+							onChange={this.onInputChange}
+						/>
+						<span style={{ color: 'red' }}>{this.state.fieldErrors.page}</span>
 						</Form.Group>
 			         	<Button basic color="blue" type='submit' icon size="mini" labelPosition="right">
 			            	<Icon name='save' />
@@ -135,4 +126,4 @@ class AddStem extends Component {
 	}
 };
 
-export default withRouter(AddStem);
+export default withRouter(AddAffix);

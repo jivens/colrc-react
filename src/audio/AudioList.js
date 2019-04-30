@@ -54,6 +54,7 @@ class AudioList extends Component {
     {
       Header: 'Title',
       accessor: 'title',
+      style: { 'white-space': 'unset'},
       filterMethod: (filter, rows) =>
           matchSorter(rows, filter.value, { keys: ["title"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,

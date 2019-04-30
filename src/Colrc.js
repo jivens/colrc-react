@@ -18,6 +18,8 @@ import EditBib from './bibliography/EditBib';
 import AddBib from './bibliography/AddBib';
 import EditStem from './stems/EditStem';
 import AddStem from './stems/AddStem';
+import EditAffix from './affixes/EditAffix';
+import AddAffix from './affixes/AddAffix';
 import ImageViewer from './utilities/ImageViewer';
 import SplitView from './utilities/SplitView';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -63,6 +65,8 @@ class Colrc extends Component {
                   <Route path="/addbib" component={AddBib} />
                   <Route path="/editstem" component={EditStem} />
                   <Route path="/addstem" component={AddStem} />
+                  <Route path="/editaffix" component={EditAffix} />
+                  <Route path="/addaffix" component={AddAffix} />
                   <Route path="/elicitations" component={Elicitations} />
                   <Route path="/imageviewer" component={ImageViewer} />
                   <Route path="/splitview" component={SplitView} />

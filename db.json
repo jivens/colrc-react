@@ -270,145 +270,128 @@
     {
       "id": 3,
       "title": "When Deer Kills Children - song, in Coeur d'Alene",
-      "speaker": "Unknown",
-      "textId": 0
+      "speaker": "Unknown"
     }
   ],
   "audiofiles": [
-  	    {
+    {
       "id": 1,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_8.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 1,
-      "audiosetId": 0
+      "elicitationId": 1
     },
     {
       "id": 2,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_9.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 2,
-      "audiosetId": 0
+      "elicitationId": 2
     },
     {
       "id": 3,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_10.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 3,
-      "audiosetId": 0
+      "elicitationId": 3
     },
     {
       "id": 4,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_11.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 4,
-      "audiosetId": 0
+      "elicitationId": 4
     },
     {
       "id": 5,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_12.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 5,
-      "audiosetId": 0
+      "elicitationId": 5
     },
     {
       "id": 6,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_13.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 6,
-      "audiosetId": 0
+      "elicitationId": 6
     },
     {
       "id": 7,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_14.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 7,
-      "audiosetId": 0
+      "elicitationId": 7
     },
     {
       "id": 8,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_15.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 8,
-      "audiosetId": 0
+      "elicitationId": 8
     },
     {
       "id": 9,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_16.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 9,
-      "audiosetId": 0
+      "elicitationId": 9
     },
     {
       "id": 10,
       "src": "1835_027_CoeurdAlene_2_bNoiseReduced_17.wav",
       "type": "audio/wav",
       "direct": "yes",
-      "elicitationId": 10,
-      "audiosetId": 0
+      "elicitationId": 10
     },
     {
-		"id": 11,
-		"subdir": "CricketRidesCoyote",
-     	"src": "CricketRidesCoyote_Crd.wav",
-		"type": "audio/wav",
-      	"direct": "yes",
-      	"elicitationId": 0,	
-		"audiosetId": 1
-	},
+      "id": 11,
+      "subdir": "CricketRidesCoyote",
+      "src": "CricketRidesCoyote_Crd.wav",
+      "type": "audio/wav",
+      "direct": "yes",
+      "audiosetId": 1
+    },
     {
-		"id": 12,
-		"subdir": "CricketRidesCoyote",		
-     	"src": "CricketRidesCoyote_Crd.mp3",
-		"type": "audio/mp3",
-      	"direct": "yes",
-      	"elicitationId": 0,	
-		"audiosetId": 1
-	},
+      "id": 12,
+      "subdir": "CricketRidesCoyote",
+      "src": "CricketRidesCoyote_Crd.mp3",
+      "type": "audio/mp3",
+      "direct": "yes",
+      "audiosetId": 1
+    },
     {
-		"id": 13,
-		"subdir": "CricketRidesCoyote",
-     	"src": "CricketRidesCoyote_Engl.mp3",
-		"type": "audio/mp3",
-      	"direct": "yes",
-      	"elicitationId": 0,	
-		"audiosetId": 2
-	},
+      "id": 13,
+      "subdir": "CricketRidesCoyote",
+      "src": "CricketRidesCoyote_Engl.mp3",
+      "type": "audio/mp3",
+      "direct": "yes",
+      "audiosetId": 2
+    },
     {
-		"id": 14,
-		"subdir": "CricketRidesCoyote",
-     	"src": "CricketRidesCoyote_Engl.wav",
-		"type": "audio/wav",
-      	"direct": "yes",
-      	"elicitationId": 0,	
-		"audiosetId": 2
-	},
+      "id": 14,
+      "subdir": "CricketRidesCoyote",
+      "src": "CricketRidesCoyote_Engl.wav",
+      "type": "audio/wav",
+      "direct": "yes",
+      "audiosetId": 2
+    },
     {
-		"id": 15,
-		"subdir": "WhenDeerKillsChildren",
-     	"src": "WhenDeerKillsChildren.wav",
-		"type": "audio/wav",
-      	"direct": "yes",
-      	"elicitationId": 0,	
-		"audiosetId": 3
-	},
+      "id": 15,
+      "subdir": "WhenDeerKillsChildren",
+      "src": "WhenDeerKillsChildren.wav",
+      "type": "audio/wav",
+      "direct": "yes",
+      "audiosetId": 3
+    },
     {
-		"id": 16,
-		"subdir": "WhenDeerKillsChildren",
-     	"src": "WhenDeerKillsChildren.mp3",
-		"type": "audio/mp3",
-      	"direct": "yes",
-      	"elicitationId": 0,	
-		"audiosetId": 3
-	}
+      "id": 16,
+      "subdir": "WhenDeerKillsChildren",
+      "src": "WhenDeerKillsChildren.mp3",
+      "type": "audio/mp3",
+      "direct": "yes",
+      "audiosetId": 3
+    }
   ],
   "bibliography": [
     {

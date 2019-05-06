@@ -4,8 +4,6 @@ import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
 import SimpleKeyboard from '../utilities/SimpleKeyboard';
 
-
-
 class SpellingPronunciationList extends Component {
   constructor(props) {
     super(props);
@@ -13,8 +11,8 @@ class SpellingPronunciationList extends Component {
     	data: [], 
     	loading: true, 
 	    nicodemusSelected: true,
-	    salishSelected: true,
-		reichardSelected: true,
+	    salishSelected: false,
+		reichardSelected: false,
 	    englishSelected: true,
 	    noteSelected: true
     };
@@ -33,26 +31,24 @@ class SpellingPronunciationList extends Component {
       this.setState({ error: error });
     }
   }
-
+	
 	handleNicodemusChange(value) {
-		this.setState({ nicodemusSelected: !this.state.nicodemus.Selected });
+	    this.setState({ nicodemusSelected: !this.state.nicodemusSelected });
 	};
-
 	handleReichardChange(value) {
-		this.setState({ reichardSelected: !this.state.reichard.Selected });
+		this.setState({ reichardSelected: !this.state.reichardSelected });
 	};
-
 
 	handleSalishChange(value) {
-		this.setState({ salishSelected: !this.state.salish.Selected });
+		this.setState({ salishSelected: !this.state.salishSelected });
 	};
 
 	handleEnglishChange(value) {
-		this.setState({ englishSelected: !this.state.english.Selected });
+		this.setState({ englishSelected: !this.state.englishSelected });
 	};
 
 	handleNoteChange(value) {
-		this.setState({ nicodemusSelected: !this.state.nicodemus.Selected });
+		this.setState({ noteSelected: !this.state.noteSelected });
 	};
 
 
@@ -95,8 +91,8 @@ class SpellingPronunciationList extends Component {
         },{
         	Header: 'Note',
         	accessor: 'note',
+	    	style: { 'white-space': 'unset' },
 	    	show: noteSelected,
-        	Cell: row => ( <span className="superscript">{row.value}</span> ),
 		}]
 	}];
 
@@ -155,25 +151,10 @@ class SpellingPronunciationList extends Component {
 	  	<div className='ui content'> 
 	  		<SimpleKeyboard />
 	  		<p></p>
+	  		<CheckboxSpelling />
 			{dataOrError}
-			<SpellFootnote />
 		</div>
 	);
-  }
-}
-
-class SpellFootnote extends Component {
-  render() {
-    return (
-      <div className='ui content'>
-        <p></p>
-        <strong>Notes</strong>
-		    <p></p>
-		    <p><sup>1</sup>  An acute accent is used in the Reichard and Salishan systems to indicate that the vowel is stressed. Underlining is used for this purpose in the Nicodemus system.</p>
-		    <p><sup>2</sup>  The symbol 'x' may be used in the Reichard and Salishan systems to write the sound /xʷ/ when it occurs before /u/.</p>
-		    <p><sup>3</sup>  Nicodemus 1975a,b uses both '(' and ')' occasionally to write the pharyngeals.</p>
-      </div>
-    );
   }
 }
 

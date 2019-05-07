@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
+import DecoratedTextSpan from '../utilities/DecoratedTextSpan';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import { Link } from "react-router-dom";
 import axios from 'axios';
@@ -139,29 +140,15 @@ class StemList extends Component {
 				}
 				return row[filter.id] === filter.value;
 			},
-			Filter: ({
-					filter,
-					onChange
-				}) =>
-				<
-				select
-			onChange = {
-				event => onChange(event.target.value)
-			}
-			style = {
-				{
-					width: "100%"
-				}
-			}
-			value = {
-				filter ? filter.value : "all"
-			} >
-			<
-			option value = "all" > Show All < /option> <
-			option value = "verb" > Verbs < /option> <
-			option value = "noun" > Nouns < /option> <
-			option value = "other" > Other < /option> <
-			/select>,
+			Filter: ({filter, onChange}) =>
+				<select onChange = { event => onChange(event.target.value)}
+					style = {{ width: "100%"}}
+					value = {filter ? filter.value : "all"} >
+				<option value = "all" > Show All < /option> 
+				<option value = "verb" > Verbs < /option> 
+				<option value = "noun" > Nouns < /option> 
+				<option value = "other" > Other < /option> 
+				</select>,
 		}, {
 			Header: 'Reichard',
 			accessor: 'reichard',
@@ -201,6 +188,7 @@ class StemList extends Component {
 					threshold: matchSorter.rankings.CONTAINS
 				}),
 			filterAll: true,
+		    Cell: row => ( <DecoratedTextSpan str={row.value} />),
 			show: nicodemusSelected,
 		}, {
 			Header: 'English',

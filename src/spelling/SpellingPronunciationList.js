@@ -14,7 +14,7 @@ class SpellingPronunciationList extends Component {
 	    salishSelected: false,
 		reichardSelected: false,
 	    englishSelected: true,
-	    noteSelected: true
+	    noteSelected: false
     };
   }
 

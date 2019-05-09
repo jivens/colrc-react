@@ -1,6 +1,4 @@
-import React, {
-	Component
-} from 'react';
+import React, {Component} from 'react';
 import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
 import DecoratedTextSpan from '../utilities/DecoratedTextSpan';
@@ -246,102 +244,61 @@ class StemList extends Component {
         )
       }];
 
-		const CheckboxStem = () => ( <
-			div className = "checkBoxMenu" >
-			<
-			label className = "checkBoxLabel" > Reichard < /label> <
-			input name = "reichard"
-			type = "checkbox"
-			checked = {
-				this.state.reichardSelected
-			}
-			onChange = {
-				this.handleReichardChange.bind(this)
-			}
-			/> <
-			label className = "checkBoxLabel" > Doak < /label> <
-			input name = "doak"
-			type = "checkbox"
-			checked = {
-				this.state.doakSelected
-			}
-			onChange = {
-				this.handleDoakChange.bind(this)
-			}
-			/> <
-			label className = "checkBoxLabel" > Salish < /label> <
-			input name = "salish"
-			type = "checkbox"
-			checked = {
-				this.state.salishSelected
-			}
-			onChange = {
-				this.handleSalishChange.bind(this)
-			}
-			/> <
-			label className = "checkBoxLabel" > Nicodemus < /label> <
-			input name = "nicodemus"
-			type = "checkbox"
-			checked = {
-				this.state.nicodemusSelected
-			}
-			onChange = {
-				this.handleNicodemusChange.bind(this)
-			}
-			/> <
-			label className = "checkBoxLabel" > English < /label> <
-			input name = "english"
-			type = "checkbox"
-			checked = {
-				this.state.englishSelected
-			}
-			onChange = {
-				this.handleEnglishChange.bind(this)
-			}
-			/> <
-			label className = "checkBoxLabel" > Note < /label> <
-			input name = "Note"
-			type = "checkbox"
-			checked = {
-				this.state.noteSelected
-			}
-			onChange = {
-				this.handleNoteChange.bind(this)
-			}
-			/> <
-			/div>
+		const CheckboxStem = () => ( 
+			<div className = "checkBoxMenu" >
+			<label className = "checkBoxLabel" > Reichard < /label> 
+			<input name = "reichard" 
+				type = "checkbox" 
+				checked = {this.state.reichardSelected}
+				onChange = {this.handleReichardChange.bind(this)}
+			/> 
+			<label className = "checkBoxLabel" > Doak < /label> 
+			<input name = "doak"
+				type = "checkbox"
+				checked = {this.state.doakSelected}
+				onChange = {this.handleDoakChange.bind(this)}
+			/> 
+			<label className = "checkBoxLabel" > Salish < /label> 
+			<input name = "salish"
+				type = "checkbox"
+				checked = {this.state.salishSelected}
+				onChange = {this.handleSalishChange.bind(this)}
+			/> 
+			<label className = "checkBoxLabel" > Nicodemus < /label> 
+			<input name = "nicodemus"
+				type = "checkbox"
+				checked = {this.state.nicodemusSelected}
+				onChange = {this.handleNicodemusChange.bind(this)}
+			/> 
+			<label className = "checkBoxLabel" > English < /label> 
+			<input name = "english"
+				type = "checkbox"
+				checked = {this.state.englishSelected}
+				onChange = {this.handleEnglishChange.bind(this)}
+			/> 
+			<label className = "checkBoxLabel" > Note < /label> 
+			<input name = "Note"
+				type = "checkbox"
+				checked = {this.state.noteSelected}
+				onChange = {this.handleNoteChange.bind(this)}
+			/> 
+			</div>
 		);
 
 		const dataOrError = this.state.error ?
-			<
-			div style = {
-				{
-					color: 'red'
-				}
-			} > Oops!Something went wrong! < /div> : <
-			ReactTable
-		data = {
-			this.state.data
-		}
-		loading = {
-			this.state.loading
-		}
-		columns = {
-			columns
-		}
-		defaultPageSize = {
-			5
-		}
-		className = "-striped -highlight left"
-		filterable = "true"
-		filterAll = "true" /
-			> ;
+			<div style = {{color: 'red'}} > Oops!Something went wrong! < /div> : 
+			<ReactTable
+				data = {this.state.data}
+				loading = {this.state.loading}
+				columns = {columns}
+				defaultPageSize = {5}
+				className = "-striped -highlight left"
+				filterable  
+			/>;
 		return ( <div className = 'ui content'>
 
 			<div className="text-right">
-				<Link to={{
-					pathname: '/addstem/'
-				}} >
+				<Link to={{pathname: '/addstem/'}} >
 					<Button icon labelPosition='left' size='small'>
 						<Icon name='plus' />
 						Add a stem

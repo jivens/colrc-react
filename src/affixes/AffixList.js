@@ -1,6 +1,4 @@
-import React, {
-	Component
-} from 'react';
+import React, {	Component } from 'react';
 import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
@@ -222,8 +220,7 @@ class AffixList extends Component {
         columns={columns}
         defaultPageSize={10}
         className="-striped -highlight left"
-        filterable="true"
-        filterAll="true"
+        filterable
       />;
 
 	  return (

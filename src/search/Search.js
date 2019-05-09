@@ -13,6 +13,7 @@ class Search extends Component {
 		this.onInputChange = this.onInputChange.bind(this);
 		this.loadSearchInfo = this.loadSearchInfo.bind(this);
 		this.state = {
+			searchWasRun: false,
 			fields: {
 				searchtext: ""
 			},
@@ -28,9 +29,17 @@ class Search extends Component {
 				fields: ['reichard', 'nicodemus', 'salish', 'doak', 'english'],
 				data: [],
     			loading: false
+    		},
+			affixes: {
+				address: 'http://localhost:4000/affixes',
+				fields: ['nicodemus', 'salish', 'english', 'note'],
+				data: [],
+    			loading: false
     		}
+
 		};
 	}
+
 
 	loadSearchInfo = async (searchArea) => {
 		try {
@@ -61,11 +70,18 @@ class Search extends Component {
 
 	onFormSubmit = async (evt) => {
 		evt.preventDefault();
+		this.state.searchWasRun = true;
 		console.log("In search form submission");
 		this.loadSearchInfo('roots');
 		this.loadSearchInfo('stems');
+		this.loadSearchInfo('affixes');
 	};
 
+	weblink(link, page) {
+		return (
+			link === '' ? page : <a href={link} target="_blank" rel="noopener noreferrer">{page}</a>
+		);
+	}
 
 	onInputChange = (evt) => {
 		console.log("Change event called on " + evt.target.value);
@@ -217,52 +233,139 @@ class Search extends Component {
 					}),
 				filterAll: true,
 			}];
+		//set up the columns for the affixes results
+	  const columns = [{
+	    Header: 'Type',
+	    accessor: 'type',
+	    width: getColumnWidth(this.state.affixes.data, 'type', 'Type'),
+		filterMethod: (filter, row) => {
+                    if (filter.value === "all") {
+                      return true;
+                    }
+                    return row[filter.id] === filter.value;
+                },
+	    Filter: ({ filter, onChange }) =>
+	            <select
+	              onChange={event => onChange(event.target.value)}
+	              style={{ width: "100%" }}
+	              value={filter ? filter.value : "all"}
+	            >
+	              <option value="all">Show All</option>
+	              <option value="Directional">Directional</option>
+	              <option value="Locative">Locative</option>
+	            </select>,
+	  	},
+	  {
+	    Header: 'Salish',
+	    accessor: 'salish',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["salish"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
+	  	},
+	  {
+	    Header: 'Nicodemus',
+	    accessor: 'nicodemus',
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["nicodemus"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
+	  	}, 
+	  {
+	    Header: 'English',
+	    accessor: 'english',
+	    style: { 'white-space': 'unset' }, 
+	    filterMethod: (filter, rows) =>
+        	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
+            filterAll: true,
+	  	}, 
+	  {
+	    Header: 'Link',
+	    accessor: 'link',
+	    Cell: ({row, original}) => ( this.weblink(original.link, original.page) ),
+	  }
+	  ];
 
 		//build the roots results table
 	     const rootsDataOrError = this.state.roots.error ?
 	      	<div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
-	      	<ReactTable
-	        	data={this.state.roots.data}
-	        	loading={this.state.roots.loading}
-	        	columns={rootColumns}
-	        	filterable
-				pageSize = {this.state.roots.data.length > 5 ? 5 : this.state.roots.data.length}
-	        	className="-striped -highlight"
-	      	/>;
+	      	( this.state.roots.data.length > 0 ?
+		      	<ReactTable
+		        	data={this.state.roots.data}
+		        	loading={this.state.roots.loading}
+		        	columns={rootColumns}
+		        	filterable
+					pageSize = {this.state.roots.data.length > 5 ? 5 : this.state.roots.data.length}
+		        	className="-striped -highlight"
+		      	/>
+			: <div style={{color: 'blue' }}>No roots match the search criteria</div> 
+			);
 
 		//build the stems results table
 		const stemsDataOrError = this.state.stems.error ?
 			<div style = {{	color: 'red' }}> Oops!Something went wrong!</div> : 
-			<ReactTable
-				data = {this.state.stems.data}
-				loading = {this.state.stems.loading}
-				columns = {stemsColumns}
-				pageSize = {this.state.stems.data.length > 5 ? 5 : this.state.stems.data.length}
-				className = "-striped -highlight left"
-				filterable
-				/>;
+      		( this.state.stems.data.length > 0 ?
+				<ReactTable
+					data = {this.state.stems.data}
+					loading = {this.state.stems.loading}
+					columns = {stemsColumns}
+					pageSize = {this.state.stems.data.length > 5 ? 5 : this.state.stems.data.length}
+					className = "-striped -highlight left"
+					filterable
+					/>
+			: <div style={{color: 'blue' }}>No stems match the search criteria</div> 
+			);
+
+		//build the affixes results table
+	    const affixesDataOrError = this.state.affixes.error ?
+	      	<div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
+      		( this.state.affixes.data.length > 0 ?
+		      	<ReactTable
+			        data={this.state.affixes.data}
+			        loading={this.state.affixes.loading}
+			        columns={columns}
+					pageSize = {this.state.affixes.data.length > 5 ? 5 : this.state.affixes.data.length}
+			        className="-striped -highlight left"
+			        filterable
+			      />			
+		    : <div style={{color: 'blue' }}>No affixes match the search criteria</div> 
+			);
+
+		const searchWasRun = this.state.searchWasRun ?
+			<div className="search results">
+				<p>Results from Root Dictionary</p>
+				{rootsDataOrError}
+				<p></p>
+				<p>Results from Stem Lists</p>
+				{stemsDataOrError}
+				<p></p>
+				<p>Results from Affix Lists</p>
+				{affixesDataOrError}
+			</div> 
+			: <div className="no search">
+				<h3>Ready for a search!</h3>
+			</div>;
 
 	return(
 		<div classname="ui content">
-			<Form onSubmit={this.onFormSubmit} width={14}>				
-				<Form.Input 
-					action={{ color: 'blue', labelPosition: 'left', icon: 'search', content: 'Submit' }} 
-					placeholder='Type your search terms here...'
-				    actionPosition='left'
-				    name='searchtext'
-					value={this.state.fields.searchtext}
-				    onChange={this.onInputChange}
-				    >
-  				</Form.Input>
+			<Form onSubmit={this.onFormSubmit} width={14}>
+				<Form.Group>	
+					<Button floated='left' icon labelPosition='left' color='blue' disabled={this.state.fields.searchtext.length < 1} >
+	      				<Icon name='search' />
+	     				 Search
+					</Button>		
+					<Form.Input 
+					    name='searchtext'
+					    autoFocus
+						value={this.state.fields.searchtext}
+					    onChange={this.onInputChange}
+          				ref={(input) => { this.searchInput = input; }} 
+					    >
+	  				</Form.Input>
+  				</Form.Group>
 			</Form>
 			<p></p>
 			<SimpleKeyboard />
 			<p></p>
-			<p>Results from Root Dictionary</p>
-			{rootsDataOrError}
-			<p></p>
-			<p>Results from Stem Lists</p>
-			{stemsDataOrError}
+			{searchWasRun}
 		</div>
 		) 
 	};

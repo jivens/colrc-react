@@ -18,8 +18,11 @@ import EditBib from './bibliography/EditBib';
 import AddBib from './bibliography/AddBib';
 import EditStem from './stems/EditStem';
 import AddStem from './stems/AddStem';
+import EditAffix from './affixes/EditAffix';
+import AddAffix from './affixes/AddAffix';
 import ImageViewer from './utilities/ImageViewer';
 import SplitView from './utilities/SplitView';
+import Search from './search/Search';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'semantic-ui-css/semantic.min.css';
 import "react-table/react-table.css";
@@ -39,7 +42,7 @@ class Colrc extends Component {
     render() {
 
 	  const rightItems = [
-	  	  { to: "/", icon: 'search'},
+	  	  { to: "/search", icon: 'search'},
 	  	  { to: "/", icon: 'user'},
 		  { to: "/", icon: 'cog'},
 		  { to: "/", icon: 'ellipsis vertical'},
@@ -52,39 +55,42 @@ class Colrc extends Component {
             <MainMenu title='title' />
             <Grid container verticalAlign='top'>
 
-              <Grid.Row>
-                <Grid.Column>
-                  <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/spelling" component={SpellingPronunciation} />
-                    <Route path="/roots" component={Roots} />
-                    <Route path="/stems" component={Stems} />
-                    <Route path="/affixes" component={Affixes} />
-    				  <Route path="/audio" component={Audio} />
-    				  {/*<Route path="/contactus" component={ContactUs} />*/}
-                    <Route path="/texts" component={Texts} />
-                    <Route path="/bibliography" component={Bibliography} />
-                    {/* <Route path="/rootdictionary/:id" exact component={EditRoot} /> */}
-                    <Route path="/editroot" component={EditRoot} />
-                    <Route path="/addroot" component={AddRoot} />
-                    <Route path="/editbib" component={EditBib} />
-                    <Route path="/addbib" component={AddBib} />
-                    <Route path="/editstem" component={EditStem} />
-                    <Route path="/addstem" component={AddStem} />
-                    <Route path="/elicitations" component={Elicitations} />
-                    <Route path="/imageviewer" component={ImageViewer} />
-                    <Route path="/splitview" component={SplitView} />
-                    {/* <Route component={NotFound} /> */}
-                  </Switch>
-                </Grid.Column>
-              </Grid.Row>
-              <Grid.Row>
-                <Grid.Column textAlign='center'>
-                  <Footer />
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-          </NavBar>
+            <Grid.Row>
+              <Grid.Column>
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route path="/spelling" component={SpellingPronunciation} />
+                  <Route path="/roots" component={Roots} />
+                  <Route path="/stems" component={Stems} />
+                  <Route path="/affixes" component={Affixes} />
+  				  <Route path="/audio" component={Audio} />
+  				  {/*<Route path="/contactus" component={ContactUs} />*/}
+                  <Route path="/texts" component={Texts} />
+                  <Route path="/bibliography" component={Bibliography} />
+                  {/* <Route path="/rootdictionary/:id" exact component={EditRoot} /> */}
+                  <Route path="/editroot" component={EditRoot} />
+                  <Route path="/addroot" component={AddRoot} />
+                  <Route path="/editbib" component={EditBib} />
+                  <Route path="/addbib" component={AddBib} />
+                  <Route path="/editstem" component={EditStem} />
+                  <Route path="/addstem" component={AddStem} />
+                  <Route path="/editaffix" component={EditAffix} />
+                  <Route path="/addaffix" component={AddAffix} />
+                  <Route path="/elicitations" component={Elicitations} />
+                  <Route path="/imageviewer" component={ImageViewer} />
+                  <Route path="/splitview" component={SplitView} />
+                  <Route path="/search" component={Search} />
+                  {/* <Route component={NotFound} /> */}
+                </Switch>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column textAlign='center'>
+                <Footer />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </NavBar>
 
         </Router>
       </ApolloProvider>

@@ -3,12 +3,7 @@ import { Grid, Button, Icon, Checkbox } from 'semantic-ui-react';
 import ReactTable from "react-table";
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import matchSorter from 'match-sorter';
-import {
-    Accordion,
-    AccordionItem,
-    AccordionItemTitle,
-    AccordionItemBody,
-} from 'react-accessible-accordion';
+import BibliographyAccordion from "../accordions/BibliographyAccordion";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
@@ -85,23 +80,6 @@ render() {
 	  return Math.min(maxWidth, cellLength * magicSpacing)
 	};
 
-const BibIntro = () => (
-  <Accordion>
-      <AccordionItem>
-          <AccordionItemTitle>
-              <p className="u-position-relative">
-              Introduction
-              <div className="accordion__arrow" role="presentation" />
-            </p>
-          </AccordionItemTitle>
-          <AccordionItemBody>
-        <p>
-          write intro here?
-        </p>
-    </AccordionItemBody>
-  </AccordionItem>
-  </Accordion>
-);
 
 
 const columns = [{
@@ -124,9 +102,11 @@ const columns = [{
   Header: 'Title',
   accessor: 'title',
   style: { 'white-space': 'unset'},
+  Cell: ({row, original}) => ( this.weblink(original.link, original.title) ),
   filterMethod: (filter, rows) =>
       matchSorter(rows, filter.value, { keys: ["title"], threshold: matchSorter.rankings.CONTAINS }),
         filterAll: true,
+
   },
 {
   Header: 'Reference',
@@ -136,12 +116,6 @@ const columns = [{
       matchSorter(rows, filter.value, { keys: ["reference"], threshold: matchSorter.rankings.CONTAINS }),
         filterAll: true,
   },
-{
-  Header: 'Link',
-  accessor: 'link',
-  width: 100,
-  Cell: ({row, original}) => ( this.weblink(original.link, original.linktext) ),
-},
 {
   Header: 'Edit/Delete',
   filterable: false,
@@ -185,6 +159,8 @@ const dataOrError = this.state.error ?
 
     return (
       <div>
+      	<BibliographyAccordion />
+      	<p></p>
         <div className="text-right">
           <Link to={{
             pathname: '/addbib/'
@@ -196,7 +172,7 @@ const dataOrError = this.state.error ?
           </Link>
         </div>
         <p> < /p>
-			<SimpleKeyboard / >
+		<SimpleKeyboard / >
 		<p> < /p>
         <div>{dataOrError}</div>
       </div>

@@ -1434,9 +1434,9 @@
       "reichard": "s-x̣ʷụɬ-x̣ʷáɬ",
       "doak": "--",
       "salish": "x̣ʷəɫ-x̣ʷáɫ",
-      "nicodemus": "qhwɫ-qhw<bold>a</bold>ɫ",
+      "nicodemus": "qhwɫ-qhwaɫ",
       "english": "Rocky Mt. sheep",
-      "note": ""
+      "note": "the a in the Nicodemus form should be underlined --avf"
     }
   ],
   "spelling": [
@@ -1453,8 +1453,8 @@
       "reichard": "á",
       "nicodemus": "<underline>a</underline>",
       "salish": "á",
-      "english": "f<bold>a</bold>ther",
-      "note": "underlines or accents indicate the vowel is stressed"
+      "english": "no example",
+      "note": "1"
     },
     {
       "id": 3,
@@ -1517,8 +1517,8 @@
       "reichard": "ä́",
       "nicodemus": "<underline>e</underline>",
       "salish": "ɛ́, é",
-      "english": "<bold>e</bold>gg",
-      "note": "underlines or accents indicate the vowel is stressed"
+      "english": "no example",
+      "note": "1"
     },
     {
       "id": 11,
@@ -1557,8 +1557,8 @@
       "reichard": "í",
       "nicodemus": "<underline>i</underline>",
       "salish": "í",
-      "english": "mach<bold>i</bold>ne",
-      "note": "underlines or accents indicate the vowel is stressed"
+      "english": "no example",
+      "note": "1"
     },
     {
       "id": 16,
@@ -1590,7 +1590,7 @@
       "nicodemus": "kh",
       "salish": "no form",
       "english": "no example",
-      "note": ""
+      "note": "2"
     },
     {
       "id": 20,
@@ -1598,7 +1598,7 @@
       "nicodemus": "khw",
       "salish": "xʷ",
       "english": "no example",
-      "note": "The symbol 'x' may be used in the Reichard and Salishan systems to write the sound /xʷ/ when it occurs before /u/."
+      "note": "2"
     },
     {
       "id": 21,
@@ -1709,7 +1709,7 @@
       "reichard": "ɔ",
       "nicodemus": "o",
       "salish": "ɔ, o",
-      "english": "l<bold>a</bold>w",
+      "english": "law",
       "note": ""
     },
     {
@@ -1717,8 +1717,8 @@
       "reichard": "ɔ́",
       "nicodemus": "<underline>o</underline>",
       "salish": "ɔ́, ó",
-      "english": "l<bold>a</bold>w",
-      "note": "underlines or accents indicate the vowel is stressed"
+      "english": "no example",
+      "note": "1"
     },
     {
       "id": 36,
@@ -1758,7 +1758,7 @@
       "nicodemus": "(",
       "salish": "ʕ",
       "english": "no example",
-      "note": "Nicodemus 1975a,b uses both '(' and ')' occasionally to write the pharyngeals."
+      "note": "3"
     },
     {
       "id": 41,
@@ -1766,7 +1766,7 @@
       "nicodemus": "'(",
       "salish": "ʕ'",
       "english": "no example",
-      "note": "Nicodemus 1975a,b uses both '(' and ')' occasionally to write the pharyngeals."
+      "note": ""
     },
     {
       "id": 42,
@@ -1774,7 +1774,7 @@
       "nicodemus": "(w",
       "salish": "ʕʷ",
       "english": "no example",
-      "note": "Nicodemus 1975a,b uses both '(' and ')' occasionally to write the pharyngeals."
+      "note": ""
     },
     {
       "id": 43,
@@ -1782,7 +1782,7 @@
       "nicodemus": "'(w",
       "salish": "ʕ'ʷ",
       "english": "no example",
-      "note": "Nicodemus 1975a,b uses both '(' and ')' occasionally to write the pharyngeals."
+      "note": ""
     },
     {
       "id": 44,
@@ -1829,8 +1829,8 @@
       "reichard": "ú",
       "nicodemus": "<underline>u</underline>",
       "salish": "ú",
-      "english": "J<bold>u</bold>piter",
-      "note": "underlines or accents indicate the vowel is stressed"
+      "english": "no example",
+      "note": "1"
     },
     {
       "id": 50,

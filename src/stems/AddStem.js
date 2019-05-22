@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Form,  Button, Icon } from 'semantic-ui-react';
+import { Button, Icon, Input } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import { withRouter } from 'react-router-dom';
 
 class AddStem extends Component {
@@ -25,11 +27,11 @@ class AddStem extends Component {
 		};
   }
 
-	onFormSubmit = async (evt) => {
-		evt.preventDefault();
+	onFormSubmit = async (values) => {
+		//evt.preventDefault();
 		console.log("In add form submission");
 		try {
-			const { category, reichard, doak, salish, nicodemus, english, note } = this.state.fields;
+			const { category, reichard, doak, salish, nicodemus, english, note } = values;
 			const body = {
 				category: category,
 	      reichard: reichard,
@@ -46,11 +48,10 @@ class AddStem extends Component {
 			};
 			const response = await axios.post(path, body, {headers});
 			console.log(response);
-			this.props.history.push('/stem');
-			//history.push('/rootdictionary');
+			this.props.history.push('/stems');
 		} catch (err) {
 			console.log(err);
-			this.props.history.push('/stem');
+			this.props.history.push('/stems');
 		}
 	};
 
@@ -61,72 +62,144 @@ class AddStem extends Component {
 		this.setState({ fields });
 	};
 
+
+
 	render() {
+
+	const addStemSchema = Yup.object().shape({
+		category: Yup.string()
+			.min(2, 'Too short!')
+			.max(5, 'Too long!')
+			.required('Required'),
+		reichard: Yup.string()
+			.email('Invalid email')
+			.required('Required'),
+		nicodemus: Yup.string()
+			.min(1, 'Write something!')
+			.max(100, 'No novels!')
+			.required('Required')
+		});
+
 		return (
 			<div>
 				<h3>Add a Stem</h3>
-				<p>
-					Fill in the fields below to add a new stem to the dictionary.
-				</p>
+				<p>Fill in the fields below to add a new stem.</p>
+			<div>
 
-				<div>
-					<Form onSubmit={this.onFormSubmit}>
-						<Form.Group widths='equal'>
-							<Form.Input fluid label="Category"
-							placeholder='Category'
-							name='category'
-							value={this.state.fields.category}
-							onChange={this.onInputChange}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.category}</span>
-							<Form.Input fluid label="Reichard"
-							placeholder='Reichard'
-							name='reichard'
-							value={this.state.fields.reichard}
-							onChange={this.onInputChange}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.reichard}</span>
-						<Form.Input fluid label="Doak"
-							placeholder='Doak'
-							name='doak'
-							value={this.state.fields.doak}
-							onChange={this.onInputChange}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.doak}</span>
-						<Form.Input fluid label="Salish"
-							placeholder='Salish'
-							name='salish'
-							value={this.state.fields.salish}
-							onChange={this.onInputChange}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.salish}</span>
-						<Form.Input fluid label="Nicodemus"
-							placeholder='Nicodemus'
-							name='nicodemus'
-							value={this.state.fields.nicodemus}
-							onChange={this.onInputChange}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.nicodemus}</span>
-						<Form.Input fluid label="English"
-							placeholder='English'
-							name='english'
-							value={this.state.fields.english}
-							onChange={this.onInputChange}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.english}</span>
-						<Form.Input fluid label="Note"
-							placeholder='Note'
-							name='note'
-							value={this.state.fields.note}
-							onChange={this.onInputChange}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.note}</span>
-						</Form.Group>
-			         	<Button basic color="blue" type='submit' icon size="mini" labelPosition="right">
-			            	<Icon name='save' />
-			            	Save Changes
-			          	</Button>
-					</Form>
+				<Formik 
+					initialValues={{ category: '', reichard: '', doak: '', salish: '', nicodemus: '', english: '', note: ''}}
+				    validationSchema={addStemSchema}
+					onSubmit={(values, { setSubmitting }) => {
+						this.onFormSubmit(values);
+			      	}}
+				>
+
+     			{({ isSubmitting, values, errors, touched, handleChange, handleBlur }) => (
+						<Form>
+				            <Input
+				              id="category"
+				              placeholder="Category"
+				              type="text"
+				              value={values.category}
+				              onChange={handleChange}
+				              onBlur={handleBlur}
+				              className={
+				                errors.category && touched.category ? 'text-input error' : 'text-input'
+				              }
+				            />
+				            {errors.category && touched.category && (
+				            <div className="input-feedback">{errors.category}</div>
+				            )}
+				            <Input
+				              id="reichard"
+				              placeholder="Reichard"
+				              type="text"
+				              value={values.reichard}
+				              onChange={handleChange}
+				              onBlur={handleBlur}
+				              className={
+				                errors.reichard && touched.reichard ? 'text-input error' : 'text-input'
+				              }
+				            />
+				            {errors.reichard && touched.reichard && (
+				            <div className="input-feedback">{errors.reichard}</div>
+				            )}
+				            <Input
+				              id="doak"
+				              placeholder="Doak"
+				              type="text"
+				              value={values.doak}
+				              onChange={handleChange}
+				              onBlur={handleBlur}
+				              className={
+				                errors.doak && touched.doak ? 'text-input error' : 'text-input'
+				              }
+				            />
+				            {errors.doak && touched.doak && (
+				            <div className="input-feedback">{errors.doak}</div>
+				            )}				            
+				            <Input
+				              id="salish"
+				              placeholder="Salish"
+				              type="text"
+				              value={values.salish}
+				              onChange={handleChange}
+				              onBlur={handleBlur}
+				              className={
+				                errors.salish && touched.salish ? 'text-input error' : 'text-input'
+				              }
+				            />
+				            {errors.salish && touched.salish && (
+				            <div className="input-feedback">{errors.salish}</div>
+				            )}							
+				            <Input
+				              id="nicodemus"
+				              placeholder="Nicodemus"
+				              type="text"
+				              value={values.nicodemus}
+				              onChange={handleChange}
+				              onBlur={handleBlur}
+				              className={
+				                errors.nicodemus && touched.nicodemus ? 'text-input error' : 'text-input'
+				              }
+				            />
+				            {errors.nicodemus && touched.nicodemus && (
+				            <div className="input-feedback">{errors.reichard}</div>
+				            )}
+				            <Input
+				              id="english"
+				              placeholder="English"
+				              type="text"
+				              value={values.english}
+				              onChange={handleChange}
+				              onBlur={handleBlur}
+				              className={
+				                errors.english && touched.english ? 'text-input error' : 'text-input'
+				              }
+				            />
+				            {errors.english && touched.english && (
+				            <div className="input-feedback">{errors.english}</div>
+				            )}
+				            <Input
+				              id="note"
+				              placeholder="Note"
+				              type="text"
+				              value={values.note}
+				              onChange={handleChange}
+				              onBlur={handleBlur}
+				              className={
+				                errors.note && touched.note ? 'text-input error' : 'text-input'
+				              }
+				            />
+				            {errors.note && touched.note && (
+				            <div className="input-feedback">{errors.note}</div>
+				            )}
+					        <button type="submit" disabled={isSubmitting}>
+					            Submit
+					        </button>
+						</Form>
+						)}
+					</Formik>
 				</div>
 				<h3>Virtual Keyboard</h3>
 				<SimpleKeyboard / >

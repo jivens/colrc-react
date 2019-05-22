@@ -4,14 +4,17 @@ import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
 import SimpleKeyboard from '../utilities/SimpleKeyboard';
 
-
-
 class SpellingPronunciationList extends Component {
   constructor(props) {
     super(props);
     this.state = { 
     	data: [], 
     	loading: true, 
+	    nicodemusSelected: true,
+	    salishSelected: false,
+		reichardSelected: false,
+	    englishSelected: true,
+	    noteSelected: false
     };
   }
 
@@ -28,14 +31,36 @@ class SpellingPronunciationList extends Component {
       this.setState({ error: error });
     }
   }
+	
+	handleNicodemusChange(value) {
+	    this.setState({ nicodemusSelected: !this.state.nicodemusSelected });
+	};
+	handleReichardChange(value) {
+		this.setState({ reichardSelected: !this.state.reichardSelected });
+	};
+
+	handleSalishChange(value) {
+		this.setState({ salishSelected: !this.state.salishSelected });
+	};
+
+	handleEnglishChange(value) {
+		this.setState({ englishSelected: !this.state.englishSelected });
+	};
+
+	handleNoteChange(value) {
+		this.setState({ noteSelected: !this.state.noteSelected });
+	};
+
 
   render() {
+  	const { nicodemusSelected, reichardSelected, salishSelected, englishSelected, noteSelected } = this.state;
 
 	const columns=[{
 		Header: "List of Symbols",
 		columns: [{
 			Header: 'Nicodemus',
 		    accessor: 'nicodemus',
+	    	show: nicodemusSelected,
 			filterMethod: (filter, rows) =>
 	        	matchSorter(rows, filter.value, { keys: ["nicodemus"], threshold: matchSorter.rankings.CONTAINS }),
 	            filterAll: true,
@@ -43,18 +68,21 @@ class SpellingPronunciationList extends Component {
         },{
         	Header: 'Reichard',
         	accessor: 'reichard',
+	    	show: reichardSelected,
 		    filterMethod: (filter, rows) =>
 	        	matchSorter(rows, filter.value, { keys: ["reichard"], threshold: matchSorter.rankings.CONTAINS }),
 	            filterAll: true,
         },{
         	Header: 'Salish',
         	accessor: 'salish',
+	    	show: salishSelected,
 	   	    filterMethod: (filter, rows) =>
 	        	matchSorter(rows, filter.value, { keys: ["salish"], threshold: matchSorter.rankings.CONTAINS }),
 	            filterAll: true,
         },{
         	Header: 'English',
         	accessor: 'english',
+	    	show: englishSelected,
 	  	    filterMethod: (filter, rows) =>
 	        	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
 	            filterAll: true,
@@ -63,10 +91,50 @@ class SpellingPronunciationList extends Component {
         },{
         	Header: 'Note',
         	accessor: 'note',
-        	Cell: row => ( <span className="superscript">{row.value}</span> ),
+	    	style: { 'white-space': 'unset' },
+	    	show: noteSelected,
 		}]
 	}];
 
+  const CheckboxSpelling = () => (
+		<div className="checkBoxMenu">
+		  <label className="checkBoxLabel">Nicodemus</label>
+		  <input
+		  	name="nicodemus"
+            type="checkbox"
+            checked={this.state.nicodemusSelected}
+            onChange={this.handleNicodemusChange.bind(this)}
+          />
+		  <label className="checkBoxLabel">Reichard</label>
+		  <input
+		  	name="reichard"
+            type="checkbox"
+            checked={this.state.reichardSelected}
+            onChange={this.handleReichardChange.bind(this)}
+          />
+          <label className="checkBoxLabel">Salish</label>
+          <input
+            name="salish"
+            type="checkbox"
+            checked={this.state.salishSelected}
+            onChange={this.handleSalishChange.bind(this)}
+          />
+          <label className="checkBoxLabel">English</label>
+          <input
+            name="english"
+            type="checkbox"
+            checked={this.state.englishSelected}
+            onChange={this.handleEnglishChange.bind(this)}
+          />
+          <label className="checkBoxLabel">Note</label>
+          <input
+            name="note"
+            type="checkbox"
+            checked={this.state.noteSelected}
+            onChange={this.handleNoteChange.bind(this)}
+          />
+		</div>
+	  );
 
     const dataOrError = this.state.error ?
       <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
@@ -83,25 +151,10 @@ class SpellingPronunciationList extends Component {
 	  	<div className='ui content'> 
 	  		<SimpleKeyboard />
 	  		<p></p>
+	  		<CheckboxSpelling />
 			{dataOrError}
-			<SpellFootnote />
 		</div>
 	);
-  }
-}
-
-class SpellFootnote extends Component {
-  render() {
-    return (
-      <div className='ui content'>
-        <p></p>
-        <strong>Notes</strong>
-		    <p></p>
-		    <p><sup>1</sup>  An acute accent is used in the Reichard and Salishan systems to indicate that the vowel is stressed. Underlining is used for this purpose in the Nicodemus system.</p>
-		    <p><sup>2</sup>  The symbol 'x' may be used in the Reichard and Salishan systems to write the sound /xʷ/ when it occurs before /u/.</p>
-		    <p><sup>3</sup>  Nicodemus 1975a,b uses both '(' and ')' occasionally to write the pharyngeals.</p>
-      </div>
-    );
   }
 }
 

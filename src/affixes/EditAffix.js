@@ -5,7 +5,7 @@ import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 
-class EditStem extends Component {
+class EditAffix extends Component {
 
 	constructor(props) {
     super(props);
@@ -15,14 +15,13 @@ class EditStem extends Component {
     this.idInput = React.createRef();
 		this.state = {
 			fields: {
-				id: "",
-	      		category: "",
-	      		reichard: "",
-	      		doak: "",
-	      		salish: "",
-	      		nicodemus: "",
-	      		english: "",
-	      		note: ""
+			  id: "",
+		      type: "",
+		      salish: "",
+		      nicodemus: "",
+		      english: "",
+		      link: "",
+		      page: ""
 			},
 			fieldErrors: {}
 		};
@@ -33,13 +32,12 @@ class EditStem extends Component {
 		this.setState({
 			fields: {
 				id: values.id,
-				category: values.category,
-				reichard: values.reichard,
-				doak: values.doak,
+				type: values.type,
 				salish: values.salish,
 				nicodemus: values.nicodemus,
 				english: values.english,
-				note: values.note
+				link: values.link,
+				page: values.page
 			}
 		}, () => {
 			//this.idInput.current.value = values.id;
@@ -52,29 +50,27 @@ class EditStem extends Component {
 		evt.preventDefault();
 		console.log("In form submission");
 		try {
-			const { id, category, reichard, doak, salish, nicodemus, english, note } = this.state.fields;
+			const { id, type, salish, nicodemus, english, link, page } = this.state.fields;
 			const body = {
 				id: id,
-				category: category,
-	      reichard: reichard,
-	      doak: doak,
-	      salish: salish,
-	      nicodemus: nicodemus,
-	      english: english,
-	      note: note
+				type: type,
+	      		salish: salish,
+	      		nicodemus: nicodemus,
+	      		english: english,
+	      		link: link,
+	      		page: page
 			};
-			const path = 'http://localhost:4000/stems/' + id;
+			const path = 'http://localhost:4000/affixes/' + id;
 			const headers = {
 				'Content-Type': 'application/json;charset=UTF-8',
 	      "Access-Control-Allow-Origin": "*"
 			};
 			const response = await axios.put(path, body, {headers});
 			console.log(response);
-			this.props.history.push('/stems');
-			//history.push('/rootdictionary');
+			this.props.history.push('/affixes');
 		} catch (err) {
 			console.log(err);
-			this.props.history.push('/stems');
+			this.props.history.push('/affixes');
 		}
 	};
 
@@ -88,39 +84,26 @@ class EditStem extends Component {
 	render() {
 		return (
 			<div>
-				<h3>Edit a Stem</h3>
+				<h3>Edit an Affix</h3>
 				<p>Do neat things.</p>
 				<div>
 					<Form onSubmit={this.onFormSubmit}>
 						<Form.Group widths='equal'>
-						<Form.Input fluid label="Id"
-							placeholder='Id'
-							name='id'
-							value={this.state.fields.id}
-							onChange={this.onInputChange}
-							ref={this.idInput}
+					<Form.Input fluid label="Id"
+						placeholder='Id'
+						name='id'
+						value={this.state.fields.id}
+						onChange={this.onInputChange}
+						ref={this.idInput}
 						/>
-						<Form.Input fluid label="Category"
-						placeholder='Category'
-						name='category'
-						value={this.state.fields.category}
+						<span style={{ color: 'red' }}>{this.state.fieldErrors.id}</span>
+					<Form.Input fluid label="Type"
+						placeholder='Type'
+						name='type'
+						value={this.state.fields.type}
 						onChange={this.onInputChange}
-					/>
-					<span style={{ color: 'red' }}>{this.state.fieldErrors.category}</span>
-						<Form.Input fluid label="Reichard"
-						placeholder='Reichard'
-						name='reichard'
-						value={this.state.fields.reichard}
-						onChange={this.onInputChange}
-					/>
-					<span style={{ color: 'red' }}>{this.state.fieldErrors.reichard}</span>
-					<Form.Input fluid label="Doak"
-						placeholder='Doak'
-						name='doak'
-						value={this.state.fields.doak}
-						onChange={this.onInputChange}
-					/>
-					<span style={{ color: 'red' }}>{this.state.fieldErrors.doak}</span>
+						/>
+						<span style={{ color: 'red' }}>{this.state.fieldErrors.type}</span>
 					<Form.Input fluid label="Salish"
 						placeholder='Salish'
 						name='salish'
@@ -142,13 +125,20 @@ class EditStem extends Component {
 						onChange={this.onInputChange}
 					/>
 					<span style={{ color: 'red' }}>{this.state.fieldErrors.english}</span>
-					<Form.Input fluid label="Note"
-						placeholder='Note'
-						name='note'
-						value={this.state.fields.note}
+					<Form.Input fluid label="Link"
+						placeholder='Link'
+						name='link'
+						value={this.state.fields.link}
 						onChange={this.onInputChange}
 					/>
-					<span style={{ color: 'red' }}>{this.state.fieldErrors.note}</span>
+					<span style={{ color: 'red' }}>{this.state.fieldErrors.link}</span>
+					<Form.Input fluid label="Page"
+						placeholder='Page'
+						name='page'
+						value={this.state.fields.page}
+						onChange={this.onInputChange}
+					/>
+					<span style={{ color: 'red' }}>{this.state.fieldErrors.link}</span>
 						</Form.Group>
 			         	<Button basic color="blue" type='submit' icon size="mini" labelPosition="right">
 			            	<Icon name='save' />
@@ -163,4 +153,4 @@ class EditStem extends Component {
 	}
 };
 
-export default withRouter(EditStem);
+export default withRouter(EditAffix);

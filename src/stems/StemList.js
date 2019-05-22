@@ -1,16 +1,18 @@
-import React, {
-	Component
-} from 'react';
+import React, {Component} from 'react';
 import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
+import DecoratedTextSpan from '../utilities/DecoratedTextSpan';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 import { Button, Icon } from 'semantic-ui-react';
 
 class StemList extends Component {
 
 	constructor() {
 		super();
+    	this.onDelete = this.onDelete.bind(this);
+    	this.loadStemData = this.loadStemData.bind(this);
 		this.state = {
 			data: [],
 			loading: true,
@@ -61,6 +63,10 @@ class StemList extends Component {
 
 
 	async componentDidMount() {
+		this.loadStemData();
+	}
+
+	async loadStemData() {
 		try {
 			const response = await fetch(`http://localhost:4000/stems`);
 			if (!response.ok) {
@@ -79,6 +85,27 @@ class StemList extends Component {
 		}
 	}
 
+	async onDelete(id) {
+	    console.log("In deletion");
+	    try {
+	      const body = {
+	        id: id
+	      };
+	      const path = 'http://localhost:4000/stems/' + id;
+	      const headers = {
+	        'Content-Type': 'application/json;charset=UTF-8',
+	        "Access-Control-Allow-Origin": "*"
+	      };
+	      const response = await axios.delete(path, body, {headers});
+	      console.log(response);
+	      //this.props.history.push(`/rootdictionary`);
+	      this.loadStemData();
+	    } catch (err) {
+	      console.log(err);
+	      this.loadStemData();
+	    }
+	  };
+	  
 	render() {
 
 		const {
@@ -111,29 +138,15 @@ class StemList extends Component {
 				}
 				return row[filter.id] === filter.value;
 			},
-			Filter: ({
-					filter,
-					onChange
-				}) =>
-				<
-				select
-			onChange = {
-				event => onChange(event.target.value)
-			}
-			style = {
-				{
-					width: "100%"
-				}
-			}
-			value = {
-				filter ? filter.value : "all"
-			} >
-			<
-			option value = "all" > Show All < /option> <
-			option value = "verb" > Verbs < /option> <
-			option value = "noun" > Nouns < /option> <
-			option value = "other" > Other < /option> <
-			/select>,
+			Filter: ({filter, onChange}) =>
+				<select onChange = { event => onChange(event.target.value)}
+					style = {{ width: "100%"}}
+					value = {filter ? filter.value : "all"} >
+				<option value = "all" > Show All < /option> 
+				<option value = "verb" > Verbs < /option> 
+				<option value = "noun" > Nouns < /option> 
+				<option value = "other" > Other < /option> 
+				</select>,
 		}, {
 			Header: 'Reichard',
 			accessor: 'reichard',
@@ -173,6 +186,7 @@ class StemList extends Component {
 					threshold: matchSorter.rankings.CONTAINS
 				}),
 			filterAll: true,
+		    Cell: row => ( <DecoratedTextSpan str={row.value} />),
 			show: nicodemusSelected,
 		}, {
 			Header: 'English',
@@ -200,104 +214,91 @@ class StemList extends Component {
 				}),
 			filterAll: true,
 			show: noteSelected,
-		}];
+		},
+      {
+        Header: 'Edit/Delete',
+        filterable: false,
+        sortable: false,
+        width: 100,
+        Cell: ({row, original}) => (
+          <div>
+            <Button icon floated='right' onClick={() => this.onDelete(original.id)}>
+                <Icon name='trash' />
+            </Button>
+            <Link to={{
+              pathname: '/editstem/',
+              search: '?id=' + original.id +
+              '&category=' + original.category +
+              '&reichard=' + original.reichard +
+              '&doak=' + original.doak +
+              '&salish=' + original.salish +
+              '&nicodemus=' + original.nicodemus +
+              '&english=' + original.english +
+              '&note=' + original.note
+            }} >
+            <Button icon floated='right'>
+            	<Icon name='edit' />
+            </Button>
+            </Link>
+          </div>
+        )
+      }];
 
-		const CheckboxStem = () => ( <
-			div className = "checkBoxMenu" >
-			<
-			label className = "checkBoxLabel" > Reichard < /label> <
-			input name = "reichard"
-			type = "checkbox"
-			checked = {
-				this.state.reichardSelected
-			}
-			onChange = {
-				this.handleReichardChange.bind(this)
-			}
-			/> <
-			label className = "checkBoxLabel" > Doak < /label> <
-			input name = "doak"
-			type = "checkbox"
-			checked = {
-				this.state.doakSelected
-			}
-			onChange = {
-				this.handleDoakChange.bind(this)
-			}
-			/> <
-			label className = "checkBoxLabel" > Salish < /label> <
-			input name = "salish"
-			type = "checkbox"
-			checked = {
-				this.state.salishSelected
-			}
-			onChange = {
-				this.handleSalishChange.bind(this)
-			}
-			/> <
-			label className = "checkBoxLabel" > Nicodemus < /label> <
-			input name = "nicodemus"
-			type = "checkbox"
-			checked = {
-				this.state.nicodemusSelected
-			}
-			onChange = {
-				this.handleNicodemusChange.bind(this)
-			}
-			/> <
-			label className = "checkBoxLabel" > English < /label> <
-			input name = "english"
-			type = "checkbox"
-			checked = {
-				this.state.englishSelected
-			}
-			onChange = {
-				this.handleEnglishChange.bind(this)
-			}
-			/> <
-			label className = "checkBoxLabel" > Note < /label> <
-			input name = "Note"
-			type = "checkbox"
-			checked = {
-				this.state.noteSelected
-			}
-			onChange = {
-				this.handleNoteChange.bind(this)
-			}
-			/> <
-			/div>
+		const CheckboxStem = () => ( 
+			<div className = "checkBoxMenu" >
+			<label className = "checkBoxLabel" > Reichard < /label> 
+			<input name = "reichard" 
+				type = "checkbox" 
+				checked = {this.state.reichardSelected}
+				onChange = {this.handleReichardChange.bind(this)}
+			/> 
+			<label className = "checkBoxLabel" > Doak < /label> 
+			<input name = "doak"
+				type = "checkbox"
+				checked = {this.state.doakSelected}
+				onChange = {this.handleDoakChange.bind(this)}
+			/> 
+			<label className = "checkBoxLabel" > Salish < /label> 
+			<input name = "salish"
+				type = "checkbox"
+				checked = {this.state.salishSelected}
+				onChange = {this.handleSalishChange.bind(this)}
+			/> 
+			<label className = "checkBoxLabel" > Nicodemus < /label> 
+			<input name = "nicodemus"
+				type = "checkbox"
+				checked = {this.state.nicodemusSelected}
+				onChange = {this.handleNicodemusChange.bind(this)}
+			/> 
+			<label className = "checkBoxLabel" > English < /label> 
+			<input name = "english"
+				type = "checkbox"
+				checked = {this.state.englishSelected}
+				onChange = {this.handleEnglishChange.bind(this)}
+			/> 
+			<label className = "checkBoxLabel" > Note < /label> 
+			<input name = "Note"
+				type = "checkbox"
+				checked = {this.state.noteSelected}
+				onChange = {this.handleNoteChange.bind(this)}
+			/> 
+			</div>
 		);
 
 		const dataOrError = this.state.error ?
-			<
-			div style = {
-				{
-					color: 'red'
-				}
-			} > Oops!Something went wrong! < /div> : <
-			ReactTable
-		data = {
-			this.state.data
-		}
-		loading = {
-			this.state.loading
-		}
-		columns = {
-			columns
-		}
-		defaultPageSize = {
-			5
-		}
-		className = "-striped -highlight left"
-		filterable = "true"
-		filterAll = "true" /
-			> ;
+			<div style = {{color: 'red'}} > Oops!Something went wrong! < /div> : 
+			<ReactTable
+				data = {this.state.data}
+				loading = {this.state.loading}
+				columns = {columns}
+				defaultPageSize = {5}
+				className = "-striped -highlight left"
+				filterable  
+			/>;
 		return ( <div className = 'ui content'>
 
 			<div className="text-right">
-				<Link to={{
-					pathname: '/addstem/'
-				}} >
+				<Link to={{pathname: '/addstem/'}} >
 					<Button icon labelPosition='left' size='small'>
 						<Icon name='plus' />
 						Add a stem

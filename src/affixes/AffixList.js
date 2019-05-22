@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
+import React, {	Component } from 'react';
 import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
-import SimpleKeyboard from "../utilities/SimpleKeyboard"; 
+import SimpleKeyboard from "../utilities/SimpleKeyboard";
+import { Link } from "react-router-dom";
+import axios from 'axios';
+import { Button, Icon } from 'semantic-ui-react';
 
 class AffixList extends Component {
 	 constructor() {
 	    super();
+    	this.onDelete = this.onDelete.bind(this);
+    	this.loadAffixData = this.loadAffixData.bind(this);
 	    this.weblink = this.weblink.bind(this);
 	    this.state = {
     		data: [], 
@@ -38,19 +43,44 @@ class AffixList extends Component {
 	handleLinkChange(value) {
 	    this.setState({ linkSelected: !this.state.linkSelected });
 	  };
-  async componentDidMount() {
-    try {
-      const response = await fetch(`http://localhost:4000/affixes`);
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      const json = await response.json();
-      this.setState({ loading: false, data: json });
-    } catch (error) {
-      console.log("This is my Error: " + error);
-      this.setState({ error: error });
-    }
-  }
+	
+	  async componentDidMount() {
+			this.loadAffixData();
+	  }	
+
+	  async loadAffixData() {
+	    try {
+	      const response = await fetch(`http://localhost:4000/affixes`);
+	      if (!response.ok) {
+	        throw Error(response.statusText);
+	      }
+	      const json = await response.json();
+	      this.setState({ loading: false, data: json });
+	    } catch (error) {
+	      console.log("This is my Error: " + error);
+	      this.setState({ error: error });
+	    }
+	  }
+	async onDelete(id) {
+	    console.log("In deletion");
+	    try {
+	      const body = {
+	        id: id
+	      };
+	      const path = 'http://localhost:4000/affixes/' + id;
+	      const headers = {
+	        'Content-Type': 'application/json;charset=UTF-8',
+	        "Access-Control-Allow-Origin": "*"
+	      };
+	      const response = await axios.delete(path, body, {headers});
+	      console.log(response);
+	      this.loadAffixData();
+	    } catch (err) {
+	      console.log(err);
+	      this.loadAffixData();
+	    }
+	  };
+
 	render() {
 
   	const { salishSelected, nicodemusSelected, englishSelected, linkSelected } = this.state;
@@ -118,7 +148,34 @@ class AffixList extends Component {
 	    accessor: 'link',
 	    Cell: ({row, original}) => ( this.weblink(original.link, original.page) ),
 	    show: linkSelected,
-	  }
+	  },
+      {
+        Header: 'Edit/Delete',
+        filterable: false,
+        sortable: false,
+        width: 100,
+        Cell: ({row, original}) => (
+          <div>
+            <Button icon floated='right' onClick={() => this.onDelete(original.id)}>
+                <Icon name='trash' />
+            </Button>
+            <Link to={{
+              pathname: '/editaffix/',
+              search: '?id=' + original.id +
+              '&type=' + original.type +
+              '&salish=' + original.salish +
+              '&nicodemus=' + original.nicodemus +
+              '&english=' + original.english +
+              '&link=' + original.link +
+              '&page=' + original.page
+            }} >
+            <Button icon floated='right'>
+            	<Icon name='edit' />
+            </Button>
+            </Link>
+          </div>
+        )
+      }
 	  ];
 
 	const CheckboxAffix = () => (
@@ -163,12 +220,21 @@ class AffixList extends Component {
         columns={columns}
         defaultPageSize={10}
         className="-striped -highlight left"
-        filterable="true"
-        filterAll="true"
+        filterable
       />;
 
 	  return (
       <div className='ui content'>
+	  	<div className="text-right">
+			<Link to={{
+				pathname: '/addaffix/'
+			}} >
+				<Button icon labelPosition='left' size='small'>
+					<Icon name='plus' />
+					Add an affix
+				</Button>
+			</Link>
+		</div>
 		<p></p>
 		<SimpleKeyboard />
 		<p></p>

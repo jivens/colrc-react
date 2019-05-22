@@ -5,9 +5,15 @@ import matchSorter from 'match-sorter';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
+<<<<<<< HEAD
 import { graphql } from 'react-apollo';
 import { getRootsQuery } from '../queries/queries';
 import SimpleKeyboard from "../utilities/SimpleKeyboard"; 
+=======
+import SimpleKeyboard from "../utilities/SimpleKeyboard";
+import { graphql } from 'react-apollo';
+import { getRootsQuery } from '../queries/queries';
+>>>>>>> 950e4ac66c665da2d17dd5cd94a258dd09b42ae4
 
 class RootsDictionary extends Component {
   constructor() {

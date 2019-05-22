@@ -5,6 +5,8 @@ import matchSorter from 'match-sorter';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import { graphql } from 'react-apollo';
+import { getRootsQuery } from '../queries/queries';
 import SimpleKeyboard from "../utilities/SimpleKeyboard"; 
 
 class RootsDictionary extends Component {
@@ -39,7 +41,7 @@ class RootsDictionary extends Component {
 	  };
 
   async componentDidMount() {
-    this.loadRootData();
+    //this.loadRootData();
   }
 
   async loadRootData() {
@@ -209,8 +211,8 @@ class RootsDictionary extends Component {
  const dataOrError = this.state.error ?
       <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
       <ReactTable
-        data={this.state.data}
-        loading={this.state.loading}
+        data={this.props.data.roots}
+        loading={this.props.data.loading}
         columns={columns}
         filterable
         defaultPageSize={5}
@@ -241,4 +243,4 @@ class RootsDictionary extends Component {
   }
 }
 
-export default withRouter(RootsDictionary);
+export default graphql(getRootsQuery)(withRouter(RootsDictionary));

@@ -29,6 +29,13 @@ import "react-table/react-table.css";
 import './stylesheets/NavBar.css';
 import './stylesheets/Colrc.css';
 import './stylesheets/AccordionTables.css';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
+
+// apollo client setup
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/api'
+});
 
 class Colrc extends Component {
 
@@ -42,6 +49,7 @@ class Colrc extends Component {
 		];
 
       return (
+      	<ApolloProvider client={client}>
         <Router>
           <NavBar rightItems={rightItems}>
           <MainMenu title='title' />
@@ -85,6 +93,7 @@ class Colrc extends Component {
         </NavBar>
 
       </Router>
+      </ApolloProvider>
       );
     }
 }

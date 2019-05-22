@@ -64,6 +64,9 @@
   display: none;
 }
 
+.image-gallery-slide img {
+  height: 90%;
+}
 /*.keyboardContainer {
   max-width: 250px;
   margin: 0 auto;

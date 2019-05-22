@@ -1,75 +1,55 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
-import AudioPlayer from "./AudioPlayer";
-
-class AudioIntro extends Component {
-  render() {
-    return (
-      <div className='ui content'>
-
-		<h3>Audio Files</h3>
-
-		<p>
-			Below are several audio recordings of Coeur d'Alene.  For those for which we have corresponding field notes, 
-			we have linked to these resources (which are also available in the <Link to="/texts">texts</Link> area of this site).
-		</p>
-		
-		<p>		
-		</p>
-		
-      </div>
-    );
-  }
-}
+import { Link } from "react-router-dom";
+import { Menu } from 'semantic-ui-react';
+import AudioAccordion from '../accordions/AudioAccordion';
+import AudioPlayer from "../utilities/AudioPlayer";
+import AudioList from "./AudioList";
+import AudioMetadata from "./AudioMetadata";
 
 class Audio extends Component {
+	constructor(props) {
+	    super(props);
+	    this.state = { 
+	    	activeItem: 'list', 
+	    };
+	    this.handleItemClick = this.handleItemClick.bind(this);
+	  };
+
+	handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  
   render() {
+  	const { activeItem } = this.state;	
+
+	let currentItem; 
+    	if (this.state.activeItem === "list") {
+      		currentItem = <AudioList />;
+    	}
+		else {
+			currentItem = <AudioMetadata />;
+		};
     return (
-      <div className='ui content'>
-        <AudioIntro />
-        <AudioElement />
-
-      </div>
-    );
-  }
+        <div className='ui content'>
+	      	<Menu size='mini'>
+		        <Menu.Item 
+					name='list'
+					active={activeItem === 'list'}
+					onClick={this.handleItemClick}>
+					Audio List
+		        </Menu.Item>
+		        <Menu.Item 
+					name='metadata'
+					active={activeItem === 'metadata'}
+					onClick={this.handleItemClick}>
+					Metadata
+		        </Menu.Item>
+	      	</Menu>
+	      	<p></p>
+	      	<AudioAccordion />
+	      	<p></p>
+        	{currentItem}
+      	</div>
+      );
+    }
 }
-
-
-      //const media=[
-      //  {collective_title:"Chief Child of the Root", collection:chief_child_of_the_root_collection},
-      //  {collective_title:"Coyote Cycle", collection:coyote_cycle_collection}
-      //];
-      //const chief_child_of_the_root_collection = [
-      //  {reichard_1947_number:"1", title:"Chief Child of the Root (Transformer)",
-      //    manuscripts:chief_child_of_the_root_manuscripts}
-      //];
-      //const chief_child_of_the_root_manuscripts = [
-      //  {style:"typed", pdf:"", image:"", metadata:chief_child_of_the_root_typed_metadata}
-      //];
-      
-class AudioElement extends Component {
-  render() {
-      const sources=[
-        {src:'http://lasrv01.ipfw.edu/COLRC/audio/01_Track_1Crd_Little_Mosquito1.wav', type:'audio/wav', direct:false},
-        {src:'http://lasrv01.ipfw.edu/COLRC/audio//01_Track_1Crd_LittleMosq1.mp3', type:'audio/mpeg', direct:true}
-      ];
-      const sources2=[
-        {src:'http://lasrv01.ipfw.edu/COLRC/audio/02_Track2Crd_Little_Mosquito2.wav', type:'audio/wav', direct:false},
-        {src:'http://lasrv01.ipfw.edu/COLRC/audio//02_Track2Crd_LittleMosq2.mp3', type:'audio/mpeg', direct:true}
-      ];
-      const audiolist=[
-        {title:"Part 1 - in Couer d'Alene", sources:sources},
-        {title:"Part 2 - in Couer d'Alene", sources:sources2}
-      ]; 
-    
-    return (
-      <div className='ui content'>
-	  	<AudioPlayer sources={audiolist[0].sources} title={audiolist[0].title} />
-	    <AudioPlayer sources={audiolist[1].sources} title={audiolist[1].title} /> 
-        
-      </div>
-    );
-  }
-}
-
+  
 export default Audio;

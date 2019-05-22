@@ -12,6 +12,9 @@
 # audio files
 /audio
 
+# public files
+/public
+
 # misc
 .DS_Store
 .env.local

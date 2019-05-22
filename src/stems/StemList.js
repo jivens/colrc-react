@@ -293,9 +293,7 @@ class StemList extends Component {
 		filterAll = "true" /
 			> ;
 		return ( <div className = 'ui content'>
-			<p> < /p>
-			<SimpleKeyboard / >
-			<p> Stem type as listed by Reichard, 'Other' = 'Adverbs, Interjections, Conjunctions' </p>
+
 			<div className="text-right">
 				<Link to={{
 					pathname: '/addstem/'
@@ -306,6 +304,9 @@ class StemList extends Component {
 					</Button>
 				</Link>
 			</div>
+			<p> < /p>
+			<SimpleKeyboard / >
+			<p> Stem type as listed by Reichard, 'Other' = 'Adverbs, Interjections, Conjunctions' </p>
 			<CheckboxStem / >
 			{dataOrError}
 			<p> </p>

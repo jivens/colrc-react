@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ImageGallery from 'react-image-gallery';
 import queryString from 'query-string';
+import { Container } from 'semantic-ui-react';
 import "react-image-gallery/styles/css/image-gallery.css";
 
 class ImageViewer extends Component {
@@ -9,6 +10,7 @@ class ImageViewer extends Component {
 		this.state = {
 			key: 0,
 			images: [],
+			showBullets: true,
 		};
   }
 
@@ -35,7 +37,13 @@ class ImageViewer extends Component {
   render() {
 
     return (
-      <ImageGallery key={this.state.key} items={this.state.images} />
+    	<div>
+    	<Container text>
+    	<ImageGallery key={this.state.key} items={this.state.images} 
+      		showBullets={this.state.showBullets}
+      		/>
+      	</Container>
+      	</div>
     );
   }
  

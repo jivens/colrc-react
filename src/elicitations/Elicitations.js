@@ -3,7 +3,7 @@ import { Button, Icon } from 'semantic-ui-react';
 import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
 import { Link } from "react-router-dom";
-import AudioPlayer from "../audio/AudioPlayer";
+import AudioPlayer from "../utilities/AudioPlayer";
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Button, Icon, Checkbox } from 'semantic-ui-react';
 import ReactTable from "react-table";
+import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import matchSorter from 'match-sorter';
 import {
     Accordion,
@@ -76,7 +77,7 @@ render() {
 
  	const getColumnWidth = (rows, accessor, headerText) => {
 	  const maxWidth = 600
-	  const magicSpacing = 15
+	  const magicSpacing = 10
 	  const cellLength = Math.max(
 	    ...rows.map(row => (`${row[accessor]}` || '').length),
 	    headerText.length,
@@ -106,14 +107,15 @@ const BibIntro = () => (
 const columns = [{
   Header: 'Author',
   accessor: 'author',
-filterMethod: (filter, rows) =>
+  style: { 'white-space': 'unset'},
+  filterMethod: (filter, rows) =>
     matchSorter(rows, filter.value, { keys: ["author"], threshold: matchSorter.rankings.CONTAINS }),
       filterAll: true,
-  //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
   },
 {
   Header: 'Year',
   accessor: 'year',
+  maxWidth: 100,
   filterMethod: (filter, rows) =>
       matchSorter(rows, filter.value, { keys: ["year"], threshold: matchSorter.rankings.CONTAINS }),
         filterAll: true,
@@ -121,25 +123,24 @@ filterMethod: (filter, rows) =>
 {
   Header: 'Title',
   accessor: 'title',
+  style: { 'white-space': 'unset'},
   filterMethod: (filter, rows) =>
       matchSorter(rows, filter.value, { keys: ["title"], threshold: matchSorter.rankings.CONTAINS }),
         filterAll: true,
-  //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
   },
 {
   Header: 'Reference',
   accessor: 'reference',
-  style: { 'white-space': 'unset' }, //??
+  style: { 'white-space': 'unset' }, //allows text to wrap in a cell
   filterMethod: (filter, rows) =>
       matchSorter(rows, filter.value, { keys: ["reference"], threshold: matchSorter.rankings.CONTAINS }),
         filterAll: true,
-  //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
   },
 {
   Header: 'Link',
   accessor: 'link',
+  width: 100,
   Cell: ({row, original}) => ( this.weblink(original.link, original.linktext) ),
-  //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 },
 {
   Header: 'Edit/Delete',
@@ -178,7 +179,7 @@ const dataOrError = this.state.error ?
        loading={this.state.loading}
        columns={columns}
        filterable
-       defaultPageSize={5}
+       defaultPageSize={20}
        className="-striped -highlight"
      />;
 
@@ -194,6 +195,9 @@ const dataOrError = this.state.error ?
             </Button>
           </Link>
         </div>
+        <p> < /p>
+			<SimpleKeyboard / >
+		<p> < /p>
         <div>{dataOrError}</div>
       </div>
 

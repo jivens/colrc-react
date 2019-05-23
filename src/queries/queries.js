@@ -42,8 +42,8 @@ const addUserMutation = gql`
 `;
 
 const addRootMutation = gql`
-  mutation($root: String!, $number: Integer!, $salish: String!, $nicodemus: String!, $english: String!) {
-    addUser(root: $root, number: $number, salish: $salish, nicodemus: $nicodemus, english: $english) {
+  mutation($root: String!, $number: Int!, $salish: String!, $nicodemus: String!, $english: String!) {
+    addRoot(root: $root, number: $number, salish: $salish, nicodemus: $nicodemus, english: $english) {
       id
       root
       number

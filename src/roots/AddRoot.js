@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Form,  Button, Icon } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
+import { graphql, compose } from 'react-apollo';
+import { addRootMutation } from '../queries/queries';
 import { withRouter } from 'react-router-dom';
 
 class AddRoot extends Component {
@@ -27,21 +29,15 @@ class AddRoot extends Component {
 		evt.preventDefault();
 		console.log("In add form submission");
 		try {
-			const { root, number, salish, nicodemus, english } = this.state.fields;
-			const body = {
-				root: root,
-				number: number,
-				salish: salish,
-				nicodemus: nicodemus,
-				english: english
-			};
-			const path = 'http://localhost:4000/roots';
-			const headers = {
-				'Content-Type': 'application/json;charset=UTF-8',
-	      "Access-Control-Allow-Origin": "*"
-			};
-			const response = await axios.post(path, body, {headers});
-			console.log(response);
+		    this.props.addRootMutation({
+		      variables: {
+		        root: this.state.fields.root,
+		        number: parseInt(this.state.fields.number),
+		        salish: this.state.fields.salish,
+		        nicodemus: this.state.fields.nicodemus,
+		        english: this.state.fields.english
+		      }
+		    });	
 			this.props.history.push('/roots');
 			//history.push('/rootdictionary');
 		} catch (err) {
@@ -117,4 +113,7 @@ class AddRoot extends Component {
 	}
 };
 
-export default withRouter(AddRoot);
+
+export default compose(
+  graphql(addRootMutation, { name: "addRootMutation"})
+  )(withRouter(AddRoot));

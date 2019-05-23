@@ -3,6 +3,8 @@ import queryString from 'query-string';
 import { Form, Button, Icon } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import axios from 'axios';
+import { graphql, compose } from 'react-apollo';
+import { updateRootMutation } from '../queries/queries';
 import { withRouter } from 'react-router-dom';
 
 class EditRoot extends Component {
@@ -48,22 +50,16 @@ class EditRoot extends Component {
 		evt.preventDefault();
 		console.log("In form submission");
 		try {
-			const { id, root, number, salish, nicodemus, english } = this.state.fields;
-			const body = {
-				id: id,
-				root: root,
-				number: number,
-				salish: salish,
-				nicodemus: nicodemus,
-				english: english
-			};
-			const path = 'http://localhost:4000/roots/' + id;
-			const headers = {
-				'Content-Type': 'application/json;charset=UTF-8',
-	      "Access-Control-Allow-Origin": "*"
-			};
-			const response = await axios.put(path, body, {headers});
-			console.log(response);
+			this.props.updateRootMutation({
+				variables: {
+					id: this.state.fields.id,
+					root: this.state.fields.root,
+					number: parseInt(this.state.fields.number),
+					salish: this.state.fields.salish,
+					nicodemus: this.state.fields.nicodemus,
+					english: this.state.fields.english
+				}
+			});
 			this.props.history.push('/roots');
 			//history.push('/rootdictionary');
 		} catch (err) {
@@ -144,4 +140,6 @@ class EditRoot extends Component {
 	}
 };
 
-export default withRouter(EditRoot);
+export default compose(
+	graphql(updateRootMutation, { name: 'updateRootMutation' })
+)(withRouter(EditRoot));

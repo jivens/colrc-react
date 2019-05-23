@@ -5,9 +5,9 @@ import matchSorter from 'match-sorter';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-import { graphql } from 'react-apollo';
-import { getRootsQuery } from '../queries/queries';
-import SimpleKeyboard from "../utilities/SimpleKeyboard"; 
+import { graphql, compose } from 'react-apollo';
+import { getRootsQuery, deleteRootMutation } from '../queries/queries';
+import SimpleKeyboard from "../utilities/SimpleKeyboard";
 
 class RootsDictionary extends Component {
   constructor() {
@@ -61,21 +61,14 @@ class RootsDictionary extends Component {
   async onDelete(id) {
     console.log("In deletion");
     try {
-      const body = {
-        id: id
-      };
-      const path = 'http://localhost:4000/roots/' + id;
-      const headers = {
-        'Content-Type': 'application/json;charset=UTF-8',
-        "Access-Control-Allow-Origin": "*"
-      };
-      const response = await axios.delete(path, body, {headers});
-      console.log(response);
-      //this.props.history.push(`/rootdictionary`);
-      this.loadRootData();
+      this.props.deleteRootMutation({
+        variables: {
+          id: id
+        }
+      });
+      this.props.history.push('/roots');
     } catch (err) {
       console.log(err);
-      this.loadRootData();
     }
   };
 
@@ -211,8 +204,8 @@ class RootsDictionary extends Component {
  const dataOrError = this.state.error ?
       <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
       <ReactTable
-        data={this.props.data.roots}
-        loading={this.props.data.loading}
+        data={this.props.getRootsQuery.roots}
+        loading={this.props.getRootsQuery.loading}
         columns={columns}
         filterable
         defaultPageSize={5}
@@ -243,4 +236,7 @@ class RootsDictionary extends Component {
   }
 }
 
-export default graphql(getRootsQuery)(withRouter(RootsDictionary));
+export default compose(
+	graphql(getRootsQuery, { name: 'getRootsQuery' }),
+  graphql(deleteRootMutation, { name: 'deleteRootMutation' })
+)(withRouter(RootsDictionary));

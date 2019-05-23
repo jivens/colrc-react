@@ -49,8 +49,8 @@ class Colrc extends Component {
 		];
 
       return (
-        <ApolloProvider client={client}>
-          <Router>
+        <Router>
+          <ApolloProvider client={client}>
             <NavBar rightItems={rightItems}>
             <MainMenu title='title' />
             <Grid container verticalAlign='top'>
@@ -91,8 +91,8 @@ class Colrc extends Component {
           </Grid>
         </NavBar>
 
-        </Router>
-      </ApolloProvider>
+        </ApolloProvider>
+      </Router>
       );
     }
 }

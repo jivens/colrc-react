@@ -54,6 +54,32 @@ const addRootMutation = gql`
   }
 `;
 
+const updateRootMutation = gql`
+  mutation($id: ID!, $root: String!, $number: Int!, $salish: String!, $nicodemus: String!, $english: String!) {
+    updateRoot(id: $id, root: $root, number: $number, salish: $salish, nicodemus: $nicodemus, english: $english) {
+      id
+      root
+      number
+      salish
+      nicodemus
+      english
+    }
+  }
+`;
+
+const deleteRootMutation = gql`
+  mutation($id: ID!) {
+    deleteRoot(id: $id) {
+      id
+      root
+      number
+      salish
+      nicodemus
+      english
+    }
+  }
+`;
+
 const getUserQuery = gql`
   query($id: ID) {
     user(id: $id) {
@@ -81,5 +107,4 @@ const getRootQuery = gql`
   }
 `;
 
-export { getUsersQuery, getRootsQuery, getUserQuery, getRootQuery, addUserMutation, addRootMutation };
-
+export { getUsersQuery, getRootsQuery, getUserQuery, getRootQuery, addUserMutation, addRootMutation, updateRootMutation, deleteRootMutation };

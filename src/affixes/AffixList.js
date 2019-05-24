@@ -6,7 +6,12 @@ import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
 import { Button, Icon } from 'semantic-ui-react';
 import { graphql, compose } from 'react-apollo';
+<<<<<<< HEAD
 import { getAffixesQuery } from '../queries/queries';
+=======
+import { getAffixesQuery, deleteAffixMutation } from '../queries/queries';
+import { Button, Icon } from 'semantic-ui-react';
+>>>>>>> d8ae352aaa7882a93400378b22c23801c5a4d67c
 
 class AffixList extends Component {
 	 constructor() {
@@ -62,27 +67,23 @@ class AffixList extends Component {
 	  //     console.log("This is my Error: " + error);
 	  //     this.setState({ error: error });
 	  //   }
-		// }
-		
-	async onDelete(id) {
-	    console.log("In deletion");
-	    try {
-	      const body = {
-	        id: id
-	      };
-	      const path = 'http://localhost:4000/affixes/' + id;
-	      const headers = {
-	        'Content-Type': 'application/json;charset=UTF-8',
-	        "Access-Control-Allow-Origin": "*"
-	      };
-	      const response = await axios.delete(path, body, {headers});
-	      console.log(response);
-	      // this.loadAffixData();
-	    } catch (err) {
-	      console.log(err);
-	      // this.loadAffixData();
-	    }
-	  };
+	  // }
+
+  async onDelete(id) {
+    console.log("In deletion");
+    try {
+      this.props.deleteAffixMutation({
+        variables: {
+          id: id
+        },
+		refetchQueries: [{ query: getAffixesQuery }]
+      });
+      this.props.history.push('/affixes');
+    } catch (err) {
+      console.log(err);
+      this.props.history.push('/affixes');
+    }
+  };
 
 	render() {
 
@@ -251,4 +252,5 @@ class AffixList extends Component {
 
 export default compose(
 	graphql(getAffixesQuery, { name: 'getAffixesQuery' }),
+	graphql(deleteAffixMutation, { name: 'deleteAffixMutation' })
 )(withRouter(AffixList));

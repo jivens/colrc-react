@@ -42,6 +42,48 @@ const getRootsQuery = gql`
   }
 `;
 
+const addAffixMutation = gql`
+  mutation($type: String!, $salish: String!, $nicodemus: String!, $english: String!, $link: String!, $page: String!) {
+    addAffix(type: $type, salish: $salish, nicodemus: $nicodemus, english: $english, link: $link, page: $page) {
+      id
+      type
+      salish
+      nicodemus
+      english
+      link
+      page
+    }
+  }
+`;
+
+const updateAffixMutation = gql`
+  mutation($id: ID!, $type: String!, $salish: String!, $nicodemus: String!, $english: String!, $link: String!, $page: String!) {
+    updateAffix(id: $id, type: $type, salish: $salish, nicodemus: $nicodemus, english: $english, link: $link, page: $page) {
+      id
+      type
+      salish
+      nicodemus
+      english
+	  link
+	  page
+    }
+  }
+  `;
+
+const deleteAffixMutation = gql`
+  mutation($id: ID!) {
+    deleteAffix(id: $id) {
+      id
+      type
+      salish
+      nicodemus
+      english
+      link
+      page
+    }
+  }
+`;
+
 const addUserMutation = gql`
   mutation($first: String!, $last: String!, $username: String!, $email: String!, $password: String!, $roles: String!) {
     addUser(first: $first, last: $last, username: $username, email: $email, password: $password, roles: $roles) {
@@ -122,4 +164,4 @@ const getRootQuery = gql`
   }
 `;
 
-export { getAffixesQuery, getUsersQuery, getRootsQuery, getUserQuery, getRootQuery, addUserMutation, addRootMutation, updateRootMutation, deleteRootMutation };
+export { getAffixesQuery, addAffixMutation, deleteAffixMutation, updateAffixMutation, getUsersQuery, getRootsQuery, getUserQuery, getRootQuery, addUserMutation, addRootMutation, updateRootMutation, deleteRootMutation };

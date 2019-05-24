@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Form,  Button, Icon } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
+import { graphql, compose } from 'react-apollo';
+import { addAffixMutation, getAffixesQuery } from '../queries/queries';
 import { withRouter } from 'react-router-dom';
 
 class AddAffix extends Component {
@@ -28,24 +30,18 @@ class AddAffix extends Component {
 		evt.preventDefault();
 		console.log("In add form submission");
 		try {
-			const { type, salish, nicodemus, english, link, page } = this.state.fields;
-			const body = {
-				type: type,
-		      	salish: salish,
-	      		nicodemus: nicodemus,
-	      		english: english,
-	      		link: link,
-	      		page: page
-			};
-			const path = 'http://localhost:4000/affixes';
-			const headers = {
-				'Content-Type': 'application/json;charset=UTF-8',
-	      "Access-Control-Allow-Origin": "*"
-			};
-			const response = await axios.post(path, body, {headers});
-			console.log(response);
+		    this.props.addAffixMutation({
+		      variables: {
+		        type: this.state.fields.type,
+		        salish: this.state.fields.salish,
+		        nicodemus: this.state.fields.nicodemus,
+		        english: this.state.fields.english,
+		        link: this.state.fields.link,
+		        page: this.state.fields.page
+		      },
+		      refetchQueries: [{ query: getAffixesQuery }]
+		    });	
 			this.props.history.push('/affixes');
-			//history.push('/rootdictionary');
 		} catch (err) {
 			console.log(err);
 			this.props.history.push('/affixes');
@@ -126,4 +122,6 @@ class AddAffix extends Component {
 	}
 };
 
-export default withRouter(AddAffix);
+export default compose(
+  graphql(addAffixMutation, { name: "addAffixMutation"})
+  )(withRouter(AddAffix));

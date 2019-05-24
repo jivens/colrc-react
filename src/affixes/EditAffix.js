@@ -3,6 +3,8 @@ import queryString from 'query-string';
 import { Form, Button, Icon } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import axios from 'axios';
+import { graphql, compose } from 'react-apollo';
+import { updateAffixMutation, getAffixesQuery } from '../queries/queries';
 import { withRouter } from 'react-router-dom';
 
 class EditAffix extends Component {
@@ -50,29 +52,26 @@ class EditAffix extends Component {
 		evt.preventDefault();
 		console.log("In form submission");
 		try {
-			const { id, type, salish, nicodemus, english, link, page } = this.state.fields;
-			const body = {
-				id: id,
-				type: type,
-	      		salish: salish,
-	      		nicodemus: nicodemus,
-	      		english: english,
-	      		link: link,
-	      		page: page
-			};
-			const path = 'http://localhost:4000/affixes/' + id;
-			const headers = {
-				'Content-Type': 'application/json;charset=UTF-8',
-	      "Access-Control-Allow-Origin": "*"
-			};
-			const response = await axios.put(path, body, {headers});
-			console.log(response);
+			this.props.updateAffixMutation({
+				variables: {
+					id: this.state.fields.id,
+					type: this.state.fields.type,
+					salish: this.state.fields.salish,
+					nicodemus: this.state.fields.nicodemus,
+					english: this.state.fields.english,
+					link: this.state.fields.link,
+					page: this.state.fields.page,
+				},
+		      	refetchQueries: [{ query: getAffixesQuery }]
+			});
 			this.props.history.push('/affixes');
+			//history.push('/rootdictionary');
 		} catch (err) {
 			console.log(err);
 			this.props.history.push('/affixes');
 		}
 	};
+
 
 	onInputChange = (evt) => {
 		console.log("Change event called on " + evt.target.value);
@@ -153,4 +152,6 @@ class EditAffix extends Component {
 	}
 };
 
-export default withRouter(EditAffix);
+export default compose(
+	graphql(updateAffixMutation, { name: 'updateAffixMutation' })
+)(withRouter(EditAffix));

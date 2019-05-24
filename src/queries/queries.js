@@ -1,5 +1,20 @@
 import { gql } from 'apollo-boost';
 
+
+const getAffixesQuery = gql`
+  {
+    affixes {
+      id
+      type
+      salish
+      nicodemus
+      english
+      link
+      page
+    }
+  }
+`;
+
 const getUsersQuery = gql`
   {
     users {
@@ -107,4 +122,4 @@ const getRootQuery = gql`
   }
 `;
 
-export { getUsersQuery, getRootsQuery, getUserQuery, getRootQuery, addUserMutation, addRootMutation, updateRootMutation, deleteRootMutation };
+export { getAffixesQuery, getUsersQuery, getRootsQuery, getUserQuery, getRootQuery, addUserMutation, addRootMutation, updateRootMutation, deleteRootMutation };

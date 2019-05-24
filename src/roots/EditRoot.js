@@ -4,7 +4,7 @@ import { Form, Button, Icon } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import axios from 'axios';
 import { graphql, compose } from 'react-apollo';
-import { updateRootMutation } from '../queries/queries';
+import { updateRootMutation, getRootsQuery } from '../queries/queries';
 import { withRouter } from 'react-router-dom';
 
 class EditRoot extends Component {
@@ -58,7 +58,8 @@ class EditRoot extends Component {
 					salish: this.state.fields.salish,
 					nicodemus: this.state.fields.nicodemus,
 					english: this.state.fields.english
-				}
+				},
+		      	refetchQueries: [{ query: getRootsQuery }]
 			});
 			this.props.history.push('/roots');
 			//history.push('/rootdictionary');

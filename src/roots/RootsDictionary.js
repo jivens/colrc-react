@@ -13,7 +13,7 @@ class RootsDictionary extends Component {
   constructor() {
     super();
     this.onDelete = this.onDelete.bind(this);
-    this.loadRootData = this.loadRootData.bind(this);
+    //this.loadRootData = this.loadRootData.bind(this);
     this.state = {
     	data: [],
     	loading: true,
@@ -42,21 +42,22 @@ class RootsDictionary extends Component {
 
   async componentDidMount() {
     //this.loadRootData();
+
   }
 
-  async loadRootData() {
-    try {
-      const response = await fetch(`http://localhost:4000/roots`);
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      const json = await response.json();
-      this.setState({ loading: false, data: json });
-    } catch (error) {
-      console.log("This is my Error: " + error);
-      this.setState({ error: error });
-    }
-  }
+  // async loadRootData() {
+  //   try {
+  //     const response = await fetch(`http://localhost:4000/roots`);
+  //     if (!response.ok) {
+  //       throw Error(response.statusText);
+  //     }
+  //     const json = await response.json();
+  //     this.setState({ loading: false, data: json });
+  //   } catch (error) {
+  //     console.log("This is my Error: " + error);
+  //     this.setState({ error: error });
+  //   }
+  // }
 
   async onDelete(id) {
     console.log("In deletion");
@@ -64,11 +65,13 @@ class RootsDictionary extends Component {
       this.props.deleteRootMutation({
         variables: {
           id: id
-        }
+        },
+		refetchQueries: [{ query: getRootsQuery }]
       });
       this.props.history.push('/roots');
     } catch (err) {
       console.log(err);
+      this.props.history.push('/roots');
     }
   };
 

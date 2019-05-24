@@ -4,9 +4,9 @@ import matchSorter from 'match-sorter';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
+import { Button, Icon } from 'semantic-ui-react';
 import { graphql, compose } from 'react-apollo';
 import { getAffixesQuery } from '../queries/queries';
-import { Button, Icon } from 'semantic-ui-react';
 
 class AffixList extends Component {
 	 constructor() {
@@ -47,7 +47,7 @@ class AffixList extends Component {
 	  };
 	
 	  async componentDidMount() {
-		//this.loadAffixData();
+			//this.loadAffixData();
 	  }	
 
 	  // async loadAffixData() {
@@ -55,14 +55,15 @@ class AffixList extends Component {
 	  //     const response = await fetch(`http://localhost:4000/affixes`);
 	  //     if (!response.ok) {
 	  //       throw Error(response.statusText);
-	  //     }
+		//     }
 	  //     const json = await response.json();
 	  //     this.setState({ loading: false, data: json });
 	  //   } catch (error) {
 	  //     console.log("This is my Error: " + error);
 	  //     this.setState({ error: error });
 	  //   }
-	  // }
+		// }
+		
 	async onDelete(id) {
 	    console.log("In deletion");
 	    try {
@@ -76,10 +77,10 @@ class AffixList extends Component {
 	      };
 	      const response = await axios.delete(path, body, {headers});
 	      console.log(response);
-	      //this.loadAffixData();
+	      // this.loadAffixData();
 	    } catch (err) {
 	      console.log(err);
-	      //this.loadAffixData();
+	      // this.loadAffixData();
 	    }
 	  };
 
@@ -217,8 +218,8 @@ class AffixList extends Component {
     const dataOrError = this.state.error ?
       <div style={{ color: 'red' }}>Oops! Something went wrong!</div> :
       <ReactTable
-        data={this.props.getAffixesQuery.affixes}
-        loading={this.props.getAffixesQuery.loading}
+			data={this.props.getAffixesQuery.affixes}
+			loading={this.props.getAffixesQuery.loading}
         columns={columns}
         defaultPageSize={10}
         className="-striped -highlight left"
@@ -249,5 +250,5 @@ class AffixList extends Component {
 }
 
 export default compose(
-	graphql(getAffixesQuery, { name: 'getAffixesQuery' })
+	graphql(getAffixesQuery, { name: 'getAffixesQuery' }),
 )(withRouter(AffixList));

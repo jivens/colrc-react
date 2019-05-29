@@ -52,6 +52,9 @@ const getRootsQuery = gql`
       salish
       nicodemus
       english
+      user {
+        username
+      }
     }
   }
 `;
@@ -158,27 +161,33 @@ const addUserMutation = gql`
 `;
 
 const addRootMutation = gql`
-  mutation($root: String!, $number: Int!, $salish: String!, $nicodemus: String!, $english: String!) {
-    addRoot(root: $root, number: $number, salish: $salish, nicodemus: $nicodemus, english: $english) {
+  mutation($root: String!, $number: Int!, $salish: String!, $nicodemus: String!, $english: String!, $userId: String!) {
+    addRoot(root: $root, number: $number, salish: $salish, nicodemus: $nicodemus, english: $english, userId: $userId) {
       id
       root
       number
       salish
       nicodemus
       english
+      user {
+        username
+      }
     }
   }
 `;
 
 const updateRootMutation = gql`
-  mutation($id: ID!, $root: String!, $number: Int!, $salish: String!, $nicodemus: String!, $english: String!) {
-    updateRoot(id: $id, root: $root, number: $number, salish: $salish, nicodemus: $nicodemus, english: $english) {
+  mutation($id: ID!, $root: String!, $number: Int!, $salish: String!, $nicodemus: String!, $english: String!, $userId: String!) {
+    updateRoot(id: $id, root: $root, number: $number, salish: $salish, nicodemus: $nicodemus, english: $english, userId: $userId) {
       id
       root
       number
       salish
       nicodemus
       english
+      user {
+        username
+      }
     }
   }
 `;
@@ -192,6 +201,9 @@ const deleteRootMutation = gql`
       salish
       nicodemus
       english
+      user {
+        username
+      }
     }
   }
 `;
@@ -219,9 +231,11 @@ const getRootQuery = gql`
       salish
       nicodemus
       english
+      user {
+        username
+      }
     }
   }
 `;
 
 export { getStemsQuery, addStemMutation, deleteStemMutation, updateStemMutation, getAffixesQuery, addAffixMutation, deleteAffixMutation, updateAffixMutation, getUsersQuery, getRootsQuery, getUserQuery, getRootQuery, addUserMutation, addRootMutation, updateRootMutation, deleteRootMutation };
-

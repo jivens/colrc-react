@@ -102,7 +102,7 @@ class StemList extends Component {
 				this.props.history.push('/stems');
 			}
 	  };
-	  
+
 	render() {
 
 		const {
@@ -139,10 +139,10 @@ class StemList extends Component {
 				<select onChange = { event => onChange(event.target.value)}
 					style = {{ width: "100%"}}
 					value = {filter ? filter.value : "all"} >
-				<option value = "all" > Show All </option> 
-				<option value = "verb" > Verbs </option> 
-				<option value = "noun" > Nouns </option> 
-				<option value = "other" > Other </option> 
+				<option value = "all" > Show All </option>
+				<option value = "verb" > Verbs </option>
+				<option value = "noun" > Nouns </option>
+				<option value = "other" > Other </option>
 				</select>,
 		}, {
 			Header: 'Reichard',
@@ -241,56 +241,56 @@ class StemList extends Component {
         )
       }];
 
-		const CheckboxStem = () => ( 
+		const CheckboxStem = () => (
 			<div className = "checkBoxMenu" >
-			<label className = "checkBoxLabel" > Reichard < /label> 
-			<input name = "reichard" 
-				type = "checkbox" 
+			<label className = "checkBoxLabel" > Reichard < /label>
+			<input name = "reichard"
+				type = "checkbox"
 				checked = {this.state.reichardSelected}
 				onChange = {this.handleReichardChange.bind(this)}
-			/> 
-			<label className = "checkBoxLabel" > Doak < /label> 
+			/>
+			<label className = "checkBoxLabel" > Doak < /label>
 			<input name = "doak"
 				type = "checkbox"
 				checked = {this.state.doakSelected}
 				onChange = {this.handleDoakChange.bind(this)}
-			/> 
-			<label className = "checkBoxLabel" > Salish < /label> 
+			/>
+			<label className = "checkBoxLabel" > Salish < /label>
 			<input name = "salish"
 				type = "checkbox"
 				checked = {this.state.salishSelected}
 				onChange = {this.handleSalishChange.bind(this)}
-			/> 
-			<label className = "checkBoxLabel" > Nicodemus < /label> 
+			/>
+			<label className = "checkBoxLabel" > Nicodemus < /label>
 			<input name = "nicodemus"
 				type = "checkbox"
 				checked = {this.state.nicodemusSelected}
 				onChange = {this.handleNicodemusChange.bind(this)}
-			/> 
-			<label className = "checkBoxLabel" > English < /label> 
+			/>
+			<label className = "checkBoxLabel" > English < /label>
 			<input name = "english"
 				type = "checkbox"
 				checked = {this.state.englishSelected}
 				onChange = {this.handleEnglishChange.bind(this)}
-			/> 
-			<label className = "checkBoxLabel" > Note < /label> 
+			/>
+			<label className = "checkBoxLabel" > Note < /label>
 			<input name = "Note"
 				type = "checkbox"
 				checked = {this.state.noteSelected}
 				onChange = {this.handleNoteChange.bind(this)}
-			/> 
+			/>
 			</div>
 		);
 
 		const dataOrError = this.state.error ?
-			<div style = {{color: 'red'}} > Oops!Something went wrong! < /div> : 
+			<div style = {{color: 'red'}} > Oops!Something went wrong! < /div> :
 			<ReactTable
 				data={this.props.getStemsQuery.stems}
 				loading={this.props.getStemsQuery.loading}
 				columns = {columns}
 				defaultPageSize = {5}
 				className = "-striped -highlight left"
-				filterable  
+				filterable
 			/>;
 		return ( <div className = 'ui content'>
 

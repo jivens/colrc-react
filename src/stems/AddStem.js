@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Button, Icon, Input } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, withFormik } from 'formik';
 import * as Yup from 'yup';
 import { graphql, compose } from 'react-apollo';
 import { addStemMutation, getStemsQuery } from '../queries/queries';
@@ -59,8 +59,6 @@ class AddStem extends Component {
 		this.setState({ fields });
 	};
 
-
-
 	render() {
 
 	const addStemSchema = Yup.object().shape({
@@ -69,7 +67,7 @@ class AddStem extends Component {
 			.max(5, 'Too long!')
 			.required('Required'),
 		reichard: Yup.string()
-			.min(1, 'Too short!')
+			.min(1, 'too short')
 			.required('Required'),
 		nicodemus: Yup.string()
 			.min(1, 'Write something!')
@@ -206,5 +204,6 @@ class AddStem extends Component {
 };
 
 export default compose(
-  graphql(addStemMutation, { name: "addStemMutation"})
-  )(withRouter(AddStem));
+  graphql(addStemMutation, { name: "addStemMutation"}),
+)
+(withRouter(AddStem));

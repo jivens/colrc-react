@@ -1,6 +1,5 @@
 import { gql } from 'apollo-boost';
 
-
 const getStemsQuery = gql`
   {
     stems {
@@ -59,7 +58,7 @@ const getRootsQuery = gql`
 
 const addStemMutation = gql`
   mutation($category: String!, $reichard: String!, $doak: String!, $salish: String!, $nicodemus: String!, $english: String!, $note: String!) {
-    addStem(category: $category, reichard: $reichard, doak: $doak, salish: $salish, nicodemus: $nicodemus, english: $english, note: $note) {
+  	addStem(category: $category, reichard: $reichard, doak: $doak, salish: $salish, nicodemus: $nicodemus, english: $english, note: $note) {
       id
       category
       reichard
@@ -101,6 +100,7 @@ const deleteStemMutation = gql`
     }
   }
 `;
+
 const addAffixMutation = gql`
   mutation($type: String!, $salish: String!, $nicodemus: String!, $english: String!, $link: String!, $page: String!) {
     addAffix(type: $type, salish: $salish, nicodemus: $nicodemus, english: $english, link: $link, page: $page) {
@@ -123,8 +123,8 @@ const updateAffixMutation = gql`
       salish
       nicodemus
       english
-	  link
-	  page
+	    link
+	    page
     }
   }
   `;
@@ -224,3 +224,4 @@ const getRootQuery = gql`
 `;
 
 export { getStemsQuery, addStemMutation, deleteStemMutation, updateStemMutation, getAffixesQuery, addAffixMutation, deleteAffixMutation, updateAffixMutation, getUsersQuery, getRootsQuery, getUserQuery, getRootQuery, addUserMutation, addRootMutation, updateRootMutation, deleteRootMutation };
+

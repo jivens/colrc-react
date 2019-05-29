@@ -1,7 +1,5 @@
 import { gql } from 'apollo-boost';
 
-
-
 const getStemsQuery = gql`
   {
     stems {
@@ -15,7 +13,9 @@ const getStemsQuery = gql`
       note
     }
   }
-`;const getAffixesQuery = gql`
+`;
+
+const getAffixesQuery = gql`
   {
     affixes {
       id
@@ -58,7 +58,7 @@ const getRootsQuery = gql`
 
 const addStemMutation = gql`
   mutation($category: String!, $reichard: String!, $doak: String!, $salish: String!, $nicodemus: String!, $english: String!, $note: String!) {
-  addStem(category: $category, reichard: $reichard, doak: $doak, salish: $salish, nicodemus: $nicodemus, english: $english, note: $note) {
+  	addStem(category: $category, reichard: $reichard, doak: $doak, salish: $salish, nicodemus: $nicodemus, english: $english, note: $note) {
       id
       category
       reichard
@@ -72,8 +72,8 @@ const addStemMutation = gql`
 `;
 
 const updateStemMutation = gql`
-mutation($id: ID!, $category: String!, $reichard: String!, $doak: String!, $salish: String!, $nicodemus: String!, $english: String!, $note: String!) {
-  updateStem(id: $id, category: $category, reichard: $reichard, doak: $doak, salish: $salish, nicodemus: $nicodemus, english: $english, note: $note) {
+  mutation($id: ID!, $category: String!, $reichard: String!, $doak: String!, $salish: String!, $nicodemus: String!, $english: String!, $note: String!) {
+    updateStem(id: $id, category: $category, reichard: $reichard, doak: $doak, salish: $salish, nicodemus: $nicodemus, english: $english, note: $note) {
       id
       category
       reichard
@@ -81,10 +81,10 @@ mutation($id: ID!, $category: String!, $reichard: String!, $doak: String!, $sali
       salish
       nicodemus
       english
-      note
+	  note
     }
   }
-`;
+  `;
 
 const deleteStemMutation = gql`
   mutation($id: ID!) {
@@ -223,4 +223,5 @@ const getRootQuery = gql`
   }
 `;
 
-export { getAffixesQuery, addAffixMutation, deleteAffixMutation, updateAffixMutation, getUsersQuery, getRootsQuery, getUserQuery, getRootQuery, getStemsQuery, addStemMutation, updateStemMutation, deleteStemMutation, addUserMutation, addRootMutation, updateRootMutation, deleteRootMutation };
+export { getStemsQuery, addStemMutation, deleteStemMutation, updateStemMutation, getAffixesQuery, addAffixMutation, deleteAffixMutation, updateAffixMutation, getUsersQuery, getRootsQuery, getUserQuery, getRootQuery, addUserMutation, addRootMutation, updateRootMutation, deleteRootMutation };
+

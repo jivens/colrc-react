@@ -42,10 +42,10 @@ export function findDecorations(str) {
   for (i=0; i < decLen; i++) {
     e = decorations[i].start;
     if (decorations[i].type === "bold") {
-      e -= 6;
+      e -= 3;
     }
     else if (decorations[i].type === "underline") {
-      e -= 11;
+      e -= 3;
     }
 
     if (e > s) {

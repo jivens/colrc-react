@@ -4,9 +4,9 @@ import { Button, Icon, Input } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import { Formik, Form, Field, ErrorMessage, withFormik } from 'formik';
 import * as Yup from 'yup';
-import { withRouter } from 'react-router-dom';
 import { graphql, compose } from 'react-apollo';
 import { addStemMutation, getStemsQuery } from '../queries/queries';
+import { withRouter } from 'react-router-dom';
 
 class AddStem extends Component {
 
@@ -33,24 +33,23 @@ class AddStem extends Component {
 		//evt.preventDefault();
 		console.log("In add form submission");
 		try {
-			this.props.addStemMutation({
-				variables: {
-					category: values.category,
-					reichard: values.reichard,
-					// reichard: this.state.fields.reichard,
-					doak: values.doak,
-					salish: values.salish,
-					nicodemus: values.nicodemus,
-					english: values.english,
-					note: values.note
-				},
-				refetchQueries: [{ query: getStemsQuery }]
-			});	
-		this.props.history.push('/stems');
-	} catch (err) {
-		console.log(err);
-		this.props.history.push('/stems');
-	}
+		    this.props.addStemMutation({
+		      variables: {
+		        category: values.category,
+		        reichard: values.reichard,
+		        doak: values.doak,
+		        salish: values.salish,
+		        nicodemus: values.nicodemus,
+		        english: values.english,
+		        note: values.note,
+		      },
+		      refetchQueries: [{ query: getStemsQuery }]
+		    });	
+			this.props.history.push('/stems');
+		} catch (err) {
+			console.log(err);
+			this.props.history.push('/stems');
+		}
 	};
 
 	onInputChange = (evt) => {

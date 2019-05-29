@@ -6,12 +6,7 @@ import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
 import { Button, Icon } from 'semantic-ui-react';
 import { graphql, compose } from 'react-apollo';
-<<<<<<< HEAD
-import { getAffixesQuery } from '../queries/queries';
-=======
 import { getAffixesQuery, deleteAffixMutation } from '../queries/queries';
-import { Button, Icon } from 'semantic-ui-react';
->>>>>>> d8ae352aaa7882a93400378b22c23801c5a4d67c
 
 class AffixList extends Component {
 	 constructor() {

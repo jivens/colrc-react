@@ -3,8 +3,10 @@ import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
 import DecoratedTextSpan from '../utilities/DecoratedTextSpan';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
+import { graphql, compose } from 'react-apollo';
+import { getStemsQuery, deleteStemMutation } from '../queries/queries';
 import { Button, Icon } from 'semantic-ui-react';
 
 class StemList extends Component {
@@ -63,7 +65,7 @@ class StemList extends Component {
 
 
 	async componentDidMount() {
-		this.loadStemData();
+		//this.loadStemData();
 	}
 
 	async loadStemData() {
@@ -88,22 +90,17 @@ class StemList extends Component {
 	async onDelete(id) {
 	    console.log("In deletion");
 	    try {
-	      const body = {
-	        id: id
-	      };
-	      const path = 'http://localhost:4000/stems/' + id;
-	      const headers = {
-	        'Content-Type': 'application/json;charset=UTF-8',
-	        "Access-Control-Allow-Origin": "*"
-	      };
-	      const response = await axios.delete(path, body, {headers});
-	      console.log(response);
-	      //this.props.history.push(`/rootdictionary`);
-	      this.loadStemData();
-	    } catch (err) {
-	      console.log(err);
-	      this.loadStemData();
-	    }
+				this.props.deleteStemMutation({
+					variables: {
+						id: id
+					},
+			refetchQueries: [{ query: getStemsQuery }]
+				});
+				this.props.history.push('/stems');
+			} catch (err) {
+				console.log(err);
+				this.props.history.push('/stems');
+			}
 	  };
 	  
 	render() {
@@ -142,10 +139,10 @@ class StemList extends Component {
 				<select onChange = { event => onChange(event.target.value)}
 					style = {{ width: "100%"}}
 					value = {filter ? filter.value : "all"} >
-				<option value = "all" > Show All < /option> 
-				<option value = "verb" > Verbs < /option> 
-				<option value = "noun" > Nouns < /option> 
-				<option value = "other" > Other < /option> 
+				<option value = "all" > Show All </option> 
+				<option value = "verb" > Verbs </option> 
+				<option value = "noun" > Nouns </option> 
+				<option value = "other" > Other </option> 
 				</select>,
 		}, {
 			Header: 'Reichard',
@@ -186,7 +183,7 @@ class StemList extends Component {
 					threshold: matchSorter.rankings.CONTAINS
 				}),
 			filterAll: true,
-		    Cell: row => ( <DecoratedTextSpan str={row.value} />),
+		    //Cell: row => ( <DecoratedTextSpan str={row.value} />),
 			show: nicodemusSelected,
 		}, {
 			Header: 'English',
@@ -288,8 +285,8 @@ class StemList extends Component {
 		const dataOrError = this.state.error ?
 			<div style = {{color: 'red'}} > Oops!Something went wrong! < /div> : 
 			<ReactTable
-				data = {this.state.data}
-				loading = {this.state.loading}
+				data={this.props.getStemsQuery.stems}
+				loading={this.props.getStemsQuery.loading}
 				columns = {columns}
 				defaultPageSize = {5}
 				className = "-striped -highlight left"
@@ -316,6 +313,7 @@ class StemList extends Component {
 	}
 }
 
-
-
-export default StemList;
+export default compose(
+	graphql(getStemsQuery, { name: 'getStemsQuery' }),
+	graphql(deleteStemMutation, { name: 'deleteStemMutation' })
+)(withRouter(StemList));

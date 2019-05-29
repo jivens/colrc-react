@@ -3,6 +3,8 @@ import queryString from 'query-string';
 import { Form, Button, Icon } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import axios from 'axios';
+import { graphql, compose } from 'react-apollo';
+import { updateStemMutation, getStemsQuery } from '../queries/queries';
 import { withRouter } from 'react-router-dom';
 
 class EditStem extends Component {
@@ -52,30 +54,25 @@ class EditStem extends Component {
 		evt.preventDefault();
 		console.log("In form submission");
 		try {
-			const { id, category, reichard, doak, salish, nicodemus, english, note } = this.state.fields;
-			const body = {
-				id: id,
-				category: category,
-	      reichard: reichard,
-	      doak: doak,
-	      salish: salish,
-	      nicodemus: nicodemus,
-	      english: english,
-	      note: note
-			};
-			const path = 'http://localhost:4000/stems/' + id;
-			const headers = {
-				'Content-Type': 'application/json;charset=UTF-8',
-	      "Access-Control-Allow-Origin": "*"
-			};
-			const response = await axios.put(path, body, {headers});
-			console.log(response);
+			this.props.updateStemMutation({
+				variables: {
+					id: this.state.fields.id,
+					category: this.state.fields.category,
+					reichard: this.state.fields.reichard,
+					doak: this.state.fields.doak,
+					salish: this.state.fields.salish,
+					nicodemus: this.state.fields.nicodemus,
+					english: this.state.fields.english,
+					note: this.state.fields.note,
+				},
+		      	refetchQueries: [{ query: getStemsQuery }]
+			});
 			this.props.history.push('/stems');
 			//history.push('/rootdictionary');
 		} catch (err) {
 			console.log(err);
 			this.props.history.push('/stems');
-		}
+		};
 	};
 
 	onInputChange = (evt) => {
@@ -163,4 +160,6 @@ class EditStem extends Component {
 	}
 };
 
-export default withRouter(EditStem);
+export default compose(
+	graphql(updateStemMutation, { name: 'updateStemMutation' })
+)(withRouter(EditStem));

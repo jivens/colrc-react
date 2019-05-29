@@ -183,7 +183,7 @@ class StemList extends Component {
 					threshold: matchSorter.rankings.CONTAINS
 				}),
 			filterAll: true,
-		    //Cell: row => ( <DecoratedTextSpan str={row.value} />),
+		    Cell: row => ( <DecoratedTextSpan str={row.value} />),
 			show: nicodemusSelected,
 		}, {
 			Header: 'English',
@@ -302,7 +302,7 @@ class StemList extends Component {
 					</Button>
 				</Link>
 			</div>
-			<p> < /p>
+			<p> </p>
 			<SimpleKeyboard / >
 			<p> Stem type as listed by Reichard, 'Other' = 'Adverbs, Interjections, Conjunctions' </p>
 			<CheckboxStem / >

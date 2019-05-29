@@ -1,6 +1,21 @@
 import { gql } from 'apollo-boost';
 
 
+const getStemsQuery = gql`
+  {
+    stems {
+      id
+      category
+      reichard
+      doak
+      salish
+      nicodemus
+      english
+      note
+    }
+  }
+`;
+
 const getAffixesQuery = gql`
   {
     affixes {
@@ -42,6 +57,50 @@ const getRootsQuery = gql`
   }
 `;
 
+const addStemMutation = gql`
+  mutation($category: String!, $reichard: String!, $doak: String!, $salish: String!, $nicodemus: String!, $english: String!, $note: String!) {
+    addStem(category: $category, reichard: $reichard, doak: $doak, salish: $salish, nicodemus: $nicodemus, english: $english, note: $note) {
+      id
+      category
+      reichard
+      doak
+      salish
+      nicodemus
+      english
+      note
+    }
+  }
+`;
+
+const updateStemMutation = gql`
+  mutation($id: ID!, $category: String!, $reichard: String!, $doak: String!, $salish: String!, $nicodemus: String!, $english: String!, $note: String!) {
+    updateStem(id: $id, category: $category, reichard: $reichard, doak: $doak, salish: $salish, nicodemus: $nicodemus, english: $english, note: $note) {
+      id
+      category
+      reichard
+      doak
+      salish
+      nicodemus
+      english
+	  note
+    }
+  }
+  `;
+
+const deleteStemMutation = gql`
+  mutation($id: ID!) {
+    deleteStem(id: $id) {
+      id
+      category
+      reichard
+      doak
+      salish
+      nicodemus
+      english
+      note
+    }
+  }
+`;
 const addAffixMutation = gql`
   mutation($type: String!, $salish: String!, $nicodemus: String!, $english: String!, $link: String!, $page: String!) {
     addAffix(type: $type, salish: $salish, nicodemus: $nicodemus, english: $english, link: $link, page: $page) {
@@ -164,4 +223,4 @@ const getRootQuery = gql`
   }
 `;
 
-export { getAffixesQuery, addAffixMutation, deleteAffixMutation, updateAffixMutation, getUsersQuery, getRootsQuery, getUserQuery, getRootQuery, addUserMutation, addRootMutation, updateRootMutation, deleteRootMutation };
+export { getStemsQuery, addStemMutation, deleteStemMutation, updateStemMutation, getAffixesQuery, addAffixMutation, deleteAffixMutation, updateAffixMutation, getUsersQuery, getRootsQuery, getUserQuery, getRootQuery, addUserMutation, addRootMutation, updateRootMutation, deleteRootMutation };

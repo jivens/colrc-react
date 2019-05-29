@@ -4,6 +4,8 @@ import { Button, Icon, Input } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { graphql, compose } from 'react-apollo';
+import { addStemMutation, getStemsQuery } from '../queries/queries';
 import { withRouter } from 'react-router-dom';
 
 class AddStem extends Component {
@@ -31,23 +33,18 @@ class AddStem extends Component {
 		//evt.preventDefault();
 		console.log("In add form submission");
 		try {
-			const { category, reichard, doak, salish, nicodemus, english, note } = values;
-			const body = {
-				category: category,
-	      reichard: reichard,
-	      doak: doak,
-	      salish: salish,
-	      nicodemus: nicodemus,
-	      english: english,
-	      note: note
-			};
-			const path = 'http://localhost:4000/stems';
-			const headers = {
-				'Content-Type': 'application/json;charset=UTF-8',
-	      "Access-Control-Allow-Origin": "*"
-			};
-			const response = await axios.post(path, body, {headers});
-			console.log(response);
+		    this.props.addStemMutation({
+		      variables: {
+		        category: values.category,
+		        reichard: values.reichard,
+		        doak: values.doak,
+		        salish: values.salish,
+		        nicodemus: values.nicodemus,
+		        english: values.english,
+		        note: values.note,
+		      },
+		      refetchQueries: [{ query: getStemsQuery }]
+		    });	
 			this.props.history.push('/stems');
 		} catch (err) {
 			console.log(err);
@@ -72,7 +69,7 @@ class AddStem extends Component {
 			.max(5, 'Too long!')
 			.required('Required'),
 		reichard: Yup.string()
-			.email('Invalid email')
+			.min(1, 'Too short!')
 			.required('Required'),
 		nicodemus: Yup.string()
 			.min(1, 'Write something!')
@@ -208,4 +205,6 @@ class AddStem extends Component {
 	}
 };
 
-export default withRouter(AddStem);
+export default compose(
+  graphql(addStemMutation, { name: "addStemMutation"})
+  )(withRouter(AddStem));

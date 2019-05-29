@@ -17,19 +17,19 @@ export function getIndicesOf(searchStr, str, caseSensitive) {
 
 export function findDecorations(str) {
   var decorations = [];
-  var boldIndices = getIndicesOf("<bold>", str);
-  var boldEndIndices = getIndicesOf("</bold>", str);
-  var underlineIndices = getIndicesOf("<underline>", str);
-  var underlineEndIndices = getIndicesOf("</underline>", str);
+  var boldIndices = getIndicesOf("<b>", str);
+  var boldEndIndices = getIndicesOf("</b>", str);
+  var underlineIndices = getIndicesOf("<u>", str);
+  var underlineEndIndices = getIndicesOf("</u>", str);
   var boldLen = boldIndices.length;
   var underlineLen = underlineIndices.length;
 
   for (var i = 0; i < boldLen; i++) {
-    decorations.push({ start: boldIndices[i]+6, end: boldEndIndices[i], type: "bold" });
+    decorations.push({ start: boldIndices[i]+3, end: boldEndIndices[i], type: "bold" });
   }
 
   for (i = 0; i < underlineLen; i++) {
-    decorations.push({ start: underlineIndices[i]+11, end: underlineEndIndices[i], type: "underline" });
+    decorations.push({ start: underlineIndices[i]+3, end: underlineEndIndices[i], type: "underline" });
   }
 
   decorations.sort(function(a, b){
@@ -42,10 +42,10 @@ export function findDecorations(str) {
   for (i=0; i < decLen; i++) {
     e = decorations[i].start;
     if (decorations[i].type === "bold") {
-      e -= 6;
+      e -= 3;
     }
     else if (decorations[i].type === "underline") {
-      e -= 11;
+      e -= 3;
     }
 
     if (e > s) {
@@ -53,10 +53,10 @@ export function findDecorations(str) {
     }
 
     if (decorations[i].type === "bold") {
-      s = decorations[i].end + 7;
+      s = decorations[i].end + 4;
     }
     else if (decorations[i].type === "underline") {
-      s = decorations[i].end + 12;
+      s = decorations[i].end + 4;
     }
   }
   if (s < str.length) {

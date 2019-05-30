@@ -139,9 +139,17 @@ class RootsDictionary extends Component {
         	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
         filterAll: true,
 	    style: { 'white-space': 'unset' },
-		show: englishSelected,
+		  show: englishSelected,
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-	  	},
+	  },
+    {
+      Header: 'User Name',
+      accessor: 'user.username',
+      filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ["user.username"], threshold: matchSorter.rankings.CONTAINS }),
+      filterAll: true,
+      show: true,
+    },
       {
         Header: 'Edit/Delete',
         filterable: false,

@@ -52,6 +52,8 @@ const getRootsQuery = gql`
       salish
       nicodemus
       english
+      active
+      prevId
       user {
         username
       }
@@ -169,6 +171,8 @@ const addRootMutation = gql`
       salish
       nicodemus
       english
+      active
+      prevId
       user {
         username
       }
@@ -185,6 +189,8 @@ const updateRootMutation = gql`
       salish
       nicodemus
       english
+      active
+      prevId
       user {
         username
       }
@@ -201,6 +207,8 @@ const deleteRootMutation = gql`
       salish
       nicodemus
       english
+      active
+      prevId
       user {
         username
       }
@@ -231,6 +239,8 @@ const getRootQuery = gql`
       salish
       nicodemus
       english
+      active
+      prevId
       user {
         username
       }

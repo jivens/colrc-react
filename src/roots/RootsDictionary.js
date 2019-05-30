@@ -148,6 +148,24 @@ class RootsDictionary extends Component {
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  },
     {
+      Header: 'Active',
+      accessor: 'active',
+      filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ["active"], threshold: matchSorter.rankings.CONTAINS }),
+        filterAll: true,
+      style: { 'white-space': 'unset' },
+      show: true,
+    },
+    {
+      Header: 'Previous ID',
+      accessor: 'prevId',
+      filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ["prevId"], threshold: matchSorter.rankings.CONTAINS }),
+        filterAll: true,
+      style: { 'white-space': 'unset' },
+      show: true,
+    },
+    {
       Header: 'User Name',
       accessor: 'user.username',
       filterMethod: (filter, rows) =>

@@ -21,6 +21,7 @@ class RootsDictionary extends Component {
 	    salishSelected: false,
 	    nicodemusSelected: true,
 	    englishSelected: true,
+	    usernameSelected: true,
      };
   }
 
@@ -38,6 +39,10 @@ class RootsDictionary extends Component {
 
 	handleEnglishChange(value) {
 	    this.setState({ englishSelected: !this.state.englishSelected });
+	  };
+
+	handleUserChange(value) {
+	    this.setState({ usernameSelected: !this.state.usernameSelected });
 	  };
 
   async componentDidMount() {
@@ -77,7 +82,7 @@ class RootsDictionary extends Component {
 
   render() {
 
-  	const { salishSelected, nicodemusSelected, englishSelected, numberSelected } = this.state;
+  	const { salishSelected, nicodemusSelected, englishSelected, numberSelected, usernameSelected } = this.state;
 
   	const getColumnWidth = (rows, accessor, headerText) => {
   	  const maxWidth = 600
@@ -108,7 +113,7 @@ class RootsDictionary extends Component {
 	    filterMethod: (filter, rows) =>
         	matchSorter(rows, filter.value, { keys: ["#"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,
-	    width: getColumnWidth(this.state.data, 'number', '#'),
+	    width: 50,
 	    show: numberSelected,
 	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	},
@@ -148,7 +153,8 @@ class RootsDictionary extends Component {
       filterMethod: (filter, rows) =>
           matchSorter(rows, filter.value, { keys: ["user.username"], threshold: matchSorter.rankings.CONTAINS }),
       filterAll: true,
-      show: true,
+      show: usernameSelected,
+	  width: 100,
     },
       {
         Header: 'Edit/Delete',
@@ -209,6 +215,13 @@ class RootsDictionary extends Component {
             checked={this.state.englishSelected}
             onChange={this.handleEnglishChange.bind(this)}
           />
+          <label className="checkBoxLabel">User Name</label>
+          <input
+            name="user.username"
+            type="checkbox"
+            checked={this.state.usernameSelected}
+            onChange={this.handleUserChange.bind(this)}
+          />
 		</div>
 	  );
 
@@ -219,7 +232,7 @@ class RootsDictionary extends Component {
         loading={this.props.getRootsQuery.loading}
         columns={columns}
         filterable
-        defaultPageSize={5}
+        defaultPageSize={10}
         className="-striped -highlight"
       />;
 

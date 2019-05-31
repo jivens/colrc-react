@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Form,  Button, Icon } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import { graphql, compose } from 'react-apollo';
@@ -34,12 +33,12 @@ class AddRoot extends Component {
 		    this.props.addRootMutation({
 		      variables: {
 		        root: this.state.fields.root,
-		        number: parseInt(this.state.fields.number),
+		        number: parseInt(this.state.fields.number, 10),
 		        salish: this.state.fields.salish,
 		        nicodemus: this.state.fields.nicodemus,
 		        english: this.state.fields.english,
 		        //prevId: parseInt(this.state.fields.prevId),
-		        userId: parseInt(this.state.fields.userId),
+		        userId: parseInt(this.state.fields.userId, 10),
 					},
 					refetchQueries: [{ query:getRootsQuery }]
 		    });	

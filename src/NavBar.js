@@ -50,7 +50,7 @@ const NavBarMobile = ({
        Texts
     </Menu.Item>
     <Menu.Item as={Link} to="/audio" name="Audio" key="miniaudio">
-    <Icon name="file audio outline" />
+    <Icon name="file audio" />
        Audio
     </Menu.Item>
     <Menu.Item as={Link} to="/spelling" name="Spelling" key="minispelling">

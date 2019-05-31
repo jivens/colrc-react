@@ -21,6 +21,7 @@ class AffixList extends Component {
 		    nicodemusSelected: true,
 		    englishSelected: true,
 		    linkSelected: false,
+	    	usernameSelected: true,
 	    };
 	  }
 
@@ -45,7 +46,11 @@ class AffixList extends Component {
 	handleLinkChange(value) {
 	    this.setState({ linkSelected: !this.state.linkSelected });
 	  };
-	
+
+	handleUserChange(value) {
+	    this.setState({ usernameSelected: !this.state.usernameSelected });
+	  };
+
 	  async componentDidMount() {
 			//this.loadAffixData();
 	  }	
@@ -82,7 +87,7 @@ class AffixList extends Component {
 
 	render() {
 
-  	const { salishSelected, nicodemusSelected, englishSelected, linkSelected } = this.state;
+  	const { salishSelected, nicodemusSelected, englishSelected, linkSelected, usernameSelected } = this.state;
 
  
  	const getColumnWidth = (rows, accessor, headerText) => {
@@ -148,6 +153,33 @@ class AffixList extends Component {
 	    Cell: ({row, original}) => ( this.weblink(original.link, original.page) ),
 	    show: linkSelected,
 	  },
+    {
+      Header: 'Active',
+      accessor: 'active',
+      filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ["active"], threshold: matchSorter.rankings.CONTAINS }),
+        filterAll: true,
+      show: true,
+      width: 50,
+    },
+    {
+      Header: 'PrevID',
+      accessor: 'prevId',
+      filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ["prevId"], threshold: matchSorter.rankings.CONTAINS }),
+        filterAll: true,
+      show: true,
+      width: 50,
+    },
+    {
+      Header: 'User Name',
+      accessor: 'user.username',
+      filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ["user.username"], threshold: matchSorter.rankings.CONTAINS }),
+      filterAll: true,
+      show: usernameSelected,
+	  width: 100,
+    },
       {
         Header: 'Edit/Delete',
         filterable: false,
@@ -206,6 +238,13 @@ class AffixList extends Component {
             type="checkbox"
             checked={this.state.linkSelected}
             onChange={this.handleLinkChange.bind(this)}
+          />
+          <label className="checkBoxLabel">User Name</label>
+          <input
+            name="user.username"
+            type="checkbox"
+            checked={this.state.usernameSelected}
+            onChange={this.handleUserChange.bind(this)}
           />
 		</div>
 	  );

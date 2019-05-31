@@ -25,6 +25,11 @@ const getAffixesQuery = gql`
       english
       link
       page
+      active
+      prevId
+      user {
+        username
+      }
     }
   }
 `;
@@ -107,8 +112,8 @@ const deleteStemMutation = gql`
 `;
 
 const addAffixMutation = gql`
-  mutation($type: String!, $salish: String!, $nicodemus: String!, $english: String!, $link: String!, $page: String!) {
-    addAffix(type: $type, salish: $salish, nicodemus: $nicodemus, english: $english, link: $link, page: $page) {
+  mutation($type: String!, $salish: String!, $nicodemus: String!, $english: String!, $link: String!, $page: String!, $userId: Int!) {
+    addAffix(type: $type, salish: $salish, nicodemus: $nicodemus, english: $english, link: $link, page: $page, userId: $userId) {
       id
       type
       salish
@@ -116,23 +121,33 @@ const addAffixMutation = gql`
       english
       link
       page
+      active
+      prevId
+      user {
+        username
+      }
     }
   }
 `;
 
 const updateAffixMutation = gql`
-  mutation($id: ID!, $type: String!, $salish: String!, $nicodemus: String!, $english: String!, $link: String!, $page: String!) {
-    updateAffix(id: $id, type: $type, salish: $salish, nicodemus: $nicodemus, english: $english, link: $link, page: $page) {
-      id
-      type
-      salish
-      nicodemus
-      english
-	    link
+  mutation($id: ID!, $type: String!, $salish: String!, $nicodemus: String!, $english: String!, $link: String!, $page: String!, $userId: Int!) {
+    updateAffix(id: $id, type: $type, salish: $salish, nicodemus: $nicodemus, english: $english, link: $link, page: $page, userId: $userId) {
+      	id
+      	type
+      	salish
+      	nicodemus
+      	english
+	  	link
 	    page
+        active
+        prevId
+        user {
+       		username
+      }
     }
   }
-  `;
+`;
 
 const deleteAffixMutation = gql`
   mutation($id: ID!) {
@@ -144,6 +159,11 @@ const deleteAffixMutation = gql`
       english
       link
       page
+      active
+      prevId
+      user {
+        username
+      }
     }
   }
 `;

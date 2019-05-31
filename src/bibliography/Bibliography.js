@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Button, Icon, Checkbox } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 import ReactTable from "react-table";
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import matchSorter from 'match-sorter';
@@ -65,21 +65,6 @@ class Bibliography extends Component {
   };
 
 render() {
-
-  const Checkbox = props => (
-  		<input type="checkbox" {...props} />
-		)
-
- 	const getColumnWidth = (rows, accessor, headerText) => {
-	  const maxWidth = 600
-	  const magicSpacing = 10
-	  const cellLength = Math.max(
-	    ...rows.map(row => (`${row[accessor]}` || '').length),
-	    headerText.length,
-	  )
-	  return Math.min(maxWidth, cellLength * magicSpacing)
-	};
-
 
 
 const columns = [{

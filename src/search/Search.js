@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Icon } from 'semantic-ui-react';
+import { Form, Button, Icon } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import DecoratedTextSpan from '../utilities/DecoratedTextSpan';
 import ReactTable from "react-table";

@@ -57,28 +57,28 @@ class Colrc extends Component {
             <Grid.Row>
               <Grid.Column>
                 <Switch>
-                  <Route exact path="/" component={Home} />
-                  <Route path="/spelling" component={SpellingPronunciation} />
-                  <Route path="/roots" component={Roots} />
-                  <Route path="/stems" component={Stems} />
-                  <Route path="/affixes" component={Affixes} />
-  				  <Route path="/audio" component={Audio} />
-  				  {/*<Route path="/contactus" component={ContactUs} />*/}
-                  <Route path="/texts" component={Texts} />
-                  <Route path="/bibliography" component={Bibliography} />
-                  {/* <Route path="/rootdictionary/:id" exact component={EditRoot} /> */}
-                  <Route path="/editroot" component={EditRoot} />
-                  <Route path="/addroot" component={AddRoot} />
-                  <Route path="/editbib" component={EditBib} />
-                  <Route path="/addbib" component={AddBib} />
-                  <Route path="/editstem" component={EditStem} />
-                  <Route path="/addstem" component={AddStem} />
-                  <Route path="/editaffix" component={EditAffix} />
-                  <Route path="/addaffix" component={AddAffix} />
-                  <Route path="/elicitations" component={Elicitations} />
-                  <Route path="/imageviewer" component={ImageViewer} />
-                  <Route path="/splitview" component={SplitView} />
-                  <Route path="/search" component={Search} />
+                  <Route exact path="/" component={Home} key="home" />
+                  <Route path="/spelling" component={SpellingPronunciation} key="spelling" />
+                  <Route path="/roots" component={Roots} key="roots" />
+                  <Route path="/stems" component={Stems} key="stems" />
+                  <Route path="/affixes" component={Affixes} key="affixes" />
+  				  <Route path="/audio" component={Audio} key="audio" />
+  				  {/*<Route path="/contactus" component={ContactUs} key="contactus" />*/}
+                  <Route path="/texts" component={Texts} key="texts" />
+                  <Route path="/bibliography" component={Bibliography} key="bibliography" />
+                  {/* <Route path="/rootdictionary/:id" exact component={EditRoot} key="rootdictionary" /> */}
+                  <Route path="/editroot" component={EditRoot} key="editroot" />
+                  <Route path="/addroot" component={AddRoot} key="addroot" />
+                  <Route path="/editbib" component={EditBib} key="editbib" />
+                  <Route path="/addbib" component={AddBib} key="addbib" />
+                  <Route path="/editstem" component={EditStem} key="editstem" />
+                  <Route path="/addstem" component={AddStem} key="addstem" />
+                  <Route path="/editaffix" component={EditAffix} key="editaffix"/>
+                  <Route path="/addaffix" component={AddAffix} key="addaffix" />
+                  <Route path="/elicitations" component={Elicitations} key="elicitations" />
+                  <Route path="/imageviewer" component={ImageViewer} key="imageviewer" />
+                  <Route path="/splitview" component={SplitView} key="splitview" />
+                  <Route path="/search" component={Search} key="search" />
                   {/* <Route component={NotFound} /> */}
                 </Switch>
               </Grid.Column>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Input } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
-import { Formik, Form, Field, ErrorMessage, withFormik } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { graphql, compose } from 'react-apollo';
 import { addStemMutation, getStemsQuery } from '../queries/queries';

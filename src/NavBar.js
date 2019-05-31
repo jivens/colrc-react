@@ -29,43 +29,43 @@ const NavBarMobile = ({
       visible={visible}
       width='thin'
     >
-    <Menu.Item as={Link} to="/" name="Home" size='mini'>
+    <Menu.Item as={Link} to="/" name="Home" size='mini' key="minihome">
 	   <Icon name="home" />
       Home
     </Menu.Item>
-    <Menu.Item as={Link} to="/roots" name="Roots" size='mini'>
+    <Menu.Item as={Link} to="/roots" name="Roots" size='mini' key="miniroots">
     <Icon name="leaf" />
        Roots
     </Menu.Item>
-    <Menu.Item as={Link} to="/stems" name="Stems">
+    <Menu.Item as={Link} to="/stems" name="Stems" key="ministems">
     <Icon name="code branch" />
        Stems
     </Menu.Item>
-    <Menu.Item as={Link} to="/affixes" name="Affixes">
+    <Menu.Item as={Link} to="/affixes" name="Affixes" key="miniaffixes">
     <Icon name="sort alphabet down" />
        Affixes
     </Menu.Item>
-    <Menu.Item as={Link} to="/texts" name="Texts">
+    <Menu.Item as={Link} to="/texts" name="Texts" key="minitexts">
     <Icon name="comment" />
        Texts
     </Menu.Item>
-    <Menu.Item as={Link} to="/audio" name="Audio">
+    <Menu.Item as={Link} to="/audio" name="Audio" key="miniaudio">
     <Icon name="file audio outline" />
        Audio
     </Menu.Item>
-    <Menu.Item as={Link} to="/spelling" name="Spelling">
+    <Menu.Item as={Link} to="/spelling" name="Spelling" key="minispelling">
      <Icon name="font" />
        Spelling
     </Menu.Item>
-    <Menu.Item as={Link} to="/bibliography" name="Bibliography">
+    <Menu.Item as={Link} to="/bibliography" name="Bibliography" key="minibib">
     <Icon name="book" />
        Bibliography
     </Menu.Item>
-    <Menu.Item as={Link} to="/contactus" name="Contact">
+    <Menu.Item as={Link} to="/contactus" name="Contact" key="minicontact">
     <Icon name="mail" />
        Contact
     </Menu.Item>
-    <Menu.Item as={Link} to="/elicitations" name="Elicitations">
+    <Menu.Item as={Link} to="/elicitations" name="Elicitations" key="minielic">
     <Icon name="talk" />
        Elicitations
     </Menu.Item>
@@ -76,10 +76,10 @@ const NavBarMobile = ({
       style={{ minHeight: "100vh" }}
     >
         <Menu fixed="top" inverted>
-          <Menu.Item>
+          <Menu.Item key="tophome">
             <Icon name="home" />
-          </Menu.Item>
-          <Menu.Item onClick={onToggle}>
+          </Menu.Item >
+          <Menu.Item key="side" onClick={onToggle}>
             <Icon name="sidebar" />
           </Menu.Item>
           <Menu.Menu position="right">
@@ -93,34 +93,34 @@ const NavBarMobile = ({
 
 const NavBarDesktop = ({ rightItems }) => (
   <Menu fixed="top" inverted>
-    <Menu.Item as={Link} to="/" name="home">
+    <Menu.Item as={Link} to="/" name="home" key="home">
        <Icon name="home" />
     </Menu.Item>
-    <Menu.Item as={Link} to="/roots" name="Roots">
+    <Menu.Item as={Link} to="/roots" name="Roots" key="roots">
        Roots
     </Menu.Item>
-    <Menu.Item as={Link} to="/stems" name="Stems">
+    <Menu.Item as={Link} to="/stems" name="Stems" key="stems">
        Stems
     </Menu.Item>
-     <Menu.Item as={Link} to="/affixes" name="Affixes">
+     <Menu.Item as={Link} to="/affixes" name="Affixes" key="affixes">
        Affixes
     </Menu.Item>
-    <Menu.Item as={Link} to="/texts" name="Texts">
+    <Menu.Item as={Link} to="/texts" name="Texts" key="texts">
        Texts
     </Menu.Item>
-    <Menu.Item as={Link} to="/audio" name="Audio">
+    <Menu.Item as={Link} to="/audio" name="Audio" key="audio">
        Audio
     </Menu.Item>
-    <Menu.Item as={Link} to="/spelling" name="Spelling">
+    <Menu.Item as={Link} to="/spelling" name="Spelling" key="spelling">
        Spelling
     </Menu.Item>
-    <Menu.Item as={Link} to="/bibliography" name="Bibliography">
+    <Menu.Item as={Link} to="/bibliography" name="Bibliography" key="bib">
        Bibliography
     </Menu.Item>
-    <Menu.Item as={Link} to="/contactus" name="Contact">
+    <Menu.Item as={Link} to="/contactus" name="Contact" key="contact">
        Contact
     </Menu.Item>
-    <Menu.Item as={Link} to="/elicitations" name="Elicitations">
+    <Menu.Item as={Link} to="/elicitations" name="Elicitations" key="elicit">
        Elicitations
     </Menu.Item>
     <Menu.Menu position="right">

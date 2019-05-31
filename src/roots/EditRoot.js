@@ -23,6 +23,7 @@ class EditRoot extends Component {
 				salish: "",
 				nicodemus: "",
 				english: "",
+				userId: "",
 			},
 			fieldErrors: {}
 		};
@@ -37,7 +38,9 @@ class EditRoot extends Component {
 				number: values.number,
 				salish: values.salish,
 				nicodemus: values.nicodemus,
-				english: values.english
+				english: values.english,
+				prevId: values.prevId,
+				userId: values.userId
 			}
 		}, () => {
 			//this.idInput.current.value = values.id;
@@ -57,7 +60,9 @@ class EditRoot extends Component {
 					number: parseInt(this.state.fields.number),
 					salish: this.state.fields.salish,
 					nicodemus: this.state.fields.nicodemus,
-					english: this.state.fields.english
+					english: this.state.fields.english,
+					//prevId: parseInt(this.state.fields.prevId),
+					userId: parseInt(this.state.fields.userId),
 				},
 		      	refetchQueries: [{ query: getRootsQuery }]
 			});
@@ -77,66 +82,73 @@ class EditRoot extends Component {
 	};
 
 	render() {
-		return (
-			<div>
-				<h3>Edit a Root</h3>
-				<p>Change your root in wonderful ways.</p>
-				<div>
-					<Form onSubmit={this.onFormSubmit}>
-						<Form.Group widths='equal'>
-						<Form.Input fluid label="Id"
-							placeholder='Id'
-							name='id'
-							value={this.state.fields.id}
-							onChange={this.onInputChange}
-							ref={this.idInput}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.id}</span>
-						<Form.Input fluid label="Root"
-							placeholder='Root'
-							name='root'
-							value={this.state.fields.root}
-							onChange={this.onInputChange}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.root}</span>
-						<Form.Input fluid label="Number"
-							placeholder='Number'
-							name='number'
-							value={this.state.fields.number}
-							onChange={this.onInputChange}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.number}</span>
-						<Form.Input fluid label="Salish"
-							placeholder='Salish'
-							name='salish'
-							value={this.state.fields.salish}
-							onChange={this.onInputChange}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.salish}</span>
-						<Form.Input fluid label="Nicodemus"
-							placeholder='Nicodemus'
-							name='nicodemus'
-							value={this.state.fields.nicodemus}
-							onChange={this.onInputChange}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.nicodemus}</span>
-						<Form.Input fluid label="English"
-							placeholder='English'
-							name='english'
-							value={this.state.fields.english}
-							onChange={this.onInputChange}
-						/>
-						<span style={{ color: 'red' }}>{this.state.fieldErrors.english}</span>
-						</Form.Group>
-			         	<Button basic color="blue" type='submit' icon size="mini" labelPosition="right">
-			            	<Icon name='save' />
-			            	Save Changes
-			          	</Button>
-					</Form>
-				</div>
-				<h3>Virtual Keyboard</h3>
-				<SimpleKeyboard / >
-			</div>
+
+	return (
+		<div>
+			<h3>Edit a Root</h3>
+			<p>Change your root in wonderful ways.</p>
+			<Form onSubmit={this.onFormSubmit}>
+				<Form.Group widths='equal'>
+				<Form.Input fluid label="Id"
+					placeholder='Id'
+					name='id'
+					value={this.state.fields.id}
+					onChange={this.onInputChange}
+					ref={this.idInput}
+				/>
+				<span style={{ color: 'red' }}>{this.state.fieldErrors.id}</span>
+				<Form.Input fluid label="Root"
+					placeholder='Root'
+					name='root'
+					value={this.state.fields.root}
+					onChange={this.onInputChange}
+				/>
+				<span style={{ color: 'red' }}>{this.state.fieldErrors.root}</span>
+				<Form.Input fluid label="Number"
+					placeholder='Number'
+					name='number'
+					value={this.state.fields.number}
+					onChange={this.onInputChange}
+				/>
+				<span style={{ color: 'red' }}>{this.state.fieldErrors.number}</span>
+				<Form.Input fluid label="Salish"
+					placeholder='Salish'
+					name='salish'
+					value={this.state.fields.salish}
+					onChange={this.onInputChange}
+				/>
+				<span style={{ color: 'red' }}>{this.state.fieldErrors.salish}</span>
+				<Form.Input fluid label="Nicodemus"
+					placeholder='Nicodemus'
+					name='nicodemus'
+					value={this.state.fields.nicodemus}
+					onChange={this.onInputChange}
+				/>
+				<span style={{ color: 'red' }}>{this.state.fieldErrors.nicodemus}</span>
+				<Form.Input fluid label="English"
+					placeholder='English'
+					name='english'
+					value={this.state.fields.english}
+					onChange={this.onInputChange}
+				/>
+				<span style={{ color: 'red' }}>{this.state.fieldErrors.english}</span>
+				<Form.Input fluid label="User ID"
+					placeholder='Enter 1'
+					name='userId'
+					value={this.state.fields.userId}
+					onChange={this.onInputChange}
+				/>
+				<span style={{ color: 'red' }}>{this.state.fieldErrors.userId}</span>
+				</Form.Group>
+	         	<Button basic color="blue" type='submit' icon size="mini" labelPosition="right">
+	            	<Icon name='save' />
+	            	Save Changes
+	          	</Button>
+			</Form>
+
+			<h3>Virtual Keyboard</h3>
+			<SimpleKeyboard / >
+		</div>
 		);
 	}
 };

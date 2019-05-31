@@ -13,10 +13,10 @@ class RootsAccordion extends Component {
 		    <Accordion>
 		        <AccordionItem>
 		            <AccordionItemTitle>
-		                <p className="u-position-relative">
+		                <div className="u-position-relative">
 		                Introduction
 		                <div className="accordion__arrow" role="presentation" />
-		            	</p>
+		                </div>
 		            </AccordionItemTitle>
 		            <AccordionItemBody>
 			            <p>The root dictionary presented here was compiled by John Lyon and Rebecca Greene-Wood and contains nearly 1,400 roots and about 7690 "word" forms. The data come from Lawrence Nicodemus's Coeur d'Alene dictionary. The original work was published by UMOPL and can be found at <a href="http://meltr.org/Publications/" target="_blank" rel="noopener noreferrer">Lyon and Greene-Wood 2007</a>. All material is copyrighted by the Coeur d'Alene Tribe and may not be copied in any format without written permission from the Coeur d'Alene Tribe.

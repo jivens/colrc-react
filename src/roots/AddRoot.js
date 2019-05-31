@@ -20,6 +20,8 @@ class AddRoot extends Component {
 				salish: "",
 				nicodemus: "",
 				english: "",
+				prevId: "",
+				userId: "",
 			},
 			fieldErrors: {}
 		};
@@ -35,7 +37,9 @@ class AddRoot extends Component {
 		        number: parseInt(this.state.fields.number),
 		        salish: this.state.fields.salish,
 		        nicodemus: this.state.fields.nicodemus,
-		        english: this.state.fields.english
+		        english: this.state.fields.english,
+		        //prevId: parseInt(this.state.fields.prevId),
+		        userId: parseInt(this.state.fields.userId),
 					},
 					refetchQueries: [{ query:getRootsQuery }]
 		    });	
@@ -100,6 +104,13 @@ class AddRoot extends Component {
 							onChange={this.onInputChange}
 						/>
 						<span style={{ color: 'red' }}>{this.state.fieldErrors.english}</span>
+						<Form.Input fluid label="User ID"
+							placeholder='Enter 1'
+							name='userId'
+							value={this.state.fields.userId}
+							onChange={this.onInputChange}
+						/>
+						<span style={{ color: 'red' }}>{this.state.fieldErrors.userId}</span>
 						</Form.Group>
 			         	<Button basic color="blue" type='submit' icon size="mini" labelPosition="right">
 			            	<Icon name='save' />

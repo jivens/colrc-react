@@ -22,7 +22,9 @@ class AddStem extends Component {
 	      salish: "",
 	      nicodemus: "",
 	      english: "",
-	      note: ""
+				note: "",
+				prevId: "",
+				userId: "",
 			},
 			fieldErrors: {}
 		};
@@ -40,7 +42,8 @@ class AddStem extends Component {
 		        salish: values.salish,
 		        nicodemus: values.nicodemus,
 		        english: values.english,
-		        note: values.note,
+						note: values.note,
+						userId: parseInt(values.userId, 10),
 		      },
 		      refetchQueries: [{ query: getStemsQuery }]
 		    });	
@@ -183,10 +186,25 @@ class AddStem extends Component {
 				              onBlur={handleBlur}
 				              className={
 				                errors.note && touched.note ? 'text-input error' : 'text-input'
-				              }
+					  					}
 				            />
 				            {errors.note && touched.note && (
 				            <div className="input-feedback">{errors.note}</div>
+									 	)}
+										<Input
+										id="userId"
+										placeholder="Enter 1"
+										type="text"
+										value={values.userId}
+										onChange={handleChange}
+										onBlur={handleBlur}
+										className={
+											errors.userId && touched.userId ? 'text-input error' : 'text-input'
+										}
+									/>
+									{errors.userId && touched.userId && (
+									<div className="input-feedback">{errors.userId}</div>
+
 				            )}
 					        <button type="submit" disabled={isSubmitting}>
 					            Submit
@@ -196,7 +214,7 @@ class AddStem extends Component {
 					</Formik>
 				</div>
 				<h3>Virtual Keyboard</h3>
-				<SimpleKeyboard / >
+				<SimpleKeyboard />
 			</div>
 		);
 	}

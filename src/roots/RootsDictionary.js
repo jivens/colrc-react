@@ -98,14 +98,13 @@ class RootsDictionary extends Component {
 	    accessor: 'id',
         show: false
 	  	},
-    {
+      {
 	    Header: 'Root',
 	    accessor: 'root',
 	    filterMethod: (filter, rows) =>
         	matchSorter(rows, filter.value, { keys: ["root"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,
 	    width: getColumnWidth(this.state.data, 'root', 'Root'),
-	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	},
 	  {
 	    Header: '#',
@@ -115,7 +114,6 @@ class RootsDictionary extends Component {
             filterAll: true,
 	    width: 50,
 	    show: numberSelected,
-	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	},
 	  {
 	    Header: 'Salish',
@@ -124,8 +122,6 @@ class RootsDictionary extends Component {
         	matchSorter(rows, filter.value, { keys: ["salish"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,
         show: salishSelected,
-        //width: getColumnWidth(rootData, 'salish', 'Salish'),
-	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  	},
 	  {
 	    Header: 'Nicodemus',
@@ -134,8 +130,6 @@ class RootsDictionary extends Component {
         	matchSorter(rows, filter.value, { keys: ["nicodemus"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,
 	    show: nicodemusSelected,
-	    //width: getColumnWidth(rootData, 'nicodemus', 'Nicodemus'),
-	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  },
 	  {
 	    Header: 'English',
@@ -145,7 +139,6 @@ class RootsDictionary extends Component {
         filterAll: true,
 	    style: { 'white-space': 'unset' },
 		  show: englishSelected,
-	    //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
 	  },
     {
       Header: 'Active',
@@ -153,17 +146,17 @@ class RootsDictionary extends Component {
       filterMethod: (filter, rows) =>
           matchSorter(rows, filter.value, { keys: ["active"], threshold: matchSorter.rankings.CONTAINS }),
         filterAll: true,
-      style: { 'white-space': 'unset' },
       show: true,
+      width: 50,
     },
     {
-      Header: 'Previous ID',
+      Header: 'PrevID',
       accessor: 'prevId',
       filterMethod: (filter, rows) =>
           matchSorter(rows, filter.value, { keys: ["prevId"], threshold: matchSorter.rankings.CONTAINS }),
         filterAll: true,
-      style: { 'white-space': 'unset' },
       show: true,
+      width: 50,
     },
     {
       Header: 'User Name',

@@ -13,10 +13,10 @@ class TextsAccordion extends Component {
 	    <Accordion>
 	        <AccordionItem>
 	            <AccordionItemTitle>
-	                <p className="u-position-relative">
+	                <div className="u-position-relative">
 	                Introduction
 	                <div className="accordion__arrow" role="presentation" />
-	            	</p>
+	            	</div>
 	            </AccordionItemTitle>
 	            <AccordionItemBody>
 			        <p>The unpublished field notes and typed manuscripts of Coeur d'Alene myths and tales presented in this archive were recorded in 1927 and 1929 by Gladys Reichard. The texts cover what Reichard classified into "myths and tales" and "tales with historical elements". The "myths and tales" are further divided into "Coyote cycle" and "myths not in Coyote cycle."</p>
@@ -28,10 +28,10 @@ class TextsAccordion extends Component {
 
 			<AccordionItem>
 	            <AccordionItemTitle>
-	            	<p className="u-position-relative">
+	            	<div className="u-position-relative">
 			    	Guide to Listings
 	                <div className="accordion__arrow" role="presentation" />
-	                </p>
+	                </div>
 			    </AccordionItemTitle>
 			    <AccordionItemBody>
 					<p>The texts provided here were collected from photo-copies of Reichard's original manuscripts and quality varies from text to text. Files are available for download in PDF form or as image (PNG) files within the website (larger files will take longer to open).</p>

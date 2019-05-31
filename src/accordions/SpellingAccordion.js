@@ -14,10 +14,10 @@ class SpellingAccordion extends Component {
 	    <Accordion>
 	        <AccordionItem>
 	            <AccordionItemTitle>
-	                <p className="u-position-relative">
+	                <div className="u-position-relative">
 	                Introduction
 	                <div className="accordion__arrow" role="presentation" />
-	            	</p>
+	            	</div>
 	            </AccordionItemTitle>
 	            <AccordionItemBody>
 			        <p>
@@ -47,10 +47,10 @@ class SpellingAccordion extends Component {
 			</AccordionItem>
 			<AccordionItem>
 				<AccordionItemTitle>
-	                <p className="u-position-relative">
+	                <div className="u-position-relative">
 	                Pronunciation of Coeur d'Alene sounds
 	                <div className="accordion__arrow" role="presentation" />
-	            	</p>				
+	            	</div>				
 				</AccordionItemTitle>
 				<AccordionItemBody>
 					<p>Coeur d'Alene uses some sounds that will be unfamiliar to English speakers. In this resource, we provide information about how the sounds are pronounced, using the terminology that linguists have developed to describe these processes.  For those who don't (yet) have training in "articulatory phonetics", we recommend working with a teacher who can help you learn to pronounce the sounds.

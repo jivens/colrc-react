@@ -11,6 +11,11 @@ const getStemsQuery = gql`
       nicodemus
       english
       note
+      active
+      prevId
+      user {
+        username
+      }
     }
   }
 `;
@@ -62,8 +67,8 @@ const getRootsQuery = gql`
 `;
 
 const addStemMutation = gql`
-  mutation($category: String!, $reichard: String!, $doak: String!, $salish: String!, $nicodemus: String!, $english: String!, $note: String!) {
-  	addStem(category: $category, reichard: $reichard, doak: $doak, salish: $salish, nicodemus: $nicodemus, english: $english, note: $note) {
+  mutation($category: String!, $reichard: String!, $doak: String!, $salish: String!, $nicodemus: String!, $english: String!, $note: String!, $userId: Int!) {
+  	addStem(category: $category, reichard: $reichard, doak: $doak, salish: $salish, nicodemus: $nicodemus, english: $english, note: $note, userId: $userId) {
       id
       category
       reichard
@@ -72,13 +77,18 @@ const addStemMutation = gql`
       nicodemus
       english
       note
+      active
+      prevId
+      user {
+        username
+      }
     }
   }
 `;
 
 const updateStemMutation = gql`
-  mutation($id: ID!, $category: String!, $reichard: String!, $doak: String!, $salish: String!, $nicodemus: String!, $english: String!, $note: String!) {
-    updateStem(id: $id, category: $category, reichard: $reichard, doak: $doak, salish: $salish, nicodemus: $nicodemus, english: $english, note: $note) {
+  mutation($id: ID!, $category: String!, $reichard: String!, $doak: String!, $salish: String!, $nicodemus: String!, $english: String!, $note: String!, $userId: Int!) {
+    updateStem(id: $id, category: $category, reichard: $reichard, doak: $doak, salish: $salish, nicodemus: $nicodemus, english: $english, note: $note, userId: $userId) {
       id
       category
       reichard
@@ -86,7 +96,12 @@ const updateStemMutation = gql`
       salish
       nicodemus
       english
-	  note
+      note
+      active
+      prevId
+      user {
+        username
+      }
     }
   }
   `;
@@ -102,6 +117,11 @@ const deleteStemMutation = gql`
       nicodemus
       english
       note
+      active
+      prevId
+      user {
+        username
+      }
     }
   }
 `;

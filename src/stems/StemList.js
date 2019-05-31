@@ -14,7 +14,7 @@ class StemList extends Component {
 	constructor() {
 		super();
     	this.onDelete = this.onDelete.bind(this);
-    	this.loadStemData = this.loadStemData.bind(this);
+    	//this.loadStemData = this.loadStemData.bind(this);
 		this.state = {
 			data: [],
 			loading: true,
@@ -24,6 +24,7 @@ class StemList extends Component {
 			nicodemusSelected: true,
 			englishSelected: true,
 			noteSelected: false,
+			usernameSelected: true,
 		};
 	}
 
@@ -63,29 +64,33 @@ class StemList extends Component {
 		});
 	};
 
+	handleUserChange(value) {
+		this.setState({ usernameSelected: !this.state.usernameSelected });
+	};
+
 
 	async componentDidMount() {
 		//this.loadStemData();
 	}
 
-	async loadStemData() {
-		try {
-			const response = await fetch(`http://localhost:4000/stems`);
-			if (!response.ok) {
-				throw Error(response.statusText);
-			}
-			const json = await response.json();
-			this.setState({
-				loading: false,
-				data: json
-			});
-		} catch (error) {
-			console.log("This is my Error: " + error);
-			this.setState({
-				error: error
-			});
-		}
-	}
+	// async loadStemData() {
+	// 	try {
+	// 		const response = await fetch(`http://localhost:4000/stems`);
+	// 		if (!response.ok) {
+	// 			throw Error(response.statusText);
+	// 		}
+	// 		const json = await response.json();
+	// 		this.setState({
+	// 			loading: false,
+	// 			data: json
+	// 		});
+	// 	} catch (error) {
+	// 		console.log("This is my Error: " + error);
+	// 		this.setState({
+	// 			error: error
+	// 		});
+	// 	}
+	// }
 
 	async onDelete(id) {
 	    console.log("In deletion");
@@ -111,7 +116,8 @@ class StemList extends Component {
 			salishSelected,
 			nicodemusSelected,
 			englishSelected,
-			noteSelected
+			noteSelected,
+			usernameSelected 
 		} = this.state;
 
 
@@ -212,6 +218,33 @@ class StemList extends Component {
 			filterAll: true,
 			show: noteSelected,
 		},
+		{
+      Header: 'Active',
+      accessor: 'active',
+      filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ["active"], threshold: matchSorter.rankings.CONTAINS }),
+        filterAll: true,
+      show: true,
+      width: 50,
+		},
+		{
+      Header: 'PrevID',
+      accessor: 'prevId',
+      filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ["prevId"], threshold: matchSorter.rankings.CONTAINS }),
+        filterAll: true,
+      show: true,
+      width: 50,
+    },
+    {
+      Header: 'User Name',
+      accessor: 'user.username',
+      filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ["user.username"], threshold: matchSorter.rankings.CONTAINS }),
+      filterAll: true,
+      show: usernameSelected,
+	  width: 100,
+    },
       {
         Header: 'Edit/Delete',
         filterable: false,
@@ -279,8 +312,15 @@ class StemList extends Component {
 				checked = {this.state.noteSelected}
 				onChange = {this.handleNoteChange.bind(this)}
 			/>
-			</div>
-		);
+			<label className="checkBoxLabel">User Name</label>
+			<input
+				name="user.username"
+				type="checkbox"
+				checked={this.state.usernameSelected}
+				onChange={this.handleUserChange.bind(this)}
+			/>
+		</div>
+	);
 
 		const dataOrError = this.state.error ?
 			<div style = {{color: 'red'}} > Oops!Something went wrong! < /div> :

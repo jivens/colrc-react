@@ -3,7 +3,6 @@ import { Button, Icon } from 'semantic-ui-react';
 import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
 import { Link } from "react-router-dom";
-import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { graphql, compose } from 'react-apollo';
 import { getRootsQuery, deleteRootMutation } from '../queries/queries';

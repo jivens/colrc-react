@@ -70,7 +70,7 @@ render() {
 const columns = [{
   Header: 'Author',
   accessor: 'author',
-  style: { 'white-space': 'unset'},
+  style: { 'whiteSpace': 'unset'},
   filterMethod: (filter, rows) =>
     matchSorter(rows, filter.value, { keys: ["author"], threshold: matchSorter.rankings.CONTAINS }),
       filterAll: true,
@@ -86,7 +86,7 @@ const columns = [{
 {
   Header: 'Title',
   accessor: 'title',
-  style: { 'white-space': 'unset'},
+  style: { 'whiteSpace': 'unset'},
   Cell: ({row, original}) => ( this.weblink(original.link, original.title) ),
   filterMethod: (filter, rows) =>
       matchSorter(rows, filter.value, { keys: ["title"], threshold: matchSorter.rankings.CONTAINS }),
@@ -96,7 +96,7 @@ const columns = [{
 {
   Header: 'Reference',
   accessor: 'reference',
-  style: { 'white-space': 'unset' }, //allows text to wrap in a cell
+  style: { 'whiteSpace': 'unset' }, //allows text to wrap in a cell
   filterMethod: (filter, rows) =>
       matchSorter(rows, filter.value, { keys: ["reference"], threshold: matchSorter.rankings.CONTAINS }),
         filterAll: true,

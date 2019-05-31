@@ -15,10 +15,10 @@ class AffixesAccordion extends Component {
 		    <Accordion>
 		        <AccordionItem>
 		            <AccordionItemTitle>
-		                <p className="u-position-relative">
+		                <div className="u-position-relative">
 		                Introduction
 		                <div className="accordion__arrow" role="presentation" />
-		            	</p>
+		            	</div>
 		            </AccordionItemTitle>
 		            <AccordionItemBody>
 				      <p>

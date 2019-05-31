@@ -15,10 +15,10 @@ const bibIntro =
   <Accordion>
       <AccordionItem>
           <AccordionItemTitle>
-              <p className="u-position-relative">
+              <div className="u-position-relative">
               Bibliography Information
               <div className="accordion__arrow" role="presentation" />
-            </p>
+            </div>
           </AccordionItemTitle>
           <AccordionItemBody>
         <p>

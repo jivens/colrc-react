@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import queryString from 'query-string';
 import { Form, Button, Icon } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
-import axios from 'axios';
 import { graphql, compose } from 'react-apollo';
 import { updateRootMutation, getRootsQuery } from '../queries/queries';
 import { withRouter } from 'react-router-dom';
@@ -57,12 +56,12 @@ class EditRoot extends Component {
 				variables: {
 					id: this.state.fields.id,
 					root: this.state.fields.root,
-					number: parseInt(this.state.fields.number),
+					number: parseInt(this.state.fields.number, 10),
 					salish: this.state.fields.salish,
 					nicodemus: this.state.fields.nicodemus,
 					english: this.state.fields.english,
 					//prevId: parseInt(this.state.fields.prevId),
-					userId: parseInt(this.state.fields.userId),
+					userId: parseInt(this.state.fields.userId, 10),
 				},
 		      	refetchQueries: [{ query: getRootsQuery }]
 			});

@@ -19,7 +19,9 @@ class AddAffix extends Component {
 		      nicodemus: "",
 		      english: "",
 		      link: "",
-		      page: ""
+		      page: "",
+			  prevId: "",
+			  userId: "",
 			},
 			fieldErrors: {}
 		};
@@ -36,7 +38,8 @@ class AddAffix extends Component {
 		        nicodemus: this.state.fields.nicodemus,
 		        english: this.state.fields.english,
 		        link: this.state.fields.link,
-		        page: this.state.fields.page
+		        page: this.state.fields.page,
+		        userId: parseInt(this.state.fields.userId, 10),
 		      },
 		      refetchQueries: [{ query: getAffixesQuery }]
 		    });	
@@ -107,6 +110,13 @@ class AddAffix extends Component {
 							onChange={this.onInputChange}
 						/>
 						<span style={{ color: 'red' }}>{this.state.fieldErrors.page}</span>
+						<Form.Input fluid label="User ID"
+							placeholder='Enter 1'
+							name='userId'
+							value={this.state.fields.userId}
+							onChange={this.onInputChange}
+						/>
+						<span style={{ color: 'red' }}>{this.state.fieldErrors.userId}</span>
 						</Form.Group>
 			         	<Button basic color="blue" type='submit' icon size="mini" labelPosition="right">
 			            	<Icon name='save' />

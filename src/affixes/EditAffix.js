@@ -22,7 +22,8 @@ class EditAffix extends Component {
 		      nicodemus: "",
 		      english: "",
 		      link: "",
-		      page: ""
+		      page: "",
+		      userId: ""
 			},
 			fieldErrors: {}
 		};
@@ -38,7 +39,8 @@ class EditAffix extends Component {
 				nicodemus: values.nicodemus,
 				english: values.english,
 				link: values.link,
-				page: values.page
+				page: values.page,
+				userId: values.userId
 			}
 		}, () => {
 			//this.idInput.current.value = values.id;
@@ -60,6 +62,7 @@ class EditAffix extends Component {
 					english: this.state.fields.english,
 					link: this.state.fields.link,
 					page: this.state.fields.page,
+					userId: parseInt(this.state.fields.userId, 10),
 				},
 		      	refetchQueries: [{ query: getAffixesQuery }]
 			});
@@ -136,7 +139,14 @@ class EditAffix extends Component {
 						value={this.state.fields.page}
 						onChange={this.onInputChange}
 					/>
-					<span style={{ color: 'red' }}>{this.state.fieldErrors.link}</span>
+					<span style={{ color: 'red' }}>{this.state.fieldErrors.page}</span>
+					<Form.Input fluid label="User ID"
+						placeholder='Enter 1'
+						name='userId'
+						value={this.state.fields.userId}
+						onChange={this.onInputChange}
+					/>
+					<span style={{ color: 'red' }}>{this.state.fieldErrors.userId}</span>
 						</Form.Group>
 			         	<Button basic color="blue" type='submit' icon size="mini" labelPosition="right">
 			            	<Icon name='save' />

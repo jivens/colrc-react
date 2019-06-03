@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import queryString from 'query-string';
 import { Form, Button, Icon } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
-import axios from 'axios';
 import { graphql, compose } from 'react-apollo';
 import { updateStemMutation, getStemsQuery } from '../queries/queries';
 import { withRouter } from 'react-router-dom';
@@ -24,7 +23,8 @@ class EditStem extends Component {
 	      		salish: "",
 	      		nicodemus: "",
 	      		english: "",
-	      		note: ""
+						note: "",
+						userId: "",
 			},
 			fieldErrors: {}
 		};
@@ -41,7 +41,9 @@ class EditStem extends Component {
 				salish: values.salish,
 				nicodemus: values.nicodemus,
 				english: values.english,
-				note: values.note
+				note: values.note,
+				prevId: values.prevId,
+				userId: values.userId
 			}
 		}, () => {
 			//this.idInput.current.value = values.id;
@@ -64,6 +66,7 @@ class EditStem extends Component {
 					nicodemus: this.state.fields.nicodemus,
 					english: this.state.fields.english,
 					note: this.state.fields.note,
+					userId: parseInt(this.state.fields.userId, 10),
 				},
 		      	refetchQueries: [{ query: getStemsQuery }]
 			});
@@ -146,6 +149,16 @@ class EditStem extends Component {
 						onChange={this.onInputChange}
 					/>
 					<span style={{ color: 'red' }}>{this.state.fieldErrors.note}</span>
+
+
+					<Form.Input fluid label="User ID"
+					placeholder='Enter 1'
+					name='userId'
+					value={this.state.fields.userId}
+					onChange={this.onInputChange}
+				/>
+				<span style={{ color: 'red' }}>{this.state.fieldErrors.userId}</span>
+
 						</Form.Group>
 			         	<Button basic color="blue" type='submit' icon size="mini" labelPosition="right">
 			            	<Icon name='save' />
@@ -154,7 +167,7 @@ class EditStem extends Component {
 					</Form>
 				</div>
 				<h3>Virtual Keyboard</h3>
-				<SimpleKeyboard / >
+				<SimpleKeyboard />
 			</div>
 		);
 	}

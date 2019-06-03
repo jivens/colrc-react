@@ -64,9 +64,13 @@ class EditAffix extends Component {
 					page: this.state.fields.page,
 					userId: parseInt(this.state.fields.userId, 10),
 				},
-		      	refetchQueries: [{ query: getAffixesQuery }]
+				refetchQueries: [{ query: getAffixesQuery }],
+				awaitRefetchQueries: true
+			})
+			.then(() => {
+				this.props.history.push('/affixes');
 			});
-			this.props.history.push('/affixes');
+			//this.props.history.push('/affixes');
 			//history.push('/rootdictionary');
 		} catch (err) {
 			console.log(err);
@@ -162,5 +166,6 @@ class EditAffix extends Component {
 };
 
 export default compose(
+	graphql(getAffixesQuery, { name: 'getAffixesQuery' }),
 	graphql(updateAffixMutation, { name: 'updateAffixMutation' })
 )(withRouter(EditAffix));

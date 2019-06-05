@@ -5,7 +5,7 @@ import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
 import { Button, Icon } from 'semantic-ui-react';
-import { graphql, compose } from 'react-apollo';
+import { graphql, compose, withApollo } from 'react-apollo';
 import { getAffixesQuery, deleteAffixMutation } from '../queries/queries';
 
 class AffixList extends Component {
@@ -15,8 +15,8 @@ class AffixList extends Component {
     	//this.loadAffixData = this.loadAffixData.bind(this);
 	    this.weblink = this.weblink.bind(this);
 	    this.state = {
-    		data: [], 
-    		loading: true, 
+    		data: [],
+    		loading: true,
 		    salishSelected: false,
 		    nicodemusSelected: true,
 		    englishSelected: true,
@@ -53,7 +53,10 @@ class AffixList extends Component {
 
 	  async componentDidMount() {
 			//this.loadAffixData();
-	  }	
+			this.props.getAffixesQuery.affixes = this.props.client.query({
+				query: getAffixesQuery
+			});
+	  }
 
 	  // async loadAffixData() {
 	  //   try {
@@ -89,7 +92,7 @@ class AffixList extends Component {
 
   	const { salishSelected, nicodemusSelected, englishSelected, linkSelected, usernameSelected } = this.state;
 
- 
+
  	const getColumnWidth = (rows, accessor, headerText) => {
 	  const maxWidth = 600
 	  const magicSpacing = 15
@@ -137,16 +140,16 @@ class AffixList extends Component {
         	matchSorter(rows, filter.value, { keys: ["nicodemus"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,
         show: nicodemusSelected,
-	  	}, 
+	  	},
 	  {
 	    Header: 'English',
 	    accessor: 'english',
-	    style: { 'white-space': 'unset' }, 
+	    style: { 'white-space': 'unset' },
 	    filterMethod: (filter, rows) =>
         	matchSorter(rows, filter.value, { keys: ["english"], threshold: matchSorter.rankings.CONTAINS }),
             filterAll: true,
         show: englishSelected,
-	  	}, 
+	  	},
 	  {
 	    Header: 'Link',
 	    accessor: 'link',
@@ -212,7 +215,7 @@ class AffixList extends Component {
 	const CheckboxAffix = () => (
 		<div className="checkBoxMenu">
 		  <label className="checkBoxLabel">Salish</label>
-		  <input 
+		  <input
 		  	name="salish"
             type="checkbox"
             checked={this.state.salishSelected}
@@ -287,4 +290,4 @@ class AffixList extends Component {
 export default compose(
 	graphql(getAffixesQuery, { name: 'getAffixesQuery' }),
 	graphql(deleteAffixMutation, { name: 'deleteAffixMutation' })
-)(withRouter(AffixList));
+)(withRouter(withApollo(AffixList)));

@@ -3,7 +3,6 @@ import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import { Link, withRouter } from "react-router-dom";
-import axios from 'axios';
 import { Button, Icon } from 'semantic-ui-react';
 import { graphql, compose, withApollo } from 'react-apollo';
 import { getAffixesQuery, deleteAffixMutation } from '../queries/queries';
@@ -53,9 +52,6 @@ class AffixList extends Component {
 
 	  async componentDidMount() {
 			//this.loadAffixData();
-			this.props.getAffixesQuery.affixes = this.props.client.query({
-				query: getAffixesQuery
-			});
 	  }
 
 	  // async loadAffixData() {

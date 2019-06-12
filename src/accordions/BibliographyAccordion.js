@@ -22,7 +22,7 @@ const bibIntro =
           </AccordionItemTitle>
           <AccordionItemBody>
         <p>
-          write intro here?
+          This bibliography includes resources available outside the COLRC.  Where an online resource can be provided, we've linked to it directly; else we provide the bibliographic reference alone.  If you have recommendations for items or links that could be added, please use the 'contact us' page to let us know about them! 
         </p>
     </AccordionItemBody>
   </AccordionItem>

@@ -221,6 +221,5 @@ class AddStem extends Component {
 };
 
 export default compose(
-  graphql(addStemMutation, { name: "addStemMutation"}),
-)
+  graphql(addStemMutation, { name: "addStemMutation"}),)
 (withRouter(AddStem));

@@ -32,7 +32,7 @@ class HomeAccordion extends Component {
 	            	</div>
 				</AccordionItemTitle>
 				<AccordionItemBody>
-		 		  <p>Additional resources will be included, as well as further documentation about the methods used by Reichard and Nicodemus to collect many of these resources. We also will be posting our source files (for all material other than the language resources themselves) to the site, so that anyone who would like to make use of our code to develop their own websites may do so. If you would like to help or have questions, comments or suggestions, contact us using the "Contact Us" link on the left menu, or by emailing us directly at: <b>crd [dot] archive [at] gmail [dot] com</b>.
+		 		  <p>Additional resources will be included, as well as further documentation about the methods used by Reichard and Nicodemus to collect many of these resources. We also will be posting our source files (for all material other than the language resources themselves) to the site, so that anyone who would like to make use of our code to develop their own websites may do so. If you would like to help or have questions, comments or suggestions, please use the "contact us" page to let us know.
 		          </p>
 				</AccordionItemBody>
 			</AccordionItem>

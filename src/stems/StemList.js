@@ -4,7 +4,6 @@ import matchSorter from 'match-sorter';
 import DecoratedTextSpan from '../utilities/DecoratedTextSpan';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
 import { Link, withRouter } from "react-router-dom";
-import axios from 'axios';
 import { graphql, compose } from 'react-apollo';
 import { getStemsQuery, deleteStemMutation } from '../queries/queries';
 import { Button, Icon } from 'semantic-ui-react';

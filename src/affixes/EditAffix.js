@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import queryString from 'query-string';
 import { Form, Button, Icon } from 'semantic-ui-react';
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
-import { graphql, compose, ApolloConsumer, withApollo } from 'react-apollo';
+import { graphql, compose, withApollo } from 'react-apollo';
 import { updateAffixMutation, getAffixesQuery } from '../queries/queries';
 import { withRouter } from 'react-router-dom';
 //import ApolloClient from 'apollo-boost';
@@ -65,9 +65,9 @@ class EditAffix extends Component {
 					link: this.state.fields.link,
 					page: this.state.fields.page,
 					userId: parseInt(this.state.fields.userId, 10),
-				}
-				//refetchQueries: [{ query: getAffixesQuery }],
-				//awaitRefetchQueries: true
+				},
+				refetchQueries: () => [{ query: getAffixesQuery, variables: {}, awaitRefetchQueries: true }],
+				awaitRefetchQueries: true
 			})
 			// .then(() => {
 			// 	this.props.getAffixesQuery.affixes = this.props.client.query({
@@ -174,5 +174,5 @@ class EditAffix extends Component {
 
 export default compose(
 	graphql(getAffixesQuery, { name: 'getAffixesQuery' }),
-	graphql(updateAffixMutation, { name: 'updateAffixMutation' })
+	graphql(updateAffixMutation, { name: 'updateAffixMutation', options: {refetchQueries: [ 'getAffixesQuery'], awaitRefetchQueries: true} })
 )(withRouter(withApollo(EditAffix)));

@@ -8,7 +8,7 @@ import Home from './home/Home';
 import Stems from './stems/Stems';
 import Affixes from './affixes/Affixes';
 import Audio from "./audio/Audio";
-/*import ContactUs from './ContactUs';*/
+import ContactUs from './contact/ContactUs';
 import Texts from './texts/Texts';
 import Bibliography from './bibliography/Bibliography';
 import EditRoot from './roots/EditRoot';
@@ -31,6 +31,9 @@ import './stylesheets/Colrc.css';
 import './stylesheets/AccordionTables.css';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import Users from './users/Users';
+import Settings from './settings/Settings';
+import More from './more/More';
 
 // apollo client setup
 const client = new ApolloClient({
@@ -43,9 +46,9 @@ class Colrc extends Component {
 
 	  const rightItems = [
 	  	  { to: "/search", icon: 'search'},
-	  	  { to: "/", icon: 'user'},
-		  { to: "/", icon: 'cog'},
-		  { to: "/", icon: 'ellipsis vertical'},
+	  	  { to: "/users", icon: 'user'},
+		  { to: "/settings", icon: 'cog'},
+		  { to: "/more", icon: 'ellipsis vertical'},
 		];
 
       return (
@@ -62,8 +65,8 @@ class Colrc extends Component {
                   <Route path="/roots" component={Roots} />
                   <Route path="/stems" component={Stems} />
                   <Route path="/affixes" component={Affixes} />
-  				  <Route path="/audio" component={Audio} />
-  				  {/*<Route path="/contactus" component={ContactUs} key="contactus" />*/}
+  				        <Route path="/audio" component={Audio} />
+  				        <Route path="/contactus" component={ContactUs} />
                   <Route path="/texts" component={Texts} />
                   <Route path="/bibliography" component={Bibliography} />
                   {/* <Route path="/rootdictionary/:id" exact component={EditRoot} key="rootdictionary" /> */}
@@ -79,6 +82,9 @@ class Colrc extends Component {
                   <Route path="/imageviewer" component={ImageViewer} />
                   <Route path="/splitview" component={SplitView} />
                   <Route path="/search" component={Search}  />
+                  <Route path="/users" component={Users}  />
+                  <Route path="/Settings" component={Settings}  />
+                  <Route path="/more" component={More}  />                  
                   {/* <Route component={NotFound} /> */}
                 </Switch>
               </Grid.Column>

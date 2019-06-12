@@ -3,7 +3,7 @@ import ReactTable from "react-table";
 import matchSorter from 'match-sorter';
 import AudioPlayer from "../utilities/AudioPlayer";
 import SimpleKeyboard from "../utilities/SimpleKeyboard";
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class AudioList extends Component {
   constructor() {

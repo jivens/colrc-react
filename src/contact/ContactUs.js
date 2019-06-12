@@ -1,128 +1,137 @@
 import React, { Component } from 'react';
-import isEmail from 'validator/lib/isEmail';
-
-const Field = require('./ContactUs-field.js');
-
-
-const content = document.createElement('div');
-document.body.appendChild(content);
+import { Button, Form } from 'semantic-ui-react';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+import { withRouter } from 'react-router-dom';
 
 class ContactUs extends Component {
-	static displayName = 'Contact Us';
+	constructor(props) {
+    super(props);
+      this.onInputChange = this.onInputChange.bind(this);
+      this.state = {
+        fields: {
+          comment: "",
+          first: "",
+          last: "",
+          email: "",
+        },
+        fieldErrors: {}
+      };
+    }
 
-	state = {
-		fields: {
-			name: '',
-			email: '',
-			message: ''
-		},
-		fieldErrors: {},
-		people: []  //<-- initial state
-	};
-
-	onFormSubmit = evt => {
-		const people = [...this.state.people];
-		const person = this.state.fields;
-
-		evt.preventDefault();
-
-
-		if (this.validate()) return; 
-
-		this.setState({
-			 people: people.concat(person), 
-			 fields:  {
-				name: '',
-				email: '',
-				message: ''
-			}
-		});
-	};
-
-	onInputChange = ({name, value, error}) => {
+//	onFormSubmit = async (values) => {
+	//	evt.preventDefault();
+   // }
+		
+	onInputChange = (evt) => {
+		console.log("Change event called on " + evt.target.value);
 		const fields = Object.assign({}, this.state.fields);
-		const fieldErrors = Object.assign({}, this.state.fieldErrors);
-		
-		fields[name] = value;
-		fieldErrors[name] = error;
-
-		this.setState({fields, fieldErrors});
-	};
-
-	validate = () => {
-		const person = this.state.fields;
-    	const fieldErrors = this.state.fieldErrors;
-    	const errMessages = Object.keys(fieldErrors).filter(k => fieldErrors[k]);
-
-		if (!person.name) return true;
-		if (!person.email)return true;
-		if (!person.message) return true;
-		if (errMessages.length) return true;
-		
-		return false;
+		fields[evt.target.name] = evt.target.value;
+		this.setState({ fields });
 	};
 
 	render() {
+
+	const contactFormSchema = Yup.object().shape({
+		first: Yup.string()
+			.required('Required'),
+		last: Yup.string()
+			.required('Required'),
+		email: Yup.string()
+			.email('Please enter a valid email address')
+			.required('a valid email address is required'),
+    comment: Yup.string()
+      .max(500, 'Your comment is too long, please let us know that we need to contact you to learn more')
+      .required('Required')
+		});
+
 		return (
 			<div>
 				<h3>Contact Us</h3>
-				<p>
-				If you would like to help or have questions, comments or suggestions,
-				contact us using the "Contact Us" link on the left menu, or by emailing us directly
-				at: <b>crd [dot] archive [at] gmail [dot] com</b>.
-				</p>
-
-				<div>
-					<form onSubmit={this.onFormSubmit}>
-						<h5>Name: </h5>
-						<Field
-            				placeholder="Name"
-            				name="name"
-            				value={this.state.fields.name}
-            				onChange={this.onInputChange}
-            				validate={val => (val ? false : 'Name Required')}
-      					/>
-						<br />
-
-						<h5>Email:</h5>
-						<Field
-           					placeholder="Email"
-            				name="email"
-            				value={this.state.fields.email}
-            				onChange={this.onInputChange}
-            				validate={val => (isEmail(val) ? false : 'Invalid Email')}
-          				/>
-						<br />
-						
-						<h5>Message:</h5>
-						<Field
-            				placeholder="Message"
-            				name="message"
-            				value={this.state.fields.email}
-            				onChange={this.onInputChange}
-            				validate={val => (isEmail(val) ? false : 'Invalid Email')}
-          				/>
-		  				
-						<br />
-
-						<input type="submit" disabled={this.validate()} />
-        			</form>
-					<br />
-
-					<div>
-						<h5>Your Submitted Information:</h5>
-						<ul>
-							{ this.state.people.map(({ name, email, message}, i) => (
-								<li key={i}>
-									{name} ({ email }) { message }
-								</li>
-							))}
-						</ul>
-					</div>
+				<p>We want to hear from you!  Sadly, though, we can't yet because this page isn't fully developed.  Please feel free to contact Amy Fountain (avf@email.arizona.edu) directly, and I'll be happy to coordinate responses.</p>
+        <p>Development team:  I did a little reading about form security and 'capctcha', and I think we should see if we can implment google recaptcha, maybe the invisible version (https://www.npmjs.com/package/react-google-recaptcha).  Here's a discussion about what's going on with form security...https://www.gravityforms.com/rip-captcha/.</p>
+        <div>
+        <h3>Test Form</h3>
+    
+				<Formik 
+					initialValues={{ first: '', last: '', email: '', comment: ''}}
+				  validationSchema={contactFormSchema}
+					//onSubmit={(values, { setSubmitting }) => {this.onFormSubmit(values); }}
+				>
+     		{({ isSubmitting, values, errors, touched, handleChange, handleBlur }) => (
+					<Form>
+            <Form.Group widths="equal">
+              <Form.Input 
+                label="First Name"
+                id="first"
+                placeholder="first name"
+                type="text"
+                value={values.first}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={
+                  errors.first && touched.first ? 'text-input error' : 'text-input'
+                }
+              />
+              {errors.first && touched.first && (
+              <div className="input-feedback">{errors.first}</div>
+              )}
+              <Form.Input
+                label="Last Name"
+                id="last"
+                placeholder="last name"
+                type="text"
+                value={values.last}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={
+                  errors.last && touched.last ? 'text-input error' : 'text-input'
+                }
+              />
+              {errors.last && touched.last && (
+              <div className="input-feedback">{errors.last}</div>
+              )}
+              <Form.Input
+                label="Email Address"
+                id="email"
+                placeholder="email address"
+                type="text"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={
+                  errors.email && touched.email ? 'text-input error' : 'text-input'
+                }
+              />
+              {errors.email && touched.email && (
+              <div className="input-feedback">{errors.email}</div>
+              )}
+            </Form.Group>
+            <Form.TextArea
+              label="Comment"  
+              id="comment"
+              placeholder="Provide your question or comment here..."
+              type="text"
+              value={values.comment}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={
+                errors.comment && touched.comment ? 'text-input error' : 'text-input'
+              }
+            />
+            {errors.comment && touched.comment && (
+            <div className="input-feedback">{errors.comment}</div>
+            )}
+  	        <Button type="submit" disabled={isSubmitting}>
+  	            Submit
+  	        </Button>
+					</Form>
+						)}
+					</Formik>
 				</div>
 			</div>
 		);
 	}
 };
 
-export default ContactUs;
+export default (withRouter(ContactUs));

@@ -28,7 +28,7 @@
     "react-dom": "^16.8.1",
     "react-image-gallery": "^0.8.16",
     "react-images": "^0.5.19",
-    "react-native": "^0.59.8",
+    "react-native": "^0.62.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
     "react-simple-keyboard": "^1.21.2",

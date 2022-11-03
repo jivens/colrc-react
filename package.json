@@ -13,7 +13,7 @@
     "font-awesome": "^4.7.0",
     "graphql": "^14.3.0",
     "formik": "^1.5.4",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-cli": "^2.0.1",
     "jquery": "^3.4.1",
     "jquery-ui": "^1.12.1",
